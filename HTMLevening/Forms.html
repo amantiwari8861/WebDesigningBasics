@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <fieldset>
+        <legend>Application Form</legend>
+        <form action="mailto:amantiwari8861@gail.com" method="post" autocomplete="off" novalidate>
+
+            <!-- Name : <input type="text" name="fname">
+        <button type="submit">Save Data</button> -->
+
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname" id="fname">
+            <br>
+            Last Name<font color="red">*</font> :
+            <input type="text" name="" id="" size="50" placeholder="Enter ur last name" 
+            required minlength="3" maxlength="6" >
+            <br>
+            Email : <input type="email" name="" id="">
+            <br>
+            password: <input type="password" name="" id="" pattern="[A-Za-z0-9]{6,8}" title="only alphabets is allowed">
+            <br>
+            DOB : <input type="date" name="" id="">
+            <br>
+            joining date time :
+            <input type="datetime-local" name="" id="">
+            <br>
+            quantity: <input type="number" name="" id="">
+            <br>
+            color : <input type="color" name="" id="">
+            <br>
+            Skills :
+            C <input type="checkbox" name="" id="">
+            Java <input type="checkbox" name="" id="">
+            Python <input type="checkbox" name="" id="">
+            C# <input type="checkbox" name="" id="">
+            <br>
+            Gender :
+            Male <input type="radio" name="gen" id="">
+            FeMale <input type="radio" name="gen" id="">
+            Others <input type="radio" name="gen" id="">
+            <br>
+            <label for="search">Search Anything</label>
+            <input type="search" name="" id="search">
+            <br>
+            <input type="hidden" name="secretdata" value="Password123">
+            <br>
+            Upload file :<input type="file" name="" id="">
+            <br>
+            <select name="" id="">
+                <option value="">--------------------------------------------</option>
+                <!-- <option value="in">India</option> -->
+                <optgroup label="India">
+                    <option value="delhi">Delhi 1</option>
+                    <option value="delhi">Delhi 1</option>
+                    <option value="delhi">Delhi 1</option>
+                    <option value="delhi">Delhi 1</option>
+                </optgroup>
+
+                <option value="in">America</option>
+                <option value="in">Spain</option>
+                <option value="in">Japan</option>
+            </select>
+<br>
+            Country : <input type="text" list="cntry">
+            <datalist id="cntry">
+                <option>India</option>
+                <option value="India 2"> <!-- better approach -->
+                <option value="am">America</option>
+                <option value="sp">Spain</option>
+                <option value="jpn">Japan</option>
+            </datalist>
+
+            <input type="submit" value="Submit">
+        </form>
+    </fieldset>
+
+</body>
+
+</html>
