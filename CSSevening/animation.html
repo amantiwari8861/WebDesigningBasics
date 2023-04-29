@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            line-height: 100px;
+            width: 100px;
+            /* background-image: linear-gradient(60deg,rgb(119, 250, 250),rgb(131, 246, 48)); */
+            background-color: yellow;
+            /* transition: all 4s; */
+            /* animation-name: anim1; */
+            animation-name: anim2;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            /* animation-delay: 2s; */
+            /* animation-direction: alternate-reverse; */
+            animation-direction: alternate;
+            animation-fill-mode: ease-in;
+            position: absolute;
+            border: 1px solid red;
+            text-align: center;
+            border-radius: 50%;
+            padding: 20px;
+        }
+        /* .box:hover
+        {
+            /* background: linear-gradient(60deg,rgb(131, 246, 48),rgb(119, 250, 250)); 
+            background-color: greenyellow;
+            border-radius: 50%;
+        } */
+        /* @keyframes anim1 {
+            from{
+                top: 0px;
+                left:0px;
+            }
+            to{
+                top:400px;
+                left:300px;
+                border-radius: 50%;
+                background-color: orange;
+            }
+
+        } */
+        @keyframes anim2 {
+            0%{
+                top: 0px;
+                left: 0px;
+            }
+            25%{
+                top: 200px;
+                left: 25%;
+            }
+            50%{
+                top: 0px;
+                left: 50%;
+            }
+            75%{
+                top: 200px;
+                left: 75%;
+            }
+            100%{
+                top: 0px;
+                left: 92%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main" style="height: 400px;width: 100%;">
+    <div class="box">
+        Hello
+    </div>
+</div>
+</body>
+</html>
