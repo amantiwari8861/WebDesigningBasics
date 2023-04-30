@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .pond{
+            background-color: aquamarine;
+            height: 400px;
+        }
+        .lilypads-box{
+            display: flex;
+            justify-content: space-around;
+        }
+         .lilypad-green{
+         }
+         .lilypad-yellow{
+         }
+        .frogs-box{
+            width: 100%;
+            display: flex;
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            /* justify-content: space-around; */
+            /* justify-content: space-between; */
+            /* background-color: yellowgreen; */
+            position: absolute;
+            top: 40px;
+        }
+        .frogs-box:hover
+        {
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* flex-direction: column; */
+            /* flex-direction: column-reverse; */
+             justify-content: space-around;
+            /* align-items: center; */
+            flex-direction: row-reverse;
+        }
+        .greenfrog{
+            position: relative;
+            z-index: 3;
+            /* background-color: blueviolet; */
+       }
+       .name{
+        position: absolute;
+        left: 20px;
+        top: 30px;
+       }
+    </style>
+</head>
+<body>
+    
+<div class="pond">
+
+    <div class="lilypads-box">
+    <div class="lilypad-green"><img src="images/lilypad-green.svg" ></div>
+    <div class="lilypad-yellow"><img src="images/lilypad-yellow.svg" ></div>
+    <div class="lilypad-green"><img src="images/lilypad-green.svg" ></div>
+    <div class="lilypad-yellow"><img src="images/lilypad-yellow.svg" ></div>
+    </div>
+
+    <br><br><br>
+
+    <div class="frogs-box">
+        <div class="greenfrog"><img src="./images/frog-green.svg" width="80px"><span class="name">Abhi</span></div>
+        <div class="greenfrog"><img src="./images/frog-yellow.svg" width="80px"><span class="name">Robin</span></div>
+        <div class="greenfrog"><img src="./images/frog-green.svg" width="80px"><span class="name">Aman</span></div>
+        <div class="greenfrog"><img src="./images/frog-yellow.svg" width="80px"><span class="name">Raj</span></div>
+        <!-- <div class="greenfrog"><img src="./images/frog-green.svg" width="80px"><span class="name">Dev</span></div> -->
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
