@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <meta http-equiv="refresh" content="2"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: black;
+            color: whitesmoke;
+            font-size: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 4px 0px;
+        }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            background-color: gray;
+            padding: 5px;
+            text-decoration: none;
+            color: whitesmoke;
+            border-radius: 5px;
+        }
+
+        .logo {
+            margin-left: 20px;
+        }
+
+        nav {
+            margin-right: 30px;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ham {
+            display: block;
+            height: 5px;
+            background-color: whitesmoke;
+            width: 30px;
+            margin-top: 3px;
+        }
+
+        @media screen and (max-width:548px) {
+            /* header {
+                flex-direction: column;
+            } */
+
+            nav {
+                margin-right:20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .logo {
+                margin: 0;
+            }
+
+            nav ul li:nth-child(1) {
+                visibility: visible;
+            }
+
+            nav ul li:not(:nth-child(1)) {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width:548px) {
+            nav ul li:nth-child(1) {
+                visibility: hidden;
+                line-height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="hamburger">
+                            <div class="ham"></div>
+                            <div class="ham"></div>
+                            <div class="ham"></div>
+                        </div>
+                    </a>
+                </li>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+</body>
+    <script>
+        let obj=document.querySelector("nav ul li:nth-child(1)");
+        console.log(obj);
+        let isVisible=false;
+        obj.addEventListener("click",()=>{
+            if (isVisible) 
+            {
+                let links=document.querySelectorAll("nav ul li:not(:nth-child(1))");
+                console.log(links);
+                links.forEach((e)=>e.style.display="none");
+                isVisible=false;
+                document.getElementsByTagName("header")[0].style.flexDirection="row";
+            }
+            else
+            {
+                let links=document.querySelectorAll("nav ul li:not(:nth-child(1))");
+                console.log(links);
+                links.forEach((e)=>e.style.display="initial");
+                document.getElementsByTagName("header")[0].style.flexDirection="column";
+                isVisible=true;
+            }
+        });
+    </script>
+
+</html>

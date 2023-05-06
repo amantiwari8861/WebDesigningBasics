@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            background-color: black;
+            /* height: 100px; */
+            display: flex;
+            justify-content: flex-end;
+        }
+        .item{
+            background-color: aqua;
+            color: black;
+            border-radius: 15px;
+            line-height: 60px;
+            padding: 10px 50px;
+            margin: 10px 20px;
+        }
+        @media screen and (max-width:480px) {
+            .box1{
+                background-color: yellow;
+            }
+        }
+        /*smart-phones*/
+        @media screen and (min-width:480px) and (max-width:548px) {
+            .box1{
+                background-color: green;
+            }
+        }
+        @media screen and (min-width:548px) and (max-width:768px) {
+            .box1{
+                background-color: rgb(21, 0, 128);
+            }
+        }
+        @media screen and (min-width:768px) and (max-width:1024px) {
+            .box1{
+                background-color: rgb(128, 0, 73);
+            }
+        }
+        @media screen and (max-width:768px) {
+            .box1{
+                flex-direction: column;
+                text-align: center;
+            }
+            .item1{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box1">
+
+    <div class="item item1">Item 1</div>
+    <div class="item">Item 2</div>
+    <div class="item">Item 3</div>
+    <div class="item">Item 4</div>
+
+</div>
+
+
+
+</body>
+</html>
