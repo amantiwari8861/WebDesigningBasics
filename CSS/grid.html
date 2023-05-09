@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .item{
+            background-color: palevioletred;
+            border: 2px solid red;
+            height: 100px;
+            /* width: 100px; */
+            display: inline-grid;
+        }
+        .container{
+            display: grid;
+            /* grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto; */
+            grid-template-columns: auto auto auto auto ;
+            /* justify-content: center; */
+            justify-content: space-evenly;
+            justify-content: end;
+            /* height: 600px; */
+            /* align-items: center; */
+            background-color: palegreen;
+            /* gap: 10px 80px; */
+        }
+        /* .item3{
+            grid-column-start: 2;
+            grid-column-end: 11;
+            grid-row: 2;
+            background-color: blueviolet;
+        } */
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item item1">item 1</div>
+    <div class="item item2">item 2</div>
+    <div class="item item3">item 3</div>
+    <div class="item item4">item 4</div>
+
+</div>
+
+</body>
+</html>

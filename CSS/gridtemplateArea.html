@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+            text-align: center;
+        }
+        .container{
+            height: 700px;
+            background-color: rgb(204, 116, 248);
+            display: grid;
+            grid-template-areas: 'header header header header header header header header header header header header'
+            'main main main main main main main main main main main main'
+            'footer footer footer footer footer footer footer footer footer footer footer footer';
+        }
+        .header{
+            grid-area: header;
+            height: 100px;
+            background-color: black;
+            color: whitesmoke;
+        }
+        .main{
+            grid-area: main;
+            height: 600px;
+            background-color: yellowgreen;
+            display: grid;
+            grid-template-areas: 'section1 section1 section1 section1 section1 section1 aside aside'
+            'section2 section2 section2 section2 section2 section2 aside aside';
+            gap:20;
+        }
+        .footer{
+            grid-area: footer;
+            height: 100px;
+            background-color: black;
+            color: whitesmoke;
+        }
+        .section1{
+            grid-area: section1;
+            height: 300px;
+            background-color: yellow;
+            border: 2px solid red;
+        }
+        .section2{
+            grid-area: section2;
+            height: 300px;
+            background-color: yellow;
+            border: 2px solid red;
+        }
+        aside
+        {
+            grid-area: aside;
+            height: 600px;
+            background-color: purple;
+            border :1px solid black
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container">
+<header class="header">Header</header>
+<main class="main">
+
+<section class="section1">Section 1</section>
+<section class="section2">Section 2</section>
+<aside>
+    Aside 
+</aside>
+
+</main>
+<footer class="footer">
+
+</footer>
+
+
+
+</div>
+
+
+</body>
+</html>
