@@ -1,0 +1,1 @@
+alert("hii i am external js");
