@@ -1,0 +1,883 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Chapter 4 - Adding Interactivity to Web Pages</title>
+<link rel="stylesheet" type="text/css" href="css/Style.css"/>
+<link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="page-template.xpgt"/>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+<meta http-equiv="X-UA_Compatible" content="IE=9"/>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/GlobalContentSecrity.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/Content/analytics.js" type="text/javascript"></script>
+</head>
+<body bgcolor="#F8FCFD">
+<h1 class="chno" id="ch04">Chapter 4</h1>
+<h1 class="chname">Adding Interactivity to Web Pages</h1>
+<p class="nonindent">A Web page may require users to enter some input and generate output. For example, you may require creating a Web page for a shopping website that enables users to select the product they want to buy from a list and enter its quantity in a text box. The moment users specify these values, the total payable amount should be generated in another text box. This type of functionality cannot be performed by HTML alone. Therefore, a scripting language is required to add such functionality to the Web page.</p>
+<p class="nonindent">This chapter discusses the basics of a scripting language. It explains the process of implementing JavaScript in Web pages. In addition, it discusses the usage of expressions and control structures. Moreover, it explains the need and use of functions.
+</p>
+<h2 class="section-head">Objectives</h2>
+<p class="nonindent">In this chapter, you will learn to:</p>
+<ul class="square"><li><p>Understand scripting</p></li>
+<li><p>Implement JavaScript in Web pages</p></li>
+<li><p>Use variables, operators, and control structures</p></li>
+<li><p>Implement functions</p></li></ul>
+<h1 class="chapter-head" id="a42">Understanding Scripting</h1>
+<p class="nonindent">Consider a scenario where you need to create a Web page for a website called OnlineShop.com. The website facilitates users to register by using an online registration form. At the time of registration, the users are asked to select either of the two options, email or Mail, as the mode of communication. Upon selecting the email option, the user is provided a text field to enter the email address. However, if the user selects the Mail option, a text area is provided to enter the postal mailing address. The users are provided the statements of their transactions, acknowledgement receipts, or promotional offer mailers at the specified address. Such Web pages can be developed by using a scripting language.
+</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>Controls, such as text boxes, radio buttons, and text areas, will be discussed in the next chapter. 
+
+</em></p></div>
+<h2 class="section-head" id="a43">Types of Scripting</h2>
+<p class="nonindent">To create a dynamic and interactive Web page, you need to incorporate a block of code, which is known as script, in the Web page. The script can be executed either by the Web browser or by the Web server.</p>
+<p class="nonindent">When a user requests for a Web page through a Web browser, the request is sent to a computer that is placed at a different location on the World Wide Web (WWW). The computer on which the browser is running is known as the client, and the computer that receives the request is known as the Web server.</p>
+
+<p class="nonindent">When the Web server receives the request, it processes the request and sends the requested Web page to the client, which is, then, displayed in the browser window of the client.</p>
+
+<p class="nonindent">Consider the example of the website of a famous fortnightly science journal. It allows its customers to subscribe online for the journal. While subscribing, the user needs to provide the contact details in the form of the permanent address and communication address. The communication address of the user can be the same as the permanent address. After filling the permanent address details, if the user selects the check box titled Same as Communication Address, the same address should be filled in the Communication Address field. This functionality can be implemented by using the script that is interpreted at the client-end itself. </p>
+
+<p class="nonindent">Scripting can be of two types. These are:</p>
+<ul class="square"><li><p>Client-side scripting</p></li>
+<li><p>Server-side scripting</p></li></ul>
+<h3 class="topic">Client-side Scripting</h3>
+<p class="nonindent">Client-side scripting refers to the scripts that are executed at the client-side by the Web browser, running on the user&#x2019;s computer. Some of the languages used for creating client-side scripts are client-side JavaScript (CSJS) and Visual Basic Script (VBScript). When the Web browser requests a Web page, the server sends the requested Web page, which includes both, the HTML statement and the script statement, over the network. The Web browser reads the Web page and displays the results generated by interpreting the HTML statements. In addition, the Web browser executes the script statements as and when they are encountered while rendering the Web page.
+</p>
+<p class="nonindent">The communication between a client and a server in case of client-side scripting is shown in the following figure.</p>
+<p class="center"><img src="images/HTML_04_01.jpg" /></p>
+<p class="caption"><em>The Communication in Client-side Scripting</em></p>
+<h3 class="topic">Server-side Scripting</h3>
+
+<p class="nonindent">Server-side scripting refers to the scripts that are executed by the Web server on the basis of the user&#x2019;s request. Some of the languages used for creating server-side scripts are Server-side JavaScript (SSJS), Perl, PHP, and Visual Basic Script (VBScript).</p>
+<p class="nonindent">Server-side scripts are executed on the Web server. In this case, the information needs to be collected from the Web browser on the client side and is passed to a program or script that is executed on the Web server. The script executing on the Web server performs certain tasks, such as establishing database connection and verifying data sent by the Web browser from the client computer.</p>
+
+<p class="nonindent">Server-side scripting allows database interaction and can be used to process client-side queries and store client data in the database. This feature enables users to share and access information with other users of an application or a server.  The communication between a client and a server in case of server-side scripting is shown in the following figure.</p>
+
+<p class="center"><img src="images/HTML_04_02.jpg" /></p>
+
+<p class="caption"><em>The Communication in Server-side Scripting</em></p>
+
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>JavaScript and VBScript can be used for client-side scripting as well as server-side scripting.</em></p></div>
+
+<h2 class="section-head" id="a44">Identifying the Benefits of JavaScript</h2>
+<p class="nonindent">JavaScript provides the following important benefits:</p>
+
+<ul class="square">
+<li><p><strong>Handle events</strong>: JavaScript can be used to execute functions whenever an event is triggered. For example, when a user rolls the mouse over any image, its background changes.
+</p></li>
+<li><p><strong>Gather browser information</strong>: JavaScript can be used to gather browser information, such as the browser name and version. This information can be useful for the server to respond to client requests.
+</p></li>
+<li><p><strong>Manipulate cookies</strong>: JavaScript can be used to access and store user information, such as client preferences and authentication information of a client computer, in the form of cookies.</p></li>
+</ul>
+
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>A cookie is a piece of data that is used to identify a user. It is stored in a user&#x2019;s Web browser and is sent from a Web server while the user is browsing a website.</em></p>
+</div>
+
+<h1 class="chapter-head" id="a45">Implementing JavaScript in Web Pages</h1>
+
+<p class="nonindent">Consider the scenario of the BookYourHotel website. While booking a hotel, the customers are requested to specify their area of interest by clicking a radio button against certain options, such as adventure sports, movies, spa, and site seeing. The customers can avail the selected facility free of cost. If the customer selects any of these radio buttons, the details about that facility should open as a list. For example, if a customer selects the adventure sports radio button, the type of sports, such as paragliding, bungee-jumping, or river rafting, should be displayed as a list of check boxes, where the customer can select the preferred activity. Such functionalities can be implemented by using JavaScript.</p>
+
+<p class="nonindent">JavaScript is one of the most popular scripting languages. It can be used to provide functionality to a Web page, such as populating a text box when a user selects an option in a list box. These functionalities can be triggered by the user action.</p>
+
+<p class="nonindent">A script can be embedded directly into a Web page by writing the JavaScript code inside the <code>&#x003C;SCRIPT&#x003E;</code> tag or by writing the entire JavaScript code in an external JavaScript (.js) file. While using an external file for the JavaScript code, you need to refer to this file on the Web page.</p>
+
+<h2 class="section-head" id="a46">Embedding a Script into a Web Page</h2>
+
+<p class="nonindent">The JavaScript code can be embedded into a Web page by using the <code>&#x003C;SCRIPT&#x003E;</code> tag. The following syntax is used for embedding a script into a Web page:</p>
+
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E; JavaScript statements</code></p>
+<p class="code">
+<code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="nonindent">In the preceding syntax, the <code>&#x003C;SCRIPT&#x003E;</code> and <code>&#x003C;/SCRIPT&#x003E;</code> tags indicate the start and end of the script, respectively. The <code>type</code> attribute of the <code>&#x003C;SCRIPT&#x003E;</code> tag indicates the type of scripting language. One or more JavaScript statements between the <code>&#x003C;SCRIPT&#x003E;</code> tag and the <code>&#x003C;/SCRIPT&#x003E;</code> tag form a script block. The script block is executed by the browser&#x2019;s built-in JavaScript interpreter.
+</p>
+<p class="nonindent">The <code>&#x003C;SCRIPT&#x003E;</code> tag can be inserted into the body section of a Web page or the head section of a Web page or both. If the script is meant to be executed in response to an action performed by the user, it is normally placed in the head section. It helps in placing all scripts at one place without interfering with the content of the page. However, if the script needs to be executed as soon as the page is loaded, it is placed in the body section of the Web page.
+</p>
+
+<p class="nonindent">Consider the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>alert('Welcome to JavaScript');</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+
+<p class="nonindent">The preceding code illustrates the use of the <code>&#x003C;SCRIPT&#x003E;</code> tag in the body section of a Web page. It will display the message, <strong>Welcome to JavaScript</strong>, in a message box as soon as the Web page is loaded.
+</p>
+
+<h2 class="section-head" id="a47">Creating and Using an External File</h2>
+
+<p>When you embed a script in an HTML page, it becomes difficult to manage both, the HTML code and the JavaScript code. To avoid this issue, you can write the JavaScript code in an external file and refer to the same in an HTML file. The external JavaScript file is saved with the .js extension. The following syntax is used to refer to an external JavaScript file:</p>
+
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="URL"&#x003E;</code></p>
+
+<p>In the preceding syntax, URL refers to the path of the external JavaScript file.</p>
+
+<p class="nonindent">Consider the example of the ShopForYou.com website. When a user visits the home page of the website, the list of products available for sale needs to be displayed in a message box. You can write the code to display the list of products in an external JavaScript file and add a reference to the file in the home page of the website.</p>
+
+<p class="nonindent">To create and use the external JavaScript file, you need to perform the following steps:</p>
+
+<ol class="arabic">
+<li><p>Open Notepad and write the following code:</p> 
+
+<p><code>alert( " PRODUCTS ON SALE : \n" +" 1. LEO Mobile \n" +" 2. LEO Camera\n" + " 3. RED shoes \n"+" 4. KP Watch \n");</code></p></li>
+<li><p>Save the file as <strong>sale.js</strong>.</p></li> 
+<li><p>Create the home page of the website in which you want to refer to the external JavaScript file. For this, write the following code in a Notepad file:</p>
+<p><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p><code>&#x003C;HTML&#x003E;</code></p>
+<p><code>&#x003C;BODY&#x003E;</code></p>
+<p><code>&#x003C;H1&#x003E;Buy Products&#x003C;/H1&#x003E;</code></p>
+<p><code>&#x003C;/BODY&#x003E;</code></p>
+<p><code>&#x003C;/HTML&#x003E;</code></p></li>
+<li><p>Save the file as <strong>home.html</strong>.</p></li>
+<li><p>Add the highlighted code snippet, as shown in the following code in the <strong>home.html</strong> file:</p>
+<p><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p><code>&#x003C;HTML&#x003E;</code></p>
+<p><code>&#x003C;BODY&#x003E;</code></p>
+<p><code>&#x003C;H1&#x003E;Buy Products &#x003C;/H1&#x003E;</code></p>
+<p><code>&#x003C;SCRIPT type="text/javascript" src="sale.js"&#x003E;</code></p>
+<p><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p><code>&#x003C;/BODY&#x003E;</code></p>
+<p><code>&#x003C;/HTML&#x003E;</code></p>
+<p>The <code>src</code> attribute of the <code>&#x003C;SCRIPT&#x003E;</code> tag is used to specify the path to the external JavaScript file, <strong>sale.js.</strong> The path to be specified in the <code>src</code> attribute can be either absolute or relative.</p>
+</li>
+</ol>
+<p class="center"><img src="images/J0401.jpg" onclick="play('animation_J0401_swf')" id="animation_J0401_swf" height="488px" width="650px" /></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>The absolute path is the complete address of a file. For example, if the file, sale.js, is stored in the D: drive, its absolute path is D:\sale.js. The relative path is the path of the file with respect to the current working directory. For example, if the HTML file containing the reference to the external JavaScript file is stored in the same directory as the sale.js file, the relative path of the file is given as sale.js.</em></p>
+</div>
+<h2 class="section-head" id="a48">Identifying Rules and Conventions Used in JavaScript</h2>
+<p class="nonindent">Every programming/scripting language has its own set of rules and conventions. Some of the rules and conventions for JavaScript are:</p>
+<ul class="square">
+<li><p><strong>Semicolons</strong>: JavaScript does not compulsorily require a semicolon to indicate the end of a statement. However, it is a good practice to insert a semicolon after a scripting statement as it enhances the readability of the code. For example, while writing two statements in the same line, you can use a semicolon to separate the statements. The following code snippet illustrates the usage of semicolons:</p></li>
+<p><code>alert ("Product on sale is:"); alert("1.LEO Mobile");</code></p>
+<li><p><strong>Quotes</strong>: JavaScript allows you to use either double-quotation marks (" ") or single-quotation marks <code>(' ')</code> to enclose a string of characters. The following code snippet illustrates the usage of double quotes:
+</p>
+<p><code>alert(" PRODUCTS ON SALE : \n" +" 1.LEO Mobile \n" +" 2. LEO Camera\n" + "3. RED shoes \n"+" 4.KP Watch \n");</code>
+</p>
+<p class="nonindent">The following code snippet illustrates the usage of single quotes: </p>
+<p><code>alert(' PRODUCTS ON SALE : \n' +' 1.LEO Mobile \n' +' 2. LEO Camera\n' + ' 3. RED shoes \n'+' 4.KP Watch \n');</code></p></li>
+
+<li><p><strong>Case sensitivity</strong>: JavaScript is a case-sensitive scripting language. This means that the statement, a=b, and the statement, A=B, are treated differently by JavaScript.
+</p></li>
+<li><p><strong>Comments</strong>: Comments are statements that are not executed by the interpreter but are used to enhance the readability and understandability of the code. JavaScript allows usage of single-line as well as multi-line comments.  Single-line comments are indicated by using <code>//</code>and multi-line comments are indicated by using the symbols, <code>/*</code> and<code> */.</code> The following code snippet illustrates the usage of a single-line comment:
+</p></li>
+<code>//Comments are necessary for readability</code>
+<p class="nonindent">The following code snippet illustrates the usage of a multi-line comment:</p>
+<code>/* Comments are necessary for readability */</code>
+</ul>
+<h2 class="section-head" id="a49"><img src="images/act.png" /> Activity 4.1: Understanding Scripting</h2>
+<h1 class="chapter-head" id="a50">Using Variables, Operators, and Control Structures</h1>
+<p>Consider the scenario wherein you need to create a Web page for ShopForYou.com that allows users to specify whether or not to display the list of products in the ascending or descending order of their prices.
+</p>
+<p>To implement the preceding functionality on a Web page, you need to compare the prices of these items and display them either in the ascending or descending order, as requested by the user. To perform such tasks, you need to write scripts that use variables, operators, conditional constructs, and looping constructs provided in JavaScript.
+</p>
+<h2 class="section-head" id="a51">Defining Variables </h2>
+<p class="nonindent">Consider a situation where you have created a Web page that accepts the quantity and unit price of a product that users wish to purchase and displays the total price of the product. While reading the quantity provided by the user, you need to store this value so that it can be used to calculate the total price. In addition, you need to store the price of the product.</p>
+<p>A variable is a named location in memory that is used to store a value. In the preceding example, if the user provides 5 as the quantity of a product that needs to be purchased and the price of the product is $250, you need two variables, one for storing the quantity and the other for the price. The following code snippet shows the assignment of values to variables:</p>
+<p class="code"><code>quantity = 5 </code></p>
+<p class="code"><code>price = 250</code></p>
+<h3 class="topic">Declaring a Variable</h3>
+<p>Before using a variable in your program, you should declare it first. JavaScript allows you to declare a variable by using the <code>var</code> keyword. The syntax to declare a variable is:</p>
+<p class="code"><code>var var_name;</code></p>
+<p>In the preceding syntax, <code>var_name</code> refers to the name of the variable and the variable is declared by using the <code>var</code> keyword.</p>
+<p class="nonindent">The following code snippet declares a variable named <code>employeeName</code>:</p>
+<p><code>var employeeName;</code></p>
+<p class="nonindent">JavaScript, which is a loosely-typed language, allows you to initialize a variable without specifying its data type. Numeric, String, and Boolean are the commonly-used data types in JavaScript.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>Variables are divided into two categories, local and global. Local variables are declared in a block of code, such as within the body of a function or looping constructs. These variables can be accessed only in the specific block. Global variables are declared outside any block of code, but within the script. These can be accessed anywhere within the script.</em></p>
+</div>
+<h3 class="topic">Assigning a Value to a Variable</h3>
+<p class="nonindent">Values can be assigned to a variable in the following ways:</p>
+<ul class="square">
+<li><p>Assigning a value to a variable after its declaration</p></li>
+<li><p>Initializing a variable while declaring it</p></li>
+<li><p>Initializing a variable without declaring it explicitly</p></li>
+</ul>
+<h4 class="subtopic">Assigning a Value to a Variable After Its Declaration</h4>
+<p>Consider the following code snippet to initialize a variable after its declaration:</p>
+<p class="code"><code>var employeeName;</code></p>
+<p class="code"><code>employeeName="Peter";</code></p>
+<p>The preceding code snippet declares the variable, <code>employeeName</code>, and then assigns the value, <code>Peter</code>, to it.</p>
+<h4 class="subtopic">Initializing a Variable While Declaring It</h4>
+<p>Consider the following code snippet to initialize a variable while declaring it:</p>
+<p class="code"><code>var employeeName="Peter";</code></p>
+<p>The preceding code snippet declares the variable, <code>employeeName</code>, and assigns it the value, <code>Peter</code>.</p>
+<h4 class="subtopic">Initializing a Variable Without Declaring It Explicitly</h4>
+<p class="nonindent">JavaScript provides you the flexibility to use a variable without declaring it. When a variable is used in a script without declaring it explicitly, it is automatically declared when used for the first time. However, it is a good practice to declare a variable before using it in a script as it increases the readability of the program.</p>
+<p class="nonindent">Consider the following code snippet to initialize a variable without declaring it:</p>
+<p class="code"><code>employeeName="Peter";</code></p>
+<p class="nonindent">In the preceding code snippet, the variable, <code>employeeName</code>, is assigned a value but not declared explicitly. Therefore, the statement, <code>employeeName="Peter"</code>, declares the variable, <code>employeeName</code>, implicitly and assigns the value, <code>Peter</code>, to it.</p>
+<div class="box"><p class="note1"><img src="images/note.png" /><em>An array is a special type of variable that is used to store multiple values arranged in a definite sequence. These values are stored in indexed locations within the array. Before using arrays, you need to declare them. The following syntax is used for declaring an array:<br /><code>var category = new Array(3)</code><br />In the preceding syntax, an array named category is created with a size of three.<br />Consider the following code snippet to assign a value at each indexed location:<br /><code>category[0] = "Soaps"<br />category[1] = "Oils"<br />category[2] = "Food Products"</code><br />The values stored in the array can be accessed by using the index location where they are stored. The following syntax is used for accessing the first element in the array:  
+<code>category[0];</code></em></p></div>
+<h2 class="section-head" id="a52">Using Operators</h2>
+<p class="nonindent">An operator is a set of one or more characters that is used for computations or comparisons. Operators can be used to modify the values stored in variables. The values or variables on which the operator acts are known as operands. An operand can be a literal or a variable. A literal is a constant value of any data type, such as a number, string, or boolean.</p>
+<p class="nonindent">The following code illustrates the use of operators in a script:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var employeeName;</code></p>
+<p class="code"><code>var basicSalary;</code></p>
+<p class="code"><code>var othersAllowance; var TotalSalary; employeeName="Peter"; basicSalary=20000; othersAllowance=1000;</code></p>
+<p class="code"><code>TotalSalary=basicSalary+othersAllowance;</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the operands used are variables <code>employeeName</code>, <code>basicSalary</code>, <code>TotalSalary</code>, and <code>othersAllowance</code> including string literal, <code>Peter</code>, and numeric literals, <code>20000</code> and <code>1000</code>. The <code>+</code> operator performs the addition operation on the value contained in <code>basicSalary</code> and <code>othersAllowance</code> and the value is assigned to the variable, <code>TotalSalary</code>.</p>
+<h3 class="topic">Identifying Operator Categories</h3>
+<p class="nonindent">You can use the following categories of operators in JavaScript:</p>
+<ul class="square">
+<li><p>Arithmetic Operators</p></li>
+<li><p>Assignment Operator</p></li>
+<li><p>Arithmetic Assignment Operators</p></li>
+<li><p>Comparison Operators</p></li>
+<li><p>Logical Operators</p></li>
+</ul>
+<h4 class="subtopic">Arithmetic Operators</h4>
+<p class="nonindent">Arithmetic operators are used to perform arithmetic operations on variables and literals. The following table describes the commonly-used arithmetic operators.
+</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="90%">
+<tr valign="top">
+<td align="left" style="width:30%"><p><strong><em>Operator</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Description</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Example</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>+</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to add two numbers.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>X=Y+Z;</em></code><br />
+<em>If <code>Y</code> is equal to 20 and <code>Z</code> is equal to 2, <code>X</code> will have the value, 22.</em>
+</p></td></tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>-</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to subtract two numbers.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>X=Y-Z;</em></code><br />
+<em>If <code>Y</code> is equal to 20 and <code>Z</code> is equal to 2, <code>X</code> will have the value, 18.</em>
+</p></td></tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>*</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to multiply two numbers.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>X=Y*Z;</em></code><br />
+<em>If <code>Y</code> is equal to 20 and <code>Z</code> is equal to 2, <code>X</code> will have the value, 40.</em>
+</p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>/</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to divide one number by another. Returns the quotient of the division.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>X=Y/Z;</em></code><br />
+If <code>Y</code> is equal to 21 and <code>Z</code> is equal to 2, <code>X</code> will have the value, 10.5.</p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>%</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to divide two numbers and return the remainder. The operator is called as modulus operator.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>X=Y%Z;</em></code><br />
+<em>If <code>Y</code> is equal to 21 and <code>Z</code> is equal to 2, <code>X</code> will contain the value, 1.</em>
+</p></td>
+</tr>
+</table>
+<p class="caption"><em>The Arithmetic Operators</em></p>
+<h4 class="subtopic">Assignment Operator</h4>
+<p class="nonindent">An assignment operator (=) is used to assign a value or a result of an expression to a variable. For example, the expression, <code>x=5</code>, stores the value, 5, in the variable, x.
+</p>
+<h4 class="subtopic">Arithmetic Assignment Operators</h4>
+<p class="nonindent">Arithmetic assignment operators are used to perform arithmetic operations and assign the value to the variable at the left side of the operator. </p>
+<p class="nonindent">The following table describes the commonly-used arithmetic assignment operators and their usage.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="90%">
+<tr valign="top">
+<td align="left" style="width:30%"><p><strong><em>Operator</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Usage</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>+=</em></code></p></td>
+<td align="left" style="width:30%"><p><code><em>X+=Y;</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Same as:</em></p>
+<p><code><em>X = X + Y;</em></code>
+</p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>-=</em></code></p></td>
+<td align="left" style="width:30%"><p><code><em>X-=Y;</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Same as:</em></p>
+<p><code><em>X = X - Y;</em></code></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>*=</em></code></p></td>
+<td align="left" style="width:30%"><p><code><em>X*=Y;</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Same as:</em></p>
+<p><code><em>X = X * Y;</em></code></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>/=</em></code></p></td>
+<td align="left" style="width:30%"><p><code><em>X/=Y;</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Same as:</em></p>
+<p><code><em>X = X / Y;</em></code></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>%=</em></code></p></td>
+<td align="left" style="width:30%"><p><code><em>X%=Y;</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Same as:</em></p>
+<p><code><em>X = X % Y;</em></code>
+</p></td>
+</tr>
+</table>
+
+<p class="caption"><em>The Arithmetic Assignment Operators</em></p>
+<h4 class="subtopic">Comparison Operators</h4>
+<p class="nonindent">Comparison operators are used to compare two values and perform an action on the basis of the comparison. Whenever you use a comparison operator, the resulting expression holds a boolean value.</p>
+<p class="nonindent">The following table describes the usage of comparison operators.</p>
+<p class="center"><img src="images/HTML_04_03.jpg" /></p>
+<p class="caption"><em>The Comparison Operators</em></p>
+<h4 class="subtopic">Logical Operators</h4><p class="nonindent">
+Logical operators are used to evaluate complex expressions in which there is a need to evaluate a single expression or multiple expressions to assess the result. They return a boolean value. The following table describes the usage of logical operators.</p>
+<p class="center"><img src="images/HTML_04_04.jpg" /></p>
+<p class="caption"><em>The Logical Operators</em></p>
+<h2 class="section-head" id="a53">Using Conditional Constructs </h2>
+<p class="nonindent">Consider a situation where you need to execute certain statement(s) in a script on the basis of some condition. For example, you want to check whether a given number is even or odd and display a message accordingly. For this, you need to make decisions in the script code and execute a different set of statements depending upon the decision taken.</p>
+<p class="nonindent">You can do this by using conditional constructs. These constructs allow you to execute a selective statement or a block of statements based on the result of the expression being evaluated. The two conditional constructs in JavaScript are:</p>
+<ul class="square">
+<li><p>The <code>if...else</code> construct</p></li>
+<li><p>The <code>switch...case</code> construct</p></li>
+</ul>
+<h3 class="topic">The if...else Construct</h3>
+<p class="nonindent">The <code>if</code> statement in the<code> if...else</code> conditional construct is followed by a logical expression in parenthesis. This condition is evaluated and a decision is made on the basis of the result. The following statements depict the syntax of the <code>if...else</code> construct:</p>
+<p class="code"><code>if (exp)</code></p> 
+<p class="code"><code>{</code></p> 
+<p class="code"><code>// Statements;</code></p> 
+<p class="code"><code>}</code></p> 
+<p class="code"><code>else</code></p> 
+<p class="code"><code>{</code></p> 
+<p class="code"><code>// Statements;</code></p> 
+<p class="code"><code>}</code></p> 
+<p class="nonindent">In the preceding syntax, the expression,<code> exp</code>, is evaluated. If the result is true, the statements inside the <code>if</code> construct are executed. If the result is false, the statements inside the <code>else</code> construct are executed.
+</p>
+<p class="nonindent">Consider the example of a game where you need to validate the age of a player. If the age is greater than 12, the player is allowed to play the game. Otherwise, an appropriate message needs to be displayed. The following code snippet shows the usage of the <code>if...else</code> construct:</p>
+<p class="code"><code>var age=5;</code></p>
+<p class="code"><code>if (age&#x003C;12)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>alert('Sorry! This game is for children above 12 Years');</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>else</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>alert('Play the Game');</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">The preceding code snippet checks whether the age of the player is less than 12. The condition in the if statement checks the age of the player. If the condition evaluates to true, the message, <strong>Sorry! This game is for children above 12 Years</strong>, is displayed. If the condition evaluates to false, the message, <strong>Play the Game</strong>, is displayed.</p>
+<h3 class="topic">The switch...case Construct</h3>
+<p class="nonindent">Another conditional construct available in JavaScript is the <code>switch...case</code> construct. It is used when you need to evaluate a variable for multiple values.</p>
+<p class="nonindent">The following code depicts the syntax for the <code>switch...case</code> construct:</p>
+<p class="code"><code>switch(VariableName)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>case ConstantExpression_1:</code></p>
+<p class="code"><code>// statements;</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>case ConstantExpression_2:</code></p>
+<p class="code"><code>// statements;</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>case ConstantExpression_n:</code></p>
+<p class="code"><code>// statements;</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>default:</code></p>
+<p class="code"><code>// statements;</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">When the <code>switch</code> statement is executed, the variable passed as a parameter to the <code>switch</code> statement is evaluated and individually compared with each constant expression specified with each case statement. If one of the constant expressions is equal to the value of the variable given in the <code>switch</code> statement, the control is passed to the statement following the matched case statement. A <code>break</code> statement is used to exit the <code>switch</code> statement. This prevents execution of the remaining case structures by ending the execution of the <code>switch...case</code> construct. If none of the cases match, the statements under the default statement are executed.
+</p>
+<p class="nonindent">Consider the following code where you want to display the name of the day of the week depending on the value of a variable:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var day="5";</code></p>
+<p class="code"><code>switch(day)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>case "1":</code></p>
+<p class="code"><code>alert("Day is Monday");</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>case "2":alert("Day is Tuesday");</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>case "3":</code></p>
+<p class="code"><code>alert("Day is Wednesday");</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>case "4":</code></p>
+<p class="code"><code>alert("Day is Thursday");</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>case "5":</code></p>
+<p class="code"><code>alert("Day is Friday");</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>case "6":</code></p>
+<p class="code"><code>alert("Day is Saturday");</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>case "7":</code></p>
+<p class="code"><code>alert("Day is Sunday");</code></p>
+<p class="code"><code>break;</code> </p>
+<p class="code"><code>default:</code></p>
+<p class="code"><code>alert("Not a valid number");</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>switch</code> statement is used to evaluate and compare the value of the variable, <code>day</code>, with the case constants and display the name of the day.</p>
+<h2 class="section-head" id="a54">Using Loop Constructs </h2>
+<p class="nonindent">Loop structures are used to repeatedly execute one or more lines of code. In JavaScript, the following loop structures can be used:</p>
+<ul class="square">
+<li><p>The <code>while</code> loop</p></li>
+<li><p>The <code>do...while</code> loop</p></li>
+<li><p>The <code>for</code> loop</p></li>
+</ul>
+<h3 class="topic">The while Loop</h3>
+<p class="nonindent">The <code>while</code> loop is used to repeatedly execute a block of statements till a condition evaluates to true. The <code>while</code> statement always checks the condition before executing the statements in the loop. The syntax for the <code>while</code> loop construct is:</p>
+<p class="code"><code>while (expression)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>statements;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding syntax, the expression is evaluated. If the result is true, the statements in the body of the loop are executed. Once all the statements in the block are executed, the control passes back to the loop and the expression is re-evaluated. The loop exits when the expression evaluates to false.</p>
+<p class="nonindent">The following code illustrates the use of the <code>while</code> loop:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var num=0;</code></p>
+<p class="code"><code>while(num&#x003C;20)</code></p>
+<p class="code"><code>{ num=num+1; alert(num);</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code defines the variable, <code>num</code>, and initializes the same to the value, <code>0</code>. The <code>while</code> statement checks whether the value of <code>num</code> is less than <code>20</code>. If the condition evaluates to true, the statements within the<code> while</code> loop are executed. This process continues till the value of <code>var</code> is less than <code>20</code>.</p>
+<h3 class="topic">The do...while Loop</h3>
+<p class="nonindent">The <code>do...while</code> loop construct is similar to the <code>while</code> loop construct. However, the statements within the <code>do...while</code> loop are executed at least once, in comparison to the <code>while</code> loop, where the statements in the block are not executed when the condition evaluates to false. In addition, the statements within the <code>do-while</code> loop are executed before the condition is checked as compared to the <code>while</code> loop, where the statements within the block are executed after the condition is checked. The following syntax is used to declare the <code>do-while</code> loop:
+</p>
+<p class="code"><code>do</code></p>
+<p class="code"><code>{ Statements;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>while(condition)</code></p>
+<p class="nonindent">Consider the following code that illustrates the use of the <code>do-while</code> loop:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var num=0;</code></p>
+<p class="code"><code>do</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>num=num+1;</code></p>
+<p class="code"><code>alert(num);</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>while(num&#x003C;20)</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The difference between the functionality of the <code>do...while</code> loop construct and that of the while loop construct is shown in the following figure.</p>
+<p class="center"><img src="images/HTML_04_05.jpg" /></p>
+<p class="caption"><em>The Functioning of the do...while and while Loops</em></p>
+<h3 class="topic">The for Loop</h3>
+<p class="nonindent">The <code>for</code> loop allows the execution of a block of code depending on the result of the evaluation of the test condition. The following syntax is used to declare the <code>for</code> loop:</p>
+<p class="code"><code>for (initialize variable; test condition; step value)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>// code block</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>initialize variable</code>: Initializes the loop variable to a value.</p></li>
+<li><p><code>test condition</code>: Specifies the condition to be checked before executing statements in the code block.</p></li>
+<li><p><code>step value</code>: Indicates  the  increment  or  decrement  to  be  performed  for  every iteration.</p></li>
+</ul>
+<p class="nonindent">The execution of the <code>for</code> loop starts with the initialization of the loop variable. It, then, evaluates the test condition. If the test condition evaluates to true, the code block in the body of the loop is executed. If it evaluates to false, the <code>for</code> loop is exited. Once all the statements in the code block are executed, the variable is incremented or decremented as specified in the step value. Once the value is iterated, the test condition is re-evaluated. This process continues till the test condition evaluates to true. </p>
+<p class="nonindent">The sequence of execution of the <code>for</code> loop is shown in the following figure.</p>
+<p class="center"><img src="images/HTML_04_06.jpg" /></p>
+<p class="caption"><em>The Sequence of Execution of the for Loop</em></p>
+<p class="nonindent">The following code illustrates the use of the <code>for</code> loop:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var num;</code></p>
+<p class="code"><code>var sum=0;</code></p>
+<p class="code"><code>for(num=100;num&#x003C;200;num=num+1)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>sum=sum+num;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>alert(sum);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code creates variables named <code>num</code> and <code>sum</code>. In the <code>for</code> loop, the value, <code>100</code>, is assigned to the <code>num</code> variable. The condition inside the <code>for</code> loop checks whether the value of <code>num</code> is less than <code>200</code>. If the condition evaluates to true, the statements within the <code>for</code> loop are executed. This process continues till the value of the <code>num</code> variable is less than <code>200</code>.</p>
+<p class="nonindent">The output of the preceding code will be displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_04_07.png" /></p>
+<p class="caption"><em>The Code Output</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>The working of the <code>while</code> loop is similar to that of the <code>for</code> loop. The main difference is that the variable is incremented within the code block of the <code>while</code> loop as compared to the <code>for</code> loop, where the variable is incremented after all the statements in the code block are executed.</em></p>
+</div>
+<h2 class="section-head" id="a55">Break and Continue Statements </h2>
+<p class="nonindent">In some situations, there may be a need to exit a loop before the loop condition is checked after iteration. The <code>break</code> statement is used to exit the loop. It prevents the execution of the remaining statements of the loop. The <code>break</code> statement is usually placed within an <code>if</code> construct inside the loop. The <code>continue</code> statement is used to skip all the subsequent instructions and take the control back to the beginning of the loop.</p>
+<p class="nonindent">The following syntax is used to show the use of the <code>break</code> statement inside the <code>while</code> loop:</p>
+<p class="code"><code>while(test condition)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>//Statement1;</code></p>
+<p class="code"><code>if (test condition1)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>//Statement2;</code></p>
+<p class="code"><code>//Statement3;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding syntax, if <code>test condition</code> is true, the control enters the body of the loop. It executes <code>statement1</code>. Next, it checks test condition1. If it evaluates to true, the control is transferred outside the loop. As a result, <code>Statement2</code> and <code>Statement3</code> are not executed. If <code>test condition1</code> evaluates to false, the loop continues its normal course of execution. As a result, <code>Statement2</code> and <code>Statement3</code> are executed.</p>
+<p class="nonindent">Consider the following code that illustrates the use of the <code>break</code> and <code>continue</code> statements:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var iNum = 0;</code></p>
+<p class="code"><code>for (var i=1; i &#x003C; 10; i++)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>if (i % 3 == 0)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>break;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>iNum++;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>alert(iNum);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E; </code></p>
+<p class="nonindent">The preceding code creates the variable, <code>iNum</code>, and assigns the value, <code>0</code>, to it. The <code>for</code> loop iterates the variable, <code>i</code>, from 1 to 10. The <code>if</code> statement in the <code>for</code> loop validates if the value of <code>i</code> is divisible by <code>3</code>. If <code>i</code> is divisible by <code>3</code>, the <code>break</code> statement is executed and the control comes out of the <code>for</code> loop. When the preceding code is executed, the value, <code>2</code>, is displayed.</p>
+<p class="nonindent">However, if the preceding code is executed by replacing <code>break</code> with the <code>continue</code> statement, a different output is displayed. For example, consider the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var iNum = 0;</code></p>
+<p class="code"><code>for (var i=1; i &#x003C; 10; i++) {</code></p>
+<p class="code"><code>if (i % 3 == 0) {</code></p>
+<p class="code"><code>continue;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>iNum++;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>alert(iNum);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>if</code> statement in the <code>for</code> loop validates if the value of <code>i</code> is divisible by <code>3</code>. If <code>i</code> is divisible by <code>3</code>, the <code>continue</code> statement is executed and the control comes back to the beginning of the <code>for</code> loop. When the preceding code is executed, the value,<code> 6</code>, is displayed.</p>
+<h1 class="chapter-head" id="a56">Implementing Functions</h1>
+<p class="nonindent">Consider the ShopForYou.com website. The company is required to calculate the tax levied on the products purchased by the customers. The value of tax varies from item to item. For example, the tax on certain products, such as medicine, is 0%, and the tax on mobile products is 12.5%. The code that calculates the tax on various categories of products needs to be used at various locations in the script of your page. If the code is repeated at all these locations, any change required in the code will need to be made at multiple locations. For example, if you want to change the tax rate from 12.5% to 10%, you will need to make this change at all the locations where this code is used. In addition, if any reused piece of code contains an error, the error needs to be corrected at multiple locations.</p>
+<p class="nonindent">To overcome this problem, functions are introduced. You can write the code that needs to be reused inside a function. Now, instead of repeating the use of code, you can just make a call to the function that contains the required code. This enables you to write the code only once and use it whenever required. Thus, functions are used to optimize the performance by implementing the concept of reusability.</p>
+<h2 class="section-head" id="a57">Introducing Functions </h2>
+<p class="nonindent">A function is a self-contained block of statements that has a name. Functions can be executed whenever the same code is required to be performed repeatedly at different locations in a script.</p>
+<p class="nonindent">A function is created as a separate module with a name attached to it. Each function can have several statements within it. When functions are used, you can easily detect the error in the script by comparing the expected result of execution of each function with the actual result of execution of that function. If the results differ, it means that there is an error in the code. Thus, it becomes easier to debug the code.</p>
+<p class="nonindent">In other words, functions make your code modular, simple, and reusable. In JavaScript, functions are of the following types:</p>
+<ul class="square"> 
+<li><p>Built-in functions</p></li>
+<li><p>User-defined functions</p></li>
+</ul>
+<h3 class="topic">Built-in Functions</h3>
+<p class="nonindent">Built-in functions are ready to use as they are already coded. Some of the built-in functions supported by JavaScript are:</p>
+<ul class="square">
+<li><p><code>isNaN()</code></p></li>
+<li><p><code>parseInt()</code></p></li>
+<li><p><code>parseFloat()</code></p></li>
+<li><p><code>eval()</code></p></li>
+<li><p><code>prompt()</code></p></li>
+<li><p><code>confirm()</code></p></li>
+</ul>
+<h4 class="subtopic"><code>isNaN()</code></h4>
+<p class="nonindent">The <code>isNaN()</code> function determines whether a parameter is not a number. The function returns true if the parameter is not a number.
+</p>
+<p class="nonindent">The following code illustrates the use of the <code>isNaN()</code> function:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>num1="Two thousand"; num2=8000; Result=isNaN(num1); alert(Result); Res=isNaN(num2); alert(Res);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code creates the variable, <code>num1</code>, and assigns the value, <code>Two thousand</code>, to it. It also creates a variable, <code>num2</code>, and assigns the value, <code>8000</code>, to it. The <code>isNaN()</code> function evaluates whether the variables, <code>num1</code> and <code>num2</code>, contain numeric data or not. As the value in the <code>num1</code> variable is a string, the <code>isNaN(num1)</code> function will return true. However, the value in <code>num2</code> is numeric. Therefore, the <code>isNaN(num2)</code> function will return <code>false</code>.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>NaN stands for Not a Number. </em></p>
+</div>
+<h4 class="subtopic"><code>parseInt()</code></h4>
+<p class="nonindent">The <code>parseInt()</code> function parses the string parameter and returns the corresponding integer.</p>
+<p class="nonindent">Consider the following code snippet:</p>
+<p class="code"><code>x="5";</code></p>
+<p class="code"><code>y=parseInt(x);</code></p>
+<p class="nonindent">In the preceding code snippet, the variable, <code>x</code>, stores the string, <code>5</code>. The <code>parseInt()</code> function takes the parameter, <code>x</code>, parses it and assigns the integer value, <code>5</code>, to the variable, <code>y</code>.
+</p>
+<h4 class="subtopic"><code>parseFloat()</code></h4>
+<p class="nonindent">The <code>parseFloat()</code> function takes a string parameter and returns a floating point number. Consider the following code snippet:</p>
+<p class="code"><code>x="6.2";</code></p>
+<p class="code"><code>y=parseFloat(x);</code></p>
+<p class="nonindent">In the preceding code snippet, the variable, <code>x</code>, stores the string, <code>6.2</code>. The <code>parseFloat()</code> function takes the parameter, <code>x</code>, parses it, and assigns the floating point number, <code>6.2</code>, to the variable, <code>y</code>.</p>
+<h4 class="subtopic"><code>eval()</code></h4>
+<p class="nonindent">The <code>eval()</code> function is used to evaluate or execute a parameter. If the parameter is an expression, the expression is evaluated. However, if the parameter is a JavaScript statement, the statement is executed.
+</p>
+<p class="nonindent">Consider the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var res1=0; res1=eval(5+10); alert(res1);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code evaluates the expression, <code>5+10</code>, and displays the result. </p> 
+<p class="nonindent">Consider the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>eval("num1=5;num2=10;res1=num1+num2;alert(res1);");</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code evaluates the JavaScript statements written inside the <code>eval()</code> function and displays the result in the message box.</p>
+<h4 class="subtopic"><code>prompt()</code></h4>
+<p class="nonindent">The <code>prompt()</code>function is used to display a prompt dialog box, which allows a user to input a value. The prompt dialog box contains two buttons,<strong> OK</strong> and <strong>Cancel</strong>. If the user clicks the <strong>OK</strong> button, the <code>prompt()</code> function returns the value entered by the user. However, if the user clicks the <strong>Cancel</strong> button, a null value is returned.</p>
+<p class="nonindent">The following code illustrates the use of the <code>prompt()</code> function:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var name=prompt("Please Enter Your Name","John");</code></p>
+<p class="code"><code>alert(name);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code prompts a user to enter the name by using the <code>prompt()</code> function and displays the name in a message box. The <code>prompt()</code> function contains two parameters. The first parameter, <strong>Please Enter Your Name</strong>, asks the user to provide the name and the second parameter specifies <strong>John</strong> as the default name. The first parameter displays a message in a dialog box, and it is a required parameter. On the other hand, the second parameter specifies the default text and it is an optional parameter.
+</p>
+<p class="nonindent">The <code>prompt()</code> function always returns a string value. Therefore, if you need to work with data other than string, you need to cast or convert the string value that was returned by the <code>prompt()</code> function. </p>
+<p class="nonindent">The following code shows how to convert the string value returned by <code>prompt()</code>:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var a,b,c;</code></p>
+<p class="code"><code>a=parseInt(prompt("Enter number 1:"));</code></p>
+<p class="code"><code>b=parseInt(prompt("Enter number 2:"));</code></p>
+<p class="code"><code>c=a+b;</code></p>
+<p class="code"><code>document.write(c);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code prompts the user to enter two numbers, and then converts them by using the <code>parseInt()</code>
+function.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>The <code>document.write()</code> function is used in JavaScript to display a string output directly on the Web page.
+You will learn about it in detail in the coming chapters.
+</em></p></div>
+<h4 class="subtopic"><code>confirm()</code></h4>
+<p class="nonindent">The <code>confirm()</code> function is used to display a dialog box that will enable a user to verify or accept a task. This dialog box contains two buttons, <strong>OK</strong> and <strong>Cancel</strong>. If a user clicks the <strong>OK</strong> button, the <code>confirm()</code> function returns true. If the user clicks the <strong>Cancel</strong> button, the <code>confirm()</code> function returns false.</p>
+<p class="nonindent">The following code illustrates the use of the <code>confirm()</code> function:</p> 
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var response;</code></p>
+<p class="code"><code>response=confirm("Do You Wish to Continue");</code></p>
+<p class="code"><code>if(response==true){</code></p>
+<p class="code"><code>alert("You can proceed further");</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>else</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>alert("You cannot proceed further");</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">If the user clicks the <strong>OK</strong> button, the preceding code displays the message, <strong>You can proceed further</strong>. However, if the user clicks the <strong>Cancel</strong> button, the message, <strong>You cannot proceed further</strong>, is displayed.</p>
+<h3 class="topic">User-defined Functions</h3>
+<p class="nonindent">JavaScript enables you to define your own functions according to your needs. For example, you need to calculate the average marks of students by accepting the marks from them. In this case, you can create a 
+user-defined function, <code>Average()</code>, and call this function whenever you need to calculate the average marks. It enhances the modularity and efficiency of the code.
+</p>
+<h2 class="section-head" id="a58">Creating Functions </h2>
+<p class="nonindent">Functions are created by using the keyword, <code>function</code>, followed by the function name and the parentheses, <code>()</code>. A function is normally defined in the head section of a Web page.</p>
+<p class="nonindent">The following syntax is used to create functions:</p>
+<p class="code"><code>function [functionName] (Variable1, Variable2)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>//function statements</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">
+A user-defined function can optionally accept a list of parameters. The parameters that a function accepts are provided in parentheses and separated by commas. In the given code, <code>Variable1</code> and <code>Variable2</code> represent the parameters passed to the function. The function can use the values passed in these parameters to perform certain operations.</p>
+<p class="nonindent">Consider the following code snippet to illustrate the creation of a function:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>function tax(product_category,product_name,price)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>if(product_category=="Mobile")</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>total_price=(12.5/100)*price+price;</code></p>
+<p class="code"><code>alert("Total price of " +product_name +" is: $" +total_price);</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>if(product_category=="Medicine")</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>total_price=price;</code></p>
+<p class="code"><code>alert("Total price of " +product_name +" is: $" +total_price);</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>. . . .</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, the <code>tax()</code> function is created that accepts three parameters,<code> product_category</code>, <code>product_name</code>, and <code>price</code>. The <code>tax()</code> function is used to calculate the total price of a product after adding the tax amount to the price of the product.</p>
+<h2 class="section-head" id="a59">Accessing Functions </h2>
+<p class="nonindent">Once you have created a function, you can call the same from any portion of the code where you want to use the functionality provided by the function. A function can return a value of any data type to the calling code. Let us see how a function is called, how a value from a function is returned, and how the value returned by a function is retrieved.</p>
+<h3 class="topic">Calling a Function</h3>
+<p class="nonindent">A function is called by using the function name. The following syntax is used for accessing a function:</p>
+<p class="code"><code>functionName ();</code></p>
+<p class="nonindent">In the preceding syntax, <code>functionName</code> is the name of the function.</p>
+<p class="nonindent">While calling a function, you can also pass a variable or a value to it. The variable or the value passed to a function is known as a parameter. If parameters need to be provided, these are specified in parenthesis while calling the function. The following syntax is used for specifying parameters in a function:</p>
+<p class="code"><code>functionName (parameter1, parameter 2...);</code></p>
+<p class="nonindent">The following code illustrates how a function is accessed:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>. . .</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E; product_category="Medicine";</code></p> 
+<p class="code"><code>tax(product_category,"Paracetamol",8000); product_category="Mobile"; </code></p>
+<p class="code"><code>tax(product_category,"GV3",3000); tax(product_category,"XV5",5000);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>tax()</code> function is called and <code>product_category</code>, <code>product_name</code>, and <code>price</code> are passed as parameters. The <code>tax()</code> function displays the total price after adding the tax amount to the price of the product. If <code>product_category</code> is <code>Medicine</code>, no tax amount is added to the price of the product. However, if <code>product_category</code> is <code>Mobile</code>, 12.5 % of the product price is added as the tax.</p>
+<h3 class="topic">Returning Values from a Function</h3>
+<p class="nonindent">A function can return a value through the <code>return</code> statement. The following code illustrates how a value from a function is returned:</p>
+<p class="code"><code>function functionName()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>var variable=10;</code></p>
+<p class="code"><code>return variable;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">Consider the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>function sum(a,b)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>return a+b;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E; total = sum (3, 6); document.write(total);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>sum()</code> function accepts two numbers, <code>3</code> and <code>6</code>, as parameters and returns their sum, 9.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>A function can accept more than one parameter but can return only one value. </em></p></div>
+<p class="center"><img src="images/J0402.jpg" onclick="play('animation_J0402_swf')" id="animation_J0402_swf" height="488px" width="650px" /></p>
+
+<h2 class="section-head" id="a60"><img src="images/act.png" /> Activity 4.2: Implementing Functions
+</h2>
+<h1 class="chapter-head" id="a61">Summary</h1>
+<p class="nonindent">In this chapter, you learned that:</p>
+<ul class="square">
+<li><p>To create a dynamic and interactive Web page, you need to incorporate a block of code, which is known as script, in the Web page.</p></li>
+<li><p>Client-side scripting refers to the scripts that are executed at the client-side by the Web browser, running on the user&#x2019;s computer.</p></li>
+<li><p>Server-side scripting refers to the scripts that are executed by the Web server on the basis of the user&#x2019;s request.</p></li>
+<li><p>A script can be embedded directly into a Web page by writing the JavaScript code inside the <code>&#x003C;SCRIPT&#x003E;</code> tag or by writing the entire JavaScript code in an external JavaScript (.js) file.
+</p></li>
+<li><p>The external JavaScript file is saved with the .js extension.</p></li>
+<li><p>Values can be assigned to a variable in the following ways:</p>
+<ul class="disc">
+<li><p>Assigning a value to a variable after its declaration</p></li>
+<li><p>Initializing a variable while declaring it</p></li>
+<li><p>Initializing a variable without declaring it explicitly</p></li>
+</ul></li>
+<li><p>An operator is a set of one or more characters that is used for computations or comparisons.</p></li>
+<li><p>You can use the following categories of operators in JavaScript:</p>
+<ul class="disc">
+<li><p>Arithmetic operators</p></li>
+<li><p>Assignment operators</p></li>
+<li><p>Arithmetic Assignment Operators</p></li>
+<li><p>Comparison operators</p></li>
+<li><p>Logical operators</p></li>
+</ul>
+</li>
+<li><p>The two conditional constructs in JavaScript are:</p>
+<ul class="disc">
+<li><p>The <code>if...else</code> construct</p></li>
+<li><p>The <code>switch...case</code> construct</p></li>
+</ul>
+</li>
+<li><p>In JavaScript, the following loop structures can be used:</p>
+<ul class="disc">
+<li><p>The <code>while</code> loop</p></li>
+<li><p>The <code>do...while</code> loop</p></li>
+<li><p>The <code>for</code> loop</p></li>
+</ul>
+</li>
+<li><p>A function is a self-contained block of statements that has a name.</p></li>
+<li><p>Some of the built-in functions supported by JavaScript are:</p>
+<ul class="disc">
+<li><p><code>isNaN()</code></p></li>
+<li><p><code>parseInt()</code></p></li>
+<li><p><code>parseFloat()</code></p></li>
+<li><p><code>eval()</code></p></li>
+<li><p><code>prompt()</code></p></li>
+<li><p><code>confirm()</code></p></li>
+</ul>
+</li>
+<li><p>Functions are created by using the keyword, <code>function</code>, followed by the function name and the parentheses, <code>()</code>.</p></li>
+</ul>
+<h1 class="chapter-head" id="ref4">Reference Reading</h1>
+<h3 class="topic">Understanding Scripting</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>JavaScript: the complete reference By Thomas A. Powell, Fritz Schneider</em></p></td>
+<td><p><em><a href="http://www.w3schools.com/web/web_javascript.asp">http://www.w3schools.com/web/web_javascript.asp</a></em></p>
+<p><em><a href="http://www.w3schools.com/web/web_scripting.asp">http://www.w3schools.com/web/web_scripting.asp</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Implementing JavaScript in Web Pages</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>The Definitive Guide to HTML5 By Adam Freeman</em></p></td>
+<td><p><em><a href="http://www.w3schools.com/js/default.asp">http://www.w3schools.com/js/default.asp</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Using Variables, Operators, and Control Structures</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>The Definitive Guide to HTML5 By Adam Freeman</em></p></td>
+<td><p><em><a href="http://softearth.tripod.com/Books/Using_Javascript/ch2.htm">http://softearth.tripod.com/Books/Using_Javascript/ch2.htm</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Implementing Functions</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>The Definitive Guide to HTML5 By Adam Freeman</em></p></td>
+<td><p><em><a href="http://www.w3schools.com/js/js_functions.asp">http://www.w3schools.com/js/js_functions.asp</a></em></p></td>
+</tr>
+</table>
+</body>
+</html>

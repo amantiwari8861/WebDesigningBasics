@@ -1,0 +1,1002 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Chapter 6 - Working with Graphics</title>
+<link rel="stylesheet" type="text/css" href="css/Style.css"/>
+<link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="page-template.xpgt"/>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+<meta http-equiv="X-UA_Compatible" content="IE=9"/>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/GlobalContentSecrity.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/Content/analytics.js" type="text/javascript"></script>
+</head>
+<body bgcolor="#F8FCFD">
+<h1 class="chno" id="ch06">Chapter 6</h1>
+<h1 class="chname">Working with Graphics</h1>
+<p class="nonindent">You often need to add graphics, such as bitmap images or 2D shapes, on the pages of your website. In addition, you can add text and apply different colors and gradients to the graphics being added to the Web pages. The canvas element in HTML provides a drawing surface that allows you to add text, shapes, and images to the websites dynamically. In addition, you can add transition and animation effects to the graphics to make the Web page more visually appealing.</p>
+<p class="nonindent">This chapter discusses a canvas and the various graphic objects that can be created on the canvas. In addition, it discusses how to apply animations and transformations on the graphic object of the canvas.</p>
+<h2 class="section-head">Objectives</h2>
+<p class="nonindent">In this lesson, you will learn to:</p>
+<ul class="square">
+<li><p>Introduce canvas</p></li>
+<li><p>Transform and animate canvas elements</p></li>
+</ul>
+<h1 class="chapter-head" id="a77">Introducing Canvas</h1>
+<p class="nonindent">LearnGraphs ltd. offers online tutorials on basic graphing skills. These tutorials include a wide variety of graphs, such as bar graph, histogram, and pie chart, which need to be drawn on their Web pages. However, to draw graphs on a Web page, you need to incorporate shapes, such as lines, arcs, circles, and apply effects, such as colors and gradients, on the shapes. With the introduction of canvas element in HTML, you can create such graphics and apply animations on a Web page easily. The canvas element has a huge set of functions in the form of a 2D Application Programming Interface (API) that are used to draw graphics on the canvas.</p>
+<p class="center"><img src="images/HTML_06_Canvas.jpg" onclick="play('animation_HTML_06_Canvas_swf')" id="animation_HTML_06_Canvas_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a78">Creating a Canvas</h2>
+<p class="nonindent">Canvas provides an easy and powerful way to create graphics on a Web page. A canvas has no content of its own. A canvas is simply an area on a Web page that acts as a container for embedding graphic objects. It allows dynamic rendering of bitmap images and 2D shapes by using JavaScript. You need to perform the following tasks to create a canvas and use it for drawing a variety of graphics: </p>
+<ol class="arabic">
+<li><p>Define the Canvas</p></li>
+<li><p>Access the Canvas</p></li>
+</ol>
+<h3 class="topic">Defining the Canvas </h3>
+<p class="nonindent">A canvas is defined by using the <code>&#x003C;CANVAS&#x003E;</code> tag. This tag is defined in the body section of the HTML document. The <code>&#x003C;CANVAS&#x003E;</code> tag provides various attributes that enable you to specify the size, border, and ID for the canvas. The attributes provided by the <code>&#x003C;CANVAS&#x003E;</code> tag are listed in the following table.
+</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+
+<tr valign="top">
+<td align="left" style="width:20%"><p><strong><em>Attribute</em></strong></p></td>
+<td align="left" style="width:40%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>ID</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to specify a unique ID for the canvas that is used to identify the canvas in the JavaScript code.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>width</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to specify the width for the canvas in pixels. The default value for the <code>width</code> attribute is 300 pixels.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>height</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to specify the height for the canvas in pixels. The default value for the <code>height</code> attribute is 150 pixels.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>style</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to define the style to be applied to the canvas.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Attributes of the <code>&#x003C;CANVAS&#x003E;</code> Tag</em></p>
+<p class="nonindent">You can define a canvas by using the following code within the <code>&#x003C;BODY&#x003E;</code> tag:</p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas" width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="nonindent">The preceding code will create a canvas with ID, <code>myCanvas</code>, of size 300 x 300 with a solid black border of <code>1px</code> thickness.</p>
+<h3 class="topic">Accessing the Canvas</h3>
+<p class="nonindent">Defining a canvas element only creates a blank drawing surface. However, to actually draw graphic objects on the canvas, you need to access the canvas in JavaScript code. You can write the following code in the <code>&#x003C;BODY&#x003E;</code> tag to access the canvas element:</p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>getElementById()</code> method is used to return the reference of the element with ID,<code>myCanvas</code>, and stores the reference in the variable named c. Further, the <code>getContext()</code> method is used to return a drawing context object that provides the methods and properties needed for drawing graphics on the canvas. This object is stored inside the variable named <code>ctx</code>. The <code>getContext()</code> method accepts a string argument that specifies the type of canvas to be created. In the preceding code, <code>2d</code> is passed as an argument to the <code>getContext()</code> method as majority of the browsers support the creation of 2D graphics inside the canvas.</p>
+<h2 class="section-head" id="a79">Working with Color, Shapes, and Styles</h2>
+<p class="nonindent">Consider a scenario of a website for Preschoolers, which provides basic learning solutions to kids. It provides simple online activities that assist kids to identify basic colors and shapes. For example, one of the activities displays a color picker and various shapes to the students. The students are asked to identify and fill a particular shape with the specified color as a part of this activity.  To create such applications, you need to embed color, shapes, and styles on a Web page. Using canvas, this can be achieved by using the JavaScript predefined color and style properties and methods.</p>
+<p class="nonindent">The introduction of Canvas has simplified the task of drawing objects, such as rectangles, on a Web page. You can easily draw these objects by using the JavaScript methods. Further, you can also specify the colors, gradients, or pattern styles to decorate the graphic objects on the canvas. </p>
+<h3 class="topic">Working with Shapes</h3>
+<p class="nonindent">After creating a canvas, you can draw shapes, such as rectangle and square, on it. Rectangles and squares are the easiest shapes to draw on the canvas element by using the JavaScript functions. Using these functions, you can create a shape, clear a certain portion of the shape, and apply outline to the shape.  For this, you can use the following methods:</p>
+<ul class="square">
+<li><p><code>rect()</code></p></li>
+<li><p><code>fillRect()</code></p></li>
+<li><p><code>strokeRect()</code></p></li>
+<li><p><code>clearRect()</code></p></li>
+</ul>
+
+<h4 class="subtopic">rect()</h4>
+<p class="nonindent">The <code>rect()</code> method is used to create a rectangle on the canvas. However, it picks the default color of the canvas to draw the outline of the rectangle. Therefore, the rectangle is not visible on the canvas. To make a rectangle visible on the canvas, you need to provide its outline or stroke color by using the <code>stroke()</code> method. This method uses the default black stroke to draw the rectangle.</p>
+<p class="nonindent">The syntax of using the <code>rect()</code> method to create a rectangle on a canvas is:</p>
+<p class="code"><code>rect(x,y,width,height);</code></p>
+<p class="nonindent">In the preceding syntax: </p>
+<ul class="square">
+<li><p><code>x</code>: Specifies the x-coordinate of the upper-left corner of the rectangle.</p></li>
+<li><p><code>y</code>: Specifies the y-coordinate of the upper-left corner of the rectangle.</p></li>
+<li><p><code>width</code>: Specifies the width of the rectangle, in pixels.</p></li>
+<li><p><code>height</code>: Specifies the height of the rectangle, in pixels.</p></li>
+</ul>
+<p class="nonindent">The following figure explains the dimensions of a rectangle.</p>
+<p class="center"><img src="images/HTML_06_01.jpg" /></p>
+<p class="caption"><em>The Dimensions of a Rectangle</em></p>
+<p class="nonindent">Consider the following code snippet for creating a rectangle on the canvas having ID, <code>myCanvas</code>:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.rect(30,40,120,120);</code></p>
+<p class="code"><code>ctx.stroke();</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet creates a rectangle of size 120 x 120 starting from the coordinates, (30, 40), on the canvas, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_02.png" /></p>
+<p class="caption"><em>The Rectangle Created on the Canvas</em></p>
+<h4 class="subtopic">fillRect()</h4>
+<p class="nonindent">The <code>fillRect()</code> method is used to create a rectangle filled with the specified color. The default fill color is black. The following syntax is used to create a filled rectangle on a canvas:</p>
+<p class="nonindent"><code>fillRect(x,y,width,height);</code></p>
+<p class="nonindent">Consider the following code for creating a filled rectangle on the canvas:</p>
+
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.fillRect(30,40,120,120);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code will create a rectangle filled with black color, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_03.png" /></p>
+<p class="caption"><em>A Rectangle Filled with Black Color</em></p>
+<h4 class="subtopic">strokeRect()</h4>
+<p class="nonindent">When you create a rectangle using by the <code>rect()</code> method, you also need to use the <code>stroke()</code> method to define its outline on the canvas. Instead of using two methods, <code>rect()</code> and <code>stroke()</code>, to draw a rectangle on the canvas, you can use a single method, <code>strokeRect()</code>, to draw a rectangle with the specified stroke color. By default, the <code>strokeRect()</code> method uses the black color to create an outline of the rectangle. The syntax of using the <code>strokeRect()</code> method to draw a rectangle on a canvas is:</p>
+<p class="code"><code>strokeRect(x,y,width,height);</code></p>
+<p class="nonindent">Consider the following code for drawing a rectangle on a canvas:</p>
+
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.strokeRect(30,40,120,120);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p><p class="nonindent">
+The preceding code will create a rectangle of size 120 x 120 at the position, (30, 40), on the canvas, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_04.png" /></p>
+<p class="caption"><em>The Rectangle Created by Using the strokeRect() Method</em></p>
+<h4 class="subtopic">clearRect()</h4>
+<p class="nonindent">The <code>clearRect()</code> method is used to clear a portion of the rectangle. It clears the specified pixels within the given rectangle. The following syntax can be used to clear a rectangle on a canvas:</p>
+<p class="code"><code>clearRect(x,y,width,height);</code></p>
+<p class="nonindent">Consider the following code to clear a part of the rectangle created on the canvas having ID, <code>myCanvas</code>:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.fillRect(30,40,120,120);</code></p>
+<p class="code"><code>ctx.clearRect(50,60,40,40);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p><p class="nonindent">
+The preceding code clears a portion of the rectangle of size 40 x 40 starting from the coordinates, (50, 60), as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_05.png" /></p>
+<p class="caption"><em>The Output Derived by Using the <code>clearRect()</code> Method</em></p>
+
+<p class="center"><img src="images/HTML_06_ClearRect.jpg" onclick="play('animation_HTML_06_ClearRect_swf')" id="animation_HTML_06_ClearRect_swf" height="488px" width="650px" /></p>
+<p class="nonindent">Now, consider the following code to draw rectangular shapes on the canvas using various methods:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+    
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="600" height="300" </code></p>
+<p class="code"><code>style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.rect(30,40,120,120);</code></p>
+<p class="code"><code>ctx.stroke();</code></p>
+
+<p class="code"><code>ctx.fillRect(160,40,120,120);</code></p>
+<p class="code"><code>ctx.stroke();</code></p>
+
+<p class="code"><code>ctx.strokeRect(300,40,120,120);</code></p>
+
+<p class="code"><code>ctx.fillRect(460,40,120,120);</code></p>
+<p class="code"><code>ctx.clearRect(500,60,40,40);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code creates rectangles on the canvas, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_06.jpg" /></p>
+<p class="caption"><em>The Rectangles Created on the Canvas</em></p>
+<h3 class="topic">Working with Colors</h3>
+<p class="nonindent">The graphic objects on a canvas are created by using the default stroke and fill color. However, you can use colors other than the default color for creating the graphic objects.  The following properties can be used to apply colors on the canvas objects: </p>
+<ul class="square">
+<li><p><code>fillStyle</code></p></li>
+<li><p><code>strokeStyle</code></p></li>
+<li><p><code>shadowColor</code></p></li>
+</ul>
+<h4 class="subtopic">fillStyle</h4>
+<p class="nonindent">The <code>fillStyle</code> property is used to define a color that will be used to fill any closed shape drawn on the canvas. The default value of the <code>fillStyle</code> property is solid black. The following syntax is used to apply fill style on a graphic object:</p>
+<p class="code"><code>fillStyle="color";</code></p>
+<p class="nonindent">In the preceding syntax, you can specify the color as red, green, or blue. In addition, you can also specify the hexadecimal value of the color ranging from 000000 to FFFFFF. </p>
+<p class="nonindent">Consider the following code for applying fill style on a rectangle drawn on the canvas having ID, <code>myCanvas</code>:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.fillStyle="red";</code></p>
+<p class="code"><code>ctx.fillRect(20,20,150,100);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p><p class="nonindent">
+The preceding code creates a rectangle of size 150 x 100 filled with red color at the position, (20, 20), on the canvas, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_07.png" /></p>
+<p class="caption"><em>A Rectangle Filled with the Red Color</em></p>
+<h4 class="subtopic">strokeStyle</h4>
+<p class="nonindent">The s<code>trokeStyle</code> property is used to set the outline color of a shape drawn on the canvas. The default value of the <code>strokeStyle</code> property is solid black. The following syntax can be used to apply stroke style on a graphic object:</p>
+<p class="code"><code>strokeStyle="color";</code></p>
+<p class="nonindent">In the preceding syntax, <code>color</code> specifies the name or hexadecimal value of the color.</p>
+<p class="nonindent">Consider the following code for applying the stroke style on a rectangle:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.strokeStyle="blue";</code></p>
+<p class="code"><code>ctx.strokeRect(20,20,150,100);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p><p class="nonindent">
+The preceding code will create a rectangle of size 150 x 100 with its outline colored in blue at the position, (20, 20), on the canvas, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_08.png" /></p>
+<p class="caption"><em>The Rectangle with Strokes Colored in Blue</em></p>
+<h4 class="subtopic">shadowColor</h4>
+<p class="nonindent">Once you have drawn a shape on the canvas, you may want to make it more stylish by casting a shadow on it. To cast a shadow of a graphic object on the canvas, you need to specify the color of the shadow. In addition, you need to specify how blurred you want your shadow to be. The <code>shadowColor</code> property is used to set the color for the shadows appearing on the graphic objects and the <code>shadowBlur</code> property is used to set the blur level for the shadows. </p>
+<p class="nonindent">You can use the following syntax to use the <code>shadowColor</code> property:</p>
+<p class="code"><code>shadowColor="color";</code></p>
+<p class="nonindent">In the preceding syntax, <code>color</code> specifies the color that will be applied on shadows. The default value of the <code>shadowColor</code> property is solid black.</p>
+<p class="nonindent">You can use the following syntax to define the shadowBlur property:</p>
+<p class="code"><code>shadowBlur=number;</code></p>
+<p class="nonindent">In the preceding syntax, <code>number</code> specifies the blur level of the shadow. It can accept the integer values, such as <code>1</code>, <code>2</code>, and <code>20</code>. Its default value is <code>0</code>. </p>
+<p class="nonindent">Consider the following code for applying shadows on a rectangle:</p>
+
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"> <code>   &#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.shadowBlur=40;</code></p>
+<p class="code"><code>ctx.fillStyle="pink";</code></p>
+<p class="code"><code>ctx.shadowColor="black";</code></p>
+<p class="code"><code>ctx.fillRect(20,20,100,80);</code></p>
+<p class="code"><code>ctx.shadowColor="blue";</code></p>
+<p class="code"><code>ctx.fillRect(140,20,100,80);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the blur level of the shadow of graphic objects is set to 40. In addition, the shadow color for the first rectangle is set to black and the shadow color for the second rectangle is set to blue. The output derived by using the <code>shadowBlur</code> and <code>shadowColor</code> properties is displayed in the following figure.</p>
+<p class="center"><img src="images/HTML_06_09.png" /></p>
+<p class="caption"><em>The Output Derived by Using the shadowBlur and shadowColor Properties</em></p>
+<h3 class="topic">Working with Styles</h3>
+<p class="nonindent">Apart from creating simple shapes on the canvas, you can also apply styles, such as gradients, on them. A gradient is an object that provides smooth transition between two or more colors. To work with gradient styles, you can use the following methods:</p>
+<ul class="square">
+<li><p><code>addColorStop()</code></p></li>
+<li><p><code>createLinearGradient()</code></p></li>
+<li><p><code>createRadialGradient()</code></p></li>
+<li><p><code>createPattern()</code></p></li>
+</ul>
+<h4 class="subtopic">addColorStop()</h4>
+<p class="nonindent">To create gradients, you need to first specify the colors and their position in a gradient object. This is because the gradients are not visible until the colors are added to the objects. Therefore, to actually make the gradient effects visible on a graphic object, you need to add colors. You can add one or more colors on a gradient object by using the <code>addColorStop()</code> method. The <code>addColorStop()</code> method is used to specify the colors and their corresponding positions in a gradient object. The following syntax can be used to define the <code>addColorStop()</code> method:</p>
+<p class="code"><code>addColorStop(position,color);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>position</code>: Specifies a value between 0.0 to 1.0 to represent the position from where to start and end the gradient color.</p></li>
+<li><p><code>color</code>: Specifies the color that needs to be applied on the respective position.</p></li>
+</ul>
+<p class="nonindent">The <code>addColorStop()</code> method is used along with the <code>createLinearGradient()</code> or <code>createRadialGradient()</code> method to display the gradients.</p>
+<h4 class="subtopic">createLinearGradient()</h4>
+<p class="nonindent">The <code>createLinearGradient()</code> method is used to return a gradient object that represents a linear gradient for painting the specified color along a line. The following syntax can be used to apply a linear gradient:</p>
+<p class="code"><code>createLinearGradient(x0,y0,x1,y1);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+
+<ul class="square">
+<li><p><code>x0</code>: Specifies the x-coordinate of the start point of the gradient.</p></li>
+<li><p><code>y0</code>: Specifies the y-coordinate of the start point of the gradient.</p></li>
+<li><p><code>x1</code>: Specifies the x-coordinate of the end point of the gradient.</p></li>
+<li><p><code>y1</code>: Specifies the y-coordinate of the end point of the gradient.</p></li>
+</ul>
+<p class="nonindent">After creating the linear gradient object, you need to create the gradients by using the <code>addColorStop()</code> method. Once you have created the linear gradient, you need to apply it on a graphic object by using the following ways:</p>
+<ul class="square">
+<li><p>Fill the graphic object with the linear gradient by using the <code>fillStyle</code> property. </p></li>
+<li><p>Apply the linear gradient on the outline of the graphic object by using the <code>strokeStyle</code> property.</p></li>
+</ul>
+<p class="nonindent">Consider the following code for applying a linear gradient on a rectangle:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"> <code>   &#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>var grad=ctx.createLinearGradient(0,0,170,0);</code></p>
+<p class="code"><code>grad.addColorStop(0,"blue");</code></p>
+<p class="code"><code>grad.addColorStop("0.5","yellow");</code></p>
+<p class="code"><code>grad.addColorStop(1,"red");</code></p>
+<p class="code"><code>ctx.fillStyle=grad;</code></p>
+<p class="code"><code>ctx.fillRect(20,20,180,180);</code> </p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding <code>code</code>, a gradient object is created by using the <code>createLinearGradient()</code> method. Further, the <code>addColorStop()</code> method is used to specify different colors to the gradient object, and then, the gradient object is passed to the <code>fillStyle</code> property to shade the rectangle in three different colors from left to right. The output derived by using the <code>createLinearGradient()</code> method is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_10.png" /></p>
+<p class="caption"><em>The Output Derived by Using the createLinearGradient() Method</em></p>
+<h4 class="subtopic">createRadialGradient() </h4>
+<p class="nonindent">The <code>createRadialGradient()</code> method is used to return a gradient object that represents a radial or a circular gradient to be applied on a graphic object. A circular gradient paints colors along a cone specified by two circles, inner and outer. The following syntax can be used to apply a radial gradient:</p>
+<p class="code"><code>createRadialGradient(x0,y0,r0,x1,y1,r1);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>x0</code>: Specifies the x-coordinate of the start point of the gradient.</p></li>
+<li><p><code>y0</code>: Specifies the y-coordinate of the start point of the gradient. (x0,y0) specifies the center coordinate of the first circle of the cone.</p></li>
+<li><p><code>r0</code>: Specifies the radius of the starting circle.</p></li>
+<li><p><code>x1</code>: Specifies the x-coordinate of the end point of the gradient.</p></li>
+<li><p><code>y1</code>: Specifies the y-coordinate of the end point of the gradient. (x1,y1) specifies the center coordinate of the second circle of the cone.</p></li>
+<li><p><code>r1</code>: Specifies the radius of the ending circle.</p></li>
+</ul>
+<p class="nonindent">After creating the radial gradient object, you need to create the gradients by using the <code>addColorStop()</code> method. Once you have created the radial gradient, you need to apply it on a graphic object by using the following ways:</p>
+<ul class="square">
+<li><p>Fill the graphic object with the radial gradient by using the <code>fillStyle</code> property. </p></li>
+<li><p>Apply the radial gradient on the outline of the graphic object by using the <code>strokeStyle</code> property. </p></li>
+</ul>
+<p class="nonindent">Consider the following code snippet for applying a radial gradient on a rectangle:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"> <code>  &#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300"style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>var grad=ctx.createRadialGradient(75,50,5,90,60,100);</code></p>
+<p class="code"><code>grad.addColorStop(0,"blue");</code></p>
+<p class="code"><code>grad.addColorStop("0.5","yellow");</code></p>
+<p class="code"><code>grad.addColorStop(1,"red");</code></p>
+<p class="code"><code>ctx.fillStyle=grad;</code></p>
+<p class="code"><code>ctx.fillRect(20,20,180,180);</code> </p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, a gradient object is created using the <code>createRadialGradient()</code> method. Further, the <code>addColorStop()</code> method is used to specify different colors to the gradient object and then, the gradient object is passed to the <code>fillStyle</code> property to shade the rectangle in three different colors along the radius given for the circle. The output derived by using the <code>createRadialGradient()</code> method is displayed in the following figure.</p>
+<p class="center"><img src="images/HTML_06_11.png" /></p>
+<p class="caption"><em>The Output Derived by Using the createRadialGradient() Method</em></p>
+<h4 class="subtopic">createPattern()</h4>
+<p class="nonindent">The <code>createPattern()</code> method is used to create a pattern by displaying an image repeatedly on a canvas in the specified direction. For example, consider the following image.</p>
+<p class="center"><img src="images/HTML_06_12.png" /></p>
+<p class="caption"><em>The Image</em></p>
+<p class="nonindent">If the preceding image is repeated vertically and horizontally, you can create a pattern, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_13.png" /></p>
+<p class="caption"><em>A Pattern</em></p>
+<p class="nonindent"> The following syntax can be used to create a pattern:</p>
+<p class="code"><code>createPattern(img, "repeat|repeat-x|repeat-y|no-repeat");</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>img</code>: Specifies the image or video to be used to create a pattern.</p></li>
+<li><p><code>repeat</code>: Specifies that the pattern should be repeated horizontally and vertically.</p></li>
+<li><p><code>repeat-x</code>: Specifies that the pattern should be repeated horizontally.</p></li>
+<li><p><code>repeat-y</code>: Specifies that the pattern should be repeated vertically.</p></li>
+<li><p><code>no-repeat</code>: Specifies that the pattern should be displayed only once.</p></li>
+</ul>
+<p class="nonindent">Consider the following code snippet for repeating an image horizontally and vertically:</p>
+<p class="code"><code>&#x003C;P&#x003E;Image to use:&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;IMG src="pattern.png" ID="pattern"&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;Canvas:&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON onclick="draw('repeat')"&#x003E;Repeat&#x003C;/BUTTON&#x003E;</code></p>     
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;"&#x003E;</code></p>
+<p class="code"><code>Your browser does not support the HTML5 canvas tag.&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>function draw(direction)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>var img=document.getElementById("pattern")</code></p>
+<p class="code"><code>var pat=ctx.createPattern(img,direction);</code></p>
+<p class="code"><code>ctx.rect(0,0,300,150);</code></p>
+<p class="code"><code>ctx.fillStyle=pat;</code></p>
+<p class="code"><code>ctx.fill();</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet repeats the <code>pattern.png</code> image horizontally and vertically in the rectangular area on the canvas, when the user clicks the <strong>Repeat</strong> button, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_14.png" /></p>
+<p class="caption"><em>Repeating Image on the Canvas</em></p>
+<p class="center"><img src="images/J0601.jpg" onclick="play('animation_J0601_swf')" id="animation_J0601_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a81">Working with Path, Text, and Images</h2>
+<p class="nonindent">LearnGraphs Ltd offers tutorials on creating pie charts. For this, a pie chart along with its caption, needs to be drawn. However, a pie chart is a circular chart that is divided into various sectors. To create such a pie chart, you need to draw a circle. In addition, to divide the circle into various sectors, you need to draw lines.  In canvas, you can create such shapes, such as circles, lines, arcs, and triangles, by using path methods and properties. </p>
+<p class="nonindent">Further, to insert the caption for the pie chart, you need to insert text. You can insert text in canvas by using the text properties and methods. In addition, you can also add images to the canvas.  </p>
+<h3 class="topic">Working with Path</h3>
+<p class="nonindent">A path is a series of points joined together to create lines or shapes. In canvas, you can use lines or paths to draw shapes other than rectangles or squares. Using paths or lines, you can create shapes such as circles, polygon, or triangles. However, to create a path, you need to first start or begin the path. Next, you need to call methods, such as <code>moveTo()</code> and <code>lineTo()</code>, to actually draw the path. Finally, you need to end or close the path so that the shape gets created. To create shapes by using paths, you can use various methods. These methods are described in the following table.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+
+<tr valign="top">
+<td align="left" style="width:20%"><p><strong><em>Method</em></strong></p></td>
+<td align="left" style="width:40%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>fill()</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to fill the path on the canvas. The default color is black. You can change the fill color by using the <code>fillStyle</code> property.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>stroke()</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to draw the outlines of the path. The default color is black. You can change the outline color by using the <code>strokeStyle</code> property.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>beginPath()</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to begin a path or resets the current path.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>moveTo(x,y)</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to move the path to the (x,y) coordinates on the canvas.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>closePath()</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to create a path from the current position back to the starting position.</em></p></td>
+</tr>
+
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>lineTo(x,y)</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to create a line from the starting position to the ending position specified by (x,y) coordinates. The starting position is defined by the (x,y) coordinates specified in the <code>moveTo()</code> method.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>clip()</em></code><code></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to clip a specified area from the canvas.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>arc(x,y,r,sAngle, eAngle,counterclockwise)</em></code></p></td>
+<td align="left" style="width:40%"><p><em>Is used to create an arc or a curve on the coordinate points (x,y) with the radius, r from the starting angle, sAngle to the end angle, eAngle on the canvas. The last parameter specifies whether the drawing should be counterclockwise or clockwise. The false value specifies clockwise and true value specifies counter-clockwise.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>arcTo(x1,y1,x2,y2,r)</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Is used to create an arc between two coordinate points, (x1,y1) and (x2,y2) with radius r on the canvas.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Path Methods</em></p>
+<p class="nonindent">Consider the following code for creating a line on a canvas:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;  </code> </p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas" width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.beginPath();</code></p>
+<p class="code"><code>ctx.moveTo(40, 40);</code> </p>
+<p class="code"><code>ctx.lineTo(240, 40);</code> </p>
+<p class="code"><code>ctx.stroke(); &#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code , the <code>beginPath()</code> method will begin the path on the canvas. Further, the <code>lineTo()</code> method will draw a straight line from the canvas coordinates, <code>(40,40)</code>, specified in the <code>moveTo()</code> method upto the coordinates, <code>(240,40</code>), as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_15.png" /></p>
+<p class="caption"><em>The Line Drawn on a Canvas</em></p>
+<p class="nonindent">Consider the following code for creating a circle on a canvas:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;   &#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas" width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.beginPath();</code> </p>
+<p class="code"><code>ctx.arc(80, 90, 50, 0, Math.PI*2, false);</code> </p>
+<p class="code"><code>ctx.closePath();</code> </p>
+<p class="code"><code>ctx.fillStyle="green";</code></p>
+<p class="code"><code>ctx.fill();</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, a circle of the radius, 50, filled with the green color is drawn on the canvas at the coordinates, (80, 90), as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_16.png" /></p>
+<p class="caption"><em>The Output Derived by Using the <code>arc()</code> Method</em></p>
+<p class="nonindent">In addition to drawing lines, arcs, or circles, you can also draw more complex curvatures, such as the bezier curves. A bezier curve is defined with a context or starting point, two control points, and an ending point, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_17.jpg" /></p>
+<p class="caption"><em>The Bezier Curve</em></p>
+<p class="nonindent">You can create the bezier curves by using the path method, <code>bezierCurveTo()</code>. The following syntax can be used to create a bezier curve:</p>
+<p class="code"><code>bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>cp1x</code>: Specifies the x-coordinate of the first control point.  </p></li>
+<li><p><code>cp1y</code>: Specifies the y-coordinate of the first control point.  </p></li>
+<li><p><code>cp2x</code>: Specifies the x-coordinate of the second Bezier control point.</p></li>
+<li><p><code>cp2y</code>: Specifies the y-coordinate of the second Bezier control point.  </p></li>
+<li><p><code>x</code>: Specifies the x-coordinate of the ending point.  </p></li>
+<li><p><code>y</code>: Specifies the y-coordinate of the ending point.  </p></li>
+</ul>
+<p class="nonindent">Consider the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;   </code> </p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" </code> </p>
+<p class="code"><code>style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById('myCanvas');</code></p>
+<p class="code"><code>var ctx=c.getContext('2d');</code></p>
+<p class="code"><code>ctx.beginPath();</code></p>
+<p class="code"><code>ctx.moveTo(200,20);</code></p>
+<p class="code"><code>ctx.bezierCurveTo(80,20,80,100,150,100);</code></p>
+<p class="code"><code>ctx.stroke();</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, a bezier curve is drawn starting from the point, (200, 20), to the point, (150, 100), as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_18.png" /></p>
+<p class="caption"><em>The Bezier Curve</em></p>
+<h3 class="topic">Working with Text</h3>
+<p class="nonindent">In addition to drawing shapes or lines on the canvas, you can also draw text on it. You can also apply different styles on the text. For this, you can use the various text properties. The following table lists the text properties. </p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="100%">
+<tr valign="top">
+<td align="left" style="width:00%"><p><strong><em>Property</em></strong></p></td>
+<td align="left" style="width:00%"><p><strong><em>Value</em></strong></p></td>
+<td align="left" style="width:00%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:00%"><p><code><em>font</em></code></p></td>
+<td align="left" style="width:00%"><p><code><em>font-style|font-variant|font-weight|font-size|font-family</em></code></p></td>
+<td align="left" style="width:00%"><p><em>Is used to set the font for the text on the canvas.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:00%"><p><code><em>textAlign</em></code></p></td>
+<td align="left" style="width:00%"><p><code><em>start|end|center|left|right</em></code></p></td>
+<td align="left" style="width:00%"><p><em>Is used to set the alignments for the text.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:00%"><p><code><em>textBaseLine</em></code></p></td>
+<td align="left" style="width:00%"><p><code><em>top|hanging|middle|bottom|alphabetic</em></code></p></td>
+<td align="left" style="width:00%"><p><em>Is used to set the baseline for the text where it will be drawn relative to its starting point.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Text Properties</em></p>
+<p class="nonindent">The preceding properties can be used to decorate the text. However, you need to use the following methods to actually draw a text on a canvas:</p>
+<ul class="square">
+<li><p><code>fillText()</code></p></li>
+<li><p><code>strokeText()</code></p></li>
+</ul>
+<h4 class="subtopic">fillText()</h4>
+<p class="nonindent">The <code>fillText()</code> method is used to draw a text filled with solid color on a canvas. The default value for <code>fillText()</code> is black. The following syntax can be used to draw a filled text:</p>
+<p class="code"><code>fillText(text,x,y,width);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>text</code>:  Specifies the text to be written on the canvas.  </p></li>
+<li><p><code>x</code>:  Specifies the x-coordinate of the starting point of the text.  </p></li>
+<li><p><code>y</code>: Specifies the y-coordinate of the starting point of the text.</p></li>
+<li><p><code>width</code>: Specifies the width of the text.  </p></li>
+</ul>
+<p class="nonindent">Consider the following code for drawing a filled text on the canvas:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="200" height="200" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.font="15px Georgia";</code></p>
+<p class="code"><code>ctx.fillText("Fill Text",10,60,120);</code></p>
+<p class="code"><code>ctx.font="15x Verdana";</code></p>
+<p class="code"><code>var gradient=ctx.createLinearGradient(0,0,170,0);</code></p>
+<p class="code"><code>gradient.addColorStop("0","magenta");</code></p>
+<p class="code"><code>gradient.addColorStop("0.5","blue");</code></p>
+<p class="code"><code>gradient.addColorStop("1.0","red");</code></p>
+<p class="code"><code>ctx.fillStyle=gradient;</code></p>
+<p class="code"><code>ctx.fillText("Fill Text with Gradient",10,90,120);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code sets the font style of the text to <code>15 px Georgia</code> by using the <code>font</code> property  and draws the text, <code>Fill Text</code>, at the canvas coordinates, <code>(10,60)</code>, on the canvas. Similarly, it draws the text, <code>Fill Text with Gradient</code>, at the canvas coordinates, <code>(10, 90)</code>, and applies the gradient on it by using the <code>createLinearGradient()</code> method and the <code>fillStyle</code> property, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_19.png" /></p>
+<p class="caption"><em>The Output Derived by Using the fillText() Property</em></p>
+<h4 class="subtopic">strokeText()</h4>
+<p class="nonindent">The <code>strokeText()</code> method is used to draw a text at the specified position on the canvas by using the current font style and color. The default outline color used by this method to draw a text on the canvas is black. The syntax to use the <code>strokeText()</code> method is:</p>
+<p class="code"><code>strokeText(text,x,y,width);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>text</code>:  Specifies the text to be written on the canvas.  </p></li>
+<li><p><code>x</code>:  Specifies the x-coordinate of the starting point of the text.  </p></li>
+<li><p><code>y</code>: Specifies the y-coordinate of the starting point of text.</p></li>
+<li><p><code>width</code>: Specifies the width of the text.  </p></li>
+</ul>
+<p class="nonindent">Consider the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"   width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.font="25px Georgia";</code></p>
+<p class="code"><code>ctx.strokeText("Stroke Text",10,60,120);</code></p>
+<p class="code"><code>ctx.font="25x Verdana";</code></p>
+<p class="code"><code>var gradient=ctx.createLinearGradient(0,0,170,0);</code></p>
+<p class="code"><code>gradient.addColorStop("0","magenta");</code></p>
+<p class="code"><code>gradient.addColorStop("0.5","blue");</code></p>
+<p class="code"><code>gradient.addColorStop("1.0","red");</code></p>
+<p class="code"><code>ctx.strokeStyle=gradient;</code></p>
+<p class="code"><code>ctx.strokeText("Stroke Text with Gradient",10,90,200);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code sets the font style of the text to <code>25px Georgia</code> by using the font property  and draws the text, <code>Stroke text</code>, at the canvas coordinates, <code>(10,60)</code>, on the canvas. Similarly, it draws another text, <code>Stroke Text with Gradient</code>, at the canvas coordinates, <code>(10,90)</code>, and applies the gradient on it by using the <code>createLinearGradient()</code> method and the <code>strokeStyle</code> property, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_20.png" /></p>
+<p class="caption"><em>The Output Derived by Using the strokeText() Method</em></p>
+<h3 class="topic">Working with Images</h3>
+<p class="nonindent">In canvas, you can also draw images, image clips, or render videos. For this, you can use the <code>drawImage()</code> method. The <code>drawImage()</code> method is used to draw an image or a video on the canvas. In addition, it enables you to draw a part of an image on the canvas. To define the <code>drawImage()</code> method, you can use the following syntaxes:</p>
+<p class="code"><code>drawImage(img,x,y);</code></p>
+<p class="code"><code>drawImage(img,x,y,width,height);</code></p>
+<p class="code"><code>drawImage(img,sx,sy,swidth,sheight,x,y,width,height);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>img</code>:  Specifies an image that needs to be drawn on the canvas.  </p></li>
+<li><p><code>x</code>:  Specifies the x-coordinate for the starting point of the image.  </p></li>
+<li><p><code>y</code>: Specifies the y-coordinate for the starting point of the image.</p></li>
+<li><p><code>width</code>: Specifies the width of the image. It is an optional argument. If not specified, the actual width of the image is taken by default.  </p></li>
+<li><p><code>height</code>: Specifies the height of the image. If not specified, the actual height of the image is taken by default.  </p></li>
+<li><p><code>sx</code>:  Specifies the x-coordinate where to start the clipping of the image.  </p></li>
+<li><p><code>sy</code>: Specifies the y-coordinate where to start the clipping of the image.</p></li>
+<li><p><code>swidth</code>: Specifies the width of the clipped image.  </p></li>
+<li><p><code>sheight</code>: Specifies the height of the clipped image.  </p></li>
+</ul>
+<p class="nonindent">Consider the following code to draw an image on a canvas:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY onload=setImage()&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas" width="250" height="300" </code> </p>
+<p class="code"><code>style="border:1px solid #d3d3d3;"&#x003E;</code></p>
+<p class="code"><code>Your browser does not support the HTML5 canvas tag.&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>function setImage(){</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>var img=new Image();</code></p>
+<p class="code"><code>img.src="orchid.jpg";</code></p>
+<p class="code"><code>img.onload = function() {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;ctx.drawImage(img,10,10,150,150);</code></p>
+
+<p class="code"><code>}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the image is drawn on the canvas at the point, (10, 10), and of size 150 x 150, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_21.png" /></p>
+<p class="caption"><em>Drawing an Image on the Canvas</em></p>
+<h3 class="topic">Working with Graphs</h3>
+<p class="nonindent">A graph is a way of representing relationships among a collection of items. A graph consists of a set of objects, called nodes, which are connected by links called edges. In a canvas, you can create graphs, such as bar graph or pie chart, to represent relationships. These graphs can be created by using methods provided to draw the shapes. However, to draw graphs by using these methods is a tedious task. To simplify this task, you can use the various freely-downloadable JavaScript libraries. One such library is RGraph. To create graphs by using the RGraph library, you need to download this light-weight JavaScript library and save it in your system. RGraph allows you to create different types of graphs on a Web page.</p>
+<p class="nonindent">Once the JavaScript library is downloaded, it can be referred to in a Web page by using the <code>&#x003C;SCRIPT&#x003E;</code> tag in the head section of the Web document. The following syntax is used to specify the jQuery library:</p>
+<p class="nonindent"><code>&#x003C;SCRIPT type="text/javascript" src="&#x003C;RGraph_file_name&#x003E;" &#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p>The <code>&#x003C;SCRIPT&#x003E;</code> tag instructs the browser that the HTML document uses a script.</p></li>
+<li><p>The <code>type</code> attribute specifies the type of scripting used.</p></li>
+<li><p>The <code>src</code> attribute specifies the name of the JavaScript library used. If the JavaScript library is stored at the same location as the HTML document, only the name of the library can be given. However, if the JavaScript library and the HTML document are stored at different locations, then you have to specify the complete path of the JavaScript library. </p></li>
+</ul>
+<p class="nonindent">For example, you want to create a bar graph on a Web page. For this, you need to download the <strong>RGraph.common.core.js</strong> and <strong>RGraph.bar.js</strong> files. Consider the following code to create a bar graph on a Web page:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="RGraph.common.core.js" &#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="RGraph.bar.js" &#x003E;&#x003C;/SCRIPT&#x003E; </code> </p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;TITLE&#x003E;Bar chart&#x003C;/TITLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS width="500" height="250" ID="test" style="border:1px solid black"&#x003E;&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" charset="utf-8"&#x003E;</code></p>
+<p class="code"><code>var bar = new RGraph.Bar('test', [10,30,20,10]);</code></p>
+<p class="code"><code>bar.Set('chart.colors', ['red']);</code></p>
+<p class="code"><code>bar.Set('chart.title', "Sales Report" );</code></p>
+<p class="code"><code>bar.Set('chart.labels', ["10" , "20" , "30" , "40" ]);</code></p>
+<p class="code"><code>bar.Draw();</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+  <p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code creates a graph on the canvas, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_22.jpg" /></p>
+<p class="caption"><em>A Bar Graph</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>To create various different graphs on a Web page, you need to download different JavaScript files. For this, you can refer to the http://www.rgraph.net/demos link.</em></p>
+</div>
+<p class="center"><img src="images/J0602.jpg" onclick="play('animation_J0602_swf')" id="animation_J0602_swf" height="488px" width="650px" /></p>
+
+<h2 class="section-head" id="a82"><img alt="" src="images/act.png" /> Activity 6.1: Introducing Canvas</h2>
+<h1 class="chapter-head" id="a83">Transforming and Animating Canvas Elements</h1>
+<p class="nonindent">LearnGraphs Ltd. wants to make the graphics eye-catching visually appealing to the users. For this, they need to animate or transform the shapes, such as scaling or rotating the line drawn on the canvas. To apply such animations, you need to apply animation effects on the shapes. With canvas, you can transform, rotate, or scale graphic objects.</p>
+<h2 class="section-head" id="a84">Transforming Canvas Elements</h2>
+<p class="nonindent">With CSS, you can move HTML elements from one position to another easily. However, while working with a canvas, you may want to shift the graphics objects from one position to another and increase or decrease their size.  This can be done by transforming the canvas elements. To transform the canvas elements, you can use the following methods:</p>
+<ul class="square">
+<li><p><code>translate()</code></p></li>
+<li><p><code>scale()</code></p></li>
+<li><p><code>rotate()</code></p></li>
+</ul>
+<h3 class="topic">Translate </h3>
+<p class="nonindent">The <code>translate()</code> method is used to reset the origin of the canvas to the specified position, as shown in the following figure. </p>
+<p class="center"><img src="images/HTML_06_23.jpg" /></p>
+<p class="caption"><em>The Resetting the Origin of the Canvas</em></p>
+<p class="nonindent">In the preceding figure, the origin of the canvas is shifted to the (x,y) coordinate. The <code>translate()</code> method enables you to move all the graphic objects on the canvas by using just one method. For example, you have drawn a complex drawing onto the canvas and you need to move the drawing around on the canvas. To perform such a task, you need to adjust the x and y positions of all the graphic objects involved in the drawing. It is a time-consuming and error-prone task. You can simplify this task by just translating the context or the origin of the canvas to the new position and then, using the original x and y positions of all the graphic objects, redraw them on the canvas. This way, the graphic objects will be redrawn by taking into account the position of the new origin. Therefore, the graphic objects will be moved to the desired location on the canvas by using just one method call.</p>
+<p class="nonindent">The syntax of the <code>translate()</code> method is:</p>
+<p class="code"><code>translate(x,y);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>x</code>: Specifies the value to be added to the existing value of the x coordinate.</p></li>
+<li><p><code>y</code>: Specifies the value to be added to the existing value of the y coordinate.</p></li>
+</ul>
+<p class="nonindent">For example, you have created a rectangle by using the following code snippet:</p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.fillStyle="red";</code></p>
+<p class="code"><code>ctx.fillRect(10,10,100,100);</code></p>
+<p class="nonindent">The preceding code snippet will draw a rectangle at the coordinate, (10, 10), as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_24.png" /></p>
+<p class="caption"><em>The Rectangle </em></p>
+<p class="nonindent">Now, you want that the rectangle should be redrawn starting from coordinate, (60, 35). For this, you can use the <code>translate()</code> method, as shown in the following code snippet: </p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.fillStyle="red";</code></p>
+<p class="code"><code>ctx.fillRect(10,10,100,100);</code></p>
+<p class="code"><code>ctx.translate(50,25);</code></p>
+<p class="code"><code>ctx.fillStyle="blue";</code></p>
+<p class="code"><code>ctx.fillRect(10,10,100,100);</code></p>
+<p class="nonindent">In the preceding code snippet, the first rectangle is drawn in the red color at the point, (10, 10) from the origin of the canvas. The <code>translate()</code> method then resets the origin of the canvas at the point, (50, 25). The second rectangle is drawn in blue color at the point, (10, 10) from the new origin, (50, 25). Therefore, the second rectangle will be drawn at the point, (60, 35) from the point, (0, 0) of the canvas, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_25.png" /></p>
+<p class="caption"><em>The Output Derived by Using the translate() Method</em></p>
+<h3 class="topic">Scale</h3>
+<p class="nonindent"> The <code>scale()</code> method is used to increase or decrease the units in the canvas grid. This will allow you to draw scaled down or enlarged graphic objects. The following syntax can be used to scale the graphic objects:</p>
+<p class="code"><code>scale(scalewidth,scaleheight);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>scalewidth</code>: Specifies the width (in percentage), a graphic object should be scaled to.</p></li>
+<li><p><code>scaleheight</code>: Specifies the length (in percentage), a graphic object should be scaled to.</p></li>
+</ul>
+<p class="nonindent"> Consider the following code for scaling a rectangle on canvas:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"&#x00A0;&#x00A0;width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.fillStyle="red";</code></p>
+<p class="code"><code>ctx.fillRect(10,10,100,100);</code></p>
+<p class="code"><code>ctx.translate(50,25);</code></p>
+<p class="code"><code>ctx.scale(2,2);</code></p>
+<p class="code"><code>ctx.fillStyle="blue";</code></p>
+<p class="code"><code>ctx.fillRect(10,10,100,100);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the red colored rectangle of size 100 x 100 is created starting from the canvas coordinates, (10, 10). The origin of the canvas is reset at the point, (50, 25), by using the <code>translate()</code> method. Then, the width and height of the rectangle are scaled by the factor of 2 by using the <code>scale()</code> method. Therefore, the width and height of the blue colored rectangle gets doubled and is redrawn from the canvas coordinates, (60, 35), as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_26.png" /></p>
+<p class="caption"><em>The Output Derived by Using the scale() Method</em></p>
+<h3 class="topic">Rotate</h3>
+<p class="nonindent">The <code>rotate()</code> method is used to rotate the graphic object to a specified degree in the clockwise direction. The following syntax can be used to apply rotation:</p>
+<p class="code"><code>rotate(angle);</code></p>
+<p class="nonindent">In the preceding syntax, <code>angle</code> specifies the degree a graphic object should be rotated to.</p>
+<p class="nonindent">Consider the following code for applying rotations on canvas:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;  </code> </p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="myCanvas"&#x00A0;&#x00A0;width="300" height="300" style="border:1px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var c=document.getElementById("myCanvas");</code></p>
+<p class="code"><code>var ctx=c.getContext("2d");</code></p>
+<p class="code"><code>ctx.fillStyle="red";</code></p>
+<p class="code"><code>ctx.fillRect(10,10,100,100);</code></p>
+<p class="code"><code>ctx.rotate(25);</code></p>
+<p class="code"><code>ctx.fillStyle="blue";</code></p>
+<p class="code"><code>ctx.fillRect(40,40,100,100);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, a red colored rectangle is drawn at the coordinate, (10, 10). Further, the angle to rotate the canvas element is specified as 25. Therefore, the rectangle will be redrawn in the blue color starting from the coordinate, (40, 40), and rotated at the 25 degree angle, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_06_27.png" /></p>
+<p class="caption"><em>The Output Derived by Using the rotate() Method</em></p>
+<p class="center"><img src="images/J0603.jpg" onclick="play('animation_J0603_swf')" id="animation_J0603_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a85">Animating Canvas Elements</h2>
+<p class="nonindent">An animation is a visual technique that provides the illusion that an object is moving by displaying graphic objects in rapid sequence. In an animation, the object is drawn first, next the canvas is cleared, and then the frame is drawn again with slight changes in its properties. The process is repeated very fast to create an illusion. For example, you want to represent a moving ball on the canvas. You have applied a single rotation on a ball that shows transformation. However, an animation is created if you apply multiple rotations on that ball. </p>
+<p class="nonindent">To create such animations, you need to perform the following steps:</p>
+
+<ol class="arabic">
+<li><p>Create variables for the animation state.</p></li>
+<li><p>Draw the animation.</p></li>
+<li><p>Redraw the objects.</p></li>
+</ol>
+<p class="nonindent">The following figure depicts the process of creating animations on the canvas.</p>
+<p class="center"><img src="images/HTML_06_28.jpg" /></p>
+<p class="caption"><em>The Process of Creating Animations on the Canvas </em></p>
+<h3 class="topic">Creating Variables for the Animation State</h3>
+<p class="nonindent">Variables are created to store the initial properties of the graphic objects, such as width or height. Further, they can be used to store the updated values of the graphic objects. Therefore, whenever a new position is calculated for a graphic object, the new values will get stored in the variables. </p><p class="nonindent">
+Consider an example of creating a ball moving on a canvas surface. To create such an animation, you need to define the variables first. Consider the following code snippet for defining variables in JavaScript:</p>
+<p class="code"><code>var canvas;</code></p>  
+<p class="code"><code>var ctx;</code></p> 
+<p class="code"><code>var x = 400;</code></p> 
+<p class="code"><code>var y = 300;</code></p> 
+<p class="code"><code>var dx = 2;</code></p> 
+<p class="code"><code>var dy = 4;</code></p> 
+<p class="code"><code>var WIDTH = 400;</code></p> 
+<p class="code"><code>var HEIGHT = 300;</code> </p> 
+<p class="nonindent">In the preceding code snippet, the variables have been created that can be used to draw an animation on the canvas.</p>
+<h3 class="topic">Drawing the Animation</h3>
+<p class="nonindent">After creating the variables, you need to draw the graphic object on the screen. Consider the following code snippet for drawing a ball on the canvas:</p>
+<p class="code"><code>function circle() {</code></p>
+<p class="code"> <code> ctx.beginPath();</code></p>
+<p class="code"> <code>ctx.fillStyle="red";</code></p>
+<p class="code"> <code> ctx.arc(x, y, 10, 0, Math.PI*2, true);</code></p>
+<p class="code"> <code> ctx.fill();</code></p>
+<p class="code"> <code> ctx.closePath();</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function clear() {</code></p>
+<p class="code"> <code> ctx.clearRect(0, 0, WIDTH, HEIGHT);</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function init() {</code></p>
+<p class="code"> <code> canvas = document.getElementById("canvas");</code></p>
+<p class="code"> <code> ctx = canvas.getContext("2d");</code></p>
+<p class="code"> <code> return setInterval(draw, 10);</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">The preceding code snippet defines the following functions:</p>
+<ul class="square">
+<li><p><code>init()</code> function: In this function, the element ID for the canvas element is stored in the variable, <code>canvas</code>. Further, the context for the canvas element is retrieved in the variable, <code>ctx</code>. The context, <code>ctx</code>, can now be used to draw the graphic objects on the canvas. It is the first function that will be called in the code. In the next line of the code, the <code>setInterval()</code> function is used to call the <code>draw()</code> function every 10 milliseconds. The <code>draw()</code> function is a user-defined function that is created to redraw the ball on the canvas. 
+</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>You will study the code for the <code>draw()</code> function in the next topic. </em></p></div></li>
+<li><p><code>circle()</code> function: In this function, the <code>beginpath()</code> method is called to start a new path. The <code>arc()</code> method is used to define the size and shape of the circle. Further, the <code>fill()</code> method is used to fill the entire circle with the specified color.</p></li>
+<li><p><code>clear()</code>  function: In this function,  the <code>clearRect()</code> method is called to erase the graphic objects from the canvas. </p></li>
+</ul>
+<h3 class="topic">Redrawing the Objects</h3>
+<p class="nonindent">Now, to create the animation effects, you need to repeatedly keep drawing the graphic objects with the updated properties.</p>
+<p class="nonindent">Consider the following code snippet for redrawing a ball on the canvas:</p>
+<p class="code"><code>function draw() {</code></p>
+<p class="code"><code>&#x00A0;clear();</code></p>
+<p class="code"><code>&#x00A0;circle();</code></p>
+<p class="code"><code>&#x00A0;if (x&#x003E; WIDTH || x&#x003C; 0)</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;dx = -dx;</code></p>
+<p class="code"><code>&#x00A0;if (y&#x003E; HEIGHT || y&#x003C; 0)</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;dy = -dy;</code></p>
+
+<p class="code"><code>&#x00A0;x += dx;</code></p>
+<p class="code"><code>&#x00A0;y += dy;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding code snippet, the <code>clear()</code> function is first called to clear the canvas. Further, the <code>circle()</code> function is called to create a circle on the canvas. </p>
+<p class="nonindent">The circle has a radius, 10, and its origin is at <code>(x,y)</code>. To move the circle, you need to change the values of variables, x and y. Whenever the <code>draw()</code> function is executed, the variables, <code>dx</code> and <code>dy</code>, will determine the values for the variables, x and y. If the value of <code>x</code> is not greater than the width of the canvas or if it is less than zero, the value of x will get changed by dx. However, if the value exceeds the width size, then the variable, <code>dx</code> will be set to <code>&#x2011;dx</code>, and the process continues. The same condition is applied for the variable, <code>y</code>.</p>
+<p class="nonindent">The following lines show the entire code for rotating a ball:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TITLE&#x003E;Rotating Ball&#x003C;/TITLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;CANVAS ID="canvas" width="400" height="300" style="border:2px solid black"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/CANVAS&#x003E;</code></p>
+<p class="code"><code>&#x003C;/DIV&#x003E;</code></p>
+
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>var canvas; </code> </p>
+<p class="code"><code>var ctx;</code></p>
+<p class="code"><code>var x = 400;</code></p>
+<p class="code"><code>var y = 300;</code></p>
+<p class="code"><code>var dx = 2;</code></p>
+<p class="code"><code>var dy = 4;</code></p>
+<p class="code"><code>var WIDTH = 400;</code></p>
+<p class="code"><code>var HEIGHT = 300;</code> </p>
+
+<p class="code"><code>function circle() {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;ctx.beginPath();</code></p>
+<p class="code"><code>ctx.fillStyle="red";</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;ctx.arc(x, y, 10, 0, Math.PI*2, true);</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;ctx.fill();</code></p>
+<p class="code"><code>ctx.closePath();</code></p>
+<p class="code"><code>}</code></p>
+
+<p class="code"><code>function clear() {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;ctx.clearRect(0, 0, WIDTH, HEIGHT);</code></p>
+<p class="code"><code>}</code></p>
+
+<p class="code"><code>function init() {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;canvas = document.getElementById("canvas");</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;ctx = canvas.getContext("2d");</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;return setInterval(draw, 10);</code></p>
+<p class="code"><code>}</code></p>
+
+
+<p class="code"><code>function draw() {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;clear();</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;circle();</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;if (x&#x003E; WIDTH || x&#x003C; 0)</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;dx = -dx;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;if (y&#x003E; HEIGHT || y&#x003C; 0)</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;dy = -dy;</code></p>
+
+<p class="code"><code>&#x00A0;&#x00A0;x += dx;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;y += dy;</code></p>
+<p class="code"><code>}</code></p>
+
+<p class="code"><code>init();</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The following file displays the output of the preceding code.</p>
+<p class="center"><img src="images/HTML_06_bouncingballs.jpg" onclick="play('animation_HTML_06_bouncingballs_swf')" id="animation_HTML_06_bouncingballs_swf" height="488px" width="650px" /></p>
+
+<h2 class="section-head" id="a86"><img alt="" src="images/act.png" /> Activity 6.2: Creating a Game</h2>
+<h1 class="chapter-head" id="a87">Summary</h1>
+<p class="nonindent">In this lesson, you learned that:</p>
+<ul class="square">
+<li><p>Canvas provides an easy and a powerful way to create graphics on a Web page.</p></li>
+<li><p>A canvas is defined by using the <code>&#x003C;CANVAS&#x003E;</code> tag. This tag is defined in the body section of the HTML document.</p></li>
+<li><p>Defining the canvas element only creates a blank drawing surface. However, to actually draw graphic objects on the canvas, you need to access the canvas in the JavaScript code.
+</p></li>
+<li><p>You can use the following methods to draw shapes on canvas:</p>
+<ul class="disc">
+<li><p><code>rect()</code></p></li>
+<li><p><code>fillRect()</code></p></li>
+<li><p><code>strokeRect()</code></p></li>
+<li><p><code>clearRect()</code></p></li>
+</ul>
+</li>
+<li><p>The following properties can be used to apply colors on the canvas objects:</p>
+<ul class="disc">
+<li><p><code>fillStyle</code></p></li>
+<li><p><code>strokeStyle</code></p></li>
+<li><p><code>shadowColor</code></p></li>
+</ul>
+</li>
+<li><p>Apart from creating simple shapes on the canvas, you can also apply styles, such as gradients, on them.</p></li>
+<li><p>A path is a series of points joined together to create lines or shapes. In a canvas, you can use lines or paths to draw shapes other than rectangles or squares.</p></li>
+<li><p>In addition to drawing shapes or lines on the canvas, you can also draw text on it. You can also apply different styles on the text.</p></li>
+<li><p>The <code>drawImage()</code> method is used to draw an image or a video on the canvas.</p></li>
+<li><p>In a canvas, you can create graphs, such as bar graph or pie chart, to represent relationships.</p></li>
+<li><p>To transform the canvas elements, you can use the following methods:</p>
+<ul class="disc">
+<li><p><code>translate()</code></p></li>
+<li><p><code>scale()</code></p></li>
+<li><p><code>rotate()</code></p></li>
+</ul>
+</li>
+<li><p>To create such animations, you need to perform the following steps:</p>
+<ul class="disc">
+<li><p>Create a variable for the animation state.</p></li>
+<li><p>Draw the animation.</p></li>
+<li><p>Redraw the objects.</p></li>
+</ul>
+</li>
+</ul>
+<h1 class="chapter-head" id="ref6">Reference Reading</h1>
+<h3 class="topic">Introducing Canvas</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>HTML5 Canvas
+Native Interactivity and Animation for the Web By Steve Foltun and Jeff Foltun</em></p></td>
+<td><p><em><a href="http://sixrevisions.com/html/canvas-element/">http://sixrevisions.com/html/canvas-element/</a></em></p>
+<p><em><a href="http://www.w3schools.com/html/html5_canvas.asp">http://www.w3schools.com/html/html5_canvas.asp</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Transforming and Animating Canvas Elements</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>HTML5 Canvas Native Interactivity and Animation for the Web By Steve Foltun and Jeff Foltun</em></p></td>
+<td><p><em><a href="http://developer.apple.com/library/safari/#documentation/AudioVideo/Conceptual/HTML-canvas-guide/Translation,Rotation,andScaling/Translation,Rotation,andScaling.html">http://developer.apple.com/library/safari/#documentation/AudioVideo/Conceptual/HTML-canvas-guide/Translation,Rotation,andScaling/Translation,Rotation,andScaling.html</a></em></p>
+<p><em><a href="http://tutorials.jenkov.com/html5-canvas/transformation.html">http://tutorials.jenkov.com/html5-canvas/transformation.html</a></em></p></td>
+</tr>
+</table>
+</body>
+</html>

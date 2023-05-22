@@ -1,0 +1,1761 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Chapter 5 - Creating Dynamic Web Pages</title>
+<link rel="stylesheet" type="text/css" href="css/Style.css"/>
+<link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="page-template.xpgt"/>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+<meta http-equiv="X-UA_Compatible" content="IE=9"/>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/GlobalContentSecrity.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/Content/analytics.js" type="text/javascript"></script>
+</head>
+<body bgcolor="#F8FCFD">
+<h1 class="chno" id="ch05"><em>Chapter 5</em></h1>
+<h1 class="chname">Creating Dynamic Web Pages</h1>
+<p class="nonindent">Today, most of the Web pages, such as the registration and login pages, have some way of accepting input from a user. To design such Web pages, you need to use several elements, known as form elements, which enable the  user to input values. The data entered using these form elements needs to be processed further upon submission. Every Web page should respond to end user actions, such as clicking a submit button, changing a value in a field, or making a selection from a list. All these actions are referred to as events and need to be handled appropriately. This dynamic functionality can be implemented using the JavaScript object model.</p>
+<p class="nonindent">This chapter discusses how to design an HTML form for accepting the user input. In addition, it discusses the various types of browser and form objects.</p>
+<h2 class="section-head">Objectives</h2>
+<p class="nonindent">In this chapter, you will learn to:</p>
+<ul class="square">
+<li><p>Design an HTML form</p></li>
+<li><p>Manipulate the components of a Web page</p></li>
+</ul>
+<h1 class="chapter-head" id="a62">Designing an HTML Form</h1>
+<p class="nonindent">Consider the scenario of FoodExpress.com. This website facilitates customers to place online orders with various restaurants. For this, the customers need to provide various details, such as the name, contact number,  and address, in an online form named as <strong>OrderFoodOnline</strong>, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_01.jpg" alt="" /></p>
+<p class="caption"><em>The OrderFoodOnline Form</em></p>
+
+<p class="nonindent">Forms are interactive Web pages that are used to accept the user input. These forms consist of one or more types of input fields, such as text fields, check boxes, radio buttons, and the submit buttons. These input fields enable the user to fill and submit the information to a website. HTML supports various tags to create forms and input fields.</p>
+<p class="center"><img src="images/HTML_05_CreatingandProcessingForms.jpg" onclick="play('animation_HTML_05_CreatingandProcessingForms_swf')" id="animation_HTML_05_CreatingandProcessingForms_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a63">Creating Forms</h2>
+<p class="nonindent">To create a form on a Web page, you need to use the <code>&#x003C;FORM&#x003E;</code> tag. The <code>&#x003C;FORM&#x003E;</code> tag helps you define a form. It has an opening <code>&#x003C;FORM&#x003E;</code> tag and a closing <code>&#x003C;/FORM&#x003E;</code> tag. The following syntax is used to specify the <code>&#x003C;FORM&#x003E;</code> tag:</p>
+<p class="code"><code>&#x003C;FORM [attribute list]&#x003E;</code></p>
+<p class="code"><code>..</code></p>
+<p class="code"><code>..</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="nonindent">The <code>&#x003C;FORM&#x003E;</code> tag supports the following attributes:</p>
+<ul class="square">
+<li><p><code>name</code></p></li>
+<li><p><code>ID</code></p></li>
+<li><p><code>action</code></p></li>
+<li><p><code>method</code></p></li>
+<li><p><code>autocomplete</code></p></li>
+<li><p><code>novalidate</code></p></li>
+<li><p><code>target</code></p></li>
+</ul>
+<h3 class="topic">name</h3>
+<p class="nonindent">The <code>name</code> attribute is used to specify a unique name for a form. It is used to uniquely identify a form in the <code>get</code> or <code>post</code> methods at the time of form submission. In addition, multiple forms can be present on a Web page. These forms can be differentiated using the <code>name</code> attribute. The following syntax is used to specify a name for a form:</p>
+<p class="code"><code>&#x003C;FORM name= "User defined name"&#x003E;... &#x003C;/FORM&#x003E;</code></p>
+<h3 class="topic">ID</h3>
+<p class="nonindent">The <code>ID</code> attribute is used to specify a unique ID for the form element on a Web page. The <code>ID</code> attribute should be unique in the entire HTML document. Both the <code>ID</code> and the <code>name</code> attributes are used to uniquely identify a form element on a Web page. However, the ID given to a form element is used when you need to reference it with style sheets or scripts. You can assign a unique ID to a form element by using this attribute.</p>
+<p class="nonindent">The following syntax is used to specify an ID for a form:</p>
+<p class="code"><code>&#x003C;FORM ID= "User defined ID"&#x003E;... &#x003C;/FORM&#x003E;</code></p>
+<h3 class="topic">action</h3>
+<p class="nonindent">The <code>action</code> attribute specifies the URL of the page to which the contents of the form are submitted. If this attribute is missing, the URL of the document itself is assumed as the location for the form submission. The following syntax is used for the <code>action</code> attribute to specify the URL of the page:</p>
+<p class="code"><code>&#x003C;FORM action="filename or URL"&#x003E;</code></p>
+<h3 class="topic">method</h3>
+<p class="nonindent">The <code>method</code> attribute is used to specify the format in which the data will be submitted to the file or the URL specified in the <code>action</code> attribute. It can take either of the following values:</p>
+<ul class="square">
+<li><p><code>get</code></p></li>
+<li><p><code>post</code></p></li>
+</ul>
+<p class="nonindent">The default value of the <code>method</code> attribute is <code>get</code>.</p>
+<h4 class="subtopic">get</h4>
+<p class="nonindent">The <code>get</code> value appends the form data to the URL of the form as the name value pair at the time of form submission. Since the data is appended to the URL, it is always visible to the users. Therefore, it is not a correct approach when you need to submit the sensitive data. Also, the size of data that can be submitted using the <code>get</code> method is limited to only 3000 characters.</p>
+<h4 class="subtopic">post</h4>
+<p class="nonindent">The <code>post</code> value does not append the form data to the URL of the form when it is submitted. Therefore, the data is not shown in the URL and offers a secure way of submitting the data. Also, a large amount of data can be sent using the <code>post</code> method. This method can be used to send  textual as well as image data.</p>
+<h3 class="topic">autocomplete</h3>
+<p class="nonindent">The <code>autocomplete</code> attribute is used to specify whether a form should have the autocomplete feature on or off. If it is on, the browser automatically completes the values in the fields based on the values that the user has entered before. The following code snippet is used to specify the <code>autocomplete</code> attribute for a form:</p>
+<p class="code"><code>&#x003C;FORM ID="fileID" autocomplete= "on"&#x003E;</code></p>
+<h3 class="topic">novalidate</h3>
+<p class="nonindent">The <code>novalidate</code> attribute specifies that the data in the form should not be validated by the browser at the time of data submission. It is an empty attribute that does not contain any value. The following code snippet is used to specify the <code>novalidate</code> attribute for a form:</p>
+<p class="code"><code>&#x003C;FORM ID="fileID" novalidate&#x003E;</code></p>
+<h3 class="topic">target</h3>
+<p class="nonindent">The <code>target</code> attribute is used to specify the name of the frame or the window in which the response obtained after submitting the form needs to be displayed. The following syntax is used to specify the<code> target</code> attribute for a form:</p>
+<p class="code"><code>&#x003C;FORM target="_blank|_self|_parent|_top|<em>frame_name</em>"&#x003E;</code></p>
+<p class="nonindent">The target attribute can have any one of the following values:</p>
+<ul class="square">
+<li><p><code>_blank</code>: Specifies that the response should be displayed in a new frame or window.</p></li>
+<li><p><code>_self</code>: Specifies that the response should be displayed in the same frame.</p></li>
+<li><p><code>_parent</code>: Specifies that the response should be displayed in the parent frame or window.</p></li>
+<li><p><code>_top</code>: Specifies that the response should be displayed in the full body of the window.</p></li>
+<li><p><code>frame_name</code>: Specifies that the response should be displayed in the specified frame.</p></li>
+</ul>
+<p class="nonindent">In the BookYourHotel scenario, the following code is used to create the <strong>OrderFoodOnline</strong> form:</p>
+<p class="code"><code>&#x003C;FORM name= "OrderFoodOnline" ID= "Order_Food" method= "post"&#x003E;</code></p>
+<p class="code"><code>......</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<h2 class="section-head" id="a64">Exploring Form Elements</h2>
+<p class="nonindent">You need to design the <strong>OrderFoodOnline</strong> form further so that it can be used to accept the  user input. For this, you need to add various input fields on the form. These fields can be added to a form by using the following tags:</p>
+<ul class="square">
+<li><p><code>&#x003C;INPUT&#x003E;</code></p></li>
+<li><p><code>&#x003C;SELECT&#x003E;</code></p></li>
+<li><p><code>&#x003C;LABEL&#x003E;</code></p></li>
+<li><p><code>&#x003C;FIELDSET&#x003E;</code></p></li>
+<li><p><code>&#x003C;TEXTAREA&#x003E;</code></p></li>
+<li><p><code>&#x003C;DATALIST&#x003E;</code></p></li>
+<li><p><code>&#x003C;KEYGEN&#x003E;</code></p></li>
+<li><p><code>&#x003C;OUTPUT&#x003E;</code></p></li>
+<li><p><code>&#x003C;BUTTON&#x003E;</code></p></li>
+</ul>
+<h3 class="topic">&#x003C;INPUT&#x003E;</h3>
+<p class="nonindent">The &#x003C;<code>INPUT</code>&#x003E; tag is used to create input fields inside a form. These fields are used to accept input from the users. Input fields are of various types, such as text box, radio button, or check box. The type of input field is determined by the value of its <code>type</code> attribute. The <code>&#x003C;INPUT&#x003E;</code> tag has some important attributes, such as<code> type</code>, <code>value</code>, <code>name</code>, <code>ID</code>, <code>autocomplete</code>, <code>autofocus</code>, <code>form</code>, <code>required, pattern</code>, and <code>placeholder</code>.</p>
+<h4 class="subtopic">Defining the type Attribute</h4>
+<p class="nonindent">The <code>type</code> attribute of the <code>&#x003C;INPUT&#x003E;</code> tag defines the type of input field to be added on the form. The <code>type</code> attribute has the following values:</p>
+<ul class="square">
+<li><p><code>text</code>: Creates a single line editable text field. When the value of the <code>type</code> attribute is <code>text</code>, two additional attributes, <code>size</code> and <code>maxlength</code>, can also be specified. The <code>size</code> attribute is used for limiting the character width of the text field in the form. The <code>maxlength</code> attribute defines the maximum number of characters that can be typed in the text field. The following code snippet is used to  create a text field:</p>
+<p><code>First Name: &#x003C;INPUT type="text" name="fname" size="20" maxlength="20"&#x003E;<br />Last Name: &#x003C;INPUT type="text" name="lname" size="20" maxlength="20"&#x003E;</code></p>
+<p>In the preceding code snippet, two text fields, <code>fname</code> and <code>lname</code>, are created. Both the fields are 20 characters wide and can accept a maximum of 20 characters.</p></li>
+<li><p><code>password</code>: Creates a password field, which will not display the characters being typed by the user. It hides the actual characters and shows the masked values for each character, such as ****. The following code snippet is used to create a password field:</p>
+<p><code>&#x003C;INPUT type="password" name="accountpasswrd"&#x003E;</code></p></li>
+<li><p><code>radio</code>: Creates a radio button, which lets the user select one of the options from a set of given options. When the value of the <code>type</code> attribute is <code>radio</code>, an additional attribute, <code>checked</code>, can also be specified. The <code>checked</code> attribute is used to specify that the radio button appears pre-selected when the page loads.  The following code snippet is used to create a radio field:</p>
+<p class="nonindent"><code>&#x003C;INPUT type="radio" name="Rating of Hotel" checked&#x003E;<br />5-Star&#x003C;BR/&#x003E;<br />&#x003C;INPUT type="radio" name="Rating of Hotel"&#x003E; Budgeted</code></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The <code>checked</code> attribute can also be used with the <code>checkbox</code> input field.</em></p>
+</div>
+<p>In the preceding code snippet, two radio buttons <code>5-Star</code> and <code>Budgeted</code>, are created. The <code>checked</code> attribute is applied on the first radio button, <code>5-Star</code>. Therefore, it appears selected by default.</p>
+<p>The radio buttons in a group are given the same name to ensure that the user is able to select only one radio button at a time.</p>
+<p>The radio buttons are displayed as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_02.png" alt="" /></p>
+<p class="caption"><em>The Radio Buttons</em></p></li>
+<li><p><code>checkbox</code>: Creates a check box, which lets the user select one or more options from a set of given options. The following code snippet is used to create the check box fields:</p>
+<p><code>&#x003C;INPUT type="checkbox" name="Cuisine1" value="Continental Cuisine"&#x003E; Continental Cuisine</code></p>
+<p><code>&#x003C;INPUT type="checkbox" name="Cuisine2" value="Chinese Cuisine"&#x003E; Chinese Cuisine</code></p>
+<p>In the preceding code snippet, two check boxes, <code>Continental Cuisine</code> and <code>Chinese Cuisine</code>, are created, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_03.png" alt="" /></p>
+<p class="caption"><em>The Check Boxes</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The <code>value</code> attribute will be discussed later in this chapter.</em></p>
+</div></li>
+<li><p><code>submit</code>: Creates a submit button, which submits the form data to the location specified in the <code>action</code> attribute of the form. When the value of the <code>type</code> attribute is <code>submit</code>, some additional attributes, such as<code> formaction</code>, <code>formmethod</code>, <code>formtarget</code>, and <code>formnovalidate</code> can also be specified. The description of these attributes is given in the following list:</p>
+<ul class="disc">
+<li><p><code>formaction</code>: It is used to specify a URL where the form data would be submitted  when the submit button is clicked. The URL specified in the <code>formaction</code> attribute of the submit button overrides the URL specified in the <code>action</code> attribute of the <code>&#x003C;FORM&#x003E;</code> tag. Therefore, the form is forcibly submitted to the URL specified in the <code>formaction</code> attribute of the submit button, instead of the URL specified in the <code>action</code> attribute of the form.</p></li>
+<li><p><code>formmethod</code>: It is used to specify the method, such as <code>get</code> and <code>post</code>, using which the form data will be sent to the file or URL specified in the <code>action</code> attribute of the form. The value specified for the <code>formmethod</code> attribute of the submit button overrides the value of the <code>method</code> attribute of the <code>&#x003C;FORM&#x003E;</code> tag.</p></li>
+<li><p><code>formtarget</code>: It is used to specify the name of the frame or the window in which the response would be displayed when the form is submitted. The value specified for the <code>formtarget</code> attribute of the submit button overrides the value of the <code>target</code> attribute of the <code>&#x003C;FORM&#x003E;</code> tag.</p></li>
+<li><p><code>formnovalidate</code>: Every form is validated by default, unless you use the <code>novalidate</code> attribute with the <code>&#x003C;FORM&#x003E;</code> tag. The <code>formnovalidate</code> attribute of the submit button is used to force the form to behave like a form with the <code>novalidate</code> attribute.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The <code>formaction</code>, <code>formmethod</code>, <code>formtarget</code>, and <code>formnovalidate</code> attributes can also be used with the <code>INPUT type</code>, <code>image</code> and the <code>&#x003C;BUTTON&#x003E;</code> tag.<br /><br />The <code>INPUT type</code>, <code>image</code> and the <code>&#x003C;BUTTON&#x003E;</code> tag will be discussed later in this chapter.</em></p>
+</div></li>
+</ul></li>
+<li><p><code>reset</code>: Creates a reset button, which clears the values entered by a user in the form fields.  The following syntax is used to create a reset field:</p>
+<p><code>&#x003C;INPUT type="reset" name=</code>"<code>reset</code>"<code>&#x003E;</code></p></li>
+<li><p><code>URL</code>: Adds a field that is used to enter the URL of a website. The value in this field is automatically validated for correctness when the form is submitted. The following syntax is used to create a URL field:</p>
+<p><code>&#x003C;INPUT type="url" name="locator"&#x003E;</code></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>URL stands for Uniform Resource Locator. It is the address of a unique file or resource available on the web that is accessible through the Internet. www.w3schools.com is an example of a URL specified in the address bar of a browser to connect to the home page of w3schools.com website.</em></p>
+</div></li>
+<li><p><code>email</code>: Creates a field in an HTML form to accept the email address from the users. You can even use a normal text field to accept the email address. But every email address needs to be validated for its correct format, &#x003C;username&#x003E;@&#x003C;domainname&#x003E;. If you use the text field to accept an email address, such a validation is difficult to perform. However, with an email field, the email address is automatically validated upon submitting the form.</p>
+<p>When the value of the <code>type</code> attribute is <code>email</code>, an additional attribute, <code>multiple</code>, can also be specified. The <code>multiple</code> attribute is used to specify that the user can enter more than one value in the field. The following code snippet is used to create an email field:</p>
+<p><code>&#x003C;INPUT type="email" name="email_id" multiple&#x003E;</code></p></li>
+<li><p><code>range</code>: Creates a slider control to enter a numeric value within a range. The default range of the slider is 0 to 100. When the value of the <code>type</code> attribute is <code>range</code>, additional attributes, such as<code> min</code>, <code>max</code>, <code>value</code>, and <code>step</code>,<code></code> can also be specified. The <code>min</code> attribute is used to specify the minimum value in a range. The <code>max</code> attribute is used to specify the maximum value in a range. The <code>value</code> attribute stores the current value associated with the range field. The <code>step</code> attribute is used to specify a number with which the <code>value</code> of the range field will increase or decrease as you move the slider. The following code snippet is used to create a range field:</p>
+<p><code>&#x003C;INPUT type="range" max="50" min="10" step="5" value="10"&#x003E;</code></p>
+<p>The preceding code snippet creates a range with the default value <code>10</code>, the minimum value, <code>10</code>, and the maximum value, <code>50</code>. The value will increase by <code>5</code> within the minimum and maximum limit when you use the slider to specify the numeric value. The range field is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_04.png" alt="" /></p>
+<p class="caption"><em>The Range Field</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The<code> min</code>, <code>max</code>, and <code>step</code> attributes can also be used with the input types, such as<code> number</code>, <code>date</code>, and <code>time</code>. The input types, such as <code>number</code>, <code>date</code>, <code>and</code> <code>time</code>, will be discussed later in this chapter.</em> </p>
+</div></li>
+<li><p><code>date</code>: Is used to define a date field in an HTML form. It allows a user to select a date. The following code snippet is used to create a date field:</p>
+<p><code> &#x003C;INPUT type="date" name="bday"&#x003E;</code></p>
+<p>The preceding code snippet creates a date field, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_05.png" alt="" /></p>
+<p class="caption"><em>The Date Field</em></p></li>
+<li><p><code>time</code>: Is used to define a time field in an HTML form. It allows a user to select time. The following code snippet is used to create a time field:</p>
+<p><code>&#x003C;INPUT type="time" name="usr_time"&#x003E;</code></p>
+<p>The preceding code snippet creates a time field, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_06.png" alt="" /></p>
+<p class="caption"><em>The Time Field</em></p></li>
+<li><p><code>number</code>: Is used to create an input field for entering a numeric value. The following code snippet is used to create a number field:</p>
+<p><code>&#x003C;INPUT type="number" name="quantity" min="0" max="50"&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet creates a number field with a minimum value of 0 and a maximum value of 50. The number field is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_07.png" alt="" /></p>
+<p class="caption"><em>The Number Field</em></p></li>
+<li><p><code>tel</code>: Is used to accept a telephone number from the user. The following code snippet is used to create a telephone field:</p>
+<p><code>&#x003C;INPUT type="tel" name="usrtel"&#x003E;</code></p></li>
+<li><p><code>image</code>: Is used to specify an image to be used as a <code>submit</code> button. When the value of the <code>type</code> attribute is <code>image</code>, some additional attributes, such as<code> height</code>, <code>width</code>, <code>alt</code>, and <code>src</code> can also be specified. The following list describes these attributes:</p>
+<ul class="disc">
+<li><p><code>height</code> and <code>width</code>: The <code>height</code> and <code>width</code> attributes specify the height and width for the image.</p></li>
+<li><p><code>alt</code>: The <code>alt</code> attribute is used to specify text for the alternative buttons to be displayed when the image specified in the <code>src</code> attribute could not be used.</p></li>
+<li><p><code>src</code>: The <code>src</code> attribute specifies the URL of the image that will be used as a submit button.</p></li>
+</ul>
+<p class="nonindent">The following code snippet is used to create an image field:</p>
+<p class="nonindent"><code>&#x003C;INPUT type="image" src="img_submit.gif" alt="submit" width="48" height="48" /&#x003E;</code></p>
+<p class="nonindent">The preceding code displays the image to be used as the submit button, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_08.png" alt="" /></p>
+<p class="caption"><em>The Image Used as the Submit Button</em></p></li>
+</ul>
+<h4 class="subtopic">Defining the value Attribute</h4>
+<p class="nonindent">The <code>value</code> attribute specifies the value of the field. It behaves differently for different input types, as shown in the following list:</p>
+<ul class="square">
+<li><p>For <code>button</code>, <code>reset</code>, and <code>submit</code> input types, the <code>value</code> attribute defines the text that appears on the face of the buttons.</p></li>
+<li><p>For <code>text</code> and <code>password</code> input types, the <code>value</code> attribute defines the default value for the fields.</p></li>
+<li><p>For <code>checkbox</code>, <code>radio</code>, and <code>image</code> input types, the <code>value</code> attribute defines the values associated with the input fields. All the radio buttons in a group have a common name. Therefore, the <code>value</code> attribute is used to differentiate the radio buttons in a group. In addition when a form is submitted, the selected radio button is identified by using its <code>value</code> attribute. Similarly, the user can select one or more check boxes and submit the form. All the selected check boxes can be identified by using the <code>value</code> attribute.</p></li>
+</ul>
+<p class="nonindent">The following code snippet is used to specify the <code>value</code> attribute:</p>
+<p class="nonindent"><code>&#x003C;INPUT type="text" name="fname" value="Enter Your First Name"&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, <code>Enter Your First Name</code>, is assigned to the <code>value</code> attribute of the input field.</p>
+<h4 class="subtopic">Defining the name Attribute</h4>
+<p class="nonindent">The <code>name</code> attribute specifies the name for the input field. It is used to identify the form field when the form data is submitted. The following code snippet is used to specify a name for the input field:</p>
+<p class="code"><code>&#x003C;INPUT type="text" name="Text1" /&#x003E;</code></p>
+<p>In the preceding code, the name, <code>Text1</code>, is assigned to the text field.</p>
+<h4 class="subtopic">Defining the ID Attribute</h4>
+<p class="nonindent">The <code>ID</code> attribute provides a unique ID to the input field. This attribute is used to access the input fields in the CSS or JavaScript code.</p>
+<p class="nonindent">The following code snippet is used to specify a unique ID to the input field:</p>
+<p class="code"><code>&#x003C;INPUT type="text" ID="value"&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the ID, <code>value</code>, is assigned to the input field.</p>
+<h4 class="subtopic">Defining the autocomplete Attribute</h4>
+<p class="nonindent">The <code>autocomplete</code> attribute is used to specify whether a form element should have the autocomplete feature on or off. If it is on, the browser automatically completes the values in the form fields based on the values that the user has entered earlier. The following code snippet is used to specify the <code>autocomplete</code> attribute for a form:</p>
+<p class="code"><code> &#x003C;INPUT type="email" name="email" autocomplete="on"&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, the <code>autocomplete</code> attribute is set to <code>on</code> for the <code>email</code> input field.</p>
+<h4 class="subtopic">Defining the autofocus Attribute</h4>
+<p class="nonindent">The <code>autofocus</code> attribute is used to ensure that the form element has a focus when a Web page loads. The following code snippet is used to specify an <code>autofocus</code> attribute for an input field:</p>
+<p class="code"><code>&#x003C;INPUT type="text" name="lname" autofocus&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, the text field with the name, <code>lname</code>, will have the focus when the page loads.</p>
+<h4 class="subtopic">Defining the required Attribute</h4>
+<p class="nonindent">The <code>required</code> attribute is used to specify that an input field must not be left empty while submitting the form. The <code>required</code> attribute can be used with the input types, such as <code>text</code>, <code>tel</code>, <code>email</code>, <code>password</code>, <code>number</code>, <code>checkbox</code>, and<code> radio</code>. The following code snippet is used to specify the <code>required</code> attribute for the input field:</p>
+<p class="code"><code>&#x003C;INPUT type="text" name="usrname" required&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, the <code>required</code> attribute ensures that the text field named <code>usrname</code> should not be left blank at the time of form submission.</p>
+<h4 class="subtopic">Defining the pattern Attribute</h4>
+<p class="nonindent">The <code>pattern</code> attribute is used to specify a regular expression against which the element&#x2019;s value will be checked.  The <code>pattern</code> attribute can be used with the input types, such as <code>text</code>,<code> url</code>, <code>tel</code>, <code>email</code>, and <code>password</code>. The following table lists the expressions that can be applied on various input fields to create patterns.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+<tr valign="top">
+<td align="left" style="width:20%"><p><em><strong>Expression</strong></em></p></td>
+<td align="left" style="width:40%"><p><em><strong>Description</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><em><code>[abc]</code></em></p></td>
+<td align="left" style="width:40%"><p><em>Finds the characters that are specified within the brackets.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><em><code>[^abc]</code></em></p></td>
+<td align="left" style="width:40%"><p><em>Finds the characters that are not specified within the brackets.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><em><code>[0-9]</code></em></p></td>
+<td align="left" style="width:40%"><p><em>Finds any digit from 0 to 9.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><em><code>[A-Z]</code></em></p></td>
+<td align="left" style="width:40%"><p><em>Finds the character from uppercase A to uppercase Z.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><em><code>[a-z]</code></em></p></td>
+<td align="left" style="width:40%"><p><em>Finds the character from lowercase a to lowercase z.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><em><code>A-z</code></em></p></td>
+<td align="left" style="width:40%"><p><em>Finds the character from uppercase A to lowercase z.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Expressions that can be Applied to Create Patterns</em></p>
+<p class="nonindent">The following code is used to specify the <code>pattern</code> attribute for the input field:</p>
+<p class="code"><code>&#x003C;INPUT type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter code"&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the value for the <code>pattern</code> attribute ensures that the text field accepts only  three letter alphabets in capital or small letters. It will not allow the user to enter any number or special character in the text field.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>A regular expression is a set of characters, which is used to specify a pattern.</em> </p>
+</div>
+<h4 class="subtopic">Defining the placeholder Attribute</h4>
+<p class="nonindent">The <code>placeholder</code> attribute is used to specify a sample value for the input field that will be displayed until the user enters a value.  The <code>placeholder</code> attribute can be used with the input types, such as <code>text</code>, <code>tel</code>, <code>email</code>, <code>password</code>, and <code>number</code>. The following code snippet is used to specify the <code>placeholder</code> attribute for an input field:</p>
+<p class="code"><code>&#x003C;INPUT type="text" placeholder="Type your first name" name="fname"&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, the text, <code>Type your First name here</code>, will appear in the text field named <code>fname.</code> The text will appear when the page loads suggesting the user to enter the first name in the field.</p>
+<p class="nonindent">The output derived by using the <code>placeholder</code> attribute with the text field is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_09.png" alt="" /></p>
+<p class="caption"><em>The Output Derived by Using the Placeholder Attribute</em></p>
+<p class="nonindent">Consider the following code to create input fields, such as text, date, telephone number, email, and radio for the <strong>OrderFoodOnline</strong> Web page:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>body{</code></p>
+<p class="code"><code>background-color:#FFEBCD;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>.autostyle2{</code></p>
+<p class="code"><code>color:red;</code></p>
+<p class="code"><code>font-size:20px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY bgcolor="#FFEBCD"&#x003E;</code></p>
+<p class="code"><code>   &#x003C;FORM action = "registeration.html"&#x003E;</code></p>
+<p class="code"><code>&#x003C;TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR class="autostyle2"&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD colspan="4"&#x003E;OrderFoodOnline&#x003C;/TD&#x003E;&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD WIDTH="100%" COLSPAN="4"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Name:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT type="text" name="usrname" placeholder="Enter your name" required&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Date:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT type="date" name="date" required&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;email ID:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT type="email" name="usrmail" placeholder="Enter your email ID" required&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Contact Number:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT type="tel" name="usrtel" placeholder="Enter your phone number" required&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TD&#x003E;Select Food:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Non-vegetarian&#x003C;INPUT type="Radio" NAME="rd1"&#x003E;</code></p>
+<p class="code"><code>Vegetarian&#x003C;INPUT type="Radio" NAME="rd1" &#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code creates a textbox to accept the name of the customer, a date field to accept the date, an email field to accept the validated email address of the customer, a telephone field to accept the telephone number, and radio buttons to accept the food preferences of the customer. The OrderFoodOnline form is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_10.jpg" alt="" /></p>
+<p class="caption"><em>The OrderFoodOnline Form</em></p>
+<h3 class="topic">&#x003C;SELECT&#x003E;</h3>
+<p class="nonindent">The &#x003C;<code>SELECT&#x003E;</code> tag is a container tag. It creates a drop-down list on the form. It has the following attributes:</p>
+<ul class="square">
+<li><p><code>multiple</code>: Is used to allow the user to select more than one value from the drop-down list by using the <code>Ctrl</code> key.</p></li>
+<li><p><code>name</code>: Is used to specify a name of the selection list that will be used at the time of submitting the form.</p></li>
+<li><p><code>size</code>: Is used to specify the number of visible items in the selection or drop-down list. The default value is 1. If the value of this attribute is greater than 1, then the form field will be a list.</p></li>
+<li><p><code>autofocus</code>: Is used to ensure that the focus is on the drop-down list when the page loads.</p></li>
+<li><p><code>form</code>: Is used to specify the name of one or more forms to which the <code>&#x003C;SELECT&#x003E;</code> tag belongs.</p></li>
+</ul>
+<p class="nonindent">The following code is used to create a <code>&#x003C;SELECT&#x003E;</code> tag:</p>
+<p class="code"><code>&#x003C;SELECT name= "5-Star_Hotels" size=1 multiple&#x003E;&#x003C;/SELECT&#x003E;</code></p>
+<p class="nonindent">The preceding code will create a drop-down list with the name, <code>5-Star_Hotels</code>, with the size, <code>1</code>. The <code>multiple</code> attribute allows the user to select multiple items from the list.</p>
+<p class="nonindent">However, the <code>&#x003C;SELECT&#x003E;</code> tag only creates a drop-down list. It does not embed list items in it. To specify the list items, you need to use the tags, <code>&#x003C;OPTION&#x003E;</code> and <code>&#x003C;OPTGROUP&#x003E;</code>, with the<code> &#x003C;SELECT&#x003E;</code> tag<code>.</code></p>
+<h4 class="subtopic">Defining the &#x003C;OPTION&#x003E;Tag</h4>
+<p class="nonindent">It is always used within the <code>&#x003C;SELECT&#x003E;</code> tag and cannot be used as a standalone tag. It is used to create a list of options in the drop-down list and has the following attributes:</p>
+<ul class="square">
+<li><p><code>selected</code>: Is used to indicate that a particular option comes pre-selected when the page loads in the browser.</p></li>
+<li><p><code>value</code>: Is used to indicate the value of the option to be sent on the form submission when that option is selected by the user.</p></li>
+<li><p><code>disabled</code>: Is used to indicate that an option should be disabled when the page loads.</p></li>
+</ul>
+<p class="nonindent">Consider the following code to create the drop-down lists in the <strong>OrderFoodOnline</strong> form:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>    ........&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>    &#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Select Restaurant:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt1"&#x003E;Select Your Restaurants&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt2"&#x003E;La Figa&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt3"&#x003E;Benihana&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt4"&#x003E;Gallipoli&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt5"&#x003E;Kings Road SteakHouse&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Drinks:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt6"&#x003E;Select Your Drink&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt7"&#x003E;Cappuccino&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt8"&#x003E;Caffelatte&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Soups:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt9"&#x003E;Select the Soup of Your Choice&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt10"&#x003E;Minestrone&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt11"&#x003E;Fonduta&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt12"&#x003E;Pasta e fagioli&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the drop-down lists, Drinks, Soups, and Restaurant, are created. The output derived by using the <code>&#x003C;OPTION&#x003E;</code> tag is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_11.jpg" alt="" /></p>
+<p class="caption"><em>The Output Derived by Using the &#x003C;OPTION&#x003E; Tag</em></p>
+<h4 class="subtopic">Defining the &#x003C;OPTGROUP&#x003E; Tag</h4>
+<p class="nonindent">The <code>&#x003C;OPTGROUP&#x003E;</code> tag is used to group the related options in one group. It is generally used when you have a long list of options and you want to group the related options in one to make it simpler. The <code>&#x003C;OPTGROUP&#x003E;</code> tag can have the following attributes:</p>
+<ul class="square">
+<li><p><code>disabled</code>: Is used to indicate that an option group should be shown disabled when the page loads.</p></li>
+<li><p><code>label</code>: Is used to specify a label for the option group.</p></li>
+</ul>
+<p class="nonindent">Consider the following code to create a drop-down list in the <strong>OrderFoodOnline</strong> Web page:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>........&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Dishes:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt13"&#x003E;Select the Dishes of Your Choice&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTGROUP label="Italian"&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt14"&#x003E;Pasta&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt15"&#x003E;Fish&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt16"&#x003E;Rice&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/OPTGROUP&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTGROUP label="Chinese"&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt17"&#x003E;Chowmein&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt18"&#x003E;Manchurian&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt19"&#x003E;Water Chessnut Cake&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/OPTGROUP&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>&#x003C;OPTGROUP&#x003E;</code> tag is used to group the items in two categories, Italian and Chinese. Further, the <code>&#x003C;OPTION&#x003E;</code> tag is enclosed in between the <code>&#x003C;OPTGROUP&#x003E;</code> tag to specify the items in the categories.</p>
+<p class="nonindent">The output derived by using the <code>&#x003C;OPTGROUP&#x003E;</code> tag is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_12.jpg" alt="" /></p>
+<p class="caption"><em>The Output Derived by Using the &#x003C;OPTGROUP&#x003E; Tag</em></p>
+<h3 class="topic">&#x003C;LABEL&#x003E;</h3>
+<p class="nonindent">The <code>&#x003C;LABEL&#x003E;</code> tag is used to define a label for the input fields.<code></code> You can also define a label for the <code>&#x003C;OUTPUT&#x003E;</code> tag. The <code>&#x003C;LABEL&#x003E;</code> element does not render anything special for the user. However, it provides functionality for users in such a way that if they click on the text within the <code>&#x003C;LABEL&#x003E;</code> element, the corresponding field will automatically get selected. For this, the <code>for</code> attribute of the <code>&#x003C;LABEL&#x003E;</code> tag should be equal to the <code>ID</code> attribute of the related input field. The <code>&#x003C;LABEL&#x003E;</code> tag has the following attributes:</p>
+<ul class="square">
+<li><p><code>for</code>: Is used to bind the <code>&#x003C;LABEL&#x003E;</code> tag with the input field and should have the same value as the <code>ID</code> attribute of the input field.</p></li>
+<li><p><code>form</code>: Is used to specify the name of one or more forms to which the &#x003C;<code>LABEL&#x003E;</code> tag belongs.</p></li>
+</ul>
+<p class="nonindent">Consider the following code to create a label for the input fields in the <strong>OrderFoodOnline</strong> Web page:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>body{</code></p>
+<p class="code"><code>background-color:#FFEBCD;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>.autostyle2{</code></p>
+<p class="code"><code>color:red;</code></p>
+<p class="code"><code>font-size:20px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;FORM action = "registeration.html"&#x003E;</code></p>
+<p class="code"><code>&#x003C;TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR class="autostyle2"&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD colspan="2"&#x003E;OrderFoodOnline&#x003C;/TD&#x003E;&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD WIDTH="100%" COLSPAN="2"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="name"&#x003E;Name:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT type="text" name="usrname" ID="name" placeholder="Enter your</code></p>
+<p class="code"><code>name" required&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="date"&#x003E;Date:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT type="date" name="date" ID="date" required&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="email"&#x003E;email ID:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT type="email" name="usrmail" ID="email" placeholder="Enter your email ID" required&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="number"&#x003E;Contact Number:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT type="tel" name="usrtel" ID="number" placeholder="Enter your phone number" required&#x003E;&#x003C;/TD&#x003E;&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TD&#x003E;&#x003C;LABEL for="food"&#x003E;Select Food:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="nonveg"&#x003E;Non-vegetarian&#x003C;/LABEL&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="radio" name="food" ID="nonveg"&#x003E;</code></p>
+<p class="code"><code>&#x003C;LABEL for="veg"&#x003E;Vegetarian&#x003C;/LABEL&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="radio" name="food" ID="veg"&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="restro"&#x003E;Select Restaurant:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>	&#x003C;OPTION value="opt1"&#x003E;Select Your Restaurants&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt2"&#x003E;La Figa&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt3"&#x003E;Benihana&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt4"&#x003E;Gallipoli&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; &#x003C;OPTION value="opt5"&#x003E;Kings Road</code></p>
+<p class="code"><code>SteakHouse&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="drinks"&#x003E;Drinks:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>	&#x003C;OPTION value="opt6"&#x003E;Select Your Drink&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt7"&#x003E;Cappuccino&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt8"&#x003E;Caffelatte&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="soups"&#x003E;Soups:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code> &#x003C;OPTION value="opt9"&#x003E;Select the Soup of Your Choice&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt10"&#x003E;Minestrone&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; &#x003C;OPTION value="opt11"&#x003E;Fonduta&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="opt12"&#x003E;Pasta e fagioli&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="dishes"&#x003E;Dishes:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt13"&#x003E;Select the Dishes of Your Choice&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTGROUP label="Italian"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt14"&#x003E;Pasta&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt15"&#x003E;Fish&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="opt16"&#x003E;Rice&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>  &#x003C;/OPTGROUP&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTGROUP label="Chinese"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt17"&#x003E;Chowmin&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; &#x003C;OPTION value="opt18"&#x003E;Manchurian&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="opt19"&#x003E;Water Chessnut Cake&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>  &#x003C;/OPTGROUP&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="Order For:"&#x003E;Order For:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="pickup"&#x003E;Take Away&#x003C;/LABEL&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="radio" name="pickup" ID="pickup"&#x003E;</code></p>
+<p class="code"><code>&#x003C;LABEL for="home"&#x003E;Home Delivery&#x003C;/LABEL&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="radio" name="pickup" ID="home"&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>&#x003C;LABEL&#x003E;</code> tag is used to label the input fields in the <strong>OrderFoodOnline</strong> Web page. You can select the input field by clicking on the label of the field. The output derived by using the <code>&#x003C;LABEL&#x003E;</code> tag is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_13.jpg" alt="" /></p>
+<p class="caption"><em>The Output Derived by Using the &#x003C;LABEL&#x003E; Tag</em></p>
+<h3 class="topic">&#x003C;FIELDSET&#x003E;</h3>
+<p class="nonindent">The <code>&#x003C;FIELDSET&#x003E;</code> tag is used to combine and group related fields in a form. It creates a box around the selected fields. You can also define the description for the fieldset by using the <code>&#x003C;LEGEND&#x003E;</code> tag. The <code>&#x003C;LEGEND&#x003E;</code> tag is used along with the <code>&#x003C;FIELDSET&#x003E;</code> tag to define a caption for the fieldset. It is the simplest way of organizing form elements along with their description in such a way that it is easier for a user to understand.</p>
+<p class="nonindent">The <code>&#x003C;FIELDSET&#x003E;</code> tag can have the following attributes:</p>
+<ul class="square">
+<li><p><code>disabled</code>: The <code>disabled</code> attribute is used to indicate that a group of fields should be shown disabled when the page loads.</p></li>
+<li><p><code>form</code>: The <code>form</code> attribute is used to specify the name of one or more forms to which the <code>&#x003C;FIELDSET&#x003E;</code> tag belongs.</p></li>
+<li><p><code>name</code>: The<code> name</code> attribute is used to specify the name for the fieldset.</p></li>
+</ul>
+<p class="nonindent">Consider the following code to group the drop-down lists inside a fieldset on the <strong>OrderFoodOnline</strong> Web page:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;FIELDSET&#x003E;</code></p>
+<p class="code"><code>Drinks:</code></p>
+<p class="code"><code>&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="opt1"&#x003E;Select Your Drink&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt2"&#x003E;Cappuccino&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt3"&#x003E;Caffelatte&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;</code></p>
+<p class="code"><code>Soups:</code></p>
+<p class="code"><code>&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt4"&#x003E;Select the Soup of Your Choice&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt5"&#x003E;Minestrone&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="opt6"&#x003E;Fonduta&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt7"&#x003E;Pasta e fagioli&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;</code></p>
+<p class="code"><code>Dishes:</code></p>
+<p class="code"><code>&#x003C;SELECT&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt8"&#x003E;Select the Dishes of Your Choice.&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTGROUP label="Italian"&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt9"&#x003E;Pasta&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="opt10"&#x003E;Fish&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt11"&#x003E;Rice&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/OPTGROUP&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTGROUP label="Chinese"&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt12"&#x003E;Chowmin&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;OPTION value="opt13"&#x003E;Manchurian&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="opt14"&#x003E;Water Chessnut Cake&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/OPTGROUP&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FIELDSET&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code groups the food items in one box. The output derived by using the <code>&#x003C;FIELDSET&#x003E;</code> tag is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_14.jpg" alt="" /></p>
+<p class="caption"> <em>The Output Derived by Using the &#x003C;FIELDSET&#x003E; Tag</em></p>
+<h3 class="topic">&#x003C;TEXTAREA&#x003E;</h3>
+<p class="nonindent">The <code>&#x003C;TEXTAREA&#x003E;</code> tag creates a field in which the user can enter a large amount of text. The <code>&#x003C;TEXTAREA&#x003E;</code> tag has the following attributes:</p>
+<ul class="square">
+<li><p><code>rows</code></p></li>
+<li><p><code>cols</code></p></li>
+</ul>
+<h4 class="subtopic">rows</h4>
+<p class="nonindent">The <code>rows</code> attribute helps to set the number of rows of text that will be visible without scrolling up or down in the field.</p>
+<h4 class="subtopic">cols</h4>
+<p class="nonindent">The <code>cols</code> attribute helps to set the number of columns of text that will be visible without scrolling right or left in the field.</p>
+<p class="nonindent">Consider the following code to create a textarea in the <strong>OrderFoodOnline</strong> Web page to accept the users&#x2019; address:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>........&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="Orderfor"&#x003E;Adderess:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>  &#x003C;TD&#x003E;&#x003C;TEXTAREA rows="3" cols="16" ID="Orderfor"&#x003E;</code></p>
+<p class="code"><code>Enter Your Address Here</code></p>
+<p class="code"><code>&#x003C;/TEXTAREA&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The output derived by using the <code>&#x003C;TEXTAREA&#x003E;</code> tag is displayed in the following figure.</p>
+<p class="center"><img src="images/HTML_05_15.jpg" alt="" /></p>
+<p class="caption"><em>The Output Derived by Using the &#x003C;TEXTAREA&#x003E; Tag</em></p>
+<h3 class="topic">&#x003C;DATALIST&#x003E;</h3>
+<p class="nonindent">The <code>&#x003C;DATALIST&#x003E;</code> tag is used to create a list of pre-defined options for an input field. It is used to provide an autocomplete feature on input fields so that the user can view the drop-down list of pre-defined options whenever they input data.</p>
+<p class="nonindent">Consider the following code to create a datalist named <strong>State</strong> in the <strong>OrderFoodOnline</strong> Web page:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>........&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;LABEL for="state"&#x003E;State:&#x003C;/LABEL&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT list="stat" name="stat" ID="state"&#x003E;</code></p>
+<p class="code"><code>&#x003C;DATALIST ID="stat"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="Alabama"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="California"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="Delaware"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="Florida"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;OPTION value="Hawaii"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/DATALIST&#x003E;&#x003C;BR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; &#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code creates a datalist so that whenever a user types the initial characters of the name of a state, the names matching the initials will appear in the drop-down list, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_16.jpg" alt="" /></p>
+<p class="caption"><em>The Output Derived by Using the &#x003C;DATALIST&#x003E; Tag</em></p>
+<p class="nonindent">In the preceding figure, when a user types the character, c, California is prompted in the list.</p>
+<h3 class="topic">&#x003C;KEYGEN&#x003E;</h3>
+<p class="nonindent">The <code>&#x003C;KEYGEN&#x003E;</code> tag is used to specify a key-pair generated field in a form. Whenever the form is submitted, the private and public keys are generated, where the private key is stored locally, and the public key is sent to the server. As the public key is stored in the server, it can be used to authenticate a user in the future. The <code>&#x003C;KEYGEN&#x003E;</code> tag can have the following attributes:</p>
+<ul class="square">
+<li><p><code>autofocus</code>: Is used to specify that the <code>&#x003C;KEYGEN&#x003E;</code><strong></strong> tag automatically gets the focus when a Web page loads.</p></li>
+<li><p><code>disabled</code>: Is used to indicate that a <code>&#x003C;KEYGEN&#x003E;</code><strong></strong> tag should be shown disabled when a page loads.</p></li>
+<li><p><code>name</code>: Is used to specify a name for the <code>&#x003C;KEYGEN&#x003E;</code><strong></strong> tag.</p></li>
+<li><p><code>keytype</code>: Is used to specify the security algorithm of the key. It accepts the name of various security algorithms, such as <code>rsa</code>, <code>dsa</code>, and<code> ec</code>, as its value.</p></li>
+<li><p><code>form</code>: Is used to specify the name of one or more forms to which the <code>&#x003C;KEYGEN&#x003E;</code><strong></strong> tag belongs.</p></li>
+</ul>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The rsa, dsa, and ec are the different security algorithms that are used for public key encryption.</em></p>
+</div>
+<p class="nonindent">The <code>&#x003C;KEYGEN&#x003E;</code> tag can be created using the following code:</p>
+<p class="code"><code>&#x003C;KEYGEN name="key1" keytype="rsa"&#x003E;</code></p>
+<p class="nonindent">The preceding code creates a key-pair generated field using the security algorithm, <code>rsa</code>.</p>
+<h3 class="topic">&#x003C;OUTPUT&#x003E;</h3>
+<p class="nonindent">The <code>&#x003C;OUTPUT&#x003E;</code> tag is used to represent the result of a calculation. The <code>&#x003C;OUTPUT&#x003E;</code> tag can have the following attributes:</p>
+<ul class="square">
+<li><p><code>for</code>: Is used to specify the relationship between the input fields used and the result generated for the calculation.</p></li>
+<li><p><code>form</code>: Is used to specify the name of one or more forms to which the <code>&#x003C;OUTPUT&#x003E;</code> tag belongs.</p></li>
+<li><p><code>name</code>: Is used to specify a name for the <code>&#x003C;OUTPUT&#x003E;</code> tag.</p></li>
+</ul>
+<p class="nonindent">Consider the following code to get the result of the multiplication of two numbers by using the <code>&#x003C;OUTPUT&#x003E;</code> tag:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;FORM ONINPUT="mul.value=parseInt(val1.value)*parseInt(val2.value)"&#x003E;</code></p>
+<p class="code"><code>Value1:&#x003C;INPUT type="text" name="val1"&#x003E;</code></p>
+<p class="code"><code>* Value2: &#x003C;INPUT type="text" name="val2"&#x003E;</code></p>
+<p class="code"><code>=&#x003C;OUTPUT name="mul" for="val1 val2"&#x003E;&#x003C;/OUTPUT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code creates two input fields, <code>val1</code> and <code>val2</code>, to accept user input. Further, the <code>ONINPUT</code> event executes on the form and multiplies the values present in the input fields, <code>val1</code> and <code>val2</code>. Then, the <code>&#x003C;OUTPUT&#x003E;</code> tag is used to display the result of the calculation. The output derived by using the <code>&#x003C;OUTPUT&#x003E;</code> tag is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_17.png" alt="" /></p>
+<p class="caption"><em>The Output Derived by Using the &#x003C;OUTPUT&#x003E; Tag</em></p>
+<h3 class="topic">&#x003C;BUTTON&#x003E;</h3>
+<p class="nonindent">The <code>&#x003C;BUTTON&#x003E;</code> tag is used to create a button. However, unlike the input type, <code>submit</code>, you can specify a text or an image within the button by using the <code>&#x003C;P&#x003E;</code> or <code>&#x003C;IMG&#x003E;</code> tags. The <code>&#x003C;BUTTON&#x003E;</code> tag has the following attributes:</p>
+<ul class="square">
+<li><p><code>type</code>: Is used to specify the type of the button. It can accept the values, such as <code>button</code>, <code>submit</code>, and <code>reset</code>. The <code>button</code> value creates a simple push button, the <code>submit</code> value creates a button that submits the form data, and the <code>reset</code> value creates a button that reset the form fields.</p></li>
+<li><p><code>name</code>: Is used to specify the name of the button.</p></li>
+<li><p><code>form</code>: Is used to specify the name of one or more forms to which the button belongs.</p></li>
+<li><p><code>autofocus</code>: Is used to specify that the button automatically gets the focus when the Web page loads.</p></li>
+<li><p><code>disabled</code>: Is used to indicate that the button should be shown disabled when the Web page loads.</p></li>
+</ul>
+<p class="nonindent">Consider the following code to create buttons, Submit and Reset, in the <strong>OrderFoodOnline</strong> Web page.</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>#button{</code></p>
+<p class="code"><code>Margin-left:50px;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>.....</code></p>
+<p class="code"><code>/HEAD</code></p>
+<p class="code"><code>BODY</code></p>
+<p class="code"><code>........&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON ID="button" type="submit"&#x003E;&#x003C;P&#x003E;Submit&#x003C;/P&#x003E;&#x003C;/BUTTON&#x003E;&#x003C;/TD&#x003E;&#x003C;TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON type="reset"&#x003E;&#x003C;P&#x003E;Reset&#x003C;/P&#x003E;&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code creates two buttons, Submit and Reset, as displayed in the following figure.</p>
+<p class="center"><img src="images/HTML_05_18.jpg" alt="" /></p>
+<p class="caption">	<em>The Output Derived by using the &#x003C; BUTTON&#x003E; Tag</em></p>
+<p class="center"><img src="images/J0501.jpg" onclick="play('animation_J0501_swf')" id="animation_J0501_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a65"><img src="images/act.png" alt="" /> Activity 5.1: Designing an HTML Form</h2>
+<h1 class="chapter-head" id="a66">Manipulating the Components of a Web Page</h1>
+<p class="nonindent">The website of BookYourHotel.com enables the customers to access the online booking form for each hotel by clicking on the image of the hotel.  In addition, a clock is displayed on the Web page, which is dynamically updated every second to display the current time to the users.</p>
+<p class="nonindent">To implement such functionalities on the Web pages, JavaScript is used. It is an object-based language and treats every element, such as an image or a button inside a browser window as an object. Every object has a pre-defined set of attributes and events associated with it. JavaScript also provides various types of built-in objects, such as browser objects and form objects, which help to make a Web page dynamic and interactive.</p>
+<h2 class="section-head" id="a67">Working with Browser Objects</h2>
+<p class="nonindent">When a Web page is displayed in a browser, a user can access information not only about the current page but also additional details, such as information about the window and screen, the pages the user has visited in the past, or the version of the browser being used to view the document.</p>
+<p class="nonindent">All this information is accessible by using browser objects. In addition, the browser parses the currently displayed Web page into multiple objects, such as a window, screen, and a document. The objects that define the browser content and the browser itself are known as browser objects. Browser objects enable retrieval and manipulation of information about a browser, such as the window size, height, width, and name. These objects also enable access to information, such as browsing history and current version of a browser.</p>
+<p class="nonindent">JavaScript defines the following browser objects on a Web page:</p>
+<ul class="square">
+<li><p><code>window</code></p></li>
+<li><p><code>document</code></p></li>
+<li><p><code>navigator</code></p></li>
+<li><p><code>screen</code></p></li>
+<li><p><code>history</code></p></li>
+<li><p><code>location</code></p></li>
+</ul>
+<p class="nonindent">Browser objects represent the browser environment and provide properties and methods for its access and manipulation. The browser environment refers to components, such as the window in which the document is displayed and the history list that contains information regarding the Web pages visited by a user. You can set the size, name, and default status of the browser window by using the window object. You can also manipulate URL of the document using the <code>location</code> object. Similarly, you can access the browser version and the browser name in which the Web page is displayed using the <code>navigator</code> object. This information can be useful for a correct display of a Web page in the browser.</p>
+<h3 class="topic">Using the window Object</h3>
+<p class="nonindent">The <code>window</code> object is one of the highest-level objects in the JavaScript object hierarchy. It represents a browser window, which displays the document. It can also be a combination of multiple frames. Each frame within a window is itself a window. The following table lists some of the properties of the <code>window</code> object.</p>
+<table border="1" cellpadding="6" cellspacing="0" width="100%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><strong>Properties</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Description</strong></em></p></td>
+<td align="left" style="width:10%"><p><em><strong>Syntax</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>defaultStatus</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is a string value containing the default text that appears on the status bar of the window.</em></p></td>
+<td align="left" style="width:10%"><p><em><code>window.defaultStatus</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>document</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is a reference to the document displayed in the window.</em></p></td>
+<td align="left" style="width:10%"><p><em><code>window.document</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>frames[]</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is an array that represents all the frames in the window. You can refer to a particular frame by using the frames[] property.</em></p></td>
+<td align="left" style="width:10%"><p><em><code>window.frames[i]</code>, where i is the index of a particular frame in a window.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>frames.length</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is an integer value representing the number of frames in the window.</em></p></td>
+<td align="left" style="width:10%"><p><em><code>window.frames.length</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>name</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns or sets a name for the window.</em></p></td>
+<td align="left" style="width:10%"><p><em><code>window.name</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>parent</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns the parent window of the current window.</em></p></td>
+<td align="left" style="width:10%"><p><em><code>window.parent</code></em> </p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>self</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns the current window.</em></p></td>
+<td align="left" style="width:10%"><p><em><code>window.self</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>top</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns the topmost browser window. The topmost window is the current active window overlapping all the open windows.</em></p></td>
+<td align="left" style="width:10%"><p><em><code>window.top</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>status</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is a string value and is used to set the text on the status bar of the window.</em></p></td>
+<td align="left" style="width:10%"><p><em><code>window.status</code></em></p></td>
+</tr>
+</table>
+
+<p class="caption"><em>The Properties of the window Object</em></p>
+<p class="nonindent">The following table lists some of the methods of the <code>window</code> object.</p>
+<p class="center"><img src="images/HTML_05_19.jpg" alt="" /></p>
+<p class="caption"><em>The Methods of the window Object</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The</em> <code>window</code> <em>object is a default object when writing the JavaScript code. Therefore, it is not necessary to explicitly qualify the methods and properties of the <code>window</code> object using the dot operator.</em></p>
+</div>
+<p class="nonindent">Consider the following code snippet for opening a new window displaying the hotel bookings form, when a user clicks the hotel image:</p>
+<p class="code"><code>function open_win()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>window.open("HotelBooking1.html","height=100,width=200");</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding code snippet, when the function, <code>open_win()</code>, is executed, it opens the <strong>purchase.html</strong> Web page in a new window.</p>
+<p class="nonindent">Consider the following code to display the clock on the Web page of the BookYourHotel.com website by using the <code>setTimeout()</code> method:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>function clockTime()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>var todayDate=new Date();</code></p>
+<p class="code"><code>var hrs=todayDate.getHours();</code></p>
+<p class="code"><code>var mns=todayDate.getMinutes();</code></p>
+<p class="code"><code>var scs=todayDate.getSeconds();</code></p>
+<p class="code"><code>mns=check(mns);</code></p>
+<p class="code"><code>scs=check(scs);</code></p>
+<p class="code"><code>document.getElementById('displayTime').innerHTML=hrs+":"+mns+":"+scs;</code></p>
+<p class="code"><code>t=setTimeout('clockTime()',1000);</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function check(t)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>if (t&#x003C;10)</code></p>
+<p class="code"><code> {</code></p>
+<p class="code"><code> t="0" + t;</code></p>
+<p class="code"><code> }</code></p>
+<p class="code"><code>return t;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY onload="clockTime()"&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV ID="displayTime"&#x003E;&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>clockTime()</code> function is called to display a clock on the Web page. The <code>clockTime()</code> function uses the <code>Date</code> object to get the current time in hours, minutes, and seconds. It updates time every second using the <code>setTimeout()</code> function. The <code>setTimeout()</code> function calls the <code>clockTime()</code> function after every second or 1000 milliseconds. The <code>clockTime()</code> function uses the <code>check(t)</code> function to check if the number of minutes or seconds is less than 10. If this is true, 0 is displayed before the number of minutes or seconds. For example, if the current time is 14 hours 45 minutes and 3 seconds, the time is displayed as 14:45:03.</p>
+<p class="nonindent">The output of the preceding code to display a clock on a Web page is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_20.png" alt="" /></p>
+<p class="caption"><em>The Clock Displayed on a Web Page</em></p>
+<h3 class="topic">Using the document Object</h3>
+<p class="nonindent">The <code>document</code> object is subordinate to the <code>window</code> object in the document object model hierarchy. The <code>document</code> object provides the properties and methods to work with many aspects of the current document, including information about anchors, forms, links, title, current location and URL, and the current colors. The HTML document that is loaded on the Web browser window acts as a <code>document</code> object.</p>
+<p class="nonindent">The following table lists some of the properties of the <code>document</code> object.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="50%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><strong>Properties</strong></em></p></td>
+<td align="left" style="width:40%"><p><em><strong>Description</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>alinkColor</code></p></td>
+<td align="left" style="width:40%"><p><em>Is a string value representing the color of an active link.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>anchors[]</code></p></td>
+<td align="left" style="width:40%"><p><em>Is an array object containing references to all the anchor elements in a document.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>bgColor</code></p></td>
+<td align="left" style="width:40%"><p><em>Is a string value representing the background color of the document.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>cookie</code></p></td>
+<td align="left" style="width:40%"><p><em>Is a string value containing name/value pairs of data that will persist in the memory of the client computer until the Web browser is cleared or the expiry date is reached.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>fgColor</code></p></td>
+<td align="left" style="width:40%"><p><em>Is a string value representing the text color of the document.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>forms[]</code></p></td>
+<td align="left" style="width:40%"><p><em>Is an array object containing references to each form in the document. Form elements are contained within the form object.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>linkColor</code></p></td>
+<td align="left" style="width:40%"><p><em>Is a string value representing the color of an unvisited link.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>lastModified</code></p></td>
+<td align="left" style="width:40%"><p><em>Is a string value representing the date and time when the document was last modified.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>links[]</code></p></td>
+<td align="left" style="width:40%"><p><em>Is an array object containing references of all the elements in the <code>&#x003C;A&#x003E;</code> tag and elements that use the <code>&#x003C;AREA&#x003E;</code> tag.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>referrer</code></p></td>
+<td align="left" style="width:40%"><p><em>Is a string value representing the URL of the document from which the current document is accessed.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>title</code></p></td>
+<td align="left" style="width:40%"><p><em>Is a string value representing the title of the document.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>vlinkColor</code></p></td>
+<td align="left" style="width:40%"><p><em>Is a string value representing the color of the visited link.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Properties of the document Object</em></p>
+<p class="nonindent">Some of the widely used methods of the <code>document</code> object are:</p>
+<ul class="square">
+<li><p><code>write()</code></p></li>
+<li><p><code>writeln()</code></p></li>
+<li><p><code>getElementsByName()</code></p></li>
+<li><p><code>getElementsByTagName()</code></p></li>
+<li><p><code>getElementById()</code></p></li>
+</ul>
+<h4 class="subtopic">write()</h4>
+<p class="nonindent">The <code>document.write()</code> method enables users to write text on a Web page. The following syntax is used to write the text , Hello!, using the <code>document.write()</code>method on a Web page:</p>
+<p class="code"><code>document.write("Hello!");</code></p>
+<p class="nonindent">You can also add HTML elements to a Web page dynamically using the <code>document.write()</code> method.</p>
+<p class="nonindent">For example, you can accept a name as input and then use the <code>document.write()</code> method to write it on a Web page. You can even dynamically specify the formatting of the content on the Web page, as shown in the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TITLE&#x003E;JavaScript Write method Illustration&#x003C;/TITLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>body{</code></p>
+<p class="code"><code>background-color:#DAA520;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>var name= prompt("Please enter your name","");</code></p>
+<p class="code"><code>document.write("&#x003C;P&#x003E;");</code></p>
+<p class="code"><code>document.write("&#x003C;I&#x003E;");</code></p>
+<p class="code"><code>document.write("&#x003C;B&#x003E;");</code></p>
+<p class="code"><code>document.write("Welcome "+name);</code></p>
+<p class="code"><code>document.write("&#x003C;/B&#x003E;");</code></p>
+<p class="code"><code>document.write("&#x003C;/I&#x003E;");</code></p>
+<p class="code"><code>document.write("&#x003C;/P&#x003E;");</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>prompt()</code> method is used to prompt the user to enter his/her name, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_21.jpg" alt="" /></p>
+<p class="caption"><em>The Prompt Box</em></p>
+<p class="nonindent">Assuming that the user enters the name, George, in the prompt box, the output is displayed as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_22.png" alt="" /></p>
+<p class="caption"><em>The Output of Code Using the write() Method</em></p>
+<p class="nonindent">In the preceding code, the <code>document.write()</code> method is used in the <code>&#x003C;SCRIPT&#x003E;</code> tag to display the welcome message on the Web page.</p>
+<h4 class="subtopic">writeln()</h4>
+<p class="nonindent">The <code>writeln()</code> method also writes text on a Web page. The only difference is that the <code>writeln()</code> method appends a carriage return character to the end of the output. The carriage return character is used to write data on separate lines of the Web page. For example, consider the following code snippet:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;PRE&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>document.writeln("Hi!");</code></p>
+<p class="code"><code>document.writeln("Welcome to our site!");</code></p>
+<p class="code"><code>document.write("Have a ");</code></p>
+<p class="code"><code>document.write("great day");</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/PRE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The <code>writeln()</code> method appends a newline character at the end of the text. However, HTML ignores newline when writing the output text. The <code>&#x003C;PRE&#x003E;</code> tag can be used to display the pre-formatted output on a Web page. When the <code>&#x003C;SCRIPT&#x003E;</code> tag is enclosed within the <code>&#x003C;PRE&#x003E;</code> tag, the newline appended using the <code>document.writeln()</code> method is rendered.</em></p>
+</div>
+<p class="nonindent">When the preceding code snippet is executed, the message, <strong>Hi!</strong>, is displayed, and the carriage return character is added at the end of this message so that the next message is displayed in a new line.</p>
+<p class="nonindent">The output of the preceding code snippet is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_23.png" alt="" /></p>
+<p class="caption"><em>The Output Derived Using the writeln() Method</em></p>
+<h4 class="subtopic">getElementsByName()</h4>
+<p class="nonindent">It is recommended that each element on a Web page should be specified by a unique name. However, multiple elements can also share the same name in a Web page. The <code>document.getElementsByName()</code> method is used to access all the elements with the specified name used in an HTML document. This method returns an array of all the elements with the specified name in the HTML document. The following syntax is used for the <code>getElementsByName()</code> method:</p>
+<p class="code"><code>document.getElementsByName("name_of_the_element");</code></p>
+<p class="nonindent">In the preceding syntax, <code>name_of_the_element</code>, specifies the name of the element(s) to be accessed.</p>
+<p class="nonindent">Consider the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>function count()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>var x=document.getElementsByName("link");</code></p>
+<p class="code"><code>alert(x.length + "Hyperlinks");</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;	</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;A name="link" href="" &#x003E;Link 1&#x003C;/A&#x003E;&#x003C;BR/&#x003E;</code></p>
+<p class="code"><code>&#x003C;A name="link" href="" &#x003E;Link 2&#x003C;/A&#x003E;&#x003C;BR/&#x003E;</code></p>
+<p class="code"><code>&#x003C;A name="link" href="" &#x003E;Link 3&#x003C;/A&#x003E;&#x003C;BR/&#x003E;</code></p>
+<p class="code"><code>&#x003C;BR/&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="button" value="Count" onclick="count()"/&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>length</code> property is used to count the occurrences of all the elements that have their name specified as <strong>link</strong>. Therefore, the statement <code>x.length</code> will generate the value, <code>3</code>, and display it in an alert box.</p>
+<h4 class="subtopic">getElementsByTagName()</h4>
+<p class="nonindent">Consider a scenario, where a user can customize the background color of all the text boxes on a Web page. A drop-down list is used to choose the background color. If the user selects the green color from a drop-down list, the background color of all the text boxes in the document changes to green. This can be achieved using the <code>document.getElementsByTagName()</code> method. The <code>document.getElementsByTagName()</code> method is used to access all the elements of the same type in the Web page. In the given scenario, the <code>document.getElementsByTagName()</code> method can be used to return an array of all the text boxes in the document which can then be manipulated using CSS to achieve the desired functionality. The following syntax is used for the <code>getElementsByTagName()</code> method:</p>
+<p class="code"><code>document.getElementsByTagName("Tag_name");</code></p>
+<p class="nonindent">In the preceding syntax, <code>Tag_name</code> specifies the tag name of the element(s) that have to be accessed.</p>
+<p class="nonindent">Consider the following code snippet:</p>
+<p class="code"><code>var x=document.getElementsByTagName("a");<br />alert(x.length + "Hyperlinks");</code></p>
+<p class="nonindent">In the preceding code snippet, the number of anchor or <code>&#x003C;A&#x003E;</code> tags on the Web page is counted and displayed in an alert box. For example, if there are four <code>&#x003C;A&#x003E;</code> tags in a document, then the output of the preceding code will be <code>4 Hyperlinks</code>.</p>
+<h4 class="subtopic">getElementById()</h4>
+<p class="nonindent">As you know, each HTML element used on a Web page has an optional attribute, <code>ID</code>, which uniquely identifies the element. The <code>document.getElementById()</code>method uses the ID of HTML elements to access and manipulate their content.</p>
+<p class="nonindent">The following syntax is used to access an element using the <code>getElementById()</code> method:</p>
+<p class="code"><code>document.getElementById("id_of_the_element");</code></p>
+<p class="nonindent">In the preceding syntax, <code>id_of_the_element</code>, specifies the ID of the element that has to be accessed.</p>
+<p class="nonindent">Consider the following code snippet to use a text box within the Web page:</p>
+<p class="code"><code>&#x003C;INPUT type="text" ID="text1"/&#x003E;</code></p>
+<p class="nonindent">To access the value of the text box inside the script, you need to use the following code snippet:</p>
+<p class="code"><code>var name  =  document.getElementById("text1").value;</code></p>
+<p class="nonindent">In the preceding code snippet, the value of the text box is fetched using <code>ID</code> of the text box specified as <code>text1</code>. The value is then stored in the <code>name</code> variable.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The <code>value</code> property is used to retrieve the value of the elements that are specified using the <code>&#x003C;INPUT&#x003E;</code> tag.</em></p>
+</div>
+<p class="nonindent">Using JavaScript, you can also change the content of the HTML elements, such as paragraphs, hyperlinks, and headers. To retrieve and change the text of the HTML elements that have both a start tag and an end tag, such as <code>&#x003C;P&#x003E;</code>, <code>&#x003C;OPTION&#x003E;</code>, and <code>&#x003C;DIV&#x003E;</code>, you can make use of the <code>innerHTML</code> property with the <code>document.getElementById()</code> method. Consider the following code snippet:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>function replacetext()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>document.getElementById("para1").innerHTML="Changed the content by using the innerHTML property of getElementById() method";</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E; &#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;P ID="para1"&#x003E;A  simple  paragraph&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="button" value="Change text" onclick="replacetext()"/&#x003E; &#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, when the <strong>Change text</strong> button is clicked, the <code>replacetext()</code> function is called using the <code>onclick</code> event. The <code>replacetext()</code> function replaces the text of the <code>&#x003C;P&#x003E;</code> element with the text, <strong>Changed the content by using the innerHTML property of</strong> <strong>getElementById() method</strong>.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>Events are discussed in the next topic of this section.</em></p>
+</div>
+<h3 class="topic">Handling Events</h3>
+<p class="nonindent">In JavaScript, an event is an action that happens on a Web page, such as a mouse click or loading of a Web page. The Web browser waits for the event to occur, and when it occurs, performs the processing that has been programmed for the event. For example, when a user clicks the <STRONG>OK</STRONG> button on a form, the Web browser executes a part of the code, which is designed to execute on that event. This is called event handling. The function, which is executed in response to an event, is called an event handler.</p>
+<p class="nonindent">The following figure displays the event handling process.</p>
+<p class="center"><img src="images/HTML_05_24.jpg" alt="" /></p>
+<p class="caption"><em>The Event Handling Process</em></p>
+<p class="nonindent">The preceding figure depicts the process where a user interacts with the browser and an event is generated. This event is processed by the event handler and the output is sent to the browser. Further, the browser displays the output to the user.</p>
+<p class="nonindent">The following table lists the various types of events supported in JavaScript.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="70%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><strong>Event</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Description</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Example</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onblur</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when an element loses focus.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;INPUT  type="text"</code></em></p>
+<p><em><code>name= "textbox1"</code></em></p>
+<p><em><code>onblur="show()"/&#x003E;</code></em></p>
+<p><em>where, <code>show()</code> is the function to be executed when the event occurs.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onchange</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when the content of a field changes.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;INPUT  type="text"  ID="fname" onchange="show()"  /&#x003E;</code></em></p>
+<p><em>where, <code>show()</code> is the function to be executed when the event occurs.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onclick</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when the user clicks an object.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;BUTTON  onclick="show() "&#x003E;Show  Text&#x003C;/BUTTON&#x003E;</code></em></p>
+<p><em>where, <code>show()</code> is the function to be executed when the event occurs.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onfocus</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when an element gets focus.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;INPUT  type="text" ID="firstname"</code></em></p>
+<p><em><code>onfocus="alert('hello')";  /&#x003E;</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onkeydown</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when any key of the keyboard is pressed.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;INPUT  type="text"</code></em></p>
+<p><em><code>onkeydown="alert('key  is down')"/&#x003E;</code></em>	</p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onkeypress</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when a character key of the keyboard is pressed or held down.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;INPUT  type="text"</code></em></p>
+<p><em><code>onkeypress="alert('key  is pressed')"/&#x003E;</code></em>	</p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onkeyup</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when a keyboard key is released.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;INPUT  type="text" onkeyup="alert('key  is released')"/&#x003E;</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onload</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when a page or image has finished loading.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;BODY  onload="load()"&#x003E;</code></em></p>
+<p><em>where, <code>load()</code> is the function to be executed when the event occurs.</em>	</p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onmousedown</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when the mouse button is pressed.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;IMG  src="image11.gif"</code></em></p>
+<p><em><code>onmousedown="alert('You clicked  image11!')"&#x003E;</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onmousemove</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when the mouse is moved.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;IMG  src="image11.gif"</code></em></p>
+<p><em><code>onmousemove="alert('You  moved your  mouse  over  image11!')"&#x003E;</code></em>	</p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onmouseout</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when the mouse is moved off an element.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;P  onmouseout="alert('Mouse moved  out  of  the paragraph')"&#x003E;  Move  the  mouse pointer  out  of  my  paragraph to  display  an  alert  box.&#x003C;/P&#x003E;</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onmouseover</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when the mouse moved over an element.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;P  onmouseover="alert(' moved  over  the  paragraph')"&#x003E; Move  the  mouse  pointer  over me  to  display  an  alert box.&#x003C;/P&#x003E;</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onmouseup</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when the mouse button is released.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;IMG  src="image11.gif"</code></em></p>
+<p><em><code>onmouseup="alert('You  clicked image11')"  /&#x003E;</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onselect</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when a text is selected.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>Select  text:  &#x003C;INPUT type="text"  value="Select me!"  onselect="alert('You have  selected  the  text.')"  /&#x003E;</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onunload</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when the user exits the page.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;BODY  onunload="alert('The page  is  unloaded')"&#x003E;</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>ondblclick</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when the user double-clicks an object.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;BUTTON  ondblclick="show() "&#x003E;Show  Text&#x003C;/BUTTON&#x003E;</code> where, <code>show()</code> is the function to be executed when the event occurs.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>onerror</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Occurs when an error occurs while loading a document or an image.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>&#x003C;IMG  src="image1.jpg" onerror="alert('Cannot  load image.')"&#x003E;</code></em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Events Supported in JavaScript</em></p>
+<p class="nonindent">Consider the scenario of  BookYourHotel.com website. The user registration page displays the registration form, which a user should fill to get registered on the website. The management wants to implement the following functionality on the registration page:</p>
+<ul class="square">
+<li><p>If user leaves any text box blank, its background color should change to pink, otherwise, it should remain white.</p></li>
+<li><p>After the user fills the required details in the user registration form and clicks the <strong>Register me</strong> button, a confirm box should be displayed highlighting the registration information entered by the user.</p></li>
+</ul>
+<p class="nonindent">Consider the following code to implement these functionalities:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E; &#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TITLE&#x003E;REGISTRATION DETAILS&#x003C;/TITLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>h1,h3{</code></p>
+<p class="code"><code>color: black;</code></p>
+<p class="code"><code>font-size: 40px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>table{</code></p>
+<p class="code"><code>margin-left:650px;</code></p>
+<p class="code"><code>border:2px solid white;</code></p>
+<p class="code"><code>background-color:beige;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>td{</code></p>
+<p class="code"><code>padding:10px;</code></p>
+<p class="code"><code>border:2px solid white;}</code></p>
+<p class="code"><code>#button{</code></p>
+<p class="code"><code>margin-left:740px;}</code></p>
+<p class="code"><code>#button{</code></p>
+<p class="code"><code>margin-left:740px;}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>function show()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>var fname = document.getElementById("txtbox1").value;</code></p>
+<p class="code"><code>var lname = document.getElementById("txtbox2").value;</code></p>
+<p class="code"><code>var age = document.getElementById("age").value;</code></p>
+<p class="code"><code>var address = document.getElementById("address").value;</code></p>
+<p class="code"><code>var gender=document.getElementById("gender").value;</code></p>
+<p class="code"><code>confirm("You have entered:" + "\n Name : " + fname + " " + lname + "\n Age : " + age + "\n Address : "+ address + "\n Gender : "+ gender + "\n\n Do you want to confirm these details ?");</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function changeColor(val)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code> if((val.value=="")||(val.value==null))</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>val.style.background="pink";</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>else</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>val.style.background="#FFFFFF";</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1&#x003E;USER REGISTRATION DETAILS&#x003C;HR/&#x003E;&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;H3&#x003E;Please fill the following details and get registered !!&#x003C;/H3&#x003E;&#x003C;BR/&#x003E;&#x003C;BR/&#x003E;</code></p>
+<p class="code"><code>&#x003C;TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;  First  name:  &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E; &#x003C;INPUT type="text" name="name1" ID="txtbox1" onblur="changeColor(this)"/&#x003E; &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; &#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;  Last  name:  &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;INPUT type="text" name="name2" ID="txtbox2" onblur="changeColor(this)"/&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; &#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;  Age:  &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E; &#x003C;INPUT type="text" name="age_box" ID="age" onblur="changeColor(this)"/&#x003E; &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; &#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;  Address:&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;&#x003C;TEXTAREA rows="5" name="address_box" ID="address" onblur="changeColor(this)"&#x003E;&#x003C;/textarea&#x003E;&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; &#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Gender: &#x003C;/TD&#x003E; &#x003C;TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SELECT name="Gender" ID="gender"&#x003E; &#x003C;OPTION value="Male"&#x003E;Male&#x003C;/OPTION&#x003E; &#x003C;OPTION value="Female"&#x003E;Female&#x003C;/option&#x003E; &#x003C;/SELECT&#x003E; &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; &#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;BR/&#x003E;&#x003C;INPUT ID="button" type="button" value="Register Me" onclick="show()"/&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The keyword, <code>this</code>, refers to the current objects, such as the text box and button, in the document.</em></p>
+</div>
+<p class="nonindent">The Web page for the preceding code is displayed in the following figure.</p>
+<p class="center"><img src="images/HTML_05_25.jpg" alt="" /></p>
+<p class="caption"><em>The Browser Output</em></p>
+<p class="nonindent">The preceding output allows the user to enter details in the registration form. As the user fills a text box and presses the <strong>Tab</strong> key to move to the next one, the background color of the unfilled text box changes to yellow. The following figure displays the completed User Registration form.</p>
+<p class="center"><img src="images/HTML_05_26.jpg" alt="" /></p>
+<p class="caption"><em>The Completed User Registration Form</em></p>
+<p class="nonindent">When the user clicks the <strong>Register Me</strong> button, a confirm dialog box is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_05_27.jpg" alt="" /></p>
+<p class="caption"><em>A Confirm Dialog Box</em></p>
+<h3 class="topic">Event Listeners</h3>
+<p class="nonindent">In JavaScript, you can handle user actions or events by calling specific methods known as event handlers. To handle each and every user action or event, a listener is notified. A listener is an object that waits for an event to occur and performs certain actions corresponding to it. However, for this, you need to register it with the event handler. The event handler function registered with the event of the field processes the event and provides an appropriate response to the listener. Then, the action is performed by the event listener.</p>
+<p class="nonindent">To register a handler, you need to use the <code>addEventListener()</code> function. The function receives an event object that encapsulates the event information. The following syntax can be used to create an <code>addEventListener()</code> function:</p>
+<p class="code"><code>addEventListener(type, listener[, useCapture]);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>type</code>: Specifies a string representing the event type.</p></li>
+<li><p><code>listener</code>: Specifies the object that receives a notification when an event occurs.</p></li>
+<li><p><code>useCapture</code>: Is a Boolean variable, specifying whether an event needs to be captured or not. It is an optional parameter.</p></li>
+</ul>
+<p class="nonindent">If the event handler captures an event, every time when the event occurs on the element, the event handler will be called. You can also remove a handler by calling the <code>removeEventListener()</code> function. However, the parameters passed to this function must be identical to the parameters passed to the <code>addEventListener()</code> function.</p>
+<p class="nonindent">Consider the following code to understand the functionality of event listeners:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>function OnClick () {</code></p>
+<p class="code"><code>alert ("A click event has occurred on the Submit button.");</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function AddEventHandler () {</code></p>
+<p class="code"><code>var Button = document.getElementById ("Button");</code></p>
+<p class="code"><code>if (Button.addEventListener) {</code></p>
+<p class="code"><code>Button.addEventListener ("click", OnClick, false);</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function RemoveEventHandler () {</code></p>
+<p class="code"><code>var Button = document.getElementById ("Button");</code></p>
+<p class="code"><code>if (Button.removeEventListener) {</code></p>
+<p class="code"><code>Button.removeEventListener ("click", OnClick, false);</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>Click on the Submit button when the 'click' event has a listener and when it does not.&#x003C;BR /&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON onclick="AddEventHandler();"&#x003E;Add a 'click' event listener to the Submit button&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON onclick="RemoveEventHandler();"&#x003E;Remove the event listener&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;BR /&#x003E;&#x003C;BR /&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON ID="Button"&#x003E;Submit&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<h3 class="topic">Using the navigator Object</h3>
+<p class="nonindent">The <code>navigator</code> object is one of the top-level objects in the JavaScript object hierarchy. Unlike the <code>window</code> or <code>document</code> objects, the <code>navigator</code> object is an independent object with its own set of properties and methods. An independent object does not have any child objects in its hierarchy.</p>
+<p class="nonindent">You can use the <code>navigator</code> object to access information about the current browser, such as the browser name, version, and the user platform.</p>
+<p class="nonindent">The following table lists the properties of the <code>navigator</code> object.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="70%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><strong>Properties</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Description</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Syntax</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>appName</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies the name of the Web browser.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>navigator.appName</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>appVersion</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies information about the Web browser version, browser platform, and the country for which the Web browser is released.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>navigator.appVersion</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>appCodeName</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies the internal code name of the Web browser. For example, the internal code name returned for both, Microsoft Internet Explorer and Netscape browsers, is Mozilla.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>navigator.appCodeName</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>userAgent</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Sends a string containing information, such as browser version, code name, and platform from the client to the server. The server uses this string to identify the client.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>navigator.userAgent</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>platform</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies the operating system of the client machine.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>navigator.platform</code></em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Properties of the navigator Object</em></p>
+<p class="nonindent">The following table lists the methods associated with the <code>navigator</code> object.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="75%">
+<tr valign="top">
+<td align="left" style="width:15%"><p><em><strong>Methods</strong></em> </p></td>
+<td align="left" style="width:30%"><p><em><strong>Description</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Syntax</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:15%"><p><em><code>javaEnabled()</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns a Boolean value that specifies whether JavaScript is enabled or disabled in the Web browser. For example, the value True indicates that JavaScript is enabled in the current Web browser.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>navigator.javaEnabled()</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:15%"><p><em><code>taintEnabled()</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns a Boolean value that specifies whether the security feature of the current Web browser is enabled or disabled. By default, the value returned is <code>False</code>.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>navigator.taintEnabled()</code></em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Methods of the navigator Object</em></p>
+<p class="nonindent">Consider the following code to use the <code>navigator</code> object:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>document.write(navigator.appName);</code></p>
+<p class="code"><code>document.write(navigator.appVersion);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>appName</code> and <code>appVersion</code> properties of the <code>navigator</code> object are used to display the name and version of the browser, respectively.</p>
+<h3 class="topic">Using the screen Object</h3>
+<p class="nonindent">The <code>screen</code> object enables you to access details of the user&#x2019;s screen, such as its width, height, and resolution.</p>
+<p class="nonindent">The following table lists the most commonly used properties of the <code>screen</code> object.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="70%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><strong>Properties</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Description</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Syntax</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><em><code>height</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns the total height of the screen.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>screen.height</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><em><code>pixelDepth</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns the color resolution of the screen.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>screen.pixelDepth</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><em><code>width</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns the width of the screen.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>screen.width</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><em><code>availHeight</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns the height of the screen without including the Windows taskbar.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>screen.availHeight</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><em><code>availWidth</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns the width of the screen without including the Windows taskbar.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>screen.availWidth</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><em><code>colorDepth</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Returns the bit depth of color palette that is used for displaying images.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>screen.colorDepth</code></em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Properties of the screen Object</em></p>
+<p class="nonindent">Consider the following code that illustrates the use of the <code>screen</code> object:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>document.write("Height: " + screen.availHeight);</code></p>
+<p class="code"><code>document.write("Width: " + screen.availWidth);</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code displays the height and width of the screen excluding the Window taskbar using the <code>availHeight</code> and <code>availWidth</code> properties.</p>
+<h3 class="topic">Using the history Object</h3>
+<p class="nonindent">The <code>history</code> object contains a list of all the pages that have been visited by the user.</p>
+<p class="nonindent">The following table lists the properties of the <code>history</code> object.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="70%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><strong>Properties</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Description</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Syntax</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>length</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is an integer value representing the number of links currently referenced by the</em> <code>history</code> <em>object in the current session.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>history.length</code></em></p></td>
+</tr>
+</table>
+
+<p class="caption"><em>The Properties of the history Object</em></p>
+<p class="nonindent">The following table lists the most commonly used methods of the <code>history</code> object.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="70%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><strong>Methods</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Description</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Syntax</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><em><code>back()</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is used to move to the previous page.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>history.back()</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><em><code>forward()</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is used to move to the next page.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>history.forward()</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><em><code>go()</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is used to move back specific number of pages.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>history.go(x)</code></em></p>
+<p><em>where <code>x</code> is the number of pages</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Methods of the history Object</em></p>
+<p class="nonindent">Consider the following code to use the <code>history</code> object:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>function show()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>alert(history.length)</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="button" value="Show History" onclick="show()" /&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;	</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code displays the number of links referenced in the current browser session when a user clicks the button.</p>
+<h3 class="topic">Using the location Object</h3>
+<p class="nonindent">The <code>location</code> object contains information about the current URL. It can also be used to enable navigation to different URLs on the Internet. The most frequently used property of the <code>location</code> object is the <code>HREF</code><em></em> property. The <code>HREF</code> property specifies the exact URL of the current document.</p>
+<p class="nonindent">The properties of the <code>location</code> object consist of various pieces of information that make up a complete URL. The following syntax is used for specifying the complete URL:</p>
+<p class="code"><code>protocol://hostname:port/pathname/search#hash</code></p>
+<p class="nonindent">The preceding syntax consists of the following attributes:</p>
+<ul class="square">
+<li><p><code>protocol</code>: Specifies the protocol, such as HTTP and FTP, which is used to transmit data over the Internet.</p></li>
+<li><p><code>hostname</code>: Specifies the hostname of the URL, such as http://www.silvertech.com.</p></li>
+<li><p><code>port</code>: Specifies the port number of the URL. It is optional. If the port number is not specified for the http request, the browser automatically connects to port 80.</p></li>
+<li><p><code>pathname</code>: Specifies the path in the URL, such as http://www.silvertech.com/careers.html.</p></li>
+<li><p><code>search</code>: Specifies the search string which is any portion of the URL followed by a question mark, such as http://www.silvertech.com/careers.html/search?programmer. The question mark is used for embedding arguments in the URL.</p></li>
+<li><p><code>#hash</code>: Specifies the internal hyperlink of a Web page, such as http://www.silvertech.com/careers.html#position1.</p></li>
+</ul>
+<p class="nonindent">The following table lists the most commonly used properties of the <code>location</code> object.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="70%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><strong>Properties</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Description</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Syntax</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>hash</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies or returns the internal link anchor name. An internal link follows # in the URL.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>location.hash</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>host</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies or returns the hostname: port portion of the URL.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>location.host</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>hostname</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies or returns the hostname.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>location.hostname</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>href</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies or returns the partial or full path of a file or a website.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>location.href</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>port</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies or returns the port number.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>location.port</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>protocol</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Specifies or returns the protocol.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>location.protocol</code></em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Properties of the location Object</em></p>
+<p class="nonindent">The following table lists the most commonly used methods of the <code>location</code> object.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="70%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><strong>Methods</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Description</strong></em></p></td>
+<td align="left" style="width:30%"><p><em><strong>Syntax</strong></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>assign()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Is used to load a new document.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>location.assign(URL);</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><em><code>reload()</code></em></p></td>
+<td align="left" style="width:30%"><p><em>Is used to reload the current document.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>location.reload();</code></em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:10%"><p><code>replace()</code></p></td>
+<td align="left" style="width:30%"><p><em>Is used to replace the current document with another document.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>location.replace(newURL);</code></em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Methods of the location Object</em></p>
+<p class="nonindent">Consider the following code snippet to open the home page of XYZ.com website upon the click of a button:</p>
+<p class="code"><code>&#x003C;FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type = "button" VALUE = "visit us" onClick = "location.href = 'http://www.xyz.com'"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, the <code>HREF</code> property of the <code>location</code> object is set to the URL of the XYZ website. As a result, when the user clicks the button, the home page of the XYZ website is displayed.</p>
+<p class="nonindent">Consider the following code snippet to retrieve information regarding the current URL:</p>
+<p class="code"><code>document.write(location.protocol);</code></p>
+<p class="nonindent">In the preceding code snippet, the protocol of the current URL is retrieved using the <code>protocol</code> property of the <code>location</code> object.</p>
+<h2 class="section-head" id="a74">Working with Form Objects</h2>
+<p class="nonindent">Consider the scenario of BookYourHotel.com website. To purchase a product, a customer has to fill the purchase order form. The purchase order form requires entering the customer details, such as the name, gender, and address. This information is entered using the form objects, such as the text box and radio buttons. To access and process the content of the form objects, you need to refer to the form object.</p>
+<p class="nonindent">The form object is a browser object, which acts as a container for several other objects that collect information from a user. The information collected using objects, such as the command buttons, radio buttons, text boxes, combo boxes, and check boxes, is submitted to the server for processing. Therefore, the form object enables you to create interactive Web pages.</p>
+<p class="nonindent">The following objects of JavaScript are commonly used while working with Web forms:</p>
+<ul class="square">
+<li><p><code>form</code></p></li>
+<li><p><code>button</code></p></li>
+<li><p><code>checkbox</code></p></li>
+<li><p><code>text</code></p></li>
+<li><p><code>textarea</code></p></li>
+<li><p><code>radio</code></p></li>
+<li><p><code>select</code></p></li>
+</ul>
+<h3 class="topic">form</h3>
+<p class="nonindent">A form accepts user inputs. When a Web page containing multiple forms is viewed in a browser, the browser creates a <code>form</code> object for every form on the Web page. These forms can also be accessed using an array. For example, the Web browser can access the first form on the Web page using <code>document.forms[0]</code>, and the second form can be accessed as <code>document.forms[1]</code>.</p>
+<p class="nonindent">The methods associated with the<code> form</code> object are:</p>
+<ul class="square">
+<li><p><code>submit()</code>: Submits a form to the server for processing. The following syntax is used for the <code>submit()</code> method:</p>
+<p class="nonindent"><code>form1.submit()</code></p>
+<p class="nonindent">In the preceding syntax, <code>form1</code> is the name of the form that will be submitted to the server on the occurrence of an event, such as clicking a hyperlink.</p></li>
+<li><p><code>reset()</code>: Resets all the fields of the given form. The following syntax is used for the <code>reset()</code> method:</p>
+<p class="nonindent"><code>form1.reset()</code></p>
+<p class="nonindent">In the preceding syntax, <code>form1</code> is the name of the form. The <code>reset()</code> method clears all the information entered in various fields of the form.</p></li>
+</ul>
+<p class="nonindent">The events associated with the <code>form</code> object are:</p>
+<ul class="square">
+<li><p><code>onsubmit</code>: Occurs when a user clicks a button or hyperlink to submit the form to the server for processing.</p></li>
+<li><p><code>onreset</code>: Occurs when a user opts for resetting the fields of the form by clicking the reset button or hyperlink.</p></li>
+</ul>
+<h3 class="topic">button</h3>
+<p class="nonindent">The <code>button</code> object refers to the HTML button. It allows you to perform several tasks based on user actions. You can write functions that are executed when a user clicks a specific button.</p>
+<p class="nonindent">The methods associated with the <code>button</code> object are:</p>
+<ul class="square">
+<li><p><code>click()</code>: Simulates clicking of a button. For example,<code> myButton.click()</code>.</p></li>
+<li><p><code>focus()</code>: Sets focus on a button.</p></li>
+<li><p><code>blur()</code>: Removes focus from the button.</p></li>
+</ul>
+<p class="nonindent">The event attributes associated with the <code>button</code> object are:</p>
+<ul class="square">
+<li><p><code>onclick</code>: Occurs when a user clicks a button.</p></li>
+<li><p><code>onmouseDown</code>: Occurs when a mouse button is pressed.</p></li>
+<li><p><code>onmouseUp</code>: Occurs when the mouse button is released.</p></li>
+</ul>
+<h3 class="topic">checkbox</h3>
+<p class="nonindent">The <code>checkbox</code> object refers to the HTML check box.</p>
+<p class="nonindent">The methods associated with the <code>checkbox</code> object are:</p>
+<ul class="square">
+<li><p><code>click()</code></p></li>
+<li><p><code>focus()</code></p></li>
+<li><p><code>blur()</code></p></li>
+</ul>
+<p class="nonindent">The <code>checkbox</code> object can be referred inside a form using the following syntax:</p>
+<p class="code"><code>document.form1.checkbox1</code></p>
+<p class="nonindent">In the preceding syntax,<code> form1</code> is the name of the form and <code>checkbox</code> is the name or ID of the check box.</p>
+<p class="nonindent">Consider the following code snippet to refer the <code>checkbox</code> object inside a form and perform validation on it:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>body{</code></p>
+<p class="code"><code>background-color:pink;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>function validate()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>if(document.f1.check1.checked==false)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>alert("Please select the check box");</code></p>
+<p class="code"><code>return false</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>else</code></p>
+<p class="code"><code>return true</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;FORM name="f1" method="get" action="thanks.html" onsubmit="return validate();" &#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="checkbox" ID="check1" /&#x003E;Do you want to accept?</code></p>
+<p class="code"><code>&#x003C;INPUT type="submit" name="submit" value="Submit"&#x003E;&#x003C;/INPUT&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="reset" name="reset" value="Reset"&#x003E;&#x003C;/INPUT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet refers to the <code>checkbox</code> object inside a form and validates it before the user submits a form. It refers to the <code>checkbox</code> object using the <code>document.f1.check1</code> syntax. It checks whether the user has selected the check box or not by using the <code>document.f1.check1.checked==false</code> condition. If the user has not selected the check box, the <code>document.f1.check1.checked==false</code> condition evaluates to false and the message, <strong>Please select the check box</strong> is displayed.<code></code></p>
+<h3 class="topic">text</h3>
+<p class="nonindent">The <code>text</code> object refers to the HTML text box.</p>
+<p class="nonindent">The methods associated with the <code>text</code> object are:</p>
+<ul class="square">
+<li><p><code>blur()</code>: Removes focus from a text field.</p></li>
+<li><p><code>focus()</code>: Sets focus on a text field.</p></li>
+<li><p><code>select()</code>: Selects a text field.</p></li>
+</ul>
+<p class="nonindent">The event attributes associated with the <code>text</code> object are:</p>
+<ul class="square">
+<li><p><code>onfocus</code>: Fired when an element receives focus.</p></li>
+<li><p><code>onchange</code>: Fired after the occurrence of the blur event, when the value of the text object is modified.</p></li>
+<li><p><code>Onselect</code>: Fired when the user selects a part of the text within the text field.</p></li>
+</ul>
+<p class="nonindent">The <code>text</code> object can be referred inside a form using the following syntax:</p>
+<p class="code"><code>document.form1.text1</code></p>
+<p class="nonindent">In the preceding syntax,<code> form1</code> is the name of the form and <code>text1</code> is the name or ID of the text box.</p>
+<h3 class="topic">textarea</h3>
+<p class="nonindent">The <code>textarea</code> object refers to the HTML textarea.</p>
+<p class="nonindent">The <code>textarea</code> object has similar methods and event attributes as that of the <code>text</code> object.</p>
+<h3 class="topic">radio</h3>
+<p class="nonindent">The <code>radio</code> object refers to an HTML radio button.</p>
+<p class="nonindent">The <code>radio</code> object can be referred inside a form using the following syntax:</p>
+<p class="code"><code>document.form1.radio1</code></p>
+<p class="nonindent">In the preceding syntax,<code> form1</code>, is the name of the form and <code>radio1</code> is the name or ID of the radio button.</p>
+<p class="nonindent">Consider the following code snippet to refer the <code>radio</code> object inside a form and perform validation on it:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>body{</code></p>
+<p class="code"><code>background-color:pink;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>function validate()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>if((document.f1.M.checked==false)&amp;&amp;(document.f1.F.checked==false))</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>alert("Please select the gender");</code></p>
+<p class="code"><code>return false</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>else</code></p>
+<p class="code"><code>return true</code></p>
+<p class="code"><code> }</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;FORM name="f1" method="get" action="thanks.html" onsubmit="return validate();" &#x003E;</code></p>
+<p class="code"><code>Gender:</code></p>
+<p class="code"><code>&#x003C;INPUT type="radio" name="gender" ID="M" /&#x003E;Male</code></p>
+<p class="code"><code>&#x003C;INPUT type="radio" name="gender" ID="F" /&#x003E;Female</code></p>
+<p class="code"><code>&#x003C;INPUT type="submit" name="submit" value="Submit" align="center"&#x003E;&#x003C;/INPUT&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="reset" name="reset" value="Reset"&#x003E;&#x003C;/INPUT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet refers to the <code>radio</code> object inside a form and validates it before the user submits the form. It checks whether the radio buttons, <strong>Male</strong> or <strong>Female</strong>, for indicating gender have been selected or not. If the user has not indicated gender, the checked property of the radio button returns false and <strong>Please select the gender</strong> message is displayed.<code></code></p>
+<h3 class="topic">select</h3>
+<p class="nonindent">The <code>select</code> object refers to the HTML drop-down list.</p>
+<p class="nonindent">The methods associated with the <code>select</code> object are:</p>
+<ul class="square">
+<li><p><code>blur()</code></p></li>
+<li><p><code>focus()</code></p></li>
+</ul>
+<p class="nonindent">The events attributes associated with the <code>select</code> object are:</p>
+<ul class="square">
+<li><p><code>onchange</code></p></li>
+<li><p><code>onfocus</code></p></li>
+<li><p><code>onblur</code></p></li>
+</ul>
+<p class="nonindent">The <code>select</code> object can be referred inside a form using the following syntax:</p>
+<p class="nonindent"><code>document.form1.select1</code></p>
+<p class="nonindent">In the preceding syntax,<code> form1</code> is the name of the form and <code>select1</code> is the name or ID of the <code>select</code> object.</p>
+<p class="nonindent">Consider the following code snippet to refer the <code>select</code> object inside a form and perform validation on it:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>function validate()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>if(document.f1.opt.value==0)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>alert("Please select the country");</code></p>
+<p class="code"><code>return false</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>else</code></p>
+<p class="code"><code>return true</code></p>
+<p class="code"><code> }</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;FORM name="f1" method="get" action="thanks.html" onSubmit="return validate();" &#x003E;</code></p>
+<p class="code"><code>Country:</code></p>
+<p class="code"><code>&#x003C;SELECT ID="opt" style="width:220"&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value=0&#x003E;Select any country&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="1"&#x003E;India&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="2"&#x003E;USA&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;OPTION value="3"&#x003E;UK&#x003C;/OPTION&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SELECT&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="submit" name="submit" value="Submit"&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="reset" name="reset" value="Reset"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/FORM&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet refers to the <code>select</code> object inside a form and validates it before the user submits a form. It refers to the <code>select</code> object using the <code>document.f1.opt statement</code>. It checks whether a user has indicated his/her country or not using the <code>document.f1.opt.value==0</code> condition. If the user has not indicated his/her country, the <strong>Please select the country</strong> message is displayed.</p>
+<p class="center"><img src="images/J0502.jpg" onclick="play('animation_J0502_swf')" id="animation_J0502_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a75"><img src="images/act.png" alt="" /> Activity 5.2: Manipulating the Components of a Web Page</h2>
+<h1 class="chapter-head" id="a76">Summary</h1>
+<p class="nonindent">In this chapter, you learned that:</p>
+<ul class="square">
+<li><p>To create a form on a Web page, you need to use the <code>&#x003C;FORM&#x003E;</code> tag.</p></li>
+<li><p>The <code>&#x003C;FORM&#x003E;</code> tag supports the following attributes:</p>
+<ul class="disc">
+<li><p><code>name</code></p></li>
+<li><p><code>ID</code></p></li>
+<li><p><code>action</code></p></li>
+<li><p><code>method</code></p></li>
+<li><p><code>autocomplete</code></p></li>
+<li><p><code>novalidate</code></p></li>
+<li><p><code>target</code></p></li>
+</ul></li>
+<li><p>The fields can be added to a form by using the following tags:</p>
+<ul class="disc">
+<li><p><code>&#x003C;INPUT&#x003E;</code></p></li>
+<li><p><code>&#x003C;SELECT&#x003E;</code></p></li>
+<li><p><code>&#x003C;LABEL&#x003E;</code></p></li>
+<li><p><code>&#x003C;FIELDSET&#x003E;</code></p></li>
+<li><p><code>&#x003C;TEXTAREA&#x003E;</code></p></li>
+<li><p><code>&#x003C;DATALIST&#x003E;</code></p></li>
+<li><p><code>&#x003C;KEYGEN&#x003E;</code></p></li>
+<li><p><code>&#x003C;OUTPUT&#x003E;</code></p></li>
+<li><p><code>&#x003C;BUTTON&#x003E;</code></p></li>
+</ul></li>
+<li><p>JavaScript defines the following browser objects on a Web page:</p>
+<ul class="disc">
+<li><p><code>window</code></p></li>
+<li><p><code>document</code></p></li>
+<li><p><code>navigator</code></p></li>
+<li><p><code>screen</code></p></li>
+<li><p><code>history</code></p></li>
+<li><p><code>location</code></p></li>
+</ul></li>
+<li><p>Browser objects represent the browser environment and provide properties and methods for its access and manipulation.</p></li>
+<li><p>The form object is a browser object, which acts as a container for several other objects that collect information from a user.</p></li>
+<li><p>The following objects of JavaScript are commonly used while working with Web forms:</p>
+<ul class="disc">
+<li><p><code>form</code></p></li>
+<li><p><code>button</code></p></li>
+<li><p><code>checkbox</code></p></li>
+<li><p><code>text</code></p></li>
+<li><p><code>textarea</code></p></li>
+<li><p><code>radio</code></p></li>
+<li><p><code>select</code></p></li>
+</ul></li>
+</ul>
+<h1 class="chapter-head" id="ref5">Reference Reading</h1>
+<h3 class="topic">Designing an HTML Form</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>The Definitive Guide to HTML5 By Adam Freeman</em></p></td>
+<td><p><em><a href="http://www.html5rocks.com/en/tutorials/forms/html5forms/">http://www.html5rocks.com/en/tutorials/forms/html5forms/</a></em></p>
+<p><em><a href="http://www.ohio.edu/technology/training/upload/html-advanced-reference-guide.pdf">http://www.ohio.edu/technology/training/upload/html-advanced-reference-guide.pdf</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Manipulating the Components of a Web Page</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p> <em>The Definitive Guide to HTML5 By Adam Freeman</em></p></td>
+<td><p><em><a href="http://www.w3schools.com/js/js_ex_browser.asp">http://www.w3schools.com/js/js_ex_browser.asp</a></em></p></td>
+</tr>
+</table>
+</body>
+</html>

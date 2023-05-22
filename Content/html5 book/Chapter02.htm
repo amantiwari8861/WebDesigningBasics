@@ -1,0 +1,987 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Chapter 2 - Enhancing Web Pages</title>
+<link rel="stylesheet" type="text/css" href="css/Style.css"/>
+<link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="page-template.xpgt"/>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+<meta http-equiv="X-UA_Compatible" content="IE=9"/>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/GlobalContentSecrity.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/Content/analytics.js" type="text/javascript"></script>
+</head>
+<body bgcolor="#F8FCFD">
+<h1 class="chno" id="ch02">Chapter 2</h1>
+<h1 class="chname">Enhancing Web Pages</h1>
+<p class="nonindent">A website that is professionally designed requires a lot more than just creating Web pages and linking them together. It is important that all the elements of a Web page are well formatted so that the look and feel of the Web pages should be consistent across the entire website. This can be implemented by using style sheets. </p>
+<p class="nonindent">In addition, you can apply transition and transformation effects on HTML elements to add visual effects. </p>
+<p class="nonindent">This chapter discusses how to implement styles by using style sheets. In addition, it discusses how to apply transitions, animations, and transformations on Web pages.</p>
+<h2 class="section-head">Objectives</h2>
+<p class="nonindent">In this chapter, you will learn to:</p>
+<ul class="square">
+<li><p>Work with styles</p></li>
+<li><p>Apply transitions, animations, and transformations</p></li>
+</ul>
+<h1 class="chapter-head" id="a17">Working with Styles</h1>
+<p class="nonindent">The look and feel of a Web page depends upon the appearance and arrangement of HTML elements on it. You can format the HTML elements in your Web page to make it look appealing. In addition, when a website is created, formatting and layout of all the Web pages should be consistent. For example, the formatting and placement of the company header and the company logo need to be same on the home page as well as on all the other Web pages of the website. To accomplish this task, Cascading Style Sheets (CSS) can be used.</p>
+
+<p class="nonindent">CSS is a collection of styles that allows you to change the appearance of HTML elements on Web pages. It can be used to define a set of formatting options that can be used to format text and other HTML elements. It defines a set of standard rules that provides a better control over the page layout and the appearance.</p>
+<p class="nonindent">CSS can be applied to specific HTML elements on a Web page, to all the elements on a Web page, or across all the Web pages of the website. Therefore, CSS can be used to enforce consistent display standards across all the Web pages of the website.</p><p class="nonindent"></p>
+<p class="center"><img src="images/HTML_02_Applying_Styles_Using_CSS.jpg" onclick="play('animation_HTML_02_Applying_Styles_Using_CSS_swf')" id="animation_HTML_02_Applying_Styles_Using_CSS_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a18">Identifying the Syntax of CSS</h2>
+<p class="nonindent">As a Web developer, you need to ensure that your website is visually appealing. For example, you want to color the text, background, and hyperlinks on the website. Moreover, with multiple Web pages and graphics, you want to ensure consistency in the formatting and layout of Web pages. To achieve this, you can implement CSS to stylize Web pages and text on the website.</p>
+<p class="nonindent">CSS allows the creation of one or more rules for defining the style characteristics of HTML elements. Each rule consists of the following parts:</p>
+<ul class="square">
+<li><p><strong>Selector</strong>: A selector specifies the HTML element that you want to style. You can have one or more selectors in a rule.</p></li>
+<li><p><strong>Declaration Block</strong>: A declaration block follows a selector in a CSS rule and is enclosed in curly braces. </p></li>
+<p class="nonindent">Each declaration consists of the following parts:</p>
+<ul class="disc">
+<li><p>Property: It is the attribute name of the element.</p></li>
+<li><p>Value: It is the value of the attribute.</p></li>
+</ul>
+</ul>
+<p class="nonindent">The following syntax can be used to define a CSS rule:</p>
+<p class="code"><code>selector  </code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>//Declaration Block</code></p>
+<p class="code"><code>property: value; </code></p>
+<p class="code"><code>} </code></p>
+<p class="nonindent">For example, consider the following code to create the HTML document:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1&#x003E;Welcome to BookYourHotel website.&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;H2&#x003E;This site is very user friendly.&#x003C;/H2&#x003E; </code></p>
+<p class="code"><code>&#x003C;H1&#x003E;You can book your hotel while sitting at home.&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">Now, you want to display the text inside the <code>&#x003C;H1&#x003E;</code> tag in italics and red color. In addition, the text inside the<code> &#x003C;H2&#x003E;</code> tag should be displayed as bold. You can perform this task by defining CSS rules using the following code snippet:</p>
+<p class="code"><code>h1 {color:red; font-style:italic;} </code></p>
+<p class="code"><code>h2 {font-weight:bold;} </code></p>
+<p class="nonindent">In the preceding code snippet, you have created two rules to stylize the<code> H1</code> and <code>H2</code> selectors. The <code>color</code> property is given the value, <code>red</code>, and the <code>font-style</code> property is given the value, <code>italic</code>, in the first rule. Whereas, in the second rule, the <code>font-weight</code> property is given the value, <code>bold</code>. The preceding code will display the text inside the <code>H1</code> and <code>H2</code> selectors, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_01.jpg" /></p>
+<p class="caption"><em>The Text Inside the H1 and H2 Selectors</em></p>
+<p class="nonindent">In addition, you can give multiple declarations inside the declaration block of a CSS rule to apply multiple styles to HTML elements. These declarations are separated by using a semi-colon. For example, the following CSS rule uses multiple declarations to stylize the body section of the preceding HTML document so that the content inside it appears in Arial font, bold and italic style, and red color: </p>
+<p><code>body </code></p>
+<p><code>{ </code></p>
+<p><code>font-family: arial; </code></p>
+<p><code>font-weight: bold; </code></p>
+<p><code>color:red; </code></p>
+<p><code>font-style:italic; </code></p>
+<p><code>}</code></p>
+<p class="nonindent">The preceding code applies style on the body selector, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_02.jpg" /></p>
+<p class="caption"><em>The Styles Applied on the Body Selector</em></p>
+<h2 class="section-head" id="a19">Identifying the Types of Style Sheets</h2>
+<p class="nonindent">The CSS styles can be applied on the websites in different ways. For example, you want to apply a unique CSS style on a specific heading of a Web page. It is also possible that you want to apply different styles on each Web page. In addition, you may want all the pages of your website to be consistent in their style. Different websites use different ways of implementing styles through CSS. Based on the manner in which CSS styles are applied, these can have the following categories:</p>
+<ul class="square">
+<li><p>Inline style </p></li>
+<li><p>Internal style sheet </p></li>
+<li><p>External style sheet </p></li>
+</ul>
+<h3 class="topic">Inline Style	  </h3>
+<p class="nonindent">To customize only few elements on a Web page, inline styles can be applied. For example, you want to display a particular paragraph in red color on one of the Web pages. For this, you can use an inline style. Inline styles are attached directly with the tag in the HTML document. They are specified by using the <code>style </code>attribute inside an element declaration in the HTML document. The inline styles customize only the tag on which they are applied.</p>
+<p class="nonindent">Consider the following code to specify a style for only one of the <code>&#x003C;P&#x003E;</code> tags in the HTML document:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;P style="font-size: 24pt; color: red"&#x003E;Hotel booking from the comfort of your room.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;Compare and book from more than 5000 hotels. &#x003C;/P&#x003E;</code></p>
+<p class="code"><p class="code"><code>&#x003C;/BODY&#x003E;</code></p></p>
+<p class="code"><p class="code"><code>&#x003C;/HTML&#x003E;</code></p></p>
+<p class="nonindent">In the preceding code, the text inside the first <code>&#x003C;P&#x003E;</code> element will be displayed in red color with a specific font size. Whereas, the text inside the second <code>&#x003C;P&#x003E;</code> element will be displayed in a normal font as no styles have been applied on it.</p>
+<p class="nonindent">The following figure displays the output derived after applying the inline style on the <code>&#x003C;/P&#x003E;</code> tag.</p>
+<p class="center"><img src="images/HTML_02_03.jpg" /></p>
+<p class="caption"><em>The Output Derived After Applying the Inline Style on <code>&#x003C;/P&#x003E;</code> Tag</em></p>
+<h3 class="topic">Internal Style Sheet</h3>
+<p class="nonindent">An internal style sheet is used when there is a need to stylize the multiple occurrences of an element on a Web page with the same style. It is also known as an embedded style sheet. For example, you want to format all the <code>&#x003C;P&#x003E;</code> and <code>&#x003C;H1&#x003E;</code> tags of a Web page. In this case, it would be advisable to define separate style rules for the <code>&#x003C;P&#x003E;</code> and <code>&#x003C;H1&#x003E;</code> tags once, and then refer to these definitions, wherever needed. The internal style sheet customizes the elements of only that Web page in which it is contained. This can be implemented by using an internal style sheet. An internal style sheet is enclosed within the <code>&#x003C;STYLE&#x003E;</code> tag inside the head section of the HTML document, as shown in the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E; </code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E; </code></p>
+<p class="code"><code>&#x003C;STYLE type="text/css"&#x003E; </code></p>
+<p class="code"><code>p </code></p>
+<p class="code"><code>{ </code></p>
+<p class="code"><code>color:red; </code></p>
+<p class="code"><code>font-size:20pt; </code></p>
+<p class="code"><code>font-style:italic;</code></p>
+<p class="code"><code>} </code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E; </code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E; </code></p>
+<p class="code"><code>&#x003C;BODY&#x003E; </code></p>
+<p class="code"><code>&#x003C;P&#x003E; Hotel booking from the comfort of your room.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E; Compare and book from more than 5000 hotels.&#x003C;/P&#x003E;</code> </p>
+<p class="code"><code>&#x003C;/BODY&#x003E; </code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E; </code></p>
+<p class="nonindent">In the preceding code, an internal style sheet has been used to stylize all the <code>&#x003C;P&#x003E;</code> tags defined inside the HTML document.</p>
+<p class="nonindent">The text inside the <code>&#x003C;P&#x003E;</code> tags is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_04.jpg" /></p>
+<p class="caption"><em>The Text Inside the <code>&#x003C;P&#x003E;</code> Tags</em></p>
+<h3 class="topic">External Style Sheet</h3>
+<p class="nonindent">An external style sheet is used when multiple Web pages are to be styled in the same manner to ensure the consistent look and feel across the entire website. An external style contains only the formatting rules for the desired HTML elements. Therefore, it separates the design of a Web page from its content. An external style sheet can be simultaneously linked to multiple HTML documents. Therefore, a consistent style can be applied on multiple pages of the website by defining an external style sheet.</p>
+<p class="nonindent">An external style sheet is a text document that consists of CSS formatting rules. This document can be written in a simple text editor, such as Notepad, and then saved with the .css file extension. To associate a Web page with an external style sheet, you need to use the <code>&#x003C;LINK&#x003E;</code> tag inside the head section of the HTML document. The following code displays the <code>&#x003C;LINK&#x003E;</code> tag along with its some commonly-used attributes:</p>
+<p class="code"><code>&#x003C;LINK type="text/css" rel="stylesheet" href="externalstylesheet.css" /&#x003E; </code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>type</code>: Specifies the type of content in the linked document.  </p></li>
+<li><p><code>href</code>: Specifies the location of the linked external style sheet.</p></li>
+<li><p><code>rel</code>: Specifies the relationship between the CSS document and the HTML document. The <code>rel</code> attribute is specified with value, <code>stylesheet</code>, which specifies that the current HTML document is importing an external style sheet.</p></li>
+</ul>
+<p class="nonindent">Consider the following code to associate an external style sheet with the HTML document: </p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TITLE&#x003E; An External Style Sheet &#x003C;/TITLE&#x003E;</code></p> 
+<p class="code"><code>&#x003C;LINK type="text/css" rel="stylesheet" href="externalstyle.css" /&#x003E; </code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E; </code></p>
+<p class="code"><code>&#x003C;BODY&#x003E; </code></p>
+<p class="code"><code>&#x003C;H1&#x003E; Hotel booking from the comfort of your room. &#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E; Compare and book from more than 5000 hotels. &#x003C;/P&#x003E; </code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E; </code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E; </code></p>
+<p class="nonindent">The <code>&#x003C;LINK&#x003E;</code> tag in the preceding code associates the external style sheet named <code>externalstyle.css</code> with the HTML document. The content of the file, <code>externalstyle.css</code>, is shown in the following code snippet:</p>
+<p class="code"><code>p </code></p>
+<p class="code"><code>{ </code></p>
+<p class="code"><code>color:red; </code></p>
+<p class="code"><code>font-size:20pt; </code></p>
+<p class="code"><code>font-style:italic;</code></p>
+<p class="code"><code>} </code></p>
+<p class="code"><code>h1 </code></p>
+<p class="code"><code>{ </code></p>
+<p class="code"><code>color:blue; </code></p>
+<p class="code"><code>font-size:25pt; </code></p>
+<p class="code"><code>font-weight:bold; </code></p>
+<p class="code"><code>} </code></p>
+<p class="nonindent">The Web page associated with the external style sheet is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_05.jpg" /></p>
+<p class="caption"><em>The Web Page Associated with the External Style Sheet</em></p>
+<h2 class="section-head" id="a20">Applying Multiple Style Sheets </h2>
+<p class="nonindent">Consider an example where you have defined different formatting rules for the <code>&#x003C;P&#x003E;</code> tag in the form of an inline style, as well as in the form of an internal style in the same HTML document. Therefore, properties have been set for the same selector in multiple style sheets. In such a case, the style that is most specific to the element and has the highest priority will be used to stylize the element. The following list displays the priority of style sheets in descending order: </p>
+<ul class="square">
+<li><p>Inline style</p></li>
+<li><p>Internal style sheet</p></li>
+<li><p>External style sheet</p></li>
+<li><p>Browser default</p></li>
+</ul>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>The browser default is the default style applied on HTML elements, if no style type has been defined.</em></p></div>
+<p class="nonindent">Consider the following code snippet for the <code>externalstylesheet.css</code> file:</p>
+<p class="code"><code>p{</code></p>
+<p class="code"><code>color:blue;</code></p>
+<p class="code"><code>font-size:12pt;</code></p>
+<p class="code"><code>font-weight:bold;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">Consider the following code to associate multiple style sheets with the HTML page:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;LINK type="text/css" rel="stylesheet" href="externalstylesheet.css" /&#x003E; </code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>h1{</code></p>
+<p class="code"><code>color:red;</code></p>
+<p class="code"><code>font-size:12pt;</code></p>
+<p class="code"><code>font-style:italic;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;Welcome to BookYourHotel website.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1 style="font-size: 24pt; color: green"&#x003E; Hotel booking from the comfort of your room.&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1&#x003E; Compare and book from more than 5000 hotels. &#x003C;/H1&#x003E;&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the first heading will appear in green with font size, 24, since the inline style defined for the first <code>&#x003C;H1&#x003E;</code> tag will override the internal style defined in the <code>&#x003C;STYLE&#x003E;</code> tag.  However, the second heading will appear in italics, red color with font-size, 12, according to the internal style defined for the <code>&#x003C;H1&#x003E;</code> tag. The paragraph will be styled according to the external style sheet as no internal or inline style has been applied on it. </p>
+<p class="nonindent">The Web page with multiple styles is displayed, as shown in the following figure. </p>
+<p class="center"><img src="images/HTML_02_06.jpg" /></p>
+<p class="caption"><em>The Web Page with Multiple Styles</em></p>
+<h2 class="section-head" id="a21">Identifying CSS Selectors</h2>
+<p class="nonindent">Consider an example where you want to stylize a specific <code>&#x003C;P&#x003E;</code> tag differently from the rest of the paragraphs in the same Web page. Therefore, this <code>&#x003C;P&#x003E;</code> tag needs to be uniquely identified for the application of a distinct style. On the other hand, you may want to specify a common style for different elements, such as headings, lists, and paragraphs, on a Web page. In both these cases, you need to create your own CSS selectors. These user-defined CSS selectors are classified as ID and class selectors.</p>
+<h3 class="topic">Implementing the ID Selector</h3>
+<p class="nonindent">CSS styles can be applied to an element with a specific ID by using an ID selector. An ID selector is used to identify an element that you need to style differently from the rest of the page. An ID selector is defined by using the hash symbol (#).</p>
+<p class="nonindent">Consider a scenario where you need to specify a unique style for the paragraph that displays the welcome message on your website. This can be accomplished by adding an ID attribute to the paragraph that displays this message and using that ID to specify the style that needs to be applied to this paragraph. </p>
+<p class="nonindent">Consider the following code to use an ID selector:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>p</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>color:red;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>#pname</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>color:green;</code></p>
+<p class="code"><code>font-size=20;</code></p>
+<p class="code"><code>font-weight:bold;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;P ID="pname"&#x003E;Welcome to BookYourHotel Website.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E; Hotel booking facility at your doorstep&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the first <code>&#x003C;P&#x003E;</code> tag is given the ID, <code>pname</code>, which is being used as the ID selector in the <code>&#x003C;STYLE&#x003E;</code> tag to define a style rule for this <code>&#x003C;P&#x003E;</code> tag. Therefore, the first <code>&#x003C;P&#x003E;</code> tag will be stylized as per the ID selector, <code>#pname</code>. However, the second <code>&#x003C;P&#x003E;</code> tag will appear in red color as defined by the internal style sheet.</p>
+<p class="nonindent">The output derived after using an ID selector is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_07.png" /></p>
+<p class="caption"><em>The Output Derived After Using an ID Selector</em></p>
+<h3 class="topic">Implementing the Class Selector</h3>
+<p class="nonindent">A CSS style can be applied to a group of elements by using the class selector. The class selector is used when there is a need to apply the same style on different types of elements in the HTML document. Multiple elements can belong to the same class. Hence, you can set a particular style for many HTML elements with the same class. The class selector is defined by using a dot (.). </p>
+<p class="nonindent">Consider an example of a Web page where you need to apply the same formatting rules on paragraphs and headings of the Web page. You can accomplish this by using the internal style sheets, as shown in the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>p{</code></p>
+<p class="code"><code>font-size:20px;</code></p>
+<p class="code"><code>color: red;</code></p>
+<p class="code"><code>font-weight:bold;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>h1{</code></p>
+<p class="code"><code>font-size:20px;</code></p>
+<p class="code"><code>color: red;</code></p>
+<p class="code"><code>font-weight:bold;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>h2{</code></p>
+<p class="code"><code>font-size:20px;</code></p>
+<p class="code"><code>color: red;</code></p>
+<p class="code"><code>font-weight:bold;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1&#x003E;Welcome to BookYourHotel website.&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;H2&#x003E;This site is very user friendly.&#x003C;/H2&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;This site gives information of all the hotels in USA.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;You can book your hotel while sitting in your room.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E; </code></p>
+<p class="nonindent">Although the preceding code gives the desired output, it has certain drawbacks associated with it. The code is redundant as the same style has been defined more than once for different selectors. Therefore, it makes the code bulky. In such a case, instead of defining the same style repeatedly for different elements, you should use a class selector. All the elements with the same class can be assigned the same style. Consider the following code snippet to create a class selector for styling various HTML elements of the Web page:</p>
+<p class="code"><code>.first </code></p> 
+<p class="code"><code>{ </code></p>
+<p class="code"><code>font-size:20px;</code></p>
+<p class="code"><code>color: red;</code></p>
+<p class="code"><code>font-weight:bold;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding code snippet, a class selector has been created. This selector can be associated with the desired HTML elements by using the <code>class</code> attribute, as shown in the following code snippet:</p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1 class="first"&#x003E; Welcome to BookYourHotel website.&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;H2 class="first"&#x003E; This site is very user friendly. &#x003C;/H2&#x003E;</code></p>
+<p class="code"><code>&#x003C;P class="first"&#x003E; This site gives information of all the hotels in USA.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P class="first"&#x003E; You can book your hotel while sitting at your room.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="nonindent">In addition, you can also set a class selector in such a way that only specific HTML elements should get affected by a class. You can do this by placing the type selector before the dot of the class selector.  </p>
+<p class="nonindent">Consider an example where you want HTML elements in your Web page to be colored blue. This can be implemented by creating a class selector. However, you also want some specific <code>&#x003C;P&#x003E;</code> tags to be colored red. This can be done by creating a class selector specifically for these paragraphs. Its name is preceded by the type selector, <code>p</code>. Consider the following code snippet to specify that only specific <code>&#x003C;P&#x003E;</code> tags should be affected by the style of the class selector:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>.color1 {</code></p>
+<p class="code"><code>color:blue;</code></p>
+<p class="code"><code>} </code></p>
+<p class="code"><code>p.color2 {</code></p>
+<p class="code"><code>color:red;</code></p>
+<p class="code"><code>} </code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H4 class="color1"&#x003E; Welcome to BookYourHotel website.&#x003C;/H4&#x003E;</code></p>
+<p class="code"><code>&#x003C;P class="color1"&#x003E;Provides online booking of domestic and international hotels.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P class="color2"&#x003E; Avail great discounts and offers. &#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The output derived after using a class selector is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_08.jpg" /></p>
+<p class="caption"><em>The Output Derived After Using a Class Selector</em></p>
+<h2 class="section-head" id="a22">Styling HTML Elements</h2>
+<p class="nonindent">Consider the scenario of the BookYourHotel website. The following code is used to create the About Us page of the website:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1&#x003E;About Us&#x003C;/H1&#x003E;&#x003C;HR&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;BookYourHotel is the most trusted name in the destination management industry. We are one of the pioneers for hotel booking. Currently we are operating out of our head office in Chicago. In addition, we have our presence across all the major cities in the US and Europe. Our primary focus is on customer satisfaction and comfort.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;With a manpower strength of over 400 employees spread across the US, we ensure a quick and customized response to all your travel related queries.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;Our regional offices are situated at the following locations:</code></p>
+<p class="code"><code>&#x003C;UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;Alabama&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;Florida&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;California&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;Colorado&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;Texas&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;New York&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;We are also planning to expand our services to other states.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;Regarding any further queries or feedback, click at the following link:&#x003C;/P&#x003E; &#x003C;A href="contactus.html"&#x003E;BookYourHotel&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The About Us page of the BookYourHotel website is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_09.jpg" /></p>
+<p class="caption"><em>The About Us Page of the BookYourHotel Website </em></p>
+<p class="nonindent">To improve the look and feel of this page, you need to incorporate the following style guidelines: </p>
+<ul class="square">
+<li><p>The text in the paragraphs should have the font family as Helvetica and the font size as 20. </p></li>
+<li><p>The Heading level one should appear in small caps. </p></li>
+<li><p>The background should appear in grey color. </p></li>
+<li><p>The space between letters in a paragraph should be 2 points. Also, the line height should be 12 points. </p></li>
+<li><p>The symbol of the list bullets should appear as a square.</p></li>
+</ul>
+<p class="nonindent">The preceding style guidelines can be applied by setting the corresponding CSS properties. A CSS property represents a characteristic of the HTML element that can be customized. You need to use these CSS properties to define styles for HTML elements. The CSS properties can be divided into the following categories:</p>
+<ul class="square">
+<li><p>Font </p></li>
+<li><p>Text </p></li>
+<li><p>Link</p></li>
+<li><p>List</p></li>
+<li><p>Background</p></li>
+</ul>
+<h3 class="topic">Font </h3>
+<p class="nonindent">Font properties are used to customize the manner in which some text is displayed on a Web page and also to make it more attractive. The following table lists the available font properties.</p>
+<p class="center"><img src="images/HTML_02_10.jpg" /></p>
+<p class="caption"><em>The Font Properties</em></p>
+<p class="nonindent">In the BookYourHotel website, the existing About Us page is formatted by applying certain style for the font, as shown in the following code snippet:
+</p>
+<p class="code"><code>p{</code></p>
+<p class="code"><code>font-family: "Helvetica"</code></p>
+<p class="code"><code>Font-size:20px;</code></p>
+<p class="code"><code>} </code></p>
+<p class="code"><code>h1{</code></p>
+<p class="code"><code>font-variant:small-caps;</code></p>
+<p class="code"><code>font-style:italic;</code></p>
+<p class="code"><code>} </code></p>
+<p class="nonindent">In the preceding code snippet, the font family and the font size of the text in the paragraph are changed according to the specifications. In addition, the heading is displayed as italicized and in small caps on the Web page. The output derived after applying the font styles is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_11.jpg" /></p>
+<p class="caption"><em>The Output Derived After Applying the Font Styles</em></p>
+<h3 class="topic">Text</h3>
+<p class="nonindent">The CSS text properties can be used to change color, indentation, and alignment of text elements on a Web page. The following table lists the text properties that can be used to control the alignment of the text.
+</p>
+<p class="center"><img src="images/HTML_02_12a.jpg" /></p><p class="caption"><em>The Text Properties Used to Control the Alignment of the Text</em></p>
+<p class="nonindent">The following table lists the text properties that can be used to control the spacing and formatting of the text.</p>
+<p class="center"><img src="images/HTML_02_12b.jpg" /></p><p class="caption"><em>The Text Properties</em></p>
+<p class="nonindent">In the BookYourHotel scenario, you can use the following code snippet to achieve the desired effect in the textual appearance of paragraphs: </p>
+<p class="code"><code>p{</code></p>
+<p class="code"><code>letter-spacing:2pt; </code></p>
+<p class="code"><code>line-height:12pt;</code></p>
+<p class="code"><code>} </code></p>
+<p class="code"><code>h1{</code></p>
+<p class="code"><code>color: red;</code></p>
+<p class="code"><code>text-align: center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">The preceding code snippet stylizes the text of the paragraphs. In addition, it aligns the heading in red color and in center. The output derived after applying the text styles is displayed, as shown in the following figure.
+</p>
+<p class="center"><img src="images/HTML_02_13.jpg" /></p>
+<p class="caption"><em>The Output Derived After Applying the Text Styles</em></p>
+<h3 class="topic">Link  </h3>
+<p class="nonindent">The CSS Link properties are used to customize the appearance of links in the HTML document. A link can attain one of the following states in the HTML document:</p>
+<ul class="square">
+<li><p><code>link</code>: An unvisited link </p></li>
+<li><p><code>visited</code>: A visited link </p></li>
+<li><p><code>hover</code>: A link as it appears when the mouse is placed or moved over it </p></li>
+<li><p><code>active</code>: A link as it appears when it is clicked </p></li>
+</ul>
+<p class="nonindent">In the BookYourHotel scenario, consider the following CSS code snippet to make a link appear in red color on hover and to have a blue background and underline, when clicked:</p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>a:link {</code></p>
+<p class="code"><code>color:#FF0000;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>a:visited {</code></p>
+<p class="code"><code>color:#00FF00;</code></p>
+<p class="code"><code>} </code></p>
+<p class="code"><code>a: hover { </code></p>
+<p class="code"><code>color: #0000FF;</code></p> 
+<p class="code"><code>} </code></p>
+<p class="code"><code>a: active { </code></p>
+<p class="code"><code>color: #FF00FF; </code></p>
+<p class="code"><code>text-decoration:underline;</code></p> 
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>To apply formatting to a link in the hover state, the link and its visited state must be defined first; and to ensure that formatting can be applied on a link in the active state, the hover state must be defined first in the CSS definition.</em></p></div>
+<h3 class="topic">List</h3>
+<p class="nonindent">The CSS list properties are used to customize the look of the ordered and unordered HTML lists. Usually, the items in an unordered list are marked by using square or circular bullets. Using the CSS list properties, you can customize the marker for an unordered or ordered list. You can specify an image as a marker for an unordered list and you can specify different characters as marker for an ordered list. The following table lists the various CSS list properties.</p>
+<p class="center"><img src="images/HTML_02_14.jpg" /></p>
+<p class="caption"><em>The List Properties</em></p>
+<p class="nonindent">In the BookYourHotel scenario, consider the following code snippet to achieve the desired effect in the unordered list appearance: </p>
+<p class="code"><code>ul{</code></p> 
+<p class="code"><code>list-style-type:square;</code></p> 
+<p class="code"><code>list-style-position: inside;</code></p> 
+<p class="code"><code>} </code></p> 
+<p class="nonindent">The preceding code snippet will stylize the list-item markers in square and with the position, <code>inside</code>, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_15.jpg" /></p>
+<p class="caption"><em>The List-item Markers in Square and Inside Position</em></p>
+<p class="center"><img src="images/HTML_02_StylingLists.jpg" onclick="play('animation_HTML_02_StylingLists_swf')" id="animation_HTML_02_StylingLists_swf" height="488px" width="650px" /></p>
+<h3 class="topic">Background</h3>
+<p class="nonindent">The CSS background properties are used to specify the background color, image, or position of the HTML element. The following table lists the background properties that can be used to set the background effects on the HTML element.</p>
+<p class="center"><img src="images/HTML_02_16.jpg" /></p>
+<p class="caption"><em>The Background Properties</em></p>
+<p class="nonindent">In the BookYourHotel scenario, consider the following code snippet to set the background color of the About Us page: </p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p> 
+<p class="code"><code>body{</code></p> 
+<p class="code"><code>background-color:lavender;</code></p> 
+<p class="code"><code>} </code></p> 
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p> 
+<p class="nonindent">The preceding code snippet will stylize the About Us page in lavender color, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_17.jpg" /></p>
+<p class="caption"><em>The About Us Page in Lavender Color</em></p>
+<h2 class="section-head" id="a23">Grouping and Nesting Styles</h2>
+<p class="nonindent">Consider a scenario where you want all your heading levels to have the same color. Instead of making a CSS rule for each heading separately or applying a class selector on each heading separately, you can rather group them. Similarly, you may also want to apply the same foreground color on the paragraphs and the second level headings in a Web page. For this, instead of writing the same styling code once for the paragraph tag and again for the heading tag, CSS provides you the functionality to group HTML elements. With the help of grouping, you can apply the same style on more than one HTML element without repeating them in the style sheet. </p>
+<p class="nonindent">However, providing too many IDs or class selectors might become confusing. This can also make the HTML code complex. Therefore, to check such issues, you can use nesting selectors, which assign a style to an element within an element. Grouping or nesting styles provide an optimized way to write code for styling HTML elements.</p>
+<p class="nonindent">Consider the following code to create the home page of the BookYourHotel website:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p> 
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p> 
+<p class="code"><code>h1{</code></p> 
+<p class="code"><code>text-align:center;</code></p> 
+<p class="code"><code>}</code></p> 
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p> 
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p> 
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p> 
+<p class="code"><code>&#x003C;H1&#x003E;BookYourHotel&#x003C;/H1&#x003E;</code></p> 
+<p class="code"><code>&#x003C;UL&#x003E;</code></p> 
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="aboutus.html"&#x003E;About Us&#x003C;/ A&#x003E;&#x003C;/LI&#x003E;</code></p>        
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="rooms.html"&#x003E;Rooms&#x003C;/ A&#x003E;&#x003C;/LI&#x003E;</code></p> 
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="facilities.hmtl"&#x003E;Facilities&#x003C;/A&#x003E;&#x003C;/LI&#x003E; </code></p>     
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="contactus.html"&#x003E;Contact Us&#x003C;/A&#x003E;&#x003C;/LI&#x003E; </code></p> 
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p> 
+<p class="code"><code>&#x003C;HR&#x003E;</code></p> 
+<p class="code"><code>&#x003C;H3&#x003E; Welcome to the Home page&#x003C;/H3&#x003E;</code></p> 
+<p class="code"><code>&#x003C;P&#x003E; BookYourHotel welcomes you with warmth and a feeling that each guest is  truly special. It offers a cozy and intimate experience amidst the glitz and glamour of South America. Our caring and courteous staffs are ever eager to ensure that all individual needs are cared for with professional expertise and a personal touch.&#x003C;/P&#x003E;</code></p> 
+<p class="code"><code>&#x003C;P&#x003E;The rooms have been designed with different floor plans to create individual spaces. We have Deluxe Rooms, Double and Single Rooms each with ensuite Bathrooms fitted with all modern conveniences. All room has Air-Conditioning and is equipped with well stocked Mini-bars, Television with Cable T.V. Conference facilities available for approximately 40 persons. Our multi-cuisine restaurant offers, a plethora of tasty local and international dishes to satisfy all palates. This with the elegant ambience makes for a truly unique experience.&#x003C;/P&#x003E; </code></p>      	
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p> 
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p> 
+<p class="nonindent">The home page of the BookYourHotel website is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_18.jpg" /></p>
+<p class="caption"><em>The Home Page of the BookYourHotel Website</em></p>
+<p class="nonindent">To customize the look and feel of this page, you need to incorporate the following style guidelines: </p>
+<ul class="square">
+<li><p>The links inside the list should be displayed in red color and horizontal way.</p></li>
+<li><p>The heading three should be positioned at the top left corner of the Web page.</p></li>
+<li><p>The text inside the heading one and paragraphs should be colored red. </p></li>
+</ul>
+<h3 class="topic">Grouping Styles  </h3>
+<p class="nonindent">Grouping styles are used to apply the same styles on more than one selector by combining them into a single group. The selectors in this group are separated with commas. The following syntax is used to group the elements for applying a common style:</p>
+<p class="code"><code>selector1, selector2</code></p> 
+<p class="code"><code>{</code></p> 
+<p class="code"><code>property:value;</code></p> 
+<p class="code"><code>}</code></p> 
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>selector1</code>: Specifies the name, id, or class of the first element to be stylized.</p></li>
+<li><p><code>selector2</code>: Specifies the name, id, or class of the second element to be stylized.</p></li>
+<li><p><code>property</code>: Specifies the attribute name of an element. An element can be stylized by customizing its attributes.</p></li>
+<li><p><code>value</code>: Specifies the value of the property.</p></li>
+</ul>
+<p class="nonindent">Consider the following code snippet to stylize the text of both, the <code>H1</code> element and the <code>P</code> element, in same color, with grouping styles: </p>
+<p class="code"><code>h1,p{</code></p> 
+<p class="code"><code>color:red;</code></p> 
+<p class="code"><code>}</code></p> 
+<p class="nonindent">In the preceding code snippet, all text displayed by using the <code>H1</code> and <code>P</code> elements get stylized with red color, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_19.jpg" /></p>
+<p class="caption"><em>The H1 and P Elements Stylized with Red Color</em></p>
+<h3 class="topic">Nesting Styles</h3>
+<p class="nonindent">Consider a Web page where a list or a paragraph is nested inside the div element. You may want to apply styles to the nested elements to enhance its look and feel. Styles can be applied to the nested elements by using the class or ID selectors. However, using such selectors may sometimes increase the size of the code or add to its complexity. Therefore, to achieve code optimization, CSS introduces nesting of styles. With nesting styles, you can apply style for an element within an element. It is an economic way of styling elements within an element, which discards the usage of class or ID selectors in the code.</p>
+<p class="nonindent">You can apply various nesting styles on HTML elements. The following table lists the nesting styles.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+<tr valign="top">
+<td align="left" style="width:20%"><p><strong><em>Selector</em></strong></p></td>
+<td align="left" style="width:20%"><p><strong><em>Example</em></strong></p></td>
+<td align="left" style="width:20%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+
+<tr valign="top">
+
+<td align="left" style="width:20%"><p><em>element1&#x003E;element2</em></p></td>
+<td align="left" style="width:20%"><p><code><em>div&#x003E;p</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Selects all the <code>&#x003C;P&#x003E;</code> elements, where <code>&#x003C;DIV&#x003E;</code> is their immediate -parent element.</em></p></td>
+</tr>
+
+<tr valign="top">
+<td align="left" style="width:20%"><p><em>element1 element2</em></p></td>
+<td align="left" style="width:20%"><p><code><em>div p</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Selects all the <code>&#x003C;P&#x003E;</code> elements inside the <code>&#x003C;DIV&#x003E;</code> element.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><em>element1 + element2</em></p></td>
+<td align="left" style="width:20%"><p><code><em>div+p</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Selects the <code>&#x003C;P&#x003E;</code> element that is placed immediately after the <code>&#x003C;DIV&#x003E;</code> element.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><em>element1 ~ element2</em></p></td>
+<td align="left" style="width:20%"><p><code><em>div~p</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Selects all the <code>&#x003C;P&#x003E;</code> elements that follow the <code>&#x003C;DIV&#x003E;</code> element.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Nesting Selectors </em></p>
+<p class="nonindent">In the home page of the BookYourHotel website, the <code>&#x003C;A&#x003E;</code> tag is nested inside the <code>&#x003C;LI&#x003E;</code> tag. Therefore, to stylize the <code>&#x003C;A&#x003E;</code> tag, you can apply nesting styles. Consider the following code snippet to apply nested styles on <code>&#x003C;A&#x003E;</code> elements:</p>
+<p class="code"><code>li a{</code></p>
+<p class="code"><code>color:red;</code></p>
+<p class="code"><code>text-decoration:none;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding code snippet, links inside the list element get stylized in color red, with no text decoration, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_20.jpg" /></p>
+<p class="caption"><em>The Links Inside the List Elements Stylized in Red Color</em></p>
+<p class="nonindent">Consider the following code snippet to stylize the paragraph tag that is placed immediately after the  <code>&#x003C;DIV&#x003E;</code> tag: </p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>div+p</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>background-color:blue;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1&#x003E;Welcome to the page.&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;This is paragraph 1.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;This is paragraph 2.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;This is paragraph 3.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, only the <code>&#x003C;P&#x003E;</code> tag that is placed immediately after the <code>&#x003C;DIV&#x003E; </code>tag gets stylized in blue color. The output of the preceding code snippet is shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_21.jpg" /></p>
+<p class="caption"><em>The Output of the Preceding Code Snippet</em></p>
+<h2 class="section-head" id="a24">Controlling the Visibility of Elements</h2>
+<p class="nonindent">Consider an example where you have created a menu bar on a Web page. You want to control the visibility of the submenus in such a way that they should be visible only when the user moves the mouse pointer on the corresponding top-level menu item. You can perform this by defining visibility styles on HTML elements. CSS visibility styles can have the following categories:</p>
+<ul class="square">
+<li><p><code>Display</code></p></li>
+<li><p><code>Visibility</code></p></li>
+</ul>
+<h3 class="topic">Display</h3>
+<p class="nonindent">The <code>display</code> property is used to set the appearance of an element on a Web page. The following syntax can be used to apply the display property:</p>
+<p class="code"><code>display: none| block| inline</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>none</code>:  Hides an element from a Web page without consuming any space.</p></li>
+<li><p><code>block</code>: Shows the elements by consuming the full width available. It has a line break before and after it. Here, elements flow down the page in the normal flow.</p></li>
+<li><p><code>inline</code>: Shows elements by consuming as much width as necessary. It does not have line breaks. Here, elements are laid out within the line. It is the default value that is set to the <code>display</code> property.</p></li>
+</ul>
+<p class="nonindent">In the BookYourHotel scenario, consider the following snippet code to horizontally display the links inside the list on the home page:</p>
+<p class="code"><code>li{</code></p>
+<p class="code"><code>display: inline;</code></p>
+<p class="code"><code>list-style-type:none;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding code snippet, links are horizontally displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_22.jpg" /></p>
+<p class="caption"><em>The Links Displayed Horizontally</em></p>
+<h3 class="topic">Visibility</h3>
+The<code> visibility</code> property is used to specify whether an element should be visible or not. The following syntax can be used to apply the <code>visibility</code> property:
+<p class="code"><code>visibility: hidden| visible</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>hidden</code>: Hides an element from a Web page. However, it will consume the space occupied by that element.</p></li>
+<li><p><code>visible</code>: Shows the element on a Web page. It is the default value assigned to the visibility property.</p></li>
+</ul>
+<p class="nonindent">Consider the following code snippet to use the<code> visibility</code> property:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>h2{</code></p>
+<p class="code"><code>visibility:hidden;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1&#x003E;Welcome to BookYourHotel website. &#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;H2&#x003E;This site is very user friendly.&#x003C;/H2&#x003E; </code></p>
+<p class="code"><code>&#x003C;H3&#x003E;You can book your hotel while sitting at home.&#x003C;/H3&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+The preceding code will hide the text inside the <code>&#x003C;H3&#x003E;</code> tag. However, it will occupy the space required to display the heading. The output of the visibility property is displayed, as shown in the following figure.
+<p class="center"><img src="images/HTML_02_23.jpg" /></p>
+<p class="caption"><em>The Output of the Visibility Property</em></p>
+<h2 class="section-head" id="a25">Positioning HTML Elements</h2>
+<p class="nonindent">In HTML, elements flow one after another in the same sequence as they appear in the code. This is known as static positioning. However, you may need to change the default positioning of the elements in certain cases. For example, you need to place an element behind the other to show some overlapping effect. HTML, however, does not allow users to control the positioning of the elements on a page. This functionality of controlling the placement of elements on a Web page can be implemented by using CSS. The styles for the placement of elements can have the following categories:
+</p>
+<ul class="square">
+<li><p><code>Position</code></p></li>
+<li><p><code>Float</code></p></li>
+</ul>
+<h3 class="topic">Position </h3>
+
+<p class="nonindent">The <code>position</code> property is used to position an element on a Web page. The following table displays the positioning methods that can be used to position the HTML element.
+</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+
+<tr valign="top">
+<td align="left" style="width:20%"><p><strong><em>Positioning Method</em></strong></p></td>
+<td align="left" style="width:20%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>static</em></code></p></td>
+<td align="left" style="width:20%"><p><em>In static positioning, elements are positioned according to the normal flow of the page.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>fixed</em></code></p></td>
+<td align="left" style="width:20%"><p><em>In fixed positioning, elements are positioned relative to the browser window. They will not change their position even if the browser window is scrolled.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>relative</em></code></p></td>
+<td align="left" style="width:20%"><p><em>In relative positioning, an HTML element is positioned relative to its normal position.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>absolute</em></code></p></td>
+<td align="left" style="width:20%"><p><em>In absolute positioning, an element can be placed at a fixed position on the Web page. Its position will not be affected by the flow of other elements.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Positioning Methods</em></p>
+<p class="nonindent">With the help of the <code>position</code> property, you can specify the type of the positioning method used for the HTML element. Further, you can also define the exact location for HTML elements by using the positioning properties. The following table lists the CSS positioning properties.
+</p>
+<p class="center"><img src="images/HTML_02_24.jpg" /></p>
+<p class="caption"><em>The CSS Positioning Properties</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>The<code> top</code>, <code>left</code>, <code>right</code>, <code>bottom</code>, and <code>z-index</code> properties cannot be used with the static positioning method.</em></p></div>
+<p class="nonindent">In the BookYourHotel scenario, consider the following code snippet to position the <code>&#x003C;H3&#x003E;</code> tag at the top of the page:</p>
+<p class="code"><code>h3{</code></p>
+<p class="code"><code>position: absolute;</code></p>
+<p class="code"><code>top:0px;</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding code snippet, the text inside the <code>&#x003C;H3&#x003E;</code> tag is positioned at the top of the Web page, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_25.jpg" /></p>
+<p class="caption"><em>The Text Inside the <code>&#x003C;H3&#x003E;</code> Tag Positioned at the Top of the Web Page</em></p>
+
+<p class="center"><img src="images/HTML_02_Positioning.jpg" onclick="play('animation_HTML_02_Positioning_swf')" id="animation_HTML_02_Positioning_swf" height="488px" width="650px" /></p>
+<h3 class="topic">Float</h3>
+<p class="nonindent">The <code>float</code> property is used to place HTML elements to the left or right margin, in relation to the other HTML elements. It allows you to wrap the HTML elements around the floated element. The concept of the float property is similar to magazines, where photos are aligned to one side, while the paragraph or text flows to the other side. The following syntax is used to specify the float property:</p>
+<p class="code"><code>float: left|right|none</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>left</code>: Sets the element to the left.</p></li>
+<li><p><code>right</code>: Sets the element to the right.</p></li>
+<li><p><code>none</code>: Specifies that the element does not float. It is the default value given to the float property.</p></li>
+</ul>
+<p class="nonindent">Consider an example of the BookYourHotel website. You have added an image to the Home page and it is currently formatted, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_26.jpg" /></p>
+<p class="caption"><em>The Home Page</em></p>
+<p class="nonindent">Now, you want to place the paragraphs to the right of the image. For this, consider the following code to float an image with text wrapped around it:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>img {</code></p>
+<p class="code"><code>float: left;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;IMG src= "Hotel-entrance.jpg" width=500 height=200&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E; BookYourHotel welcomes you with warmth and a feeling that each guest is truly special. It offers a cozy and intimate experience amidst the glitz and glamour of South America. Our caring and courteous staffs are ever eager to ensure that all individual needs are cared for with professional expertise and a personal touch.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;The rooms have been designed with different floor plans to create individual spaces. We have Deluxe Rooms, Double and Single Rooms each with ensuite Bathrooms fitted with all modern conveniences. All room has Air-Conditioning and is equipped with well stocked Mini-bars, Television with Cable T.V. Conference facilities available for approximately 40 persons. Our multi-cuisine restaurant offers, a plethora of tasty local and international dishes to satisfy all palates. This hotel gives you an exclusive experience.&#x003C;/P&#x003E;</code></p>      	
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the image is made to float to the left margin. Therefore, the text that appears after the image will flow to the right side of the image.</p>
+<p class="nonindent">The output displaying the use of the <code>float</code> property is shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_27.jpg" /></p>
+<p class="caption"><em>The Output Displaying the Use of the Float Property</em></p>
+<h3 class="topic">Clear</h3>
+<p class="nonindent">Whenever you apply the <code>float</code> property on any HTML element, all the elements after the floating element will be placed around it. This can be avoided by using the <code>clear</code> property. The <code>clear</code> property is used to turn off the float effect on HTML elements. The following syntax can be used to apply the <code>clear</code> property:
+</p>
+<p class="code"><code>clear: both|left|right;	</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>both</code>: Clears float from either direction.</p></li>
+<li><p><code>left</code>: Clears float from the left direction.</p></li>
+<li><p><code>right</code>: Clears float from the right direction.</p></li>
+</ul>
+<p class="nonindent">You may want one paragraph to be displayed on the right side and another to be displayed below the image. This can be achieved by using the <code>clear</code> property.</p>
+<p class="nonindent">Consider the following code snippet for applying the <code>clear</code> property:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>img {</code></p>
+<p class="code"><code>float: left;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>.auto-style{</code></p>
+<p class="code"><code>clear:both;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;IMG src= "Hotel-entrance.jpg" width=500 height=200&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E; BookYourHotel welcomes you with warmth and a feeling that each guest is truly special. It offers a cozy and intimate experience amidst the glitz and glamour of South America. Our caring and courteous staffs are ever eager to ensure that all individual needs are cared for with professional expertise and a personal touch.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P class="auto-style"&#x003E;The rooms have been designed with different floor plans to create individual spaces. We have Deluxe Rooms, Double and Single Rooms each with ensuite Bathrooms fitted with all modern conveniences. All room has Air-Conditioning and is equipped with well stocked Mini-bars, Television with Cable T.V. Conference facilities available for approximately 40 persons. Our multi-cuisine restaurant offers, a plethora of tasty local and international dishes to satisfy all palates. This hotel gives you an exclusive experience.&#x003C;/P&#x003E;</code></p>      	
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code displays a paragraph on the right side and another paragraph below the image on the Web page. The output displaying the use of the <code>clear</code> property is shown in the following figure.</p>
+
+<p class="center"><img src="images/HTML_02_28.jpg" /></p>
+<p class="caption"><em>The Output Displaying the use of the Clear Property</em></p>
+
+<p class="center"><img src="images/HTML_02_Floating.jpg" onclick="play('animation_HTML_02_Floating_swf')" id="animation_HTML_02_Floating_swf" height="488px" width="650px" /></p>
+
+<p class="center"><img src="images/J0201.jpg" onclick="play('animation_J0201_swf')" id="animation_J0201_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a26"><img alt="" src="images/act.png" />Activity 2.1: Implementing Styles on HTML Elements</h2>
+<h1 class="chapter-head" id="a27">Applying Transitions, Animations, and Transformations</h1>
+<p class="nonindent">MySchool Pvt. Ltd. is an organization that offers Web-based learning solutions to the KinderGarten kids. The organization wants to provide learning to the students in an easy and interesting way. They make the students learn concepts, such as identifying colors and shapes, by using various animations and transitions. For example, an animated activity helps students to identify different colors. As part of this activity, different colors would appear randomly on the page.</p>
+<p class="nonindent">Creating a website with animations is a complex task. Detailed knowledge of some scripting language is needed for this. Moreover, creating animations with scripts is a time-consuming process.</p>
+<p class="nonindent">However, CSS provides an easy way to apply animation effects on HTML elements. It has a set of predefined properties and functions for applying transitions, animations, or transformations. Let us discuss the various CSS animation styles that can be applied on a Web page. </p>
+<div class="box"><p class="note1"><img src="images/note.png" /><em>
+ CSS is supported in Webkit browsers, including Safari, Chrome, and Firefox. Webkit is a web browser engine that allows Web browsers to render Web pages that are not supported by them. As the technology is relatively new, prefixes for the browser vendors are required. The following keywords are needed to prefix with browser windows:
+<br />Google Chrome  &#x2011;webkit&#x2011;<br />Opera&#x00A0;&#x00A0;&#x00A0;&#x00A0;-o-</em></p>
+</div>
+<h2 class="section-head" id="a28">Applying Transitions</h2>
+<p class="nonindent">Consider an example where you want to change the color of the HTML element from red to black in the event of a mouse hover. This change is instantaneous. You cannot specify any time interval when the change should start or stop.</p>
+<p class="nonindent">The CSS transitions provide a way to moderately change the HTML element from one position to another. With CSS enabled transitions, you can specify the duration of the transition property on which the transition effect will occur and the delay time for the transition. The following table displays the transition properties.
+</p>
+<p class="center"><img src="images/HTML_02_29.jpg" /></p>
+<p class="caption"><em>The Transition Properties</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>Internet Explorer does not support CSS transitions.</em></p>
+</div>
+<p class="nonindent">Consider the following code to view the transition effect on the <code>&#x003C;DIV&#x003E;</code> element:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E; </code></p>
+<p class="code"><code>div</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>width:200px;</code></p>
+<p class="code"><code>height:200px;</code></p>
+<p class="code"><code>background:red;</code></p>
+<p class="code"><code>-webkit-transition:width 4s; /* Chrome */</code></p>
+<p class="code"><code>-o-transition:width 4s; /* Opera */</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>div:hover</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>width:400px;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV&#x003E;&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, when the user points the mouse to the <code>&#x003C;DIV&#x003E;</code> element, the transition is applied on the <code>&#x003C;DIV&#x003E;</code> element to increase its width to 400 pixels in a time duration of four seconds. </p>
+<p class="nonindent">The output derived by using the transition effect is displayed, as shown in the following file.</p>
+
+<p class="center"><img src="images/HTML_02_Transitions.jpg" onclick="play('animation_HTML_02_Transitions_swf')" id="animation_HTML_02_Transitions_swf" height="488px" width="650px" /></p>
+
+<p class="caption"><em>The Output Derived by Using the Transition Effect</em></p>
+<h2 class="section-head" id="a29">Applying Animations</h2>
+<p class="nonindent">CSS transitions provide an easy way to apply animation effects on HTML elements. For example, you can create an animation that will increase the size of the HTML element when the user clicks it. However, the transition states depend on its property values. The user does not have any control on the transition states. Therefore, the CSS animation comes into the existence.</p>
+<p class="nonindent">A CSS animation provides a way to moderately change HTML elements from one position to another. With CSS enabled animations, you can specify how many times the animation iterates, whether it should alternate or not, and whether the animation should be in the running state or paused.</p>
+<p class="nonindent">To specify the animation styles, you need to create certain animation rules known a<code>s @keyframe</code>. It includes a set of properties and methods used to create an animation. </p>
+<p class="nonindent">The following syntax can be used to create <code>@keyframe:</code></p>
+<p class="code"><code>@keyframe keyframename</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>	from {property: value;}</code></p>
+<p class="code"><code>to{property: value;}</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent"> In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>keyframename</code>: Specifies the name of the keyframe.</p></li>
+<li><p><code>from</code>: Specifies the initial style that you want to apply on the HTML element.</p></li>
+<li><p><code>to</code>: Specifies the change that you want to reflect in the style. </p></li>
+</ul>
+<p class="nonindent">However, if you want to embed more than one change in an animation, you can specify it by using percentage. Consider the following code to create a keyframe by using percentage:</p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>@-webkit-keyframes myfirst /* Chrome */</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>0%  {background:red;}</code></p>
+<p class="code"><code>20% {background:green; }</code></p>
+<p class="code"><code>40% {background:yellow;}</code></p>
+<p class="code"><code>80% {background:red;}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="nonindent">The preceding code will create a keyframe named <code>myfirst</code>. The background color specified in percentage sets the background color to red when the animation starts, to green when the animation is 20% complete, to yellow when the animation is 40% complete, and to red again when the animation is 80% complete.</p>
+<p class="nonindent">After creating the animation in keyframe, you need to connect it to the HTML element. Otherwise, the animation will have no effect. To connect the animation, you need to specify the animation properties. The following table lists the properties to define the name, duration, speed curve, and delay time for the animation.</p>
+<p class="center"><img src="images/HTML_02_30a.jpg" /></p>
+<p class="caption"><em>The Animation Properties</em></p>
+<p class="nonindent">The following table lists the properties to define the direction, iteration count, and play state for the animation.</p>
+<p class="center"><img src="images/HTML_02_30b.jpg" /></p>
+<p class="caption"><em>The Animation Properties to Define Direction, Iteration Count, and Play State of Animation</em></p>
+<p class="nonindent">Consider the following code in the <code>&#x003C;STYLE&#x003E;</code> tag to bind the animation to the <code>&#x003C;DIV&#x003E;</code> element:</p>
+<p class="code"><code>div</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>width:100px;</code></p>
+<p class="code"><code>height:100px;</code></p>
+<p class="code"><code>background:red;</code></p>
+<p class="code"><code>position:relative;</code></p>
+<p class="code"><code>-webkit-animation-name:myfirst; /* Chrome */</code></p>
+<p class="code"><code>-webkit-animation-duration:5s; /* Chrome */</code></p>
+<p class="code"><code>}</code></p>
+<p class="nonindent">In the preceding code, the animation property is used in the<code> &#x003C;DIV&#x003E;</code> element to bind it to the keyframe,<code> myfirst</code>. The animation property takes two arguments. The first argument is the name of the keyframe and the second argument is the duration of the animation.</p>
+<p class="nonindent">The following lines display the entire code for applying animation:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;	</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>div</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>width:100px;</code></p>
+<p class="code"><code>height:100px;</code></p>
+<p class="code"><code>background:red;</code></p>
+<p class="code"><code>position:relative;</code></p>
+<p class="code"><code>-webkit-animation-name:myfirst; /* Chrome */</code></p>
+<p class="code"><code>-webkit-animation-duration:5s; /* Chrome */</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>@-webkit-keyframes myfirst /* Chrome */</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>0%  {background:red;}</code></p>
+<p class="code"><code>20% {background:green; }</code></p>
+<p class="code"><code>40% {background:yellow;}</code></p>
+<p class="code"><code>80% {background:red;}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV&#x003E;&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E; </code></p>
+<p class="nonindent">The output derived by applying animation effects is displayed, as shown in the following file.</p>
+<p class="center"><img src="images/HTML_02_Animation.jpg" onclick="play('animation_HTML_02_Animation_swf')" id="animation_HTML_02_Animation_swf" height="488px" width="650px" /></p>
+<p class="caption"><em>The Output Derived by Applying Animation Effects</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>Internet Explorer does not support CSS animations.</em></p>
+</div>
+<h2 class="section-head" id="a30">Applying Transformations</h2>
+<p class="nonindent">Consider an example where you want to rotate a cube having different pictures on its curves. This way you want to add 2D or 3D effects on the Web page. CSS provides the functionality of transformations to modify the appearance of the HTML element. You can rotate, scale, and skew HTML elements easily by setting transformation properties. The CSS transformations have the following categories:</p>
+<p class="code"><code>transform: none| transform-functions;</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>transform-functions</code>: Specifies the functions that can be used to transform elements.</p></li>
+<li><p><code>none</code>: Specifies that there is no transformation. It is the default value that is set to the transform property. </p></li>
+</ul>
+<p class="nonindent">CSS transformations have the following categories:</p>
+<ul class="square">
+<li><p>2D Transforms</p></li>
+<li><p>3D Transforms</p></li>
+</ul>
+<h3 class="topic">2D Transforms </h3>
+<p class="nonindent">With 2D transforms, you can apply various transformations, such as rotations or translations, on HTML elements. You can also apply more than one transformation on the HTML element. However, to apply transformations, you need to first understand the methods that can be used to transform HTML elements. The following table lists the 2D transform methods.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+<tr valign="top">
+<td align="left" style="width:20%"><p><strong><em>Function</em></strong></p></td>
+<td align="left" style="width:20%"><p><strong><em>Syntax</em></strong></p></td>
+<td align="left" style="width:20%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>translate</em></code></p></td>
+<td align="left" style="width:20%"><p><code><em>translate(x,y);</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Is used to move an element from its current position to the position specified in the x-axis and y-axis.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>rotate</em></code></p></td>
+<td align="left" style="width:20%"><p><code><em>rotate(angle);</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Is used to rotate an element at a given degree in the clockwise direction. You can also input a negative value, which will rotate the element in the counter clockwise direction.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>skew</em></code></p></td>
+<td align="left" style="width:20%"><p><code><em>skew(x-angle, y-angle);</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Is used to turn an element in a given angle, depending on the parameters given in the x-axis and y-axis.</em></p></td>
+</tr>
+
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>scale</em></code></p></td>
+<td align="left" style="width:20%"><p><code><em>scale(x,y);</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Is used to increase or decrease the size of an element, depending on the parameters given in the x-axis and y-axis.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>matrix</em></code></p></td>
+<td align="left" style="width:20%"><p><code><em>matrix(n,n,n,n,n,n);</em></code></p></td>
+<td align="left" style="width:20%"><p><em>Is used to combine all the methods in one declaration.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The 2D Transformation Methods</em></p>
+<p class="nonindent">Consider the following code to rotate the HTML element:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p> 
+<p class="code"><code>div</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>width:200px;</code></p>
+<p class="code"><code>height:100px;</code></p>
+<p class="code"><code>background-color:red;</code></p>
+<p class="code"><code>transform:rotate(60deg);</code></p>
+<p class="code"><code>-webkit-transform:rotate(60deg); /*	Chrome */</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV&#x003E;&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>&#x003C;DIV&#x003E;</code> element will get rotated to a 60 degree angle. </p>
+<p class="nonindent">The output derived by applying transformations is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_02_31.jpg" /></p>
+<p class="caption"><em>The Output Derived by Applying Transformations</em></p>
+<h3 class="topic">3D Transforms </h3>
+<p class="nonindent">CSS also allows you to format the HTML element by using 3D transforms. The following transform methods can be used to apply 3D transforms:</p>
+<ul class="square">
+<li><p><code>rotateX()</code>: Rotates the element at a given degree around the x-axis. </p></li>
+<li><p><code>rotateY()</code>: Rotates the element at a given degree around the y-axis.</p></li>
+</ul>
+<div class="box">
+<p class="note1"><img src="images/note.png" /> <em>3D methods are not supported in Internet Explorer and Opera.</em></p></div>
+<p class="center"><img src="images/J0202.jpg" onclick="play('animation_J0202_swf')" id="animation_J0202_swf" height="488px" width="650px" /></p>
+
+<h2 class="section-head" id="a31"><img alt="" src="images/act.png" /> Activity 2.2: Applying Transitions, Animations, and Transformations</h2>
+<h1 class="chapter-head" id="a32">Summary</h1>
+<p class="nonindent">In this chapter, you learned that:</p>
+<ul class="square">
+<li><p>CSS is a collection of styles that allows you to change the appearance of HTML elements on Web pages.</p></li>
+<li><p>CSS allows the creation of one or more rules for defining the style characteristics of HTML elements. Each rule consists of the following parts:</p>
+<ul class="disc">
+<li><p>Selector</p></li>
+<li><p>Declaration Block</p></li>
+</ul></li>
+<li><p>To customize only few elements on a Web page, inline styles can be applied.</p></li>
+<li><p>Inline styles are attached directly with the tag in the HTML document. They are specified by using the <code>style</code> attribute inside an element declaration in the HTML document.</p></li>
+<li><p>An internal style sheet is used when there is a need to stylize the multiple occurrences of an element on a Web page with the same style.</p></li>
+<li><p>An external style sheet is used when multiple Web pages are to be styled in the same manner to ensure the consistent look and feel across the entire website.
+</p></li>
+<li><p>An ID selector is used to identify an element that you need to style differently from the rest of the page. An ID selector is defined by using the hash symbol (#).</p></li>
+<li><p>A CSS style can be applied to a group of elements by using the class selector. The class selector is defined by using a dot (.).</p></li>
+<li><p>A CSS property represents a characteristic of the HTML element that can be customized.</p></li>
+<li><p>The CSS properties can be divided into the following categories:</p>
+<ul class="disc">
+<li><p>Font </p></li>
+<li><p>Text </p></li>
+<li><p>Link</p></li>
+<li><p>List</p></li>
+<li><p>Background</p></li>
+</ul></li>
+<li><p>The <code>display</code> property is used to set the appearance of an element on a Web page.</p></li>
+<li><p>The <code>visibility</code> property is used to specify whether an element should be visible or not.</p></li>
+<li><p>The <code>position</code> property is used to position an element on a Web page.</p></li>
+<li><p>The <code>float</code> property is used to place HTML elements to the left or right margin, in relation to the other HTML elements.</p></li>
+<li><p>The <code>clear</code> property is used to turn off the float effect on HTML elements.</p></li>
+<li><p>The CSS transitions provide a way to moderately change the HTML element from one position to another.</p></li>
+<li><p>To specify the animation styles, you need to create certain animation rules known as <code>@keyframe</code>, which is a rule, where the animation is created.
+</p></li>
+<li><p>CSS transformations have the following categories:</p>
+<ul class="disc">
+<li><p>2D Transforms</p></li>
+<li><p>3D Transforms</p></li>
+</ul>
+</li>
+</ul>
+<h1 class="chapter-head" id="ref2">Reference Reading</h1>
+<h3 class="topic">Working with Styles</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>CSS Cookbook</em></p></td>
+<td><p><em><a href="http://www.w3schools.com/css/">http://www.w3schools.com/css/</a></em></p>
+<p><em><a href="https://developer.mozilla.org/en-US/learn/css">https://developer.mozilla.org/en-US/learn/css</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Applying Transitions, Animations, and Transformations</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>The Definitive Guide to HTML5 By Adam Freeman</em></p></td>
+<td><p><em><a href="https://developer.mozilla.org/en-US/docs/CSS/transform">https://developer.mozilla.org/en-US/docs/CSS/transform</a></em></p>
+<p><em><a href="http://www.the-art-of-web.com/css/css-animation/#.UT772xzfDts">http://www.the-art-of-web.com/css/css-animation/#.UT772xzfDts</a></em></p></td>
+</tr>
+</table>
+</body>
+</html>

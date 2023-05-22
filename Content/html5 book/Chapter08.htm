@@ -1,0 +1,316 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Chapter 8 - Introducing Geolocation and Offline Support for Data</title>
+<link rel="stylesheet" type="text/css" href="css/Style.css"/>
+<link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="page-template.xpgt"/>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+<meta http-equiv="X-UA_Compatible" content="IE=9"/>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/GlobalContentSecrity.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/Content/analytics.js" type="text/javascript"></script>
+</head>
+<body bgcolor="#F8FCFD">
+<h1 class="chno" id="ch08">Chapter 8</h1>
+<h1 class="chname">Introducing Geolocation and Offline Support for Data</h1>
+<p class="nonindent">You are visiting a city for the first time and looking for sight-seeing locations close to your hotel. However, you do not know where to go and which places to look for. Therefore, it will be helpful if you have some application that can help you locate such places and provide feedback for the same. This can be done by implementing Geolocation API.</p>
+<p class="nonindent">In addition, you may need that users are able to access a Web page even when they are not connected to the Internet.</p>
+<p class="nonindent">This chapter introduces you to the Geolocation API. Further, it discusses how to implement offline support in websites.</p>
+<h2 class="section-head">Objectives</h2>
+<p class="nonindent">In this chapter, you will learn to:</p>
+<ul class="square">
+<li><p>Implement Geolocation</p></li>
+<li><p>Implement Offline Support</p></li>
+</ul>
+<h1 class="chapter-head" id="a107">Implementing Geolocation</h1>
+<p class="nonindent">ShopHere is a large retail store based in Ohio. The store offers clothes, accessories, and footwear. In addition, it sells the home furnishing goods and electronic items, such as refrigerator, air conditioner, laptops, and mobile devices. As part of its business strategy to attract new customers and build a stable customer base, the store offers discounts and special deals on products. In addition, the official website of the store has a feature that enables users to share their current location, based on which, they are guided to reach the nearest store. </p>
+<p class="nonindent">Such a feature is incorporated in websites by using the Geolocation API. The Geolocation API-enabled website can locate users&#x2019; current geographical location, display points of interest around that location, or guide the users from their current location to a target destination.</p>
+<p class="center"><img src="images/HTML_08_Geolocation.jpg" onclick="play('animation_HTML_08_Geolocation_swf')" id="animation_HTML_08_Geolocation_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a108">Implementing the Geolocation API</h2>
+<p class="nonindent">The Geolocation API allows a website to retrieve the current geographical location of a user.  This API enables you to create applications that guide users how to reach a target location from their current location. An example of such an application is a map application that gives directions to a target location.</p>
+<p class="nonindent">The users&#x2019; location is not retrieved just through code or browser. Instead, the Geolocation API uses certain features, such as Global Positioning System (GPS), Internet Protocol (IP) address of a device, nearest mobile phone towers, and input from a user, in the users&#x2019; device to retrieve the users&#x2019; location.  </p>
+<p class="nonindent">The users&#x2019; location retrieved by using the Geolocation API is almost accurate depending upon the type of source used to retrieve the location. For example, the IP address gives a location that can be close to the users&#x2019; location; while, the GPS is able to give more accurate results.  </p>
+<p class="nonindent">Identifying the users&#x2019; location may, at times, compromise the users&#x2019; privacy. Hence, the location of users is not available unless they approve it. A prompt appears that asks the users if they would like to share their current location and also specifies the reason for collecting this data. In addition, it should specify where the data will be shared. </p>
+<p class="nonindent">Geolocation is most beneficial with applications used for mobile devices. This is because while the users are travelling, the Geolocation API keeps updating their locations. In case of desktop applications, the users&#x2019; location remains constant and can be set only once.</p>
+<p class="nonindent">The Geolocation API provides the following methods to determine the users&#x2019; location:</p>
+<ul class="square">
+<li><p><code>getCurrentPosition()</code></p></li>
+<li><p><code>watchPosition()</code></p></li>
+</ul>
+<h3 class="topic">getCurrentPosition()</h3>
+<p class="nonindent">The <code>getCurrentPosition()</code> method is used to retrieve the current geographical location of a user. The location is retrieved as a set of coordinates.</p>
+<p class="nonindent">The syntax of the <code>getCurrentPosition()</code> method is:</p>
+<p class="code"><code>getCurrentPosition(CallbackFunction, ErrorHandler, Options);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>CallbackFunction</code>: This is a function defined by the developer to retrieve the current location.</p></li>
+<li><p><code>ErrorHandler</code>: This is the name of a function that is called when an error occurs while retrieving the location of a user. This is an optional parameter.</p></li>
+<li><p><code>Options</code>: This optional parameter specifies a set of options, such as timeout for retrieving the location information, used for retrieving the information about the users&#x2019; geographical location.</p></li>
+</ul>
+<p class="nonindent">The <code>getCurrentPosition()</code> method calls callbackFunction, which takes the <code>position</code> object as an argument. This object specifies the current geographic location of a user as a set of geographic coordinates. The <code>position</code> object returns two properties, <code>coords</code> and <code>timestamp</code>, on the successful retrieval of the location. The <code>timestamp</code> property returns the date and time when the location was retrieved. The <code>coords </code>property returns various attributes, such as <code>latitude</code> and <code>longitude</code>. These attributes are described in the following table.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+<tr valign="top">
+<td align="left" style="width:20%"><p><strong><em>Attribute</em></strong></p></td>
+<td align="left" style="width:40%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>coords.latitude</em></code></p></td>
+<td align="left" style="width:40%"><p><em>Specifies the latitude as a decimal number.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>coords.longitude</em></code></p></td>
+<td align="left" style="width:40%"><p><em>Specifies the longitude as a decimal number.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>coords.accuracy</em></code></p></td>
+<td align="left" style="width:40%"><p><em>Specifies the accuracy of position.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>coords.altitude</em></code></p></td>
+<td align="left" style="width:40%"><p><em>Specifies the altitude in meters above the sea level.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>coords.altitudeAccuracy</em></code></p></td>
+<td align="left" style="width:40%"><p><em>Specifies the accuracy of altitude.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Attributes of the coords Property</em></p>
+<p class="nonindent">Before retrieving the users&#x2019; location by using the <code>getCurrentPosition()</code> method, you need to check whether the browser supports the geolocation feature. For this, you can use the <code>geolocation</code> property of the <code>navigator</code> object. The <code>navigator</code> object contains the information about a browser. Consider the following code snippet to check whether the browser supports the geolocation feature:</p>
+<p class="code"><code>if(navigator.geolocation)</code></p>
+<p class="code"><code>var geo=navigator.geolocation</code></p>
+<p class="code"><code>else</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>alert("Your browser does not support geolocation")</code></p>
+<p class="code"><code>}</code></p>
+ <p class="nonindent">The preceding code snippet checks whether the geolocation feature is supported by the browser. If it is not supported, a relevant message is displayed.</p>
+<p class="nonindent">Consider the following code snippet for retrieving the users&#x2019; location by using the <code>getCurrentPosition()</code> method:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;P ID="button"&#x003E;Click here to know your location coordinates:&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON onclick="getLocation()"&#x003E;Get Location&#x003C;/Button&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var geo=document.getElementById("button");</code></p>
+<p class="code"><code>function getLocation()</code></p>
+<p class="code"><code>  {</code></p>
+<p class="code"><code>  if (navigator.geolocation)</code></p>
+<p class="code"><code>    {</code></p>
+<p class="code"><code>    navigator.geolocation.getCurrentPosition(getPosition);</code></p>
+<p class="code"><code>    }</code></p>
+<p class="code"><code>  else{geo.innerHTML="Geolocation is not supported by this browser.";}</code></p>
+<p class="code"><code>  }</code></p>
+<p class="code"><code>function getPosition(position)</code></p>
+ <p class="code"><code> {</code></p>
+ <p class="code"><code> geo.innerHTML="Latitude: " + position.coords.latitude + </code></p>
+ <p class="code"><code> "&#x003C;BR&#x003E;Longitude: " + position.coords.longitude;	</code></p>
+ <p class="code"><code> }</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet creates the <strong>Get Location</strong> button, which, on clicking, calls the <code>getLocation()</code> method. This method first checks whether the geolocation feature is supported by the browser. If this feature is supported, the <code>getCurrentPosition()</code> method is called. This method calls the <code>getPosition()</code> method that retrieves the users&#x2019; location in the form of latitude and longitude values.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png"/> <em>The innerHTML property is used to set or retrieve the text of an HTML element.</em></p>
+</div>
+<div class="box">
+<p class="note1"><img src="images/note.png"/> <em>Due to security reasons and firewall restrictions, you may not always get the latitude and longitude coordinates.</em></p>
+</div>
+<h3 class="topic">watchPosition()</h3>
+<p class="nonindent">The <code>watchPosition()</code> method returns the current location of a user and continuously updates the location while the user is moving. It is mostly used in devices, such as GPS, which inform the users about the current location while they are travelling. The <code>watchPosition()</code> method takes the same parameters as the <code>getCurrentPosition()</code> method and returns the same object.</p>
+<p class="nonindent">Consider the following code snippet for retrieving the users&#x2019; location by using the <code>watchPosition()</code> method:</p>
+<p class="code"><code>function getLocation()</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;if (navigator.geolocation)</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;navigator.geolocation.watchPosition(getPosition);</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;}</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;else{geo.innerHTML="Geolocation is not supported by this browser.";}</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;}</code></p>
+<p class="code"><code>function getPosition(position)</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;geo.innerHTML="Latitude: " + position.coords.latitude + </code></p>
+<p class="code"><code>&#x00A0;&#x00A0;"&#x003C;br&#x003E;Longitude: " + position.coords.longitude;	</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;}</code></p>
+<p class="nonindent">The preceding code snippet continuously retrieves the user&#x2019;s location by using the <code>watchPosition()</code> method while the user is travelling.</p>
+<p class="nonindent">You can also stop tracking the users&#x2019; location by using the <code>clearWatch()</code> method. This method stops the call to the <code>watchPosition()</code> method.</p>
+<h2 class="section-head" id="a109">Handling Errors</h2>
+<p class="nonindent">At times, the user may not provide the permission to access his location. This may raise an error in your website. The error may also occur when a user checks the current location on a mobile device and the device goes out of coverage area or the network connection is timed out. As a website developer, you need to ensure that your website is able to handle errors effectively. For this, you need to consider all possible causes of errors that can occur in an application and can be dealt with effective error-handling technique.</p>
+<p class="nonindent">To handle errors in a geolocation-enabled website, you can use the <code>getCurrentPosition()</code> method. The second parameter of this method is an error handler function. This function can handle the following error codes:</p>
+<ul class="square">
+<li><p><code>PERMISSION_DENIED</code>: Specifies that the user has declined the request to share the location.</p></li>
+<li><p><code>POSITION_UNAVAILABLE</code>: Specifies that the users&#x2019; current location cannot be retrieved.</p></li>
+<li><p><code>TIMEOUT</code>: Specifies that the time given to retrieve the users&#x2019; location has exceeded the maximum limit.</p></li>
+<li><p><code>UNKNOWN_ERROR</code>: Specifies that an unknown or undefined error has occurred.</p></li>
+</ul>
+<p class="nonindent">The error handler function accepts the <code>PositionError</code> object as an argument. This object has two properties, <code>code</code> and <code>message</code>. The code specifies the error code, and the message specifies the message that is to be displayed when an error occurs.</p>
+<p class="nonindent">Consider the following code snippet for handling errors while retrieving the users&#x2019; location:</p>
+<p class="code"><code>function showError(PositionError)</code></p>
+ <p class="code"><code> {</code></p>
+ <p class="code"><code> switch(PositionError.code) </code></p>
+ <p class="code"><code>&#x00A0;&#x00A0; {</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0; case PositionError.PERMISSION_DENIED:</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; x.innerHTML="User denied the request for tracking the location"</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; break;</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0; case PositionError.POSITION_UNAVAILABLE:</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; x.innerHTML="User's location is not available"</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; break;</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0; case PositionError.TIMEOUT:</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; x.innerHTML="The request to retrieve user's location is timed out"</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; break;</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0; case PositionError.UNKNOWN_ERROR:</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; x.innerHTML="An unknown error occurred"</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0; break;</code></p>
+ <p class="code"><code>&#x00A0;&#x00A0; }</code></p>
+&#x00A0;&#x00A0;<p class="code"><code>}</code></p>
+<p class="nonindent">The preceding code snippet creates the function, <code>showError()</code>, which is called when an error occurs while retrieving the users&#x2019; location. This function accepts an error code which is defined in the <code>switch</code> construct. For example, if the user denies the access to his location, the error,<code> User denied the request for tracking the location</code>, is displayed on a Web page. </p>
+<p class="center"><img src="images/J0801.jpg" onclick="play('animation_J0801_swf')" id="animation_J0801_swf" height="488px" width="650px" /></p>
+<h1 class="chapter-head" id="a111">Implementing Offline Support</h1>
+<p class="nonindent">At times, you must have noticed that while you are surfing a website, a message, such as &#x2018;Browser could not open the Web page&#x2019;, is displayed. This is because the connection to the Internet is lost. In such a case, you do not have access to the website that you were surfing. However, if you want to have some level of access to the website even if you are not connected to the Internet, you can use the offline support feature. For example, the executives of ShopHere often need to visit different cities to advertise their products. They need to access the organization&#x2019;s website during their promotional tours. However, the website is not accessible every time, especially in the remote areas where the network is not available. In such a case, the offline support feature of HTML can be used to ensure that the website is accessible to the executives even without the Internet connection. In addition, using the offline support feature avoids the normal network requests needed to load a website.</p>
+<p class="nonindent">Before the offline support feature of HTML, the offline storage-enabled websites were created using cookies and plugins. A cookie is a small piece of data, which is sent from a website and stored in a user&#x2019;s browser while the user browses the website. When the user revisits the same website, the data stored in the cookie is retrieved. Cookies are not purely used for offline storage as they store a limited amount of data. In addition, cookies slow down the network activity because they are transferred to and from the server.</p>
+<p class="nonindent">These limitations are overcome with the help of the offline support feature of HTML. The offline support feature provides the following benefits:</p>
+<ul class="square">
+<li><p>Ensures that the website is available even when the user is not connected to the network.</p></li>
+<li><p>Reduces network load on the server.</p></li>
+</ul>
+<p class="nonindent">You can make your website work offline by using the following ways:</p>
+<ul class="square">
+<li><p>Implementing client-side storage</p></li>
+<li><p>Implementing application cache </p></li>
+</ul>
+<h2 class="section-head" id="a112">Implementing Client-side Storage</h2>
+<p class="nonindent">The client-side storage refers to the process of storing data locally within the user&#x2019;s browser.&#x00A0;&#x00A0;This is also known as Web storage. The data stored by using client-side storage is retrieved only when it is requested, and not with every server request. Moreover, you can store a large amount of data by implementing the 
+client-side storage, where the data is stored in the form of key/value pairs.
+</p>
+<p class="nonindent">The client-side storage can be implemented by using the following objects:</p>
+<ul class="square">
+<li><p><code>localStorage</code></p></li>
+<li><p><code>sessionStorage</code> </p></li>
+</ul>
+<h3 class="topic">localStorage</h3>
+<p class="nonindent">The <code>localStorage</code> object allows you to store data without any expiration date. This implies that the data stored by using the <code>localStorage</code> object is not deleted after the browser is closed, and it will be available when the browser is reopened. The <code>localStorage</code> object stores the data only in the form of string. Using this object, the cached data is accessible across all browser windows.</p>
+<p class="nonindent">Consider the following code snippet for storing the users&#x2019; information by using <code>localStorage</code>:</p>
+<p class="code"><code>&#x003C;DIV ID="str"&#x003E;&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>if(typeof(Storage)!=="undefined")</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;localStorage.name="John";</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;document.getElementById("str").innerHTML="Name: " + localStorage.name;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;}</code></p>
+<p class="code"><code>else</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;document.getElementById("str").innerHTML="Your browser does not support local storage";</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p><p class="nonindent">
+In the preceding code snippet, the <code>typeof()</code> method first checks whether the browser supports the Web storage or not. If it does, the<code> localStorage</code> object stores the user&#x2019;s name locally in the browser by using the key, <code>name</code>, which is assigned the value, <code>John</code>. </p>
+<p class="nonindent">Later, the information stored in the <code>localStorage</code> object is retrieved by using the key and is assigned to the <code>innerHTML</code> property of the <code>&#x003C;DIV&#x003E;</code> tag that has <code>ID</code>, <code>str</code>.</p>
+<p class="nonindent">The text, <code>Your browser does not support local storage</code>, is displayed inside the <code>&#x003C;DIV&#x003E;</code> tag if the browser does not support the Web storage.</p>
+<h3 class="topic">sessionStorage</h3>
+<p class="nonindent">The <code>sessionStorage</code> object is used to store the data for only one session. This implies that the data is deleted once the user closes the browser. The data stored by using <code>sessionStorage</code> is confined to the browser for which it was created. Consider an example where you need to count the number of times a user has clicked a button in the current session. For this, you can use the<code> sessionStorage </code>object, as shown in the following code snippet:</p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>function clickCounter()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>if(typeof(Storage)!=="undefined")</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;if (sessionStorage.clickcount)</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;sessionStorage.clickcount=Number(sessionStorage.clickcount)+1;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;}</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;else</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;sessionStorage.clickcount=1;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;}</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;document.getElementById("btn").innerHTML="You have clicked it" +</code></p>&#x00A0;&#x00A0;
+<p class="code"><code>sessionStorage.clickcount + " time(s) in this session.";</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;}</code></p>
+<p class="code"><code>else</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;document.getElementById("btn").innerHTML="Your browser does not support Web storage";</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;p&#x003E;&#x003C;BUTTON onclick="clickCounter()" type="button"&#x003E;Click Here&#x003C;/BUTTON&#x003E;&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV ID="btn"&#x003E;&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;Click the button to see the increase in counter.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;Close the browser and try again, the counter will be reset.&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet creates the <code>clickCounter()</code> function that is called when the button is clicked. </p>
+<p class="nonindent">Inside the function body, the <code>typeof()</code> method first checks whether the browser supports the Web storage or not. If it does, the <code>clickCount</code> key is used with the <code>sessionStorage</code> object to store the count or number of times the user has clicked the button during the current session. The value of the key, <code>clickCount</code>, is increased by one every time the user clicks the button. Since the value assigned to the key of the <code>sessionStorage</code> object is always a string, it is converted into a number before incrementing by one, by using the <code>Number()</code> method.</p>
+<p class="nonindent">The most recent value stored inside the <code>sessionStorage</code> object is retrieved by using the key, <code>clickCount</code>, and is assigned to the <code>innerHTML</code> property of the <code>&#x003C;DIV&#x003E;</code> tag that has <code>ID</code>, <code>btn</code>, which is displayed before the user.</p>
+<h2 class="section-head" id="a113">Implementing Application Cache</h2>
+<p class="nonindent">While browsing a website, you must have faced a situation when the network connection is lost and you click the Back button in the browser to view the previous page. However, you are not able to view that page as you are not connected to the Internet, and the browser did not cache the page properly. To view the previous page in such a situation, you need to reconnect to the Internet. To address such issues, while developing a website, you can specify the files the browser should cache so that even if you refresh the page when you are offline, you are able to view the page. This process of caching a website is known as application cache.</p>
+<p class="nonindent">The application cache provides the following advantages:</p>
+<ul class="square">
+<li><p><strong>Offline browsing</strong>: Specifies that a website can be viewed even if the user is not connected to the Internet.</p></li>
+<li><p><strong>Speed</strong>: Specifies that if the user requests the Web page, which is already there in the cache, it is retrieved from the cache and not from the server. Therefore, the loading of the Web page is faster as the network is not accessed as the connection to the server is not needed. </p></li>
+<li><p><strong>Reduced server load</strong>: Specifies that the Web page, if cached, will always be made available from the cache unless the browser detects that the cache manifest has been updated on the server or the user has cleared the browser cache. Then, the browser downloads a new version of the manifest and the resources listed in the manifest. Therefore, the number of requests sent to the server are less; thereby, reducing the load on the server.</p></li>
+</ul>
+<p class="nonindent">To implement application cache, you need to create a text file called manifest. This file contains a list of resources that needs to be cached for use when there is no network connectivity. The manifest file also contains the list of files or pages that should never be cached. You need to save the manifest file with the .appcache extension. The manifest file is divided into the following sections:</p>
+<ul class="square">
+<li><p><strong>Cache</strong>: Lists the files that need to be cached after they are downloaded for the first time.</p></li>
+<li><p><strong>Network</strong>: Lists the files that should never be cached.</p></li>
+<li><p><strong>Fallback</strong>: Specifies the task to be performed when a user tries to fetch the uncached files.</p></li>
+</ul>
+<p class="nonindent">To refer to a manifest file in an HTML document, you need to add the manifest attribute in the opening<code> &#x003C;HTML&#x003E;</code> tag, as shown in the following code snippet:</p>
+<p class="code"><code>&#x003C;HTML manifest="HotelFacilities.appcache"&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet enables the application cache for the <code>HotelFacilities.appcache</code> manifest file.</p><p class="nonindent">
+Once you have cached an application on the local machine, the browser shows the cached file even if it has been changed or updated on the server. Therefore, to ensure that the browser updates the cache, you need to modify the manifest file. </p>
+<p class="center"><img src="images/J0802.jpg" onclick="play('animation_J0802_swf')" id="animation_J0802_swf" height="488px" width="650px" /></p>
+<p class="center"><img src="images/HTML_08_OfflineSupport.jpg" onclick="play('animation_HTML_08_OfflineSupport_swf')" id="animation_HTML_08_OfflineSupport_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a114"><img alt="" src="images/act.png"/> Activity 8.1: Implementing Offline Support</h2>
+<h1 class="chapter-head" id="a115">Summary</h1>
+<p class="nonindent">In this chapter, you learned that:</p>
+<ul class="square">
+<li><p>The Geolocation API allows a website to retrieve the current geographical location of a user.</p></li>
+<li><p>The Geolocation API provides the following methods to determine the users&#x2019; location:</p>
+<ul class="disc">
+<li><p><code>getCurrentPosition()</code></p></li>
+<li><p><code>watchPosition()</code></p></li>
+</ul>
+</li>
+<li><p>To handle errors in a geolocation-enabled website, you can use the <code>getCurrentPosition()</code> method. The second parameter of this method is an error handler function.</p></li>
+<li><p>The offline support feature provides the following benefits:</p>
+<ul class="disc">
+<li><p>Ensures that the website is available even when the user is not connected to the network</p></li>
+<li><p>Reduces network load on the server</p></li>
+</ul>
+</li>
+<li><p>The client-side storage refers to the process of storing data locally within the user&#x2019;s browser.</p></li>
+<li><p>The client-side storage can be implemented by using the following objects:</p>
+<ul class="disc">
+<li><p><code>localStorage</code></p></li>
+<li><p><code>sessionStorage</code></p></li>
+</ul></li>
+<li><p>The <code>localStorage</code> object allows you to store data without any expiration date.</p></li>
+<li><p>The <code>sessionStorage</code> object is used to store the data for only one session. This implies that the data is deleted once the user closes the browser.
+</p></li>
+<li><p>To implement application cache, you need to create a text file called manifest.</p></li>
+<li><p>You need to save the manifest file with the .appcache extension.</p></li>
+</ul>
+<h1 class="chapter-head" id="ref8">Reference Reading</h1>
+<h3 class="topic">Implementing Geolocation</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>The Definitive Guide to HTML5 By Adam Freeman</em></p></td>
+<td><p><em><a href="http://diveintohtml5.info/geolocation.html">http://diveintohtml5.info/geolocation.html</a></em></p>
+<p><em><a href="http://www.w3schools.com/html/html5_geolocation.asp">http://www.w3schools.com/html/html5_geolocation.asp</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Implementing Offline Support</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>The Definitive Guide to HTML5 By Adam Freeman</em></p></td>
+<td><p><em><a href="http://www.pageresource.com/html5/local-session-storage-api/">http://www.pageresource.com/html5/local-session-storage-api/</a></em></p></td>
+</tr>
+</table>
+</body>
+</html>

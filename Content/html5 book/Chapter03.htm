@@ -1,0 +1,692 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Chapter 3 - Working with Tables and Frames</title>
+<link rel="stylesheet" type="text/css" href="css/Style.css"/>
+<link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="page-template.xpgt"/>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+<meta http-equiv="X-UA_Compatible" content="IE=9"/>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/GlobalContentSecrity.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/Content/analytics.js" type="text/javascript"></script>
+</head>
+<body bgcolor="#F8FCFD">
+<h1 class="chno" id="ch03">Chapter 3</h1>
+<h1 class="chname">Working with Tables and Frames</h1>
+<p class="nonindent">As you keep adding elements to a page one after the other, the page gets cluttered. As a result, it becomes difficult for the user to read and understand the information given on the Web page. To resolve this issue, the information needs to be arranged in a logical and presentable manner. For this, you can use a table to design your Web pages.</p>
+<p class="nonindent">Tables are used for structuring and displaying complex information in a structured format on a Web page. However, as the information grows in complexity, there is a need to segregate and display information in different sections of the Web page. </p>
+<p class="nonindent">Frames provide a mechanism for positioning and displaying several Web pages in different sections of a single browser window.  </p>
+<p class="nonindent">This chapter discusses the need and usage of tables and frames. In addition, it discusses the attributes that can help customize the Web page created by using frames and tables.</p>
+<h2 class="section-head">Objectives</h2>
+<p class="nonindent">In this chapter, you will learn to:</p>
+<ul class="square">
+<li><p>Create tables</p></li>
+<li><p>Access multiple Web pages by using frames  </p></li>
+</ul>
+<h1 class="chapter-head" id="a33">Creating Tables</h1>
+<p class="nonindent">Consider a scenario of online tutorial of LearnMySQL website that teaches how to access and manipulate data by using MySQL. In addition, it teaches the concepts of database administration by using MySQL. One of the Web pages in this tutorial displays the content on data types in a format, as shown in the following figure.  </p>
+<p class="center"><img src="images/HTML_03_01.jpg" alt="" /></p>
+<p class="caption"><em>The Content on Data Types </em></p>
+<p class="nonindent">In the preceding figure, the content on data types can be made more presentable and understandable by arranging the same in the form of a table, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_03_02.png" alt="" /></p>
+<p class="caption"><em>The Content Displayed in the Form of a Table</em></p>
+<p class="nonindent">The information on a Web page should be well structured and organized to ensure that it is readable. Tables are used in Web pages to enhance the readability by presenting information in a structured way. </p>
+<p class="nonindent">Tables represent complex information in a simple and easy-to-understand manner. By using tables, information can be arranged logically in rows and columns. You can also control the spacing, layout, and presentation of tabular data on a Web page.</p>
+<h2 class="section-head" id="a34">Identifying the Basic Structure of a Table</h2>
+<p class="nonindent">The LearnMySQL website provides tutorials to the users for preparing different certification exams of MySQL. Once registered for an online exam, a user is provided a login ID and password. The test results of the candidates, which comprise information such as name, login ID, course name, and marks, are thereafter displayed on the website.  </p>
+<p class="nonindent">Tables can be used to display such information, which are arranged in the form of horizontal rows and vertical columns, as shown in the following figure. </p>
+<p class="center"><img src="images/HTML_03_03.jpg" alt="" /></p>
+<p class="caption"><em>The Test Results Table</em></p>
+<p class="nonindent">In the preceding table, each row displays the test details of a candidate. You can create such a table in HTML by using the <code>&#x003C;TABLE&#x003E;</code> tag. The <code>&#x003C;TABLE&#x003E;</code> tag acts as a container for tags that are used for creating rows and columns and adding data. A table contains an opening <code>&#x003C;TABLE&#x003E;</code> tag and a closing <code>&#x003C;/TABLE&#x003E;</code> tag.  In addition, you can also control the appearance of the border around a table. This is done by using the <code>border</code> attribute of the <code>&#x003C;TABLE&#x003E;</code> tag. If used with the <code>&#x003C;TABLE&#x003E;</code> tag, the <code>border</code> attribute applies a border around the table and can be assigned the value, <code>1</code>, or "". If you do not want a border to appear around the table, do not use the <code>border</code> attribute with the <code>&#x003C;TABLE&#x003E;</code> tag. </p>
+<p class="nonindent">The table is divided into the following logical sections:</p>
+<ul class="square">
+<li><p>Body</p></li>
+<li><p>Header</p></li>
+<li><p>Footer </p></li>
+</ul>
+<h3 class="topic">Specifying Table Body</h3>
+<p class="nonindent">The table body contains data arranged in rows. Each row further comprises one or multiple columns. The rows of the body of a table can be grouped by using the <code>&#x003C;TBODY&#x003E;</code> tag.  </p>
+<p class="nonindent">You can use more than one <code>&#x003C;TBODY&#x003E;</code> tag inside the <code>&#x003C;TABLE&#x003E;</code> tag. This is done when you want to logically group the rows of the table body for applying different presentation styles to each group. </p>
+<h4 class="subtopic">Creating Rows </h4>
+<p class="nonindent">For adding rows to a table, the <code>&#x003C;TR&#x003E;</code> tag is used. The contents of a row are placed between the <code>&#x003C;TR&#x003E;</code> and <code>&#x003C;/TR&#x003E;</code> container tags. The content of each row comprises one or more column values. The number of rows in a table depends on the number of <code>&#x003C;TR&#x003E;</code> tags within the <code>&#x003C;TABLE&#x003E;</code> tag.  </p>
+<h4 class="subtopic">Creating Columns </h4>
+<p class="nonindent">For adding columns to a row, the <code>&#x003C;TD&#x003E;</code> tag is used. The <code>&#x003C;TD&#x003E;</code> tag specifies the content of the columns. The content is enclosed within the <code>&#x003C;TD&#x003E;</code> and <code>&#x003C;/TD&#x003E;</code> container tags. The <code>&#x003C;TD&#x003E;</code> tags are used within the <code>&#x003C;TR&#x003E;</code> and <code>&#x003C;/TR&#x003E;</code> tags. </p>
+<p class="nonindent">Consider the following code snippet that shows the use of the <code>&#x003C;TR&#x003E;</code> and <code>&#x003C;TD&#x003E;</code> tags in HTML:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;TABLE border = "1"&#x003E; </code></p>
+<p class="code"><code>&#x003C;TBODY&#x003E;	</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TD&#x003E; Name &#x003C;/TD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Login ID&#x003C;/TD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Course Name&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Marks&#x003C;/TD&#x003E;&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Steve&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01234&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part I&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;92&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;John&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01235&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part II&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;85&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Joseph&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01236&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Database Administrator Certified Professional Exam, Part I &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;98&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Michel&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01237&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Database Administrator Certified Professional Exam, Part II&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;25&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TBODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p><p class="nonindent">
+In the preceding code snippet, a table with five rows and four columns is created. The first row of the table specifies the headings for individual columns as <code>Name</code>, <code>Login ID</code>, <code>Course Name</code>, and <code>Marks</code>; and the rest four rows are populated as the different values of the headings. The preceding code snippet creates the Test Results table, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_03_04.jpg" alt="" /></p>
+<p class="caption"><em>The Test Results Table </em></p>
+<h4 class="subtopic">Combining Multiple Rows and Columns into a Single Cell</h4>
+<p class="nonindent">Consider the scenario of an online tutorial of LearnMySQL website. On this website, you want to display the result of the top three performers in a tabular form. The table should appear in such a way that only the column of the first row should extend to four columns and display the heading, <strong>Top Three Performers</strong>. The remaining rows of the table should have four separate columns. To extend or merge the cells up to the desired columns, you can use the <code>colspan</code> attribute. Similarly, to merge the rows, you can use the <code>rowspan</code> attribute.</p>
+<p class="nonindent">The <code>colspan</code> attribute is specified within the table cell to define the number of columns the cell can extend to. The default value for <code>colspan</code> is <code>1</code>. The following code snippet uses the <code>colspan</code> attribute to extend a cell up to four columns in the first row of the table:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;TABLE border = "1"&#x003E;  </code></p>
+<p class="code"><code>&#x003C;TBODY&#x003E;	</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TD colspan= "4"&#x003E;&#x003C;CENTER&#x003E;Top Three Performers&#x003C;/CENTER&#x003E;&#x003C;/TD&#x003E;&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TD&#x003E; Name &#x003C;/TD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Login ID&#x003C;/TD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Course Name&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Marks&#x003C;/TD&#x003E;&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Joseph&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01236&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Database Administrator Certified Professional Exam, Part I &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;98&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Steve&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01234&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part I&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;92&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;John&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01235&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part II&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;85&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TBODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p><p class="nonindent">
+In the preceding code snippet, the <code>Top Three Performers</code> column extends horizontally, acquiring the space of four columns to appear as a single column. The output derived after using the <code>colspan</code> attribute is displayed in the following figure.</p>
+<p class="center"><img src="images/HTML_03_05.jpg" alt="" /></p>
+<p class="caption"><em>The Output Derived After Using the Colspan Attribute </em></p>
+<p class="nonindent">The <code>rowspan</code> attribute is specified within table cell to define the number of rows a cell can extend to. The default value for <code>rowspan</code> is <code>1</code>. The following code snippet uses the <code>rowspan</code> attribute to extend a cell up to five rows in the first column of the table: </p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;TABLE border = "1"&#x003E;</code></p> 	 
+<p class="code"><code>&#x003C;TBODY&#x003E;	</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TD rowspan= "5"&#x003E;Top Three Performers&#x003C;/TD&#x003E;&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TD&#x003E; Name &#x003C;/TD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Login ID&#x003C;/TD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Course Name&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E; Marks&#x003C;/TD&#x003E;&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Joseph&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01236&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Database Administrator Certified Professional Exam, Part I &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;98&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Steve&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01234&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part I&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;92&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;John&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01235&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part II&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;85&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TBODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p><p class="nonindent">
+In the preceding code snippet, the <code>Top Three Performers</code> row extends vertically acquiring the space of five rows to appear as a single row. The output derived after using the <code>rowspan</code> attribute is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_03_06.jpg" alt="" /></p>
+<p class="caption"><em>The Output Derived After Using the Rowspan Attribute </em></p>
+<h3 class="topic">Specifying Table Header </h3>
+<p class="nonindent">The table header is a row that contains the headings for the columns of the table. The headings in the table provide a brief explanation about the data in the subsequent rows of the table. For example, if the heading of a column is User ID, it specifies that the column displays the users' ID in the following rows. In addition, you can group the header content of a table so that it stands out from the rest of the rows by using the <code>&#x003C;THEAD&#x003E;</code> tag. This tag specifies that a group of rows are the header rows. </p>
+<h4 class="subtopic">Creating Heading for the Table Columns</h4>
+<p class="nonindent">To create the headings for the table columns, you can use the <code>&#x003C;TH&#x003E;</code> tag. The <code>&#x003C;TH&#x003E;</code> tag displays the heading in bold and is centrally aligned. </p>
+<p class="nonindent">The following code snippet shows the use of the <code>&#x003C;TH&#x003E;</code> tag:</p>
+<p class="code"><code>&#x003C;TABLE border = "1"&#x003E; </code></p>
+<p class="code"><code>&#x003C;THEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Name &#x003C;/TH&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Login ID&#x003C;/TH&#x003E;</code></p> 
+<p class="code"><code>&#x003C;TH&#x003E; Course Name&#x003C;/TH&#x003E;</code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Marks&#x003C;/TH&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;/THEAD&#x003E;</code></p>
+<p class="code"><code>.........</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, <code>Name</code>, <code>Login ID</code>, <code>Course Name</code>, and <code>Marks</code> represent the table header columns.</p>
+<p class="nonindent">The preceding code snippet creates a table header in the first row, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_03_07.jpg" alt="" /></p>
+<p class="caption"><em>A Table Header</em></p>
+<h3 class="topic">Specifying Table Footer</h3>
+<p class="nonindent">Consider a situation where you need to provide the summary for table rows. For example, at the end of the table, you need to specify the total number of students. For this, you can use the <code>&#x003C;TFOOT&#x003E;</code> tag, which is always specified after the <code>&#x003C;THEAD&#x003E;</code> tag but before the <code>&#x003C;TBODY&#x003E;</code> tag. The <code>&#x003C;TFOOT&#x003E;</code> tag should contain at least one <code>&#x003C;TR&#x003E;</code> tag. </p>
+<p class="nonindent">Consider the following code snippet that shows the use of the <code>&#x003C;TFOOT&#x003E;</code> tag in HTML:</p>
+<p class="code"><code>&#x003C;TABLE border = "1"&#x003E; </code></p>
+<p class="code"><code>&#x003C;THEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TH colspan= "4"&#x003E;Top Three Performers&#x003C;/TH&#x003E;&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Name &#x003C;/TH&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Login ID&#x003C;/TH&#x003E;</code></p> 
+<p class="code"><code>&#x003C;TH&#x003E; Course Name&#x003C;/TH&#x003E;</code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Marks&#x003C;/TH&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;/THEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TFOOT&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TD colspan= "3"&#x003E; Total number of students &#x003C;/TD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TD&#x003E; 3&#x003C;/TD&#x003E;&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;/TFOOT&#x003E;</code></p>
+<p class="code"><code>&#x003C;TBODY&#x003E;	</code></p>
+<p class="code"><code>&#x003C;TR &#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Joseph&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01236&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Database Administrator Certified Professional Exam, Part I &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;98&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Steve&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01234&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part I&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;92&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;John&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01235&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part II&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;85&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TBODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet creates the footer for the table, as shown in the following figure. </p>
+<p class="center"><img src="images/HTML_03_08.jpg" alt="" /></p>
+<p class="caption"><em>The Output Displaying the Table Footer</em></p>
+<h3 class="topic">Specifying the Table Caption</h3>
+<p class="nonindent">After creating a table, you should define a title for it. A caption specifies a title for the table. It enables the users to understand the information that the table displays. </p>
+<p class="nonindent">For creating a table title, the <code>&#x003C;CAPTION&#x003E;</code> tag is used. Once specified, it becomes the first element after the <code>&#x003C;TABLE&#x003E;</code> tag. It has an opening tag, <code>&#x003C;CAPTION&#x003E;</code>, and a closing tag, <code>&#x003C;/CAPTION&#x003E;</code>. These tags are used within the <code>&#x003C;TABLE&#x003E;</code> tags.</p>
+<p class="nonindent">Consider the following code snippet that shows the use of the <code>&#x003C;CAPTION&#x003E; </code>tag in HTML:</p>
+<p class="code"><code>&#x003C;TABLE border = "1"&#x003E; </code></p>
+<p class="code"><code>&#x003C;CAPTION&#x003E; Test Results &#x003C;/CAPTION&#x003E; </code></p>
+<p class="code"><code>&#x003C;THEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TH colspan= "4"&#x003E;Top Three Performers&#x003C;/TH&#x003E;&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Name &#x003C;/TH&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Login ID&#x003C;/TH&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Course Name&#x003C;/TH&#x003E;</code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Marks&#x003C;/TH&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;/THEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TFOOT&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TD colspan= "3"&#x003E; Total number of students &#x003C;/TD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TD&#x003E; 3&#x003C;/TD&#x003E;&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;/TFOOT&#x003E;</code></p>
+<p class="code"><code>&#x003C;TBODY&#x003E;	</code></p>
+<p class="code"><code>&#x003C;TR &#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Joseph&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01236&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Database Administrator Certified Professional Exam, Part I &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;98&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Steve&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01234&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part I&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;92&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;John&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01235&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part II&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;85&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TBODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="nonindent">The preceding code snippet assigns a caption to the Test Results table, as shown in the following figure. </p>
+<p class="center"><img src="images/HTML_03_09.jpg" alt="" /></p>
+<p class="caption"><em>The Output Displaying the Table Caption</em></p>
+<p class="center"><img src="images/J0301.jpg" onclick="play('animation_J0301_swf')" id="animation_J0301_swf" height="488px" width="650px" /></p>
+
+<p class="center"><img src="images/HTML_03_Creating_Enhancing_Tables.jpg" onclick="play('animation_HTML_03_Creating_Enhancing_Tables_swf')" id="animation_HTML_03_Creating_Enhancing_Tables_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a35">Enhancing Tables </h2>
+<p class="nonindent">The Test Results table displays the information in an understandable and presentable manner. However, it can always be enhanced to have a better look and feel. For example, the border of a particular thickness and color can be applied on the table. In addition, the width and the height of the table can also be set. To apply such effects on a table for enhancing its appearance, you need to use CSS. 
+</p>
+<p class="nonindent">CSS provides various properties to enhance the visual appearance of a table. The following table lists the various CSS properties that can be used to stylize the table to be displayed on a Web page. </p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="90%">
+<tr valign="top">
+<td align="left" style="width:30%"><p><strong><em>Name	</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Description</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Example</em>  </strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>border</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It is used to set the style, width, and color of the table border. It is used with <code>&#x003C;TABLE&#x003E;</code>, <code>&#x003C;TH&#x003E;</code>, and <code>&#x003C;TD&#x003E; </code>tags.</em> </p></td>
+<td align="left" style="width:30%">
+<p><code><em>table</em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>border:dotted 1px brown;</em></code></p>
+<p><code><em>}</em></code></p>
+<p><em>The preceding code snippet sets the table border to 1 pixel with dotted border line in brown color.</em></p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>border-collapse</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It is used to set whether the table borders are collapsed into a single border or they appear separated. By default, a double border appears around a table because both the table and the columns have separate borders.</em></p><p><em>The possible values for the <code>border-collapse</code> property are <code>collapse</code> and <code><em>separate</em></code>.</em> </p></td>
+<td align="left" style="width:30%">
+<p><code><em>table</em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>border-collapse:collapse;</em></code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet collapses the table borders into a single border.</em></p>
+<p><code><em>table</em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>border-collapse:separate;</em></code></p>
+<p><code>}</code></p>
+<p class="nonindent"><em>The preceding code snippet keeps the table borders separated.</em> </p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>height and width</em></code></p></td>
+<td align="left" style="width:30%"><p><em>These are used to define the height and width of a table. It is used with <code>&#x003C;TABLE&#x003E;</code>, <code>&#x003C;TH&#x003E;</code>, and <code>&#x003C;TD&#x003E;</code> tags.</em></p></td>
+<td align="left" style="width:30%">
+<p><code><em>table</em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>width:100px;</em></code></p>
+<p><code><em>height:50px;</em></code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet sets the width and height of the border to 100px and 50px, respectively.</em></p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>text-align</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It is used to align the text in a table. Its values are left, right, and center. It is used with <code>&#x003C;TABLE&#x003E;</code>, <code>&#x003C;TH&#x003E;</code>, and <code>&#x003C;TD&#x003E;</code> tags.</em></p></td>
+<td align="left" style="width:30%">
+<p><code><em>table</em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>text-align:right;</em></code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet right aligns the text.</em></p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>padding</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It is used to control the space between the table and the content in the table. It is used with <code>&#x003C;TABLE&#x003E;</code>, <code>&#x003C;TH&#x003E;</code>, and <code>&#x003C;TD&#x003E;</code> tags.</em></p></td>
+<td align="left" style="width:30%">
+<p><code><em>td</em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>padding:10px;</em></code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet sets the space between the border and the content of the table to 10px.</em></p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>color</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It is used to set the color of the border and text in a table.  It is used with the <code>&#x003C;TABLE&#x003E;</code>, <code>&#x003C;TH&#x003E;</code>, and <code>&#x003C;TD&#x003E;</code> tags.</em></p></td>
+<td align="left" style="width:30%">
+<p><code><em>table</em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>color:blue;</em></code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet sets the color of the border and text to blue.</em></p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>background-color</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It is used to set the background color of the entire table or columns. It is used with the <code>&#x003C;TABLE&#x003E;</code>, <code>&#x003C;TH&#x003E;</code>, and <code>&#x003C;TD&#x003E;</code> tags.</em></p></td>
+<td align="left" style="width:30%">
+<p><code><em>th</em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>background-color:gray;</em></code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet sets the background color of the table header to gray.</em></p>
+</td>
+</tr>
+</table>
+<p class="caption"><em>The CSS Properties to Stylize a Table</em></p>
+<p class="nonindent">Consider the following code to enhance the look and feel of the Test Results table:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>th</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-size:18px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>padding-top:3px;</code></p>
+<p class="code"><code>background-color:#BDB76B;</code></p>
+<p class="code"><code>color:#006400;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>caption</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-size:35px;</code></p>
+<p class="code"><code>color:Black;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>td</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-size:15px;</code></p>
+<p class="code"><code>border:1px solid #008B8B;</code></p>
+<p class="code"><code>padding:3px ;</code></p>
+<p class="code"><code>background-color: Khaki;</code></p>
+
+<p class="code"><code>}</code></p>
+<p class="code"><code>tr.alt td </code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>color:#F0E68C;</code></p>
+<p class="code"><code>background-color:#B22222;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;TABLE border = "1"&#x003E;</code></p> 
+<p class="code"><code>&#x003C;CAPTION&#x003E; Test Results &#x003C;/CAPTION&#x003E; </code></p>
+<p class="code"><code>&#x003C;THEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;&#x003C;TH colspan= "4"&#x003E;Top Three Performers&#x003C;/TH&#x003E;&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Name &#x003C;/TH&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Login ID&#x003C;/TH&#x003E; </code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Course Name&#x003C;/TH&#x003E;</code></p>
+<p class="code"><code>&#x003C;TH&#x003E; Marks&#x003C;/TH&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;/THEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TFOOT&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR &#x003E;&#x003C;TD colspan= "3"&#x003E; Total number of students &#x003C;/TD&#x003E; </code></p>
+<p class="code"><code>&#x003C;TD&#x003E; 3&#x003C;/TD&#x003E;&#x003C;/TR&#x003E; </code></p>
+<p class="code"><code>&#x003C;/TFOOT&#x003E;</code></p>
+<p class="code"><code>&#x003C;TBODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR class = "alt"&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Joseph&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01236&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Database Administrator Certified Professional Exam, Part I &#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;98&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;Steve&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01234&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part I&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;92&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR class = "alt"&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;John&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;01235&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;MySQL 5 Developer Certified Professional Exam, Part II&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;85&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TBODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TABLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;     </code></p>
+<p class="nonindent">In the preceding code, different CSS rules have been created to stylize the table caption, heading, and data cells. The <code>th</code> selector sets the font, color, and alignment of the table header. The <code>caption</code> selector sets the font and color of the table caption. The<code> td</code> selector sets the size and color of the table data. The <code>tr.alt td</code> selector is created to apply styles to the rows having class selector, <code>alt</code>. </p>
+<p class="nonindent">The output of the preceding code is displayed in the following figure. </p>
+<p class="center"><img src="images/HTML_03_10.jpg" alt="" /></p>
+<p class="caption"> <em> The Table Obtained After Applying CSS Styles</em></p>
+
+<p class="center"><img src="images/HTML_03_Enhancing_Tables.jpg" onclick="play('animation_HTML_03_Enhancing_Tables_swf')" id="animation_HTML_03_Enhancing_Tables_swf" height="488px" width="650px" /></p>
+
+<p class="center"><img src="images/HTML_03_Creating_and_Enhancing_Tables.jpg" onclick="play('animation_HTML_03_Creating_and_Enhancing_Tables_swf')" id="animation_HTML_03_Creating_and_Enhancing_Tables_swf" height="488px" width="650px" /></p>
+
+<p class="center"><img src="images/J0302.jpg" onclick="play('animation_J0302_swf')" id="animation_J0302_swf" height="488px" width="650px" /></p>
+
+
+
+<h2 class="section-head" id="a36"><img alt="" src="images/act.png"/> Activity 3.1: Creating a Table</h2>
+<h1 class="chapter-head" id="a37">Accessing Multiple Web Pages Using Frames</h1>
+<p class="nonindent">The LearnMySQL website provides the learning content on the courses that are mapped with different online certification exams of MySQL. The following figure displays a Web page from the website.</p>
+<p class="center"><img src="images/HTML_03_11.jpg" alt="" /></p>
+<p class="caption"><em>A Web Page from the LearnMySQL Website</em></p>
+<p class="nonindent">Although the page in the preceding figure looks similar to an ordinary Web page, it comprises three separate Web pages. These Web pages are displayed in the same browser window, which makes it look like a single page. This is made possible by using the concept of frames. A frame is a rectangular region in a browser window inside which a Web page can be displayed.</p>
+<p class="nonindent">On the Web page of LearnMySQL website, the browser window is divided into three rectangular regions by using three frames, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_03_12.jpg" alt="" /></p>
+<p class="caption"><em>The Browser Window Divided into Frames</em></p>
+<p class="nonindent">In the preceding figure, the first frame that is named as HeaderFrame, displays the name of the website. The second frame that is named as NavigationFrame, contains the links to the various MySQL courses. The third frame that is named as ContentFrame, displays the Web page corresponding to the link that the user clicks in the navigational links section. </p>
+<h2 class="section-head" id="a38">Creating Web Pages Using Frames</h2>
+<p class="nonindent">In the LearnMySQL website, the table of contents is displayed in the left pane. When a user clicks a link, the corresponding course is displayed in the right pane. This functionality can be achieved by using frames.</p>
+<p class="nonindent">Before creating a Web page that has frames, you need to decide the Web pages you want to display in the frames and the structural appearance of these Web pages in the resulting Web page. Then, you must create a Web page that is displayed in each frame. Further, you need to organize these Web pages by putting them together inside a single browser window by using frames that can be implemented by using the <code>&#x003C;IFRAME&#x003E;</code> tag.</p>
+<h3 class="topic">Exploring the &#x003C;IFRAME&#x003E; Tag</h3>
+<p class="nonindent">The HTML <code>&#x003C;IFRAME&#x003E;</code> tag is used to specify an inline frame. It allows you to divide a Web page into sections or frames. Each section can be used to display an individual Web page. Therefore, the <code>&#x003C;IFRAME&#x003E;</code> tag is used to embed an HTML Web page within another Web page. The embedded Web page is said to be contained within the other Web page, which is known as the containing page. The following attributes can be used with the <code>&#x003C;IFRAME&#x003E;</code> tag:</p>
+<ul class="square">
+<li><p><code>src</code>: Is used to specify the location or the URL of the Web page to be embedded inside the frame. </p></li>
+<li><p><code>name</code>: Is used to assign a name to the frame. </p></li>
+<li><p><code>seamless</code>: Is a boolean attribute, which instructs the browser to display the frame as a part of the containing Web page. If this attribute is used, the frame is displayed without scroll bars and border.  </p></li>
+<li><p><code>srcdoc</code>: Is used to specify an HTML code that defines the content to be displayed inside the frame.</p></li>
+<li><p><code>height</code>: Is used to set the height of the frame.</p></li>
+<li><p><code>width</code>: Is used to set the width of the frame.</p></li>
+</ul>
+<p class="nonindent">As per the preceding figure, consider the following code to divide the Web page in three frames in the <strong>home.html</strong> page of the LearnMySQL website:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;IFRAME name="HeaderFrame" width="91%" height="100" &#x003E;&#x003C;/IFRAME&#x003E;</code></p>
+<p class="code"><code>&#x003C;IFRAME name="NavigationFrame" width="25%" height="500"&#x003E;&#x003C;/IFRAME&#x003E;</code></p>
+<p class="code"><code>&#x003C;IFRAME name="ContentFrame" width="65%" height="500" &#x003E;&#x003C;/IFRAME&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">
+In the preceding code, the <code>&#x003C;IFRAME&#x003E;</code> tag is used to divide the Web page, <strong>home.html</strong>, into frames of different width and height. Now, to make the Web pages visible inside the frames, you need to create, and then embed these Web pages inside the frames. </p>
+<p class="nonindent">For example, the navigational links for the website are created inside a file named <strong>nav.html</strong> by using the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>body{</code></p>
+<p class="code"><code>background-color: #00C0F3;</code></p>
+<p class="code"><code>}</code></p>
+
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;  ul {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; margin: 0;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; padding: 0;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; list-style: none;// remove bullets from the unordered list</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; width: 350px;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; }</code></p>
+
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ul li a {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; display: block;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; text-decoration: none;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; color: Black;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; background: #B3ECFC;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; padding: 5px;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; border: 1px solid #ccc;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; border-bottom: 0;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; }</code></p>
+
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ul {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; margin: 0;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; padding: 0;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; list-style: none;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; width: 320px;</code></p>
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; 
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; }</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;li:hover ul { display: block; }</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;a:hover</code></p>
+&#x00A0;&#x00A0; <p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; background-color:#5E9DC9; </code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;}</code></p>
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;  &#x003C;/STYLE&#x003E;&#x00A0;&#x00A0;</code></p>
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0; 
+
+
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+
+<p class="code"><code> &#x003C;UL&#x003E;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="Courses.html"&#x003E;Courses&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code> &#x003C;LI&#x003E;&#x003C;A href="Book1.html"&#x003E;MySQL5 Database Administrator Certified Professional Exam Part- I&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="Book2.html"&#x003E;MySQL5 Developer Certified Professional Exam Part- I&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code> &#x003C;LI&#x003E;&#x003C;A href="Book3.html"&#x003E;MySQL5 Developer Certified Professional Exam Part- II&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">Similarly, other Web pages can also be created by using the HTML code. </p>
+<p class="nonindent">You need to replace the code in the <strong>home.html</strong> Web page with the following code to embed the files inside the desired frames:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;IFRAME srcdoc= "&#x003C;CENTER&#x003E;&#x003C;H1&#x003E;&#x003C;B&#x003E;Learn MySQL&#x003C;/B&#x003E;&#x003C;/H1&#x003E;&#x003C;/CENTER&#x003E; " name="HeaderFrame" width="91%" height="100" &#x003E;&#x003C;/IFRAME&#x003E;</code></p>
+<p class="code"><code>&#x003C;IFRAME src="nav.html" name="NavigationFrame" width="25%" height="500"&#x003E;&#x003C;/IFRAME&#x003E;</code></p>
+<p class="code"><code>&#x003C;IFRAME name="ContentFrame" width="65%" height="500" &#x003E;&#x003C;/IFRAME&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p><p class="nonindent">
+In the preceding code, the file, <strong>header.html</strong>, is embedded inside the frame,<strong> HeaderFrame</strong>. Similarly, the file, <strong>nav.html</strong>, is embedded in the frame named <strong>NavigationFrame</strong>. This is done by providing the name of the files as a value for the <code>src</code> attribute of the corresponding<code> &#x003C;IFRAME&#x003E;</code> tags used to create the frames. However, the content frame is not displaying anything as no HTML page has been specified for it.</p>
+<p class="nonindent">The <strong>home.html</strong> Web page of the LearnMySQL website is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_03_13.jpg" alt="" /></p>
+<p class="caption"><em>The Home Page of the LearnMySQL Website</em></p>
+<p class="nonindent">In the preceding figure, the navigational links are displayed inside the frame, <strong>NavigationFrame</strong>. However, whenever a link is clicked, the corresponding Web page is displayed in a new window. Instead, you want to display these pages inside the frame, <strong>ContentFrame</strong>. This can be implemented by specifying the target frame for the links. You can specify a target frame for the links by using the <code>target</code> attribute of the <code>&#x003C;A&#x003E; </code>tag. The <code>target</code> attribute is used to specify the name of the frame where the HTML document should open. Consider the following code snippet to apply the <code>target </code>attribute on the links created in<strong> nav.html</strong>: </p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL&#x003E;  </code></p>                 
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="Courses.html" target="ContentFrame"&#x003E;Courses&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="Book1.html" target="ContentFrame"&#x003E;MySQL5 Database Administrator Certified Professional Exam Part- I&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="Book2.html" target="ContentFrame"&#x003E;MySQL5 Developer Certified Professional Exam Part- I&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+ <p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href="Book3.html" target="ContentFrame"&#x003E;MySQL5 Developer Certified Professional Exam Part- II&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p><p class="nonindent">
+In the preceding code snippet, the target attribute is used to specify <strong>ContentFrame</strong> as a target frame for the links. On clicking a link, the corresponding Web page is displayed inside the frame, <strong>ContentFrame</strong>, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_03_14.jpg" alt="" /></p>
+<p class="caption"><em>The Web Page Displayed Inside ContentFrame</em></p>
+
+<p class="center"><img src="images/HTML_03_Frames_in_HTML.jpg" onclick="play('animation_HTML_03_Frames_in_HTML_swf')" id="animation_HTML_03_Frames_in_HTML_swf" height="488px" width="650px" /></p>
+
+<h2 class="section-head" id="a39">Styling Frames </h2>
+<p class="nonindent">Frames can also be enhanced for a better look and feel. For example, the border of a particular thickness or appropriate margins can be applied on the frames to improve its appearance. This can be implemented by using the styling rules of CSS. The following table lists the various CSS properties that can be used for styling the frames.</p>
+
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="90%">
+
+<tr valign="top">
+<td align="left" style="width:30%"><p><strong><em>Name	</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Description</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Example </em> </strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>margin</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It specifies an area around an element. It does not have a background color.</em> </p></td>
+<td align="left" style="width:30%">
+<p><code><em>iframe </em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>margin: 2px;</em> </code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet sets the margin of the frame to 2px.</em></p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>padding</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It defines the space between the element border and the element content.</em> </p></td>
+<td align="left" style="width:30%">
+<p><code><em>iframe</em> </code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>padding: 2px;</em></code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet sets the space between the border and the content of the frame to 2px.</em></p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>border</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It is used to apply a border of specific thickness and color on the frame. Its values are <code>width</code>, <code>color</code>, and <code>style</code>.</em> </p></td>
+<td align="left" style="width:30%">
+<p><code><em>iframe </em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>border: 2px solid black;</em></code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet applies a border of 2px thickness and solid black color to the frame.</em></p>
+</td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>scrolling</em></code></p></td>
+<td align="left" style="width:30%"><p><em>It controls the appearance of a scrollbar around the frames. The possible values for this property are <code>yes</code>, <code>no</code>, and <code>auto</code>. </em> </p></td>
+<td align="left" style="width:30%">
+<p><code><em>iframe </em></code></p>
+<p><code><em>{</em></code></p>
+<p><code><em>scrolling: auto;</em> </code></p>
+<p><code><em>}</em></code></p>
+<p class="nonindent"><em>The preceding code snippet applies a scrollbar on the frame, if required.</em></p>
+</td>
+</tr>
+</table>
+<p class="caption"><em>The CSS Properties for Styling a Frame</em></p>
+<p class="nonindent">Consider the following code snippet for applying styles on the frames created in the file, <strong>home.html</strong>: </p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>iframe{	</code></p>
+<p class="code"><code>border :5px solid black;</code></p>
+<p class="code"><code>margin-left :1px;</code></p>
+<p class="code"><code>padding: 1px;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+
+<p class="code"><code>.......</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E; </code></p>
+<p class="nonindent">The preceding code snippet applies a black color border to the frames with the left margin of 1px. The output of the preceding code snippet is displayed in the following figure.</p>
+<p class="center"><img src="images/HTML_03_15.jpg" alt="" /></p>
+<p class="caption"><em>The Code Output Displaying Frames in a Web Page After Applying CSS</em></p>
+<p class="center"><img src="images/J0303.jpg" onclick="play('animation_J0303_swf')" id="animation_J0303_swf" height="488px" width="650px" /></p>
+
+<h2 class="section-head" id="a40"><img alt="" src="images/act.png"/> Activity 3.2: Accessing Multiple Web Pages Using Frames</h2>
+<h1 class="chapter-head" id="a41">Summary</h1>
+<p class="nonindent">In this chapter, you learned that:</p>
+<ul class="square">
+
+<li><p>Tables are used in Web pages to enhance the readability by presenting information in a structured way.</p></li>
+<li><p>You can create a table in HTML by using the <code>&#x003C;TABLE&#x003E;</code> tag.</p></li>
+<li><p>The rows of the body of a table can be grouped by using the <code>&#x003C;TBODY&#x003E;</code> tag.</p></li>
+<li><p>For adding rows to a table, the <code>&#x003C;TR&#x003E;</code> tag is used.</p></li>
+<li><p>For adding columns to a row, the <code>&#x003C;TD&#x003E;</code> tag is used.</p></li>
+<li><p>To extend or merge the cells up to the desired columns, you can use the <code>colspan</code> attribute. Similarly, to merge the rows, you can use the<code> rowspan</code> attribute.</p></li>
+<li><p>The table header is a row that contains the headings for the columns of the table.</p></li>
+<li><p>To create the headings for the table columns, you can use the <code>&#x003C;TH&#x003E;</code> tag.</p></li>
+<li><p>For creating a table title, the <code>&#x003C;CAPTION&#x003E;</code> tag is used.</p></li>
+<li><p>The HTML <code>&#x003C;IFRAME&#x003E;</code> tag is used to specify an inline frame. It allows you to divide a Web page into sections or frames.</p></li>
+</ul>
+<h1 class="chapter-head" id="ref3">Reference Reading</h1>
+<h3 class="topic">Creating Tables</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>Introducing HTML5 By Bruce Lawson, Remy Sharp</em></p></td>
+<td><p><em><a href="http://www.w3.org/TR/html401/struct/tables.html">http://www.w3.org/TR/html401/struct/tables.html</a></em></p>
+<p><em><a href="http://www.htmlquick.com/tutorials/tables.html">http://www.htmlquick.com/tutorials/tables.html</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Accessing Multiple Web Pages Using Frames</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>The Definitive Guide to HTML5 By Adam Freeman</em></p></td>
+<td><p><em><a href="http://www.w3schools.com/html/html_iframe.asp">http://www.w3schools.com/html/html_iframe.asp</a></em></p></td>
+</tr>
+</table>
+
+</body>
+</html>

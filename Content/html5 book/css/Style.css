@@ -1,0 +1,403 @@
+body {
+font-size: medium;
+line-height: 1.2em;
+margin-top: 1em;
+margin-left: 1em;
+margin-right: 2em;
+font-family: "Times New Roman", Charis, Verdana, Arial, HelveticaL, Helve;
+}
+
+/*Para*/
+p {
+margin-top: .3em;
+margin-bottom: .3em;
+text-align: left;
+margin-left:0.5em;
+}
+
+/*Copyright*/
+p.copyrt {
+text-indent: 0em;
+margin-top: 1em;
+text-align: left;
+margin-bottom: 1em;
+}
+
+/* Chapter number */
+
+h1.chno {
+font-size: 28px;
+background-color: #000000;
+color: #ffffff;
+padding: 5px;
+padding-left: 10px;
+margin-bottom: 1px;
+margin-top: 1em;
+font-weight: lighter;
+text-align: center;
+}
+
+
+/* Chapter Name */
+
+h1.chname {
+font-size: 23px;
+background-color: #7ABBBD;
+text-align: center;
+line-height: 1.2em;
+color: #000000;
+padding: 9px;
+padding-left: 10px;
+margin-top: 0em;
+margin-bottom: 1em;
+}
+
+h1.chapter-head {
+font-size: 23px;
+background-color:#7ABBBD;
+text-align: center;
+color: #000000;
+padding: 9px;
+padding-left: 10px;
+margin-top: 1.50em;
+margin-bottom: 0em;
+line-height: 1.2em;
+}
+
+/* Introduction Text */
+
+p.intro {
+text-indent: 0em;
+margin-bottom: 1em;
+margin-top: 0.50em;
+text-align: left;
+}
+
+/* objectives */
+h2.obj {
+font-size: 23px;
+background-color:#003366;
+color: #FFFFFF;
+padding: 9px;
+padding-left: 10px;
+margin-top: 0.50em;
+text-align: left;
+font-weight: normal;
+margin-bottom: 1em;
+}
+
+/* Section heading */
+
+h2.section-head {
+font-size: 23px;
+background-color:#7ABBBD;
+color: #000000;
+padding: 9px;
+padding-left: 10px;
+margin-top: 0.50em;
+text-align: left;
+font-weight: normal;
+margin-bottom: 1em;
+}
+
+/* Topic heading */
+
+h3.topic {
+text-align: left;
+padding-left: 0.0em;
+font-size: 20px;
+font-family:Arial;
+font-weight:bold;
+margin-bottom: 0.5em;
+color: #000000;
+margin-top: 2em;
+}
+
+/* Subtopic heading */
+
+h4.subtopic {
+padding-left: 0.0em;
+text-align: left;
+font-size: 17px;
+font-family:Arial;
+font-weight:normal;
+margin-bottom: 0.5em;
+color: #000000;
+margin-top: 2em;
+}
+
+h4.note {
+padding-top: 1pt;
+margin-bottom: -5px;
+padding-left: 5pt;
+}
+
+/*for regular text*/
+
+p.nonindent {
+text-indent: 0em;
+margin-left: 0.2em;
+margin-bottom: 1em;
+margin-top: 0.25em;
+text-align: justify;
+}
+
+/*for indented text*/
+
+p.indent {
+text-indent: 1.00em;
+text-align: left;
+}
+
+/*centered text*/
+p.center {
+text-align: center;
+}
+
+p.center1 {
+margin-top: 1em;
+text-align: center;
+margin-bottom: 1em;
+}
+
+/*right aligned text*/
+
+p.right {
+text-align: right;
+}
+
+p.right1 {
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+text-align: right;
+}
+
+/*Left aligned text*/
+
+p.left {
+text-align: justify;
+margin-left: 2.5em;
+margin-right: 2.0em;
+}
+
+p.left1 {
+text-align: justify;
+margin-left: 5.0em;
+}
+
+/*Image class*/
+p.image {
+margin-top: 1em;
+text-align: center;
+margin-bottom: 1em;
+}
+
+
+/*Caption*/
+p.caption {
+font-size: 11pt;
+font-style: italic;
+text-align: center;
+margin-bottom: 1em;
+margin-top: 0.5em;
+}
+
+/*Jam class*/
+p.jam {
+margin-top: 1em;
+text-align: center;
+margin-bottom: 1em;
+}
+
+/*video class*/
+p.video {
+margin-top: 1em;
+text-align: center;
+margin-bottom: 1em;
+}
+
+/*online class*/
+p.online {
+margin-top: 1em;
+text-align: center;
+margin-bottom: 1em;
+}
+
+/*Hints*/
+p.hints {
+margin-top: 1em;
+text-align: center;
+margin-bottom: 1em;
+Cursor:pointer;
+}
+
+/* Note */
+
+p.note1 {
+font-size: 15px;
+margin-top: 0em;
+margin-bottom: -5px;
+padding-left: 10pt;
+}
+
+/*List*/
+
+ol.arabic {
+text-align: justify;
+margin-left: 1.0em;
+margin-right: 0.5em;
+}
+
+ol.loweralpha {
+text-align: justify;
+list-style-type: lower-alpha;
+margin-left: 1.0em;
+}
+
+ol.lowerroman {
+text-align: justify;
+list-style-type: lower-roman;
+}
+
+/* Unordered List*/
+
+ul.bullet {
+margin-right: 2em;
+margin-left: 2em;
+text-align: left;
+}
+
+ul.none {
+text-align: justify;
+list-style-type: none;
+margin-left: 1.5em;
+margin-right: 1em;
+}
+
+ul.square {
+list-style-type: square;
+margin-left: 1.0em;
+text-align: justify;
+}
+
+ul.disc {
+list-style-type:disc;
+margin-left: 1.5em;
+text-align: justify;
+}
+
+ul.circle {
+list-style-type:circle;
+margin-left: 1.5em;
+text-align: justify;
+}
+
+/*Button*/
+p.button{
+ text-align:left;
+}
+
+/*Code*/
+p.code{
+    }
+
+/*Questions*/
+p.question {
+text-align: left;
+margin-top: 1em;
+}
+
+/*Embedded Exercises*/
+p.exercise 
+{
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+/*Refernce Links*/
+
+p.ref {
+text-indent: 0em;
+margin-bottom: 1em;
+margin-top: 0.50em;
+text-align: left;
+}
+
+
+span.big {
+font-size: xx-large;
+}
+
+span.dropcaps {
+float: left;
+font-size: 50px;
+line-height: 50px;
+padding-top: 1px;
+margin-top: -.09em;
+margin-right: .09em;
+}
+
+
+span.gray {
+color: gray;
+font-size: small;
+}
+
+span.Helve {
+font-family: "Helve";
+}
+
+span.HelveticaL {
+font-family: "HelveticaL";
+}
+
+span.overline {
+text-decoration: overline;
+}
+
+
+/* Table */
+
+tr
+{
+text-align: left;
+text-indent: 0em;
+}
+
+
+td
+{
+text-align: left;
+text-indent: 0em;
+}
+
+
+div.box {
+border: 2pt solid #000000;
+padding-top:0.5em;
+margin-top:0.5em;
+margin-bottom:1.0em;
+padding-bottom:0.5em;
+padding-right:0.5em;
+padding-left:0.5em;
+background-color:#F8FCFD;
+}
+
+
+h4.glossary {
+text-align: left;
+font-size: medium;
+margin-bottom: 0em;
+border-top: 2px solid;
+margin-top: 2em;
+margin-left: 0.0em;
+}
+p.code {
+text-align: left;
+margin-left: 2.5em;
+margin-right: 2.0em;
+}
+p.code1 {
+text-align: left;
+margin-left: 5.0em;

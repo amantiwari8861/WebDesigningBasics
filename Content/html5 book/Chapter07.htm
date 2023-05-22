@@ -1,0 +1,1192 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Chapter 7 - Adding Visual Effects to Web Pages</title>
+<link rel="stylesheet" type="text/css" href="css/Style.css"/>
+<link rel="stylesheet" type="application/vnd.adobe-page-template+xml" href="page-template.xpgt"/>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+<meta http-equiv="X-UA_Compatible" content="IE=9"/>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/NDCR2/webReaderApplication.Web/JQuery_Script/GlobalContentSecrity.js" type="text/javascript"></script>
+<script src="http://www.niitstudent.com/india/Content/analytics.js" type="text/javascript"></script>
+</head>
+<body bgcolor="#F8FCFD">
+<h1 class="chno" id="ch07"><em>Chapter 7</em></h1>
+<h1 class="chname">Adding Visual Effects to Web Pages</h1>
+<p class="nonindent">Today, almost every Web developer wants to add visual effects to websites. However, adding complex visual effects to Web pages requires writing many lines of JavaScript code, which is a time-consuming activity. To overcome this issue, jQuery was introduced. It is the JavaScript library supported by HTML that wraps several lines of code into methods that can be called by using a single statement. </p>
+<p class="nonindent">This chapter introduces you to jQuery. Further, it discusses jQuery selectors, events, and effects. Also, it discusses how to add the image rollover effect to an image and how to create an image gallery, thereby, making the website more attractive and enhancing the browsing experience of the users.</p>
+<h2 class="section-head">Objectives</h2>
+<p class="nonindent">In this chapter, you will learn to:</p>
+<ul class="square">
+<li><p>Explore jQuery</p></li>
+<li><p>Add visual effects using jQuery</p></li>
+<li><p>Implement image rollover</p></li>
+<li><p>Create image gallery</p></li>
+</ul>
+<h1 class="chapter-head" id="a88">Exploring jQuery</h1>
+<p class="nonindent">Consider a scenario of the online shopping website, ShopForYou.com. The website should be designed in such a way that it displays the product categories and items in the sliding and collapsible menu and submenu format, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_01.jpg" alt="" /></p>
+<p class="caption"><em>The Sample Web Page</em></p>
+<p class="nonindent">For this, the Web designer has been asked to complete the task quickly and keep the code simple. For this situation, the designer can use the prewritten JavaScript library known as <em>jQuery</em>.</p>
+<p class="nonindent">jQuery is an open source and cross-browser library of JavaScript codes that was created to make the JavaScript programming simpler. jQuery can be used by all levels of programmers to enhance the look and feel of the Web page. jQuery supports events and can be bound to the HTML elements on the Web page. jQuery bridges the gap between extensive coding and Web designing as it is easy to understand and provides many predefined special effects. With jQuery, a Web designer can add a plethora of impressive visual effects and also extend interactivity on a Web page. </p>
+<h2 class="section-head" id="a89">Manipulating HTML Elements by Using jQuery</h2>
+<p class="nonindent">You can make use of jQuery in a Web page to manipulate HTML elements by downloading the light-weight jQuery JavaScript library and saving it to your system. Once the jQuery JavaScript library is downloaded, it can be referred to in a Web page by using the <code>&#x003C;SCRIPT&#x003E;</code> tag in the head section of the Web document. </p>
+<p class="nonindent">The following syntax is used to specify the jQuery library:</p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="&#x003C;path&#x003E;/jquery-1.8.3.js"&#x003E; &#x003C;/SCRIPT&#x003E;</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p>The <code>SCRIPT</code> tag instructs the browser that the HTML document uses a script.</p></li>
+<li><p>The <code>type</code> attribute specifies the type of scripting used.</p></li>
+<li><p>The <code>src</code> attribute specifies the name of the jQuery library used. If the jQuery library is stored at the same location as the HTML document, only the name of the library can be given. However, if the jQuery library and the HTML document are stored at different locations, you have to specify the complete path of the jQuery library.</p></li>
+</ul>
+<p class="nonindent">The execution of jQuery code should occur only after the Web page has been fully loaded. To ensure that a Web page is fully loaded before the jQuery code is executed on it, jQuery provides the <code>document.ready()</code> function. This function contains the jQuery code to be executed on HTML elements after the Web page has been fully loaded in the browser. </p>
+<p class="nonindent">The following syntax is used to specify the <code>document.ready()</code> function:</p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code><em>//</em> jquery code...</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="nonindent">In the preceding syntax, the dollar sign (<code>$</code>) represents start of the jQuery code block and <code>jQuery code</code> is the code to be implemented for the rendering of the HTML elements in the browser window. The <code>document.ready()</code> function is useful for preventing failure of actions that should be performed on an HTML element. For example, if the jQuery code for hiding an image executes before the document is ready, it will lead to failure. Therefore, to allow execution of the jQuery code only when the document is ready to be displayed in the browser window, all the jQuery methods and code should be declared and defined inside the <code>document.ready()</code>function.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The keyword, <code>jQuery,</code> can be used in place of the $ sign while writing jQuery code. For example, the preceding syntax can also be written as:<br /><code>jQuery(document).ready(function(){<br />//jQuery code...<br />});</code></em></p>
+</div>
+<p class="nonindent">As jQuery is used to manipulate HTML elements, the elements should be selected first in order to implement the jQuery code on them. </p>
+<p class="nonindent">The following jQuery syntax is used to select the HTML elements and perform the required action on them:</p>
+<p class="code"><code>$(selector).action();</code></p>
+<p class="nonindent">In the preceding syntax, <code>selector</code> is the element to be manipulated and <code>action</code> represents action to be taken on the selected element. jQuery provides many built-in actions that can be applied to the HTML elements, such as hide, fadeout, show, and slideup. Consider the following code to hide all the <code>&#x003C;H1&#x003E;</code> elements in an HTML document:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="jquery-1.8.3.js"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code>$("h1").hide();</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>...</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, all the <code>&#x003C;H1&#x003E;</code> elements will be hidden in the Web page.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>jQuery code is written in the <code>&#x003C;HEAD&#x003E;</code> section of the document.</em> </p>
+</div>
+<h3 class="topic">Using jQuery Selectors</h3>
+<p class="nonindent">jQuery uses selectors to select and manipulate an HTML element or a group of elements. You can select an HTML element by:</p>
+<ul class="square">
+<li><p>Using element name</p></li>
+<li><p>Using attribute name</p></li>
+<li><p>Using CSS selectors</p></li>
+</ul>
+<h4 class="subtopic">Using Element Name</h4>
+<p class="nonindent">jQuery can be used to select an HTML element or a group of HTML elements by using its name. Using jQuery, HTML elements can be selected by referring to their name, ID, or class to which they belong.</p>
+<p class="nonindent">Consider the following code snippet to select all the <code>&#x003C;H1&#x003E;</code> elements in a document: </p>
+<p class="code"><code>$("h1")</code> </p>
+<p class="nonindent">In the preceding code snippet, the <code>&#x003C;H1&#x003E;</code> elements are referred to by the name, <code>h1</code>. However, HTML elements can also be selected by using class or ID. To select an element with a specific ID by using jQuery, you can use the following syntax:</p>
+<p class="code"><code>$("#Element_ID")</code></p>
+<p class="nonindent">In the preceding syntax, <code>Element_ID</code> represents ID of the element to be selected. For example, to select an element having the ID, <code>header</code>, you can use the following code snippet:</p>
+<p class="code"><code>$("#header")</code></p>
+<p class="nonindent">To select elements with a specific class, you can use the following syntax:</p>
+<p class="code"><code>$(".Element_class")</code></p>
+<p class="nonindent">In the preceding syntax, .<code>Element_class</code> represents the class of the elements to be selected. For example, to select elements having the value of the class attribute as <code>header</code>, you can use the following code snippet:</p>
+<p class="code"><code>$(".header")</code></p>
+<p class="nonindent">For example, you have created the class selector named <code>exClass</code> and the ID selector named <code>exId</code> on the <code>&#x003C;H1&#x003E;</code> tag, as shown below:</p>
+<p class="code"><code>&#x003C;H1 class="exClass"&#x003E;</code></p>
+<p class="nonindent"><code>&#x003C;H1 ID="exId"&#x003E;</code></p>
+<p class="nonindent">Now, you want to manipulate the <code>&#x003C;H1&#x003E;</code> tag with the specified class and ID. You need to use the following code:</p>
+<p class="code"><code>$("h1.exClass")<br />$("h1#exId")</code></p>
+<p class="nonindent">Here, by using the <code>$("h1.exClass")</code> statement, only the <code>&#x003C;H1&#x003E;</code> header elements specified with the <code>exClass</code> value for the class attribute will be selected and by using the <code>$("h1#exId")</code> statement, only the <code>&#x003C;H1&#x003E;</code> header elements that are specified with the <code>exId</code> value for the ID attribute will be selected. </p>
+<p class="nonindent">jQuery also supports nesting of elements. This allows applying an action on the elements that are nested within other elements. For example, a list item is nested inside a list. Consider the example of the ShopForYou online shopping website where the Web designer wants to implement a menu and submenu. The submenu items must be linked to display their details in a new document. </p>
+<p class="nonindent">A menu comprises a list and list items that are denoted by the <code>&#x003C;UL&#x003E;</code> and <code>&#x003C;LI&#x003E;</code> tags, respectively. Consider the following code snippet to build a button, menu, and submenu, and to attach links to the submenu items:</p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E; Product Menu&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;H4&#x003E;Product Categories&#x003C;/H4&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL ID="menu"&#x003E; </code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A&#x003E;Laptops&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;L-150&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;L-160&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;a href=""&#x003E;L-180&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;L-260&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;L-678&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A&#x003E;Phones&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;P-1150&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;P-1260&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;P-1180&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;P-2260&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;P-6708&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A&#x003E;Cameras&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;C-50&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;C-60&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;C-80&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;C-60&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;C-08&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A&#x003E;Music Players&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;MP-1150&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;MP-1260&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;MP-1180&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;MP-2260&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;MP-6708&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON&#x003E;Hide List&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="nonindent">Consider the following code snippet to hide all the nested <code>&#x003C;UL&#x003E;</code> items on the button click of a user, for which <code>menu</code> is <code></code>specified as the ID attribute value:</p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT src="jquery-1.8.3.js"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E; </code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code>$("button").click(function(){</code></p>
+<p class="code"><code>  $('#menu ul').hide();</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E; </code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, <code>#menu</code> is used to select the HTML element for which the value of the ID attribute is <code>menu</code>. <code>#menu ul</code> selects all the <code>&#x003C;UL&#x003E;</code> items nested inside the HTML element for which the <CODE>ID</CODE> is specified as <code>menu</code>. When the user clicks on the button, all the nested list items will get hidden, and the menu with items at the first level: Laptops, Phones, Cameras, and Music Players will be visible.</p>
+<h4 class="subtopic">Using Attribute Name</h4>
+<p class="nonindent">The HTML elements can also be selected by using the name of an attribute. The following syntax is used to select elements by using an attribute name:</p>
+<p class="code"><code>$("[attribute-name]")</code></p>
+<p class="nonindent">In the preceding syntax, <code>attribute-name</code> specifies the name of the attribute.</p>
+<p class="nonindent">Consider the following code snippet: </p>
+<p class="code"><code>$("[src]")</code></p>
+<p class="nonindent">In the preceding code snippet, all the elements with the <code>src</code> attribute are selected.</p>
+<p class="nonindent">Consider the following code snippet: </p>
+<p class="code"><code>$("[src='movie.jpg']")</code></p>
+<p class="nonindent">In the preceding code snippet, all the elements that have the <code>src</code> attribute as <code>movie.jpg</code> are selected.</p>
+<h4 class="subtopic">Using CSS Selectors</h4>
+<p class="nonindent">jQuery provides CSS selectors to modify the CSS properties of an HTML element or document. </p>
+<p class="nonindent">The following syntax is used to apply CSS selectors to modify the document or element properties:</p>
+<p class="code"><code>selector.css( PropertyName, PropertyValue );</code></p>
+<p class="nonindent">Consider the following code snippet to change the color of the text of the <code>&#x003C;DIV&#x003E;</code> element to green: </p>
+<p class="code"><code>$("div").css("color","green");</code></p>
+<p class="nonindent">In the preceding code snippet, all the <code>div</code> elements are selected in the document, and the css <code>color</code> property value is modified to green. </p>
+<p class="nonindent">With CSS selectors, you can set multiple properties on an HTML element. The following syntax is used to set multiple CSS properties:</p>
+<p class="code"><code>css({"propertyname":"value","propertyname":"value",...});</code></p>
+<p class="nonindent">Consider the following code snippet to change the color and font size of the text of the <code>&#x003C;DIV&#x003E;</code> element: </p>
+<p class="code"><code>$("div").css("color":"green", "font-size":"200%");</code></p>
+<p class="nonindent">In the preceding code snippet, all the <code>div</code> elements are selected in the document, and the css color property value is modified to green and font-size is set to 200%. </p>
+<h3 class="topic">jQuery HTML</h3>
+<p class="nonindent">The jQuery library provides predefined functions to perform modifications on the content of HTML elements. </p>
+<p class="nonindent">The following table lists the most commonly-used functions to modify the content of HTML elements.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="75%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><strong><em>Function</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Description</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Syntax</em></strong></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>html()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Changes the content of HTML elements, such as text in the <code>&#x003C;P&#x003E;</code> and <code>&#x003C;DIV&#x003E;</code> tags.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).html(content)</em></code></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>append()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Enables a user to append content after the inside content in the selected element.</em></p></td>
+<td align="left" style="width:30%"><p><em><code>$(selector).append(content)</code></em></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>prepend()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Enables a user to append content before the inner content of selected elements.</em> </p></td>
+<td align="left" style="width:30%"><p><em><code>$(selector).prepend(content)</code></em></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>remove()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Removes the selected element including all the text and nested elements inside it.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).remove()</em></code></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>empty()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Removes all the text and nested elements of selected elements. However, this method does not remove the element.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).empty()</em></code></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>after()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Inserts the content after the selected elements.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).after(content)</em></code></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>before()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Inserts the content before the selected elements.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).before(content)</em></code></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>text()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Sets or returns the content of selected elements.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).text(content)</em></code></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>val()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Sets or returns the values of the attributes of selected elements.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).val(value)</em></code></p></td>
+</tr>			 
+<tr valign="top">
+<td align="left" style="width:10%"><p><code><em>attr()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Sets or returns the values and attributes of selected elements.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).attr(attribute,value)</em></code></p></td>
+</tr>
+</table>
+<p class="caption"><em>The jQuery HTML Functions</em></p>
+<p class="nonindent">Consider the following code for modifying the inner content of HTML elements:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code>$("button").click(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("#para").prepend(" &#x003C;B&#x003E;jQuery &#x003C;/B&#x003E;");</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("#para").append(" &#x003C;B&#x003E;append() function&#x003C;/B&#x003E;.");</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("#para").after('&#x003C;H3&#x003E; This is the newly inserted heading.&#x003C;/H3&#x003E;');</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("#newhead").remove();	</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>  });	</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;			</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV align="center"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;H3&#x003E;Complete the sentence:&#x003C;/H3&#x003E;</code></p>
+<p class="code"><code>&#x003C;P ID="para"&#x003E;is a javascript library that enables the </code></p>
+<p class="code"><code>content to be appended after the inner content in the </code></p>
+<p class="code"><code>selected element using the&#x003C;/P&#x003E;&#x003C;BR&#x003E;</code></p>
+<p class="code"><code>&#x003C;H2 ID="newhead"&#x003E;This heading would be removed.&#x003C;/H2&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON ID="b"&#x003E;Click here&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, when a user clicks the <strong>Click here</strong> button, the content, <strong>jQuery,</strong> is appended before the <code>&#x003C;P&#x003E;</code> tag having the ID, <code>para</code>, by using the <code>prepend()</code> function. Similarly, the content, <code>append()</code> function, is appended after the same <code>&#x003C;P&#x003E;</code> tag by using the <code>append()</code> function. </p>
+<p class="nonindent">In addition, a new <code>&#x003C;H3&#x003E;</code> tag is inserted after the <code>&#x003C;P&#x003E;</code> tag having the ID, <code>para</code>, by using the <code>after()</code> function. Finally, the heading having the ID, newhead, is removed by using the <code>remove()</code> function.</p>
+<p class="nonindent">Before the <strong>Click here</strong> button is clicked, the Web page appears, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_02.jpg" alt="" /></p>
+<p class="caption"><em>The Web Page Before the Button is Clicked</em></p>
+<p class="nonindent">After the <strong>Click here</strong> button is clicked, the Web page appears, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_03.jpg" alt="" /></p>
+<p class="caption"><em>The Web Page After the Button is Clicked</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The jQuery events are covered in the following topic.</em></p>
+</div>
+<h2 class="section-head" id="a90">Handling jQuery Events</h2>
+<p class="nonindent">In jQuery, events are handled by using functions or predefined event methods. An event method is used to detect an event and trigger a function when that event occurs. You can manipulate an element with a function or an event method.</p>
+<p class="nonindent">The following table lists some of the event methods provided by jQuery.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+<tr valign="top">
+<td align="left" style="width:30%"><p><strong><em>Event Method</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(document).load(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function after the document has finished loading.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).click(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function on the click event of the selected element.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).dblclick(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function on the double-click event of the selected element.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).mouseenter(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when the mouse pointer is moved over the selected element.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).mouseleave(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when the mouse pointer is moved out of the selected element.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).keydown(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when a key is pressed on the selected element.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).submit(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when a form is submitted.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).focus(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when the selected element gets focus.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).blur(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when the selected element loses focus.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).resize(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when the browser window changes size.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).unload(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when the user navigates away from the page.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).mousedown(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when the left mouse button is pressed down on the selected element.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>$(selector).mouseup(function)</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Used to execute a function when the left mouse button is released from the selected element.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Event Methods in jQuery</em></p>
+<p class="nonindent">Consider the following code to handle jQuery events:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code>$("#hide_header").click(function(){ /* selects the hide_header button and binds it to the click function */</code></p>
+<p class="code"><code>$("h1").hide(); //hides the &#x003C;h1&#x003E; header</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1&#x003E;I am the header&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;HR&#x003E;</code></p>
+<p class="code"><code>&#x003C;INPUT type="button" ID="hide_header" value='Hide the header'/&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, jQuery recognizes a click event when the user clicks the <strong>Hide the header</strong> button. After the event is recognized by jQuery, the function associated with the button is executed and the <code>&#x003C;H1&#x003E;</code> element is hidden.</p>
+<p class="nonindent">There are some predefined functions that can be attached to event methods in jQuery to enrich the visual appearance of a Web document. These functions are referred to as jQuery effects.</p>
+<p class="center"><img src="images/J0701.jpg" onclick="play('animation_J0701_swf')" id="animation_J0701_swf" height="488px" width="650px" /></p>
+<h1 class="chapter-head" id="a91">Adding Visual Effects Using jQuery</h1>
+<p class="nonindent">With the help of jQuery, amazing visual effects can be applied to the elements of a Web document. These visual effects help to enrich the browsing experience of a user. Some of the predefined jQuery effects that can be used to add visual appeal to a Web page are:</p>
+<ul class="square">
+<li><p>Hide</p></li>
+<li><p>Show</p></li>
+<li><p>Toggle</p></li>
+<li><p>Slide</p></li>
+<li><p>Fade</p></li>
+<li><p>Animate</p></li>
+</ul>
+<h2 class="section-head" id="a92">Implementing Hide Effect</h2>
+<p class="nonindent">The <code>hide()</code> function is used to make an element disappear when an event, such as click or double-click, occurs. </p>
+<p class="nonindent">The following syntax is used to hide the selected elements:</p>
+<p class="code"><code>$(selector).hide(speed)</code></p>
+<p class="nonindent">In the preceding syntax, <code>speed</code> is an optional parameter that denotes speed with the values, slow, normal, and fast, or the duration in milliseconds at which an element disappears. Consider the following code to implement the hide effect:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code>$("button").click(function(){</code></p>
+<p class="code"><code>$("h1").hide("slow");</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H1&#x003E;I am the header&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON&#x003E;Hide the header&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the text, <strong>I am the header</strong>, is displayed above the <strong>Hide the header</strong> button. When the <strong>Hide the header</strong> button is clicked, the text, <strong>I am the header,</strong> slowly disappears from the browser window.</p>
+<h2 class="section-head" id="a93">Implementing Show Effect</h2>
+<p class="nonindent">The <code>show()</code> function is used to make a hidden element visible when an event occurs. The following syntax is used to show the selected elements, if they are already hidden:</p>
+<p class="code"><code>$(selector).show(speed)</code></p>
+<p class="nonindent">In the preceding syntax, <code>speed</code> is an optional parameter. This parameter is used to specify the speed with the values, slow, normal, and fast, or the duration in milliseconds at which an element reappears. </p>
+<p class="nonindent">Consider the following code snippet to implement the show effect:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code>$(".view").click(function(){</code></p>
+<p class="code"><code>$("h3").show(2000);</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>$(".conceal").click(function(){</code></p>
+<p class="code"><code>$("h3").hide();</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H3&#x003E; This text can be hidden and shown. &#x003C;/H3&#x003E; &#x003C;BR&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON class="view"&#x003E;Click to view&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON class="conceal"&#x003E;Click to hide&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, the <code>&#x003C;H3&#x003E;</code> tag gets hidden in the browser window when the <strong>Click to hide</strong> <code></code>button is clicked. When the <strong>Click to view</strong> button is clicked, the <code>&#x003C;H3&#x003E;</code> tag is shown again in 2000 milliseconds (or 2 seconds).</p>
+<h2 class="section-head" id="a94">Implementing Toggle Effect</h2>
+<p class="nonindent">The <code>toggle ()</code> function can be used to switch between the show and hide effects of an element. This event can be used to hide or show the element, alternatively, when an event occurs. </p>
+<p class="nonindent">The following syntax is used to show or hide the selected elements:</p>
+<p class="code"><code>$(selector).toggle(speed)</code></p>
+<p class="nonindent">In the preceding syntax, <code>speed</code> is an optional parameter. It is used to specify the speed with the values, slow, normal, and fast, or the duration in milliseconds at which an element disappears and reappears. </p>
+<p class="nonindent">Consider the following code snippet to implement the toggle effect:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code>$(".view").click(function(){</code></p>
+<p class="code"><code>$("h3").toggle('fast');</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H3&#x003E; Show and Hide me Quickly&#x003C;/H3&#x003E;</code></p>
+<p class="code"><code>&#x003C;HR&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON class="view"&#x003E;Click here&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, the <code>toggle()</code> function hides and shows the <code>&#x003C;H3&#x003E;</code> tag, alternately.</p>
+<h2 class="section-head" id="a95">Implementing Slide Effect</h2>
+<p class="nonindent">The slide effect can be used to produce a sliding effect on the selected elements. There are three slide functions, <code>slideDown()</code>, <code>slideUp(</code> ), and <code>slideToggle()</code>, which can be applied on the selected elements. These functions apply a gradual modification on the height of the selected elements to create the slide animation effect on a Web page. </p>
+<p class="nonindent">The following table lists the slide effect functions.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+<tr valign="top">
+<td align="left" style="width:10%"><p><strong><em>Function</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Description</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Syntax</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>slideDown()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Produces the effect of sliding selected elements in the downward direction.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).slideDown(speed)</em></code></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>slideUp()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Produces the effect of sliding selected elements in the upward direction.</em> </p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).slideUp(speed)</em></code></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:30%"><p><code><em>slideToggle()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Performs the <code>slideup</code> and <code>slidedown</code> functions, respectively, on alternate clicks.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).slideToggle(speed)</em></code></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Slide Effect Functions</em></p>
+<p class="nonindent">Consider the following code to implement the slide effect:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code> $(".flipbut").click(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$(".thought").slideToggle();</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE type="text/css"&#x003E; </code></p>
+<p class="code"><code>div.thought,.flipbut{ /*stylizing the div element with the class&#x00A0;&#x00A0; </code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;attribute specified as "thought", </code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;and the button with the class attribute&#x00A0;&#x00A0;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;specified as "flipbut" */}</code></p>
+<p class="code"><code>margin:0px;</code></p>
+<p class="code"><code>padding:5px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>background:beige;</code></p>
+<p class="code"><code>border:solid 1px;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>div.thought</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>height:120px;</code></p>
+<p class="code"><code>display:none;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;BR&#x003E;&#x003C;BR&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON style="background-color:beige" class="flipbut" text-align="center"&#x003E;Show/Hide the thought of the day&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV class="thought"&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E;The thought of the day is:&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;P&#x003E; Where there is a will, there is a way!&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, when the <code>Show/Hide the thought of the day</code> button is clicked, toggle functionality is implemented between slide up and slide down on the <code>&#x003C;DIV&#x003E;</code> element along with the <code>thought</code> class. </p>
+<p class="nonindent">For the online shopping website, ShopForYou.com, the menu and submenu must be sliding. When the user clicks a product category, the detailed products for that category should be displayed by using the slide toggle effect. </p>
+<p class="nonindent">To implement this functionality in the ShopForYou.com website, you need to write the following code in a file and save the file as <strong>menu.html</strong>:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E; </code></p>
+<p class="code"><code>$(document).ready(function(){ </code></p>
+<p class="code"><code>$('#menu ul').hide();</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$('#menu li a').mouseenter(function() {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;$(this).next().slideToggle('slow');	</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;}</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; );</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E; </code></p>
+<p class="code"><code>&#x003C;STYLE type="text/css"&#x003E; </code></p>
+<p class="code"><code>body{</code></p>
+<p class="code"><code>background-image:url('background.jpg');</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>li a </code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>display:inline;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>body {</code></p>
+<p class="code"><code>font-family: Arial, sans-serif;</code></p>
+<p class="code"><code>font-size: 0.9em;</code></p>
+<p class="code"><code>background-color:silver;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>p </code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;line-height: 1.5em;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>#menu, ul#menu ul { /* stylizing the menu and the list nested in the menu */</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;list-style-type:none;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;margin: 0;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;padding: 0;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;width: 10em;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>ul#menu a { /* stylizing the &#x003C;a&#x003E; elements nested in the menu */</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;display: inline;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;text-decoration: none;	</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>ul#menu li { /* stylizing the list items nested in the menu */</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;margin-top: 1px;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>ul#menu li a { /* stylizing the &#x003C;a&#x003E; elements nested in list items of the menu */</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;background: darkcyan;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;color: #fff;	</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;padding: 0.5em;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>ul#menu li a:hover { /* stylizing the &#x003C;a&#x003E; elements nested in list items of the menu when mouse is placed or moved over them */</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;background: black;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>ul#menu li ul li a {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;background: grey;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;color: white;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;padding-left: 20px;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>ul#menu li ul li a:hover {</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;background: #aaa;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;color: white;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;border-left: 5px grey solid;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;padding-left: 15px;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>.st</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>display:inline;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H3&#x003E;Product Categories&#x003C;/H3&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL ID="menu"&#x003E; </code></p>
+<p class="code"><code>&#x003C;LI class=".st"&#x003E;&#x003C;A&#x003E;Computers&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;LI&#x003E;&#x003C;A href=""&#x003E;e-Book Readers&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;LI&#x003E;&#x003C;A href=""&#x003E;Tablets and i-Pads&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>	&#x003C;LI&#x003E;&#x003C;A href=""&#x003E;Laptops&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>	</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI class=".st"&#x003E;&#x003C;A&#x003E;Entertainment&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;LI&#x003E;&#x003C;A href=""&#x003E;LED-TVs&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;LI&#x003E;&#x003C;A href=""&#x003E;LCD-TVs&#x003C;/A&#x003E;&#x003C;/LI&#x003E;&#x00A0;&#x00A0; </code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;LI class=".st"&#x003E;&#x003C;A&#x003E;Cameras&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;UL&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;LI&#x003E;&#x003C;A href=""&#x003E;Digital Cameras&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0; &#x003C;LI&#x003E;&#x003C;A href=""&#x003E;Digital SLR Cameras&#x003C;/A&#x003E;&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/LI&#x003E;</code></p>
+<p class="code"><code>&#x003C;/UL&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, a menu that displays the <strong>Computers, Entertainment, and Cameras</strong> <code></code>product categories is created and stylized by using CSS. A product category contains different product items under it. All product items are hidden and only the <strong>Computers, Entertainment, and Cameras</strong> product categories are visible, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_04.jpg" alt="" /></p>
+<p class="caption"><em>The Product Menu</em></p>
+<p class="nonindent">When a product category is clicked, the product items that belong to that specific product category appear to slide down by using the slide toggle effect provided by jQuery. After clicking the <strong>Entertainment</strong> product category, a submenu is displayed, as shown in the following figure. </p>
+<p class="center"><img src="images/HTML_07_05.jpg" alt="" /></p>
+<p class="caption"><em>The Submenu for the Computers Product Category</em></p>
+<p class="nonindent">When the product category is clicked again, the product items appear to slide up.</p>
+<h2 class="section-head" id="a96">Implementing Fade Effect</h2>
+<p class="nonindent">The jQuery fade effect is used to gradually reduce the opacity of the selected elements. You can fade an HTML element in and out of visibility. The following table lists the four functions to produce the fade effect.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+<tr valign="top">
+<td align="left" style="width:15%"><p><strong><em>Function</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Description</em></strong></p></td>
+<td align="left" style="width:30%"><p><strong><em>Syntax</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:15%"><p><code><em>fadeOut()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Is used to fade the appearance of the selected elements.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).fadeOut(speed)</em></code></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:15%"><p><code><em>fadeIn()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Is used to restore the appearance of the faded, selected element.</em></p></td>
+<td align="left" style="width:30%"><p><code><em>$(selector).fadeIn(speed)</em></code></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:15%"><p><code><em>fadeTo()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Is used to specify the opacity for fading the selected element.</em></p></td>
+<td align="left" style="width:30%"><p><code>$(<em>selector</em>).fadeTo(<em>speed,opacity</em>)</code></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:15%"><p><code><em>fadeToggle()</em></code></p></td>
+<td align="left" style="width:30%"><p><em>Is used to fade the appearance of the selected elements, when they are faded out, and restore the appearance of the selected elements, when they are faded in.</em></p></td>
+<td align="left" style="width:30%"><p><code>$(<em>selector</em>).fadeToggle(<em>speed</em>)</code></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Fade Effect Functions</em></p>
+<p class="nonindent">Consider the following code for implementing the fade effect:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript" src="jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("div").click(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$(this).fadeOut(1200);</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>$("button").click(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("div").fadeIn(1200);</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV style="background:yellow;width:200px"&#x003E;FADE ME AWAY!&#x003C;/DIV&#x003E;&#x003C;BR&#x003E;</code></p>
+<p class="code"><code>&#x003C;BUTTON&#x003E;Restore&#x003C;/BUTTON&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>div</code> tag is referred by using its name. In the click event handler of the div tag, the <code>this</code> keyword refers to the current HTML element, that is, the <code>div</code> tag. When the user clicks on the <code>div</code> tag, the text, <code>FADE ME AWAY!</code>, fades away. When the <strong>Restore</strong> button is clicked, the text, <code>FADE ME AWAY</code>!, reappears. </p>
+<h2 class="section-head" id="a97">Implementing Animate Effect</h2>
+<p class="nonindent">The jQuery animate effect is used to create custom animations. You can create an animate function by using the following syntax:</p>
+<p class="code"><code>animate({params},speed,callback);</code></p>
+<p class="nonindent">where,</p>
+<p class="nonindent"><code>params</code> specifies the CSS properties to be animated.</p>
+<p class="nonindent"><code>speed</code> specifies the duration of the animation effect.</p>
+<p class="nonindent"><code>callback</code> specifies the function that will be executed after completing the animation. It is an optional parameter.</p>
+<p class="nonindent">Consider the following code snippet for applying animation effects on the <code>&#x003C;DIV&#x003E;</code> element:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT src="jquery-1.8.3.js"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E; </code></p>
+<p class="code"><code>$(document).ready(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("div").mouseenter(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("div").animate({</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;center:'250px',</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;opacity:'0.5',</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;height:'250px',</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;width:'250px'</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>$("div").mouseleave(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("div").animate({</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;opacity:'1',</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;height:'100px',</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;width:'100px'</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>});</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E; </code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code> &#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV style="background:#98bf21;height:100px;width:100px;position:absolute;"&#x003E;</code></p>
+<p class="code"><code>&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code will increase the size of the <code>&#x003C;DIV&#x003E;</code> element according to its specified width and height when the mouse is moved over it and will reduce the size of the <code>&#x003C;DIV&#x003E;</code> element according to its specified width and height when the mouse is left over it.</p>
+<p class="center"><img src="images/J0702.jpg" onclick="play('animation_J0702_swf')" id="animation_J0702_swf" height="488px" width="650px" /></p>
+<h2 class="section-head" id="a98"><img src="images/act.png" alt="" /> Activity 7.1: Exploring jQuery</h2>
+<h1 class="chapter-head" id="a99">Implementing Image Rollover</h1>
+<p class="nonindent">Consider the scenario of the ShopForYou.com website that sells products of various categories, such as phones and laptops. To give customers a preview of the appearance of these products, their images are displayed on the product page. To make the preview of these products appealing to the customers, you may want to add effects to the images displayed, such as when a customer places or moves the mouse pointer on an image, it appears enlarged or appears along with some information about that product. This can be achieved by replacing the image with a larger image of the same product or information about that product as plain text, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_06.jpg" alt="" /></p>
+<p class="caption"><em>The Sample Web Page</em></p>
+<h2 class="section-head" id="a100">Creating Image Rollover</h2>
+<p class="nonindent">The images can be replaced by other images at runtime by creating the image rollover effect. JavaScript helps you to add the image rollover effect on Web pages. </p>
+<p class="nonindent">Image rollover is an effect in which the appearance of an image changes when the mouse pointer is placed or moved on it. The change in the appearance can be achieved by replacing the original image with another image by using JavaScript.</p>
+<p class="nonindent">In the ShopForYou.com website, the <strong>Product1.png</strong> and<strong> Product2.png</strong> images display images of the laptop and mobile, respectively, on the product page. You need to add a feature on the website so that when a customer moves or places the mouse pointer over the image of the laptop or mobile, its details are displayed. To accomplish this task, you need to add the image rollover effect to the <strong>Product1.png</strong> and<strong> Product2.png</strong> images. </p>
+<p class="nonindent">To implement the rollover effect, you need to write the following code in a file and save it as <strong>imagerollover.html</strong>:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>body{</code></p>
+<p class="code"><code>background-color:white;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>h2</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-family:verdana;</code></p>
+<p class="code"><code>font-size:30px;</code></p>
+<p class="code"><code>color:darkcyan;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>h3</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>font-family:verdana;</code></p>
+<p class="code"><code>color:darkcyan;</code></p>
+<p class="code"><code>font-size:20px;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>#para1</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-family:verdana;</code></p>
+<p class="code"><code>font-size:18px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>color:darkcyan;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>function over(img,imgsrc)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>img.src=imgsrc;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function out(img,imgsrc)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>img.src=imgsrc;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H2&#x003E; Product Details &#x003C;/H2&#x003E;</code></p>
+<p class="code"><code>&#x003C;HR&#x003E;&#x003C;HR&#x003E;</code></p>
+<p class="code"><code>&#x003C;H3&#x003E; Check out the latest products on our website. Exciting Discounts, Hurry !!&#x003C;/H3&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV style="position:absolute; top:180px; left:400px;"&#x003E;</code></p>
+<p class="code"><code>&#x003C;P ID="para1"&#x003E; Move the mouse over the product image &#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;IMG ID="productImage1" src="Product1.png" height="150" onmouseover="over(this,'Product1Details.jpg')" onmouseout="out (this,'Product1.png')"/&#x003E;</code></p>
+<p class="code"><code>&#x003C;IMG ID="productImage2" src="Product2.png" height="150" onmouseover="over(this,'Product2Details.jpg')" onmouseout="out (this,'Product2.png')"/&#x003E;</code></p>
+<p class="code"><code>&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, two functions, <code>over()</code> and <code>out()</code>, are invoked on the <code>onmouseover</code> and <code>onmouseout</code> events of the <code>&#x003C;IMG&#x003E;</code> tag, respectively. The <strong>Product1.png</strong> and <strong>Product2.png</strong> images are added to the Web page by using the <code>&#x003C;IMG&#x003E;</code> tag. When the customer moves the mouse pointer on the <strong>Product1.png</strong> image, the <code>over()</code> function is invoked, which changes the value of the <code>src</code> attribute of the image in the Web page to <strong>Product1Details.jpg</strong>. As a result, the <strong>Product1.png</strong> image is replaced with the <strong>Product1Details.jpg</strong> image. However, when the customer moves the mouse away from the <strong>Product1Details.jpg</strong> image, the <code>out()</code>function is invoked, which changes the value of the <code>src</code> attribute of the image in the document to the <strong>Product1.png</strong> image. Therefore, the <strong>Product1.png</strong> image is redisplayed on the page. Similarly, the <strong>Product2.png</strong> image is replaced with the <strong>Product2Details.jpg</strong> image.</p>
+<p class="nonindent">The following figure shows the output of the preceding code.</p>
+<p class="center"><img src="images/HTML_07_07.jpg" alt="" /></p>
+<p class="caption"><em>The Web Page Displaying the Images of Products</em> </p>
+<p class="nonindent">In the preceding Product Details Web page, if the mouse pointer is moved on the image of the laptop, it is replaced by another image that contains information of the product, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_08.jpg" alt="" /></p>
+<p class="caption"><em>The Web Page Displaying the Image Rollover Effect</em></p>
+<h2 class="section-head" id="a101">Creating Backward Compatible Rollover </h2>
+<p class="nonindent">In most of the browsers, such as Firefox and Internet Explorer, the rollover effect can be created on images by using mouse events. However, in the earlier versions of browsers, mouse events on images cannot be captured. Therefore, the rollover effect cannot be added by using the mouse events on images in these browsers. To overcome this limitation, you need to create a backward compatible rollover.</p>
+<p class="nonindent">For example, in the ShopForYou.com website, you need to add the rollover effect compatible for all browsers so that it can produce the desired output for all the customers, irrespective of the browser they are using.</p>
+<p class="nonindent">The backward compatible rollover effect helps capture mouse events on images in all the browsers. To implement this effect, you need to use the <code>&#x003C;A&#x003E;</code> tag and place all the images by using the <code>&#x003C;IMG&#x003E;</code> tag within it. The <code>&#x003C;A&#x003E;</code> tag can capture mouse events, such as <code>onmouseover</code> and <code>onmouseout</code>, on the images.</p>
+<p class="nonindent">Consider the following code snippet that creates the backward compatible rollover effect:</p>
+<p class="code"><code>&#x003C;A href="#" onmouseover="over()" onmouseout="out()" &#x003E;<br />&#x003C;IMG ID="image1" src="SampleImage1.gif"&#x003E;<br />&#x003C;/A&#x003E;</code></p>
+<p class="nonindent">In the preceding code snippet, the <code>&#x003C;IMG&#x003E;</code> tag is placed in the <code>&#x003C;A&#x003E;</code> tag. The <code>&#x003C;A&#x003E;</code> tag captures the mouse events on the SampleImage1.gif image. The captured events can be used to create the rollover effect. </p>
+<p class="nonindent">In the preceding examples, you have used only the ID of the image with the <code>src</code> attribute to refer to a single image and replaced it with another image. However, to implement the rollover effect on multiple images, you can use the <code>document.images</code> array for easy implementation. The <code>document.images</code> array stores reference of all the images in the current document. If a reference of any image exists in the <code>document.images</code> array, the <code>document.images</code> array returns <code>true</code>. Therefore, the <code>document.images</code> array can be used to check if the images exist or not. </p>
+<p class="nonindent">The various images in the <code>document.images</code> array can be referenced by using either the ID or the index of the image as a subscript of the array. For example, the first image in the document can be referred to by using the index of the image, as shown in the following code snippet:</p>
+<p class="code"><code>document.images[0]</code></p>
+<p class="nonindent">Similarly, the second image is referred to as <code>document.images[1]</code> and so on.</p>
+<p class="nonindent">The images in an array can also be referenced by using the ID attribute of the image as a subscript of the array, as shown in the following syntax:</p>
+<p class="code"><code>document.images [ID];</code></p>
+<p class="nonindent">For example, in the ShopForYou.com website, to implement the rollover effect on multiple images and to ensure compatibility with all the browsers, you can use the following code on the product page of the ShopForYou.com website:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>h2</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-family:verdana;</code></p>
+<p class="code"><code>font-size:30px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>h3</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-family:verdana;</code></p>
+<p class="code"><code>color:orange;</code></p>
+<p class="code"><code>font-size:20px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>#para1</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-family:verdana;</code></p>
+<p class="code"><code>font-size:14px;</code></p>
+<p class="code"><code>color:blue;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>function over(img,imgsrc)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>if(document.images) </code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>document.images[img].src = imgsrc;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function out(img,imgsrc)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>if (document.images) </code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>document.images[img].src = imgsrc;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;H2&#x003E; Product Categories &#x003C;/H2&#x003E;</code></p>
+<p class="code"><code>&#x003C;HR&#x003E;&#x003C;HR&#x003E;</code></p>
+<p class="code"><code>&#x003C;H3&#x003E; Check out the latest products on our website. Exciting Discounts, Hurry !!</code></p>
+<p class="code"><code>&#x003C;/H3&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV style="position:absolute; top:180px; left:450px;"&#x003E;</code></p>
+<p class="code"><code>&#x003C;P ID="para1"&#x003E; Choose the desired product image to view the product details</code></p>
+<p class="code"><code>&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;A href="#" onmouseover="over('productImage1','Product1Details.jpg');" onmouseout="out('productImage1','Product1.png');"&#x003E;</code></p>
+<p class="code"><code>&#x003C;IMG ID="productImage1" src="Product1.png" border="0"/&#x003E;</code></p>
+<p class="code"><code>&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;A href="#" onmouseover="over('productImage2','Product2Details.jpg');" onmouseout="out('productImage2','Product2.png');"&#x003E;</code></p>
+<p class="code"><code>&#x003C;IMG ID="productImage2" src="Product2.png" border="0"/&#x003E;</code></p>
+<p class="code"><code>&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;/DIV&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>&#x003C;IMG&#x003E;</code> tag defines the image source of the laptop and mobile, which are <strong>Product1.png</strong> and <strong>Product2.png</strong>, respectively. This tag is placed within the <code>&#x003C;A&#x003E;</code> tag. Therefore, the <code>&#x003C;A&#x003E;</code> tag enables you to capture mouse events on the <strong>Product1.png</strong> and <strong>Product2.png</strong> images. The <code>over()</code> and <code>out()</code> functions are invoked by using the <code>&#x003C;A&#x003E;</code> tag. The <code>over()</code> function is invoked when the user moves the mouse on an image. The <code>out()</code> function is invoked when the customer moves the mouse away from an image. Both these functions take two parameters, ID and name, of the image to be replaced. The <code>over()</code> and <code>out()</code> functions check the images in the document by using an array called <code>document.images</code>. </p>
+<p class="nonindent">When the customer moves the mouse pointer on the <strong>Product1.png</strong> image, the <code>over()</code> function is invoked. This function replaces the <strong>Product1.png</strong> image with the Product1Details.jpg image by changing the value of the <code>src</code> attribute to the <strong>Product1Details.jpg</strong> image. </p>
+<p class="nonindent">When the customer moves the mouse away from the image, the <code>out()</code> function is called to reset the value of the <code>src</code> attribute to the <strong>Product1.png</strong> image. Similarly, the <strong>Product2.png</strong> image can be replaced with the <strong>Product2Details.jpg</strong> image. </p>
+<h2 class="section-head" id="a102">Preloading Images</h2>
+<p class="nonindent">Preloading images is a technique to load images in the browser cache before the script on the Web page is executed and the Web page is rendered in the browser window. This helps to avoid any delay in loading images from their respective locations, and then displaying these images on the Web page. The <code>Image</code> object can be used to preload images in an application. To use the <code>Image</code> object, an instance of the <code>Image</code> object needs to be created and the actual images need to be attached to the <code>Image</code> object in the head section. It ensures that the images are loaded in memory before the body of the page gets loaded. </p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>The browser cache is used to store the downloaded files so that the files are not required to be downloaded again and instead can be used from the browser cache when the user revisits a page.</em> </p>
+</div>
+<p class="nonindent">The following syntax is used to create an instance of the <code>Image</code> object:</p>
+<p class="code"><code>var Imagename= new Image([Width], [Height]);</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>Imagename</code>: Is the name of the new instance of the <code>Image</code> object.</p></li>
+<li><p><code>[Width]</code>: Is the width of the image in pixels.</p></li>
+<li><p><code>[Height]</code>: Is the height of the image in pixels.</p></li>
+</ul>
+<p class="nonindent">While instantiating the <code>Image</code> object, both, the <code>[Width]</code> and <code>[Height]</code> parameters, are optional. </p>
+<p class="nonindent">Consider the following code snippet that creates an instance of the <code>Image</code> object:</p>
+<p class="code"><code>var img = new Image(40,30);</code></p>
+<p class="nonindent">In the preceding code snippet, <code>img</code> is the name of the instance of the image object. The width and height of the image are assigned the values, <code>40</code> and <code>30</code>, respectively.</p>
+<p class="nonindent">After instantiating an image object, you need to associate the image with the <code>Image</code> object. For this, the <code>src</code> attribute of the <code>Image</code> object is used. The syntax for attaching an image to an instance of the <code>Image</code> object is:</p>
+<p class="nonindent"><code>Imagename.src="ImageURL"</code></p>
+<p class="nonindent">In the preceding syntax:</p>
+<ul class="square">
+<li><p><code>Imagename</code>: Is an instance of the <code>Image</code> object.</p></li>
+<li><p><code>ImageURL</code>: Is the URL of the image.</p></li>
+</ul>
+<p class="nonindent">Consider the following code snippet that attaches an image with the <code>Image</code> object:</p>
+<p class="code"><code>img.src= SampleImage1.gif;</code></p>
+<p class="nonindent">In the preceding code snippet, the <code>src</code> attribute of the <code>Image</code> object is used to attach the <code>SampleImage1.gif</code> image with the <code>img</code> object. </p>
+<p class="nonindent">If an HTML document contains multiple images, you need to refer to all the images of the document while preloading images. </p>
+<p class="nonindent">For example, in the ShopForYou.com website, you can use the <code>Image</code> object to preload the images and implement the rollover effect. For this, you can use the following code:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>table{</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>h2</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-family:verdana;</code></p>
+<p class="code"><code>font-size:30px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>h3</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-family:verdana;</code></p>
+<p class="code"><code>color:orange;</code></p>
+<p class="code"><code>font-size:20px;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>#para1</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>font-family:verdana;</code></p>
+<p class="code"><code>font-size:14px;</code></p>
+<p class="code"><code>color:blue;</code></p>
+<p class="code"><code>text-align:center;</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>var images;</code></p>
+<p class="code"><code>function preloadimages()</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>images = new Array('product1.png','product2.png','product1details.jpg','product2details.jpg');</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function over(a)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;document.images[a].src=images[a+2];</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>function out(a)</code></p>
+<p class="code"><code>{</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;document.images[a].src=images[a];</code></p>
+<p class="code"><code>}</code></p>
+<p class="code"><code>&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY onLoad=preloadimages()&#x003E;</code></p>
+<p class="code"><code>&#x003C;H2&#x003E; Product Categories &#x003C;/H2&#x003E;</code></p>
+<p class="code"><code>&#x003C;HR&#x003E;&#x003C;HR&#x003E;</code></p>
+<p class="code"><code>&#x003C;H3&#x003E; Check out the latest products on our website. Exciting Discounts, Hurry !!&#x003C;/H3&#x003E;</code></p>
+<p class="code"><code>&#x003C;DIV style="position:absolute; top:180px; left:400px;"&#x003E;</code></p>
+<p class="code"><code>&#x003C;P ID="para1"&#x003E; Move the mouse cursor over the product image to view the product details </code></p>
+<p class="code"><code>&#x003C;/P&#x003E;</code></p>
+<p class="code"><code>&#x003C;TABLE border="0"&#x003E;</code></p>
+<p class="code"><code>&#x003C;TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;IMG src="product1.png" onmouseover="over(0)" onmouseout="out(0)" /&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;IMG src="product2.png" onmouseover="over(1)" onmouseout="out(1)" /&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TD&#x003E;</code></p>
+<p class="code"><code>&#x003C;/TR&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, an array of images is created in the <code>preloadimages(</code><code>)</code> function. This array is passed as a parameter to the <code>preload()</code> function. In the <code>preload()</code>function, the images are preloaded by using the <code>Image</code> object. The images of the document are referred to by using the <code>document.images</code> array inside the <code>over()</code> and <code>out()</code> functions.</p>
+<h1 class="chapter-head" id="a103">Creating Image Gallery</h1>
+<p class="nonindent">Consider the scenario of ShopForYou.com where an image gallery is used to display images of the products available at the website. An image gallery is a collection of thumbnail pictures or image links. All of these can be clicked individually to provide a large view of the corresponding product on another Web page. This image gallery is implemented by using JavaScript. A disadvantage of this feature is that to preview an image, the customer needs to navigate to the previous page repeatedly. </p>
+<p class="nonindent">To avoid repeated navigation from a page to the previous page, you can display the full-size image on the same page. For this, you need to use jQuery plugins to create the image gallery. The jQuery plugins are prewritten and easy to use programs to enhance the jQuery code. By using jQuery plugins, you can create the image gallery by displaying the images dynamically at runtime on the same Web page. The jQuery plugins can be used to create an image gallery by:</p>
+<ul class="square">
+<li><p>Using colorbox plugin</p></li>
+<li><p>Using galleria plugin </p></li>
+</ul>
+<p class="nonindent">The light-weight, colorbox plugin enables displaying a collection of images one by one by using the previous and next buttons. The colorbox plugin can be used to display an image with a variety of transition effects, such as fade or elastic, in the middle of an elegant frame. This frame is known as lightbox and is created at the center of the Web page over a translucent film surrounding it. The colorbox plugin can be used effectively for creating and displaying an image gallery or a slideshow of images on the Web page where the image sequence can be controlled by using the previous and next buttons. To create an elegant image gallery or a slideshow on a Web page, you can download the <strong>colorbox.zip</strong> file that contains the necessary folders and files to implement the colorbox plugin functionalities. Then, you can extract the colorbox folder from the <strong>colorbox.zip</strong> file. The colorbox folder comprises the following folders: </p>
+<ul class="square">
+<li><p><strong>colorbox</strong>: This folder comprises the <strong>jquery.colorbox.js</strong> file, which is the colorbox plugin file. This colorbox plugin file is used to implement the lightbox, slideshow, and the transition effects to display images in the image gallery.</p></li>
+<li><p><strong>example1</strong>, <strong>example2</strong>,<strong> example3</strong>, <strong>example4</strong>, and <strong>example5</strong>: These folders contain sample implementation of the colorbox plugin. Each folder illustrates a unique and customized implementation of the colorbox plugin to create an image gallery or a slideshow. Each of these folders contains the following subfolders and files:</p>
+<ul class="disc">
+<li><p><strong>colorbox.css</strong>: This style sheet contains the formatting instructions to stylize, position, and decorate the image gallery as it is created by using the colorbox plugin. For example, background of the Web page, border of the image, and the previous, next, and close buttons.</p></li>
+<li><p><strong>images folder</strong>: This folder contains images that can be used to create and control the image gallery or slideshow. These images can be stylized and positioned on the Web page according to the instructions specified in the colorbox.css style sheet. </p></li>
+<li><p><strong>index.html</strong>: This Web page is used to illustrate how the image gallery can be displayed by using the elastic, fade, or no transition effects. In addition, this Web page is used to display a slideshow of the images.</p></li>
+</ul></li></ul>
+<p class="nonindent">Colorbox is a jQuery plugin. Therefore, to implement the functionality provided by this plugin, you need the <code>jquery-1.8.3.js</code> file. In addition, you need the jQuery event method, <code>document.ready()</code>, which is required to invoke the colorbox plugin to implement the slideshow or image gallery functionality.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>Slideshow is used to display images one by one after a defined duration without using the previous and next buttons. However, in the image gallery, the user is required to use the previous and next buttons to scroll through all the images.</em></p>
+</div>
+<p class="nonindent">Let us consider an example to implement the colorbox plugin and create a lightbox for the image, <strong>Product1.png</strong>. For this, you need to perform the following steps:</p>
+<ol class="arabic">
+<li><p>Create a folder, such as <strong>demo,</strong> in any drive of your system.</p></li>
+<li><p>Copy the downloaded <strong>colorbox</strong> folder to this folder.</p></li>
+<li><p>Create the <strong>jQueryS</strong>, <STRONG>CSS</STRONG>,<strong></strong> and<strong> contentFiles</strong> folders in the <strong>demo</strong> folder. This is done to ensure that the jquery file (<strong>jquery-1.8.3.js)</strong>, jquery plugin file (<strong>jquery.colorbox.js)</strong>, style sheet (<strong>colorbox.css)</strong>, and images (<strong>Product1.png</strong>) to be used are stored separately for easy implementation.</p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>You can create the folder by any name of your choice. In fact, it is not necessary to create a new folder. This is done to ensure that all your related files are stored at one place. Depending on the storage location of your files, you need to specify the relative or absolute path of the respective files in the <code>src</code> attribute of the <code>&#x003C;SCRIPT&#x003E;</code> tag.</em></p>
+</div></li>
+<li><p>Copy the <strong>jquery.colorbox.js</strong> file from the <strong>colorbox</strong> folder available in the downloaded <strong>colorbox</strong> plugin folder to the<strong> jQueryS</strong> folder.</p></li>
+<li><p>Copy the <strong>colorbox.css</strong> file from the <strong>example1</strong> folder available in the downloaded <strong>colorbox</strong> plugin folder to the<strong> CSS</strong> folder.</p></li>
+<li><p>Copy the downloaded <strong>jquery-1.8.3.js</strong> jQuery file to the<strong> jQueryS</strong> folder.</p></li>
+<li><p>Copy the <strong>Product2.png</strong> file to the <strong>contentFiles</strong> folder.</p></li>
+<li><p>Copy the <strong>images</strong> folder from the <strong>example1</strong> folder available in the downloaded <strong>colorbox</strong> plugin folder to the <strong>CSS</strong> folder.</p></li>
+<li><p>Type the following code in Notepad, and save the file as <strong>LightboxDemo.html</strong> at the same location where you have created the <strong>jQueryS</strong>, <strong>CSS</strong>, and<strong> contentFiles</strong> folders on your computer:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;LINK media="screen" rel="stylesheet" href="CSS/colorbox.css" /&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT src="jQueryS/jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT src="jQueryS/jquery.colorbox.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;$(document).ready(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;$("a").colorbox();</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;H1&#x003E;Product Demonstration&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;A href="contentFiles/Product2.png"&#x003E;Laptop&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, <code>a</code> represents the <code>&#x003C;A&#x003E;</code> element defined inside the <code>&#x003C;BODY&#x003E;</code> element. The <code>colorbox()</code> method of the colorbox plugin is used to display the <strong>Product1.png</strong> image inside the lightbox. </p></li>
+<li><p>Open the <strong>LightboxDemo.html</strong> file in Microsoft Internet Explorer. </p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>Click the <strong>Allow blocked content</strong> button if the following message is displayed:<br /><strong>Internet Explorer restricted this webpage from running scripts of ActiveX controls</strong>.</em></p>
+</div></li>
+<li><p>Click the <strong>Laptop</strong> hyperlink. The slide view of the product image is displayed with the default transition effect by using lightbox, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_09.jpg" alt="" /></p>
+<p class="caption"><em>The Lightbox Displaying Product Image</em></p>
+<p class="nonindent">In the preceding figure, lightbox displays a single image with the default transition effects. However, you can customize the display of images in an image gallery or a slideshow by using the colorbox plugin. For this, the colorbox plugin provides several keys, which need to be passed as parameters to the <code>colorbox()</code> method. The following table lists the keys that can be used with the <code>colorbox()</code> method.</p>
+<table align="center" border="1" cellpadding="6" cellspacing="0" width="60%">
+<tr valign="top">
+<td align="left" style="width:20%"><p><strong><em>Key</em></strong></p></td>
+<td align="left" style="width:40%"><p><strong><em>Description</em></strong></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>transition</em></code></p></td>
+<td align="left" style="width:40%"><p><em>It specifies the type of transition, such as <code>fade</code>, <code>elastic</code>, or <code>none</code>, required for <code></code>an image on the Web page. Its default value is <code>elastic</code>.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>speed</em></code></p></td>
+<td align="left" style="width:40%"><p><em>It specifies the speed of transition with which the image is displayed. Its default value is <code>350 milliseconds</code>.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>width</em></code></p></td>
+<td align="left" style="width:40%"><p><em>It specifies the total width of the frame in which the image is displayed. Its default value is <code>false</code>, which means that the width of the frame is not fixed and varies according to the width of the image.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>height</em></code></p></td>
+<td align="left" style="width:40%"><p><em>It specifies the total height of the frame in which the image is displayed. Its default value is <code>false</code>, which means that the height of the frame is not fixed and varies according to the height of the image.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>innerWidth</em></code></p></td>
+<td align="left" style="width:40%"><p><em>It specifies the inner width of the frame in which the image is displayed. This does not include the border and buttons.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>innerHeight</em></code></p></td>
+<td align="left" style="width:40%"><p><em>It specifies the inner height of the frame in which an image is displayed. This does not include the border and buttons. Its default value is <code>false</code>.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>current</em></code></p></td>
+<td align="left" style="width:40%"><p><em>It specifies the text that appears when multiple images are displayed by using lightbox, such as <code>image 1 of 5</code> when the first image in a group of five images is displayed. Its default value is <code>image{current} of {total}</code>. The {current} is detected and replaced with the actual number of images being displayed while ColorBox runs. {total} is detected and replaced with the actual number of images in the gallery.</em></p></td>
+</tr>
+<tr valign="top">
+<td align="left" style="width:20%"><p><code><em>slideshow</em></code></p></td>
+<td align="left" style="width:40%"><p><em>It specifies whether the slideshow of images needs to be created when multiple images are grouped together for preview. Its default value is <code>false</code>.</em></p></td>
+</tr>
+</table>
+<p class="caption"><em>The Keys of the Colorbox Plugin</em></p></li>
+</ol>
+<p class="nonindent">Consider the following code to create a lightbox by specifying the height and width of the frame in which the image is displayed:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;LINK media="screen" rel="stylesheet" href="CSS/colorbox.css" /&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT src="jQueryS/jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT src="jQueryS/jquery.colorbox.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;$(document).ready(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;$("a").colorbox({transition:"fade", height:"250", width:"220"});</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;H1&#x003E;Product Demonstration&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;A href="contentFiles/Product2.png"&#x003E;Laptop&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">The preceding code creates a lightbox of height <code>250 px</code> and width <code>220 px</code> and displays the image inside this lightbox by using the <code>fade</code> transition. The output of the preceding code after the <code>Product1 photo</code> link is clicked is displayed, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_10.jpg" alt="" /></p>
+<p class="caption"><em>The Lightbox Displaying Product Image</em></p>
+<p class="nonindent">You can also control the display of a set of images in an image gallery with the previous and next buttons. To display a set of images or a group of images by using a lightbox, you need to add a link to each image by using the <code>&#x003C;A&#x003E;</code> tag and specify the same value for the <code>rel</code> attribute of each <code>&#x003C;A&#x003E;</code> tag defined for the images. The <code>rel</code> attribute indicates the relationship between the current document and the path specified by the <code>href</code> attribute. By providing the same value for the <code>rel</code> attribute for all the images, these can be related to a single group.</p>
+<p class="nonindent">Suppose, you need to create a lightbox for the set of images, <strong>Product1.png</strong>, <strong>Product2.png</strong>, and <strong>Product3.png</strong>. For this, you need to perform the following steps:</p>
+<ol class="arabic">
+<li><p>Copy the <strong>Product2.png</strong> and <strong>Product3.png</strong> files to the <strong>contentFiles</strong> folder.</p></li>
+<li><p>Type the following code in Notepad, and save the file as <strong>LightboxGroupDemo.html</strong> at the same location where you have created the <strong>jQueryS</strong>, <strong>CSS</strong>, and<strong> contentFiles</strong> folders on your computer:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;LINK media="screen" rel="stylesheet" href="CSS/colorbox.css" /&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT src="jQueryS/jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT src="jQueryS/jquery.colorbox.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT type="text/javascript"&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;$(document).ready(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;$("a").colorbox();</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;H1&#x003E;Product Demonstration&#x003C;/H1&#x003E;</code></p>
+<p class="code"><code>&#x003C;A rel="collection" href="contentFiles/Product1.png"&#x003E;Click here to view&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;A rel="collection" href="contentFiles/Product2.png"&#x003E;&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;A rel="collection" href="contentFiles/Product3.png"&#x003E;&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>rel</code> attribute of each <code>&#x003C;A&#x003E;</code> tag defined inside the body tag is specified with the value, <code>collection</code>. This ensures that the images having the same value for the <code>rel</code> attribute are grouped together so that these images can be displayed as part of a single image gallery.</p></li>
+</ol>
+<p class="nonindent">When you save the preceding code in an HTML file, and then open it in Microsoft Internet Explorer, the <strong>Click here to view</strong> hyperlink is displayed. When you click the hyperlink, the output is displayed with the previous<img src="images/HTML_07_10a.png" alt="" />and next<img src="images/HTML_07_10b.png" alt="" />buttons, as shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_11.jpg" alt="" /></p>
+<p class="caption"><em>The Product Image with the Previous and Next Buttons</em></p>
+<div class="box">
+<p class="note1"><img src="images/note.png" alt=""/> <em>Click the <strong>Allow blocked content</strong> button if the following message is displayed:<br /><strong>Internet Explorer restricted this webpage from running scripts of ActiveX controls</strong>.</em> </p>
+</div>
+<p class="nonindent">You can create a slideshow of images by grouping these images by using the colorbox plugin. For this, you need to use the same value for the <code>rel</code> attribute for all the images to be displayed in the <code>&#x003C;A&#x003E;</code> tag and set the <code>slideshow</code> key of the <code>colorbox()</code> method to true.</p>
+<p class="nonindent">Consider the following code that creates a slideshow and saves it as <strong>SlideShow.html</strong>:</p>
+<p class="code"><code>&#x003C;!DOCTYPE HTML&#x003E;</code></p>
+<p class="code"><code>&#x003C;HTML&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;HEAD&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;STYLE&#x003E;</code></p>
+<p class="code"><code>body{</code></p>
+<p class="code"><code>Background-color: "silver";}</code></p>
+<p class="code"><code>&#x003C;/STYLE&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;LINK media="screen" rel="stylesheet" href="css/colorbox.css" /&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT src=" jQueryS/jquery-1.8.3.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT src=" jQueryS/jquery.colorbox.js"&#x003E;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;$(document).ready(function(){</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;$("a").colorbox({slideshow:true,current:false});</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x00A0;&#x00A0;});</code></p>
+<p class="code"><code>&#x00A0;&#x00A0;&#x003C;/SCRIPT&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HEAD&#x003E;</code></p>
+<p class="code"><code>&#x003C;BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;A href=" contentFiles/Product1.png" rel="collection"&#x003E;Click Here to View Slideshow of Products Available at the Site</code></p>
+<p class="code"><code>&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;A href=" contentFiles/Product2.png" rel="collection"&#x003E;&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;A href=" contentFiles/Product3.png" rel="collection"&#x003E;&#x003C;/A&#x003E;</code></p>
+<p class="code"><code>&#x003C;/BODY&#x003E;</code></p>
+<p class="code"><code>&#x003C;/HTML&#x003E;</code></p>
+<p class="nonindent">In the preceding code, the <code>slideshow</code> key is set to true to create a slideshow of the images. The value of the <code>current</code> key is set to <code>false</code>. This prevents displaying the text depicting the number of the current image, such as image 2 of 5, during the slideshow. The output of the preceding code is shown in the following figure.</p>
+<p class="center"><img src="images/HTML_07_12.png" alt="" /></p>
+<p class="caption"><em>The Slideshow of the Images</em></p>
+<h2 class="section-head" id="a104">Using galleria Plugin</h2>
+<p class="nonindent">The galleria  plugin is the jQuery plugin used for creating elegant and professional-looking image galleries. This plugin is used to display an image gallery and create thumbnails of the images to be displayed in the gallery automatically. When the mouse pointer is moved on a thumbnail image, a larger version of the image is displayed by using a transition effect on the same Web page. Unlike the colorbox plugin, the galleria plugin cannot be used to create a slideshow of images, but the galleria plugin has the ability to create thumbnails of the images to be displayed in the image gallery.</p>
+<p class="nonindent">To create an image gallery by using the galleria plugin, you need to download the <strong>galleria.zip</strong> file from the Internet and extract the galleria folder from the <strong>galleria.zip</strong> file at a desired location on your system. The galleria folder comprises the <strong>galleria-1.2.8.js</strong> file, which is the galleria plugin to be used to implement the functionality of creating the image gallery.</p>
+<h2 class="section-head" id="a105"><img src="images/act.png" alt="" /> Activity 7.2: Creating an Image Gallery</h2>
+<h1 class="chapter-head" id="a106">Summary</h1>
+<p class="nonindent">In this chapter, you learned that:</p>
+<ul class="square">
+<li><p>jQuery is an open source and cross-browser library of JavaScript codes that was created to make the JavaScript programming simpler.</p></li>
+<li><p>You can make use of jQuery in a Web page to manipulate HTML elements by downloading the light-weight jQuery JavaScript library and saving it to your system.</p></li>
+<li><p>To ensure that a Web page is fully loaded before the jQuery code is executed on it, jQuery provides the <code>document.ready()</code> function.</p></li>
+<li><p>Using jQuery, HTML elements can be selected by referring to their name, ID, or class to which they belong.</p></li>
+<li><p>jQuery provides CSS selectors to modify the CSS properties of an HTML element or document.</p></li>
+<li><p>In jQuery, events are handled by using functions or predefined event methods.</p></li>
+<li><p>Some of the predefined jQuery effects that can be used to add visual appeal to a Web page are:</p>
+<ul class="disc">
+<li><p>Hide</p></li>
+<li><p>Show</p></li>
+<li><p>Toggle</p></li>
+<li><p>Slide</p></li>
+<li><p>Fade</p></li>
+<li><p>Animate</p></li>
+</ul></li>
+<li><p>Image rollover is an effect in which the appearance of an image changes when the mouse pointer is placed or moved on it.</p></li>
+<li><p>Preloading images is a technique to load images in the browser cache before the script on the Web page is executed and the Web page is rendered in the browser window.</p></li>
+<li><p>The <code>Image</code> object can be used to preload images in an application.</p></li>
+<li><p>An image gallery is a collection of thumbnail pictures or image links.</p></li>
+<li><p>By using jQuery plugins, you can create the image gallery by displaying the images dynamically at runtime on the same Web page.</p></li>
+<li><p>The light-weight, colorbox plugin enables displaying a collection of images one by one by using the previous and next buttons.</p></li>
+<li><p>The galleria  plugin is the jQuery plugin used for creating elegant and professional-looking image galleries.</p></li>
+</ul>
+<h1 class="chapter-head" id="ref7">Reference Reading</h1>
+<h3 class="topic">Exploring jQuery</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>JavaScript: the complete reference By Thomas A. Powell, Fritz Schneider</em></p></td>
+<td><p><em><a href="http://www.w3schools.com/jquery/default.asp">http://www.w3schools.com/jquery/default.asp</a></em></p>
+<p><em><a href="http://jquery.com/">http://jquery.com/</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Adding Visual Effects Using jQuery</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>JavaScript: the complete reference By Thomas A. Powell, Fritz Schneider</em></p></td>
+<td><p><em><a href="http://api.jquery.com/category/effects/">http://api.jquery.com/category/effects/</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Implementing Image Rollover</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>JavaScript: the complete reference By Thomas A. Powell, Fritz Schneider</em></p></td>
+<td><p><em><a href="http://www.irt.org/articles/js132/">http://www.irt.org/articles/js132/</a></em></p></td>
+</tr>
+</table>
+<h3 class="topic">Creating Image Gallery</h3>
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+<tr valign="top">
+<td align="left" style="width:30%"><strong><em>Reference Reading: Books</em></strong></td>
+<td align="left" style="width:70%"><strong><em>Reference Reading: URLs</em></strong></td>
+</tr>
+<tr valign="top">
+<td><p><em>JavaScript: the complete reference By Thomas A. Powell, Fritz Schneider</em></p></td>
+<td><p><em><a href="http://monc.se/kitchen/146/galleria-a-javascript-image-gallery">http://monc.se/kitchen/146/galleria-a-javascript-image-gallery</a></em></p></td>
+</tr>
+</table>
+</body>
+</html>
