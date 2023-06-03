@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let country=["India","America"];
+        let state=[
+            ["Delhi","UP","UK"],
+            ["new york","california","san fransisco","san diego","miami"]
+        ];
+        let covidCases=[];
+
+        for (let i = 0; i < country.length; i++) 
+        {
+            alert("Enter "+country[i]+" Data :");
+            covidCases[i]=[];
+            for (let j = 0; j < state[i].length; j++) 
+            {
+               covidCases[i][j]=prompt("Enter "+state[i][j]+" data :");
+            }
+        }
+
+        for (let i = 0; i < country.length; i++) 
+        {
+            document.write("<br>"+country[i]+" Data :<br>");
+            for (let j = 0; j < state[i].length; j++) 
+            {
+                document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+state[i][j]+" : "+covidCases[i][j]);
+            }
+        }
+        console.table(covidCases);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let basket=[];
+        // basket.push("Apple");
+        // basket[1]="strawberry";
+        // basket[2]=100;
+        // basket.push(true);
+        let basket = [10, 20, "Apple", true, 50.6, 'chiku']
+        // document.write(basket);
+
+        // for(let i=0;i<basket.length;i++)
+        // {
+        //     document.write(i+"th element is "+basket[i]+"<br>");
+        // }
+
+        // for (let element of basket) 
+        // {
+        //     document.write(element+"<br>")
+        // }
+        // basket.pop();
+        // for (let index in basket) {
+        //     document.write(basket[index] + "<br>");
+        // }
+
+        let arr1 = [1, 2, 3, 4, 5];
+        // arr1.splice(1,2);
+        // document.write(arr1+"<br>");
+
+        // arr1.forEach( e =>document.write(e+"<br>"));
+
+        // arr1.forEach(printFxn);
+        // function printFxn(e)
+        // {
+        //     document.write(e+"<br>");
+        // }
+
+        let ans = arr1.map(changeValue);
+        function changeValue(e) {
+            return e * 5;
+        }
+        document.write("previous array:" + arr1 + "<br>");
+        document.write(ans + "<br>");
+    </script>
+    <style>
+        pre code{
+            display: block;
+            background-color: black;
+            color: whitesmoke;
+            border: 1px solid red;
+            border-radius: 5px;
+            padding: 0px 0px 20px 5px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+<!-- <pre>
+    push: Adds one or more elements to the end of an array and returns the new length of the array.
+    <code>
+    const arr = [1, 2, 3];
+    arr.push(4); // arr becomes [1, 2, 3, 4]
+    </code>
+
+    pop: Removes the last element from an array and returns that element.
+    <code>
+    const arr = [1, 2, 3];
+    const lastElement = arr.pop(); // lastElement = 3, arr becomes [1, 2]
+    </code>
+    concat: Combines two or more arrays and returns a new array.
+    <code>
+    const arr1 = [1, 2];
+    const arr2 = [3, 4];
+    const combinedArray = arr1.concat(arr2); // combinedArray becomes [1, 2, 3, 4]
+    </code>
+    join: Joins all elements of an array into a string, using a specified separator.
+    <code>
+    const arr = [1, 2, 3];
+    const joinedString = arr.join('-'); // joinedString = "1-2-3"
+    </code>
+    slice: Returns a shallow copy of a portion of an array into a new array.
+    <code>
+    const arr = [1, 2, 3, 4, 5];
+    const slicedArray = arr.slice(1, 4); // slicedArray becomes [2, 3, 4]
+    </code>
+    splice: Changes the content of an array by adding, removing, or replacing elements.
+    <code>
+    const arr = [1, 2, 3, 4, 5];
+    arr.splice(2, 1); // arr becomes [1, 2, 4, 5]
+    </code>
+    indexOf: Returns the first index at which a given element can be found in the array, or -1 if it is not present.
+    <code>
+    const arr = [1, 2, 3, 4, 5];
+    const index = arr.indexOf(3); // index = 2
+    </code>
+    forEach: Executes a provided function once for each array element.
+    <code>
+    const arr = [1, 2, 3];
+    arr.forEach(element => console.log(element)); // prints 1, 2, 3
+    </code>
+    map: Creates a new array populated with the results of calling a provided function on every element in the array.
+    <code>
+    const arr = [1, 2, 3];
+    const mappedArray = arr.map(element => element * 2); // mappedArray becomes [2, 4, 6]
+    </code>
+    filter: Creates a new array with all elements that pass a test implemented by the provided function.
+    <code>
+    const arr = [1, 2, 3, 4, 5];
+    const filteredArray = arr.filter(element => element > 2); // filteredArray becomes [3, 4, 5]
+    </code>    
+    These are just a few of the many methods available for working with arrays in JavaScript. Each method serves a different purpose and can be used depending on your specific needs.
+</pre> -->
+</body>
+
+</html>
