@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let stock=[
+            {"item":"shoes","price":2000,"size":8},
+            {"item":"phone","price":9000,"size":5.6},
+            {"item":"cloth","price":5000,"size":"L"},
+            {"item":"laptop","price":90000,"size":13.6},
+            {"item":"tv","price":20000,"size":32},
+        ];
+    </script>
+</head>
+<body>
+    <table border="2" width="600px" cellpadding="10">
+        <tr>
+            <th>Item</th>
+            <th>price</th>
+            <th>Size</th>
+        </tr>
+        <script>
+            for(let item in stock)
+            {
+                document.write("<tr>");
+                document.write("<td>"+stock[item].item+"</td>");
+                document.write("<td>"+stock[item].price+"</td>");
+                document.write("<td>"+stock[item].size+"</td>");
+                document.write("</tr>");
+            }
+        </script>
+    </table>
+</body>
+</html>
