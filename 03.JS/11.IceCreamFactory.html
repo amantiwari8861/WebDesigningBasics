@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let stocks = {
+            "base": ["Bowl", "Stick", "Cone"],
+            "brand": [
+                {
+                    "kwality walls": {
+                        "flavour": [
+                                    {name: "chocolate",price: 50}, 
+                                    {"name": "raj wada",price: 30}, 
+                                    { name: "vanila", price: 20 },
+                                    { name: "mango", price: 40 }
+                                    ]
+                    }
+                },
+                {
+                    "Cream bells": {
+                        "flavour": ["chocolate", "mawa", "vanila", "strawberry"]
+                    }
+                },
+                {
+                    "vadilal": {
+                        "flavour": ["chocolate", "orange", "vanila", "grapes"]
+                    }
+                },
+                {
+                    "amul": {
+                        "flavour": ["chocolate", "pineapple", "vanila", "blue berry"],
+                        "drinks": ["flavoured milk", "chaach", "lassi"]
+                    }
+                }
+            ],
+            "toppings": ["Cherry", "Apple", "Strawberry", "choco syrup"],
+            "region": "Delhi"
+        };
+        function isBrandAvailable(brand) 
+        {
+            for (let i = 0; i < stocks["brand"].length; i++) 
+            {
+                if (brand==stocks["brand"][i]) 
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function isBaseAvailable(base) 
+        {
+            for (let i = 0; i < stocks["base"].length; i++) 
+            {
+                if (base==stocks["base"][i]) 
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function isFlavourAvailable(brand,flavour) 
+        {
+            let brandAvail=false;
+            for (const brandobj in stocks["brand"]) 
+            {
+                if (brandobj==brand) 
+                {
+                    brandAvail=true;
+                    for (const fl of stocks["brand"][brand]["flavour"]) 
+                    {
+                        if (flavour==fl) 
+                        {
+                            return true;
+                        }
+                        
+                    }
+                }
+            }
+            if (!brandAvail) {
+                alert("brand not available");
+            }
+            return false;
+        }
+        function getOrder() {
+            let name = document.getElementById("name").value;
+            let brand = document.getElementById("brand").value;
+            let base = document.getElementById("base").value;
+            let flavour = document.getElementById("flavour").value;
+            
+            let brandAvail=isBrandAvailable(brand);
+            let baseAvail=isBaseAvailable(base);
+            let flavourAvail=isFlavourAvailable(brand,flavour);
+
+            console.log(brandAvail);
+            console.log(baseAvail);
+            console.log(flavourAvail);
+
+            if (!brandAvail) 
+                alert("pls choose another brand!");
+            else if (!baseAvail) 
+                alert("pls choose another base!");
+            else if (!flavourAvail) 
+                alert("pls choose another flavour!");
+            else
+                alert(name+" Sir/Madam Your order is confirmed! of \n"
+                    +"         Brand : "+brand+"\n" 
+                    +"         Base : "+base+"\n" 
+                    +"         Flavour : "+flavour+"\n" 
+                )
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Welcome to Ice-Cream Store!</h1>
+    <form action="" >
+        <label for="name">Name<span style="color:red;">*</span></label>
+        <input type="text" id="name"><br>
+        <label for="brand">Brand<span style="color:red;">*</span></label>
+        <input type="text" id="brand"><br>
+        <label for="base">Base<span style="color:red;">*</span></label>
+        <input type="text" id="base"><br>
+        <label for="flavour">flavour<span style="color:red;">*</span></label>
+        <input type="text" id="flavour"><br>
+        <input type="button" value="Book Now!" onclick="getOrder()">
+    </form>
+</body>
+
+</html>
