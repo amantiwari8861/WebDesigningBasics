@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        let price=0;
         let stocks = {
-            "base": ["Bowl", "Stick", "Cone"],
+            "base": ["bowl", "stick", "cone"],
             "brand": [
                 {
                     "kwality walls": {
                         "flavour": [
-                                    {name: "chocolate",price: 50}, 
-                                    {"name": "raj wada",price: 30}, 
-                                    { name: "vanila", price: 20 },
-                                    { name: "mango", price: 40 }
+                                        {name: "chocolate",price: 50}, 
+                                        {"name": "raj wada",price: 30}, 
+                                        { name: "vanila", price: 20 },
+                                        { name: "mango", price: 40 }
                                     ]
                     }
                 },
                 {
-                    "Cream bells": {
+                    "cream bells": {
                         "flavour": ["chocolate", "mawa", "vanila", "strawberry"]
                     }
                 },
@@ -37,14 +37,15 @@
                     }
                 }
             ],
-            "toppings": ["Cherry", "Apple", "Strawberry", "choco syrup"],
-            "region": "Delhi"
+            "toppings": ["cherry", "apple", "strawberry", "choco syrup"],
+            "region": "delhi"
         };
         function isBrandAvailable(brand) 
         {
             for (let i = 0; i < stocks["brand"].length; i++) 
             {
-                if (brand==stocks["brand"][i]) 
+                // console.log(stocks["brand"][i][brand]);
+                if (stocks["brand"][i][brand] !== undefined) 
                 {
                     return true;
                 }
@@ -64,40 +65,44 @@
         }
         function isFlavourAvailable(brand,flavour) 
         {
-            let brandAvail=false;
-            for (const brandobj in stocks["brand"]) 
+            let brandAvail=isBrandAvailable(brand);
+            // console.log(brandAvail);
+            if (brandAvail) 
             {
-                if (brandobj==brand) 
+                let brandObj=stocks["brand"].filter(obj=> obj[brand] !== undefined);
+                // console.log(typeof brandObj[0]);
+                // console.log(brandObj[0][brand]["flavour"]);
+                for (const fl of brandObj[0][brand]["flavour"]) 
                 {
-                    brandAvail=true;
-                    for (const fl of stocks["brand"][brand]["flavour"]) 
+                    if (flavour==fl.name) 
                     {
-                        if (flavour==fl) 
-                        {
-                            return true;
-                        }
-                        
+                        price+=fl["price"];
+                        return true;
                     }
                 }
             }
-            if (!brandAvail) {
-                alert("brand not available");
-            }
             return false;
         }
-        function getOrder() {
+        function getOrder(event) 
+        {
             let name = document.getElementById("name").value;
             let brand = document.getElementById("brand").value;
             let base = document.getElementById("base").value;
             let flavour = document.getElementById("flavour").value;
             
-            let brandAvail=isBrandAvailable(brand);
-            let baseAvail=isBaseAvailable(base);
-            let flavourAvail=isFlavourAvailable(brand,flavour);
+            let brandAvail=isBrandAvailable(brand.toLowerCase());
+            let baseAvail=isBaseAvailable(base.toLowerCase());
+            let flavourAvail=isFlavourAvailable(brand.toLowerCase(),flavour.toLowerCase());
 
-            console.log(brandAvail);
-            console.log(baseAvail);
-            console.log(flavourAvail);
+            console.log("is brand available ? "+brandAvail);
+            console.log("is base available ? "+baseAvail);
+            console.log("is flavour available ? "+flavourAvail);
+
+            if(brand===""||base===""||name===""||flavour==="")
+            {
+                alert("pls fill out all the fields")
+                return false;
+            }
 
             if (!brandAvail) 
                 alert("pls choose another brand!");
@@ -106,18 +111,36 @@
             else if (!flavourAvail) 
                 alert("pls choose another flavour!");
             else
+            {
                 alert(name+" Sir/Madam Your order is confirmed! of \n"
                     +"         Brand : "+brand+"\n" 
                     +"         Base : "+base+"\n" 
                     +"         Flavour : "+flavour+"\n" 
+                    +"       Your billing amount is "+price+"\n"
                 )
+
+                // let sucussObj=document.getElementById("success");
+                // successObj.innerHTML="Your Order is Succesfully Placed";
+                // successObj.style.color="Green";
+                // document.getElementById("result").innerHTML=(""+
+                // name+" Sir/Madam Your order is confirmed! of \n"
+                //     +"         Brand : "+brand+"\n" 
+                //     +"         Base : "+base+"\n" 
+                //     +"         Flavour : "+flavour+"\n" 
+                //     +"       Your billing amount is "+price+"\n");
+
+                return true;
+            }
+            return false;
         }
     </script>
 </head>
-
 <body>
     <h1>Welcome to Ice-Cream Store!</h1>
-    <form action="" >
+
+    <h3 id="succcess"></h3>
+    <h3 id="result"></h3>
+    <form action="" onsubmit="return getOrder()">
         <label for="name">Name<span style="color:red;">*</span></label>
         <input type="text" id="name"><br>
         <label for="brand">Brand<span style="color:red;">*</span></label>
@@ -126,7 +149,7 @@
         <input type="text" id="base"><br>
         <label for="flavour">flavour<span style="color:red;">*</span></label>
         <input type="text" id="flavour"><br>
-        <input type="button" value="Book Now!" onclick="getOrder()">
+        <input type="submit" value="Book Now!">
     </form>
 </body>
 
