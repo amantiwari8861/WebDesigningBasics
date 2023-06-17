@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // (type 1 : no argument no return type)
+        // function abc(/*arguments*/)  //normal function 
+        // {
+        //     alert("hello there i am a function");
+        //     /*returning value*/
+        // }
+        // abc();
+
+        //(type 2 : no argument with return type)
+
+            // function tellWebsiteName()
+            // {
+            //     return "MyWebsite";
+            // }
+
+        //(type 3 : with argument no return type)
+                // function greet(name) {
+
+                //     document.getElementById("name").style.border="1px solid green";
+                //     alert("Hello "+name+" Sir!");
+                // }
+
+        //(type 4 : with argument and return type)
+
+        // function square(a,b) {
+        //     return a**b;
+        // }
+
+        function calculate() 
+        {
+            let a=Number(document.getElementById("num1").value);
+            let b=Number(document.getElementById("num2").value);
+            let result=Add(a,b);
+            document.getElementById("res").innerHTML="The Result is <span style='color:red;'>"+result+"</span>";
+        }
+        function Add(a,b) {
+            return a+b;
+        }
+    </script>
+</head>
+<body>
+<!-- <button  onclick="abc()" >Call fxn</button>
+Website name : <input type="text" onfocus="this.value=tellWebsiteName()"> -->
+<!-- Name : <input type="text" onblur="greet(this.value)" id="name">  -->
+<!-- Square Number :  <input type="text" onblur="this.value=square(this.value,2)"><br>
+Cube Number :  <input type="text" onblur="this.value=square(this.value,3)"><br> -->
+
+<form action="" autocomplete="off">
+Num1 : <input type="text" name="" id="num1"> <br>
+Num2 : <input type="text" name="" id="num2"> <br>
+<button type="button" onclick="calculate()">Add</button>
+</form>
+<h1 id="res"></h1>
+</body>
+</html>
