@@ -7,15 +7,73 @@
 
     <script>
 
-        let greet1=function greet() { alert("Hello there");  };
+        // let greet1=function greet() { alert("Hello there");  };
+        // greet1();
 
-        greet1();
+        // let anonymous=function(){alert("hello i am anonymous function")};
+        // anonymous();
+
+        // let arrow=()=>{alert("hii i am arrow function")};
+        // arrow();
+
+        let fruits=["apple","cherry","chiku","strawberry","banana"];
+
+        //1st way
+        // let result=fruits.filter(fileterBySweetness);
+        // function fileterBySweetness(e) 
+        // {
+        //     console.log(e);
+        //     return e.includes("c");
+        // }
+
+        //2nd way
+        // let result=fruits.filter((e)=>e.includes("a"));
+        // let result=fruits.filter((e)=>{return e.includes("a")});
+        // document.write(result);
+
+        //3rd way
+        // document.write(fruits.filter(e=> e.includes("a")));
+
+        // setTimeout(()=>{
+        //     document.write("hello sir ");
+        // },2000);
 
     </script>
 
 
 </head>
 <body>
+
+    <h1 id="clock"></h1>
+    <button id="stp">Stop Clock</button>
     
 </body>
+<script>
+        let clock=document.getElementById("clock");
+        let interval=setInterval(() => {
+            clock.innerHTML=new Date()+"<br>";
+        }, 1000);
+
+        let stp=document.getElementById("stp");
+        stp.addEventListener("click",()=>{
+
+            clearInterval(interval);
+        });
+</script>
 </html>
+
+<!--
+    strings
+    events
+    DOM & BOM
+    form validation(regex)
+    storage techeniques(cookies,local storage,session storage)
+    class object
+    rest parameters,
+    spread operators,
+    modules,
+    object(array) destructuring
+    callback promises
+    asyn await 
+    fetch api
+-->

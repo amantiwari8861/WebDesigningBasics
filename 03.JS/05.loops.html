@@ -57,11 +57,23 @@
             //     document.write(" Hello "+j+" <br>");
             //     j++;
             // }while(j<0);
-
+            let fruits=["apple","mango","chiku","papaya","pomegranate"];
     </script>
 
 </head>
 <body>
     
+<table border="2" width="200px">
+<script>
+    for (let i = 0; i < fruits.length; i++) 
+    {
+        document.write("<tr>");
+        document.write("<td> "+(i+1)+"</td>");
+        document.write("<td>"+fruits[i]+"</td>");
+        document.write("</tr>");
+    }
+</script>
+</table>
+
 </body>
 </html>
