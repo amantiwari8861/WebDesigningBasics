@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1,p,div{
+            background-color: green;
+            border: 1px solid red;
+        }
+        .box1{
+            background-color: chocolate;
+            height: 100px;
+            display: inline;
+            width: 100px;
+        }
+        .inl{
+            display: block;
+            background-color: aqua;
+            height: 50px;
+        }
+        .ilb{
+            height: 100px;
+            width: 100px;
+            display: inline-block;
+            background-color: thistle;
+        }
+    </style>
+</head>
+<body>
+    <!--Block element-->
+<h1>Lorem ipsum dolor sit amet.</h1>
+<p>Lorem ipsum dolor sit amet.</p>
+<div>Lorem ipsum dolor sit amet.</div>
+
+
+<!--inline element-->
+
+<a href="#">Link1</a>
+<a href="#">Link1</a>
+<a href="#">Link1</a>
+<a href="#">Link1</a>
+
+
+<!--can we change a block element to inline-->
+<div class="box1">Hello There </div>
+<!--inline elements can't use height and width -->
+
+<!--can we change a inline element to block-->
+<span class="inl">Hello</span>
+<a href="#" class="inl">hello2</a>
+
+<!-- inline-block -->
+
+<a href="#" class="ilb">IamInlineBlock</a>
+<div class="ilb">IamInlineBlock</div>
+
+
+</body>
+</html>
