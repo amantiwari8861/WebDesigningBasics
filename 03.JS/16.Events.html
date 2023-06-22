@@ -5,8 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+    <script>
+        // function changeBg() 
+        // {
+        //    let bg1= document.getElementById("bg1");
+        //     bg1.style.backgroundColor="purple";
+        // }
+        
+        </script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <style>
+            .material-symbols-outlined{
+                font-size: 4rem;
+                color: green;
+            }
+        </style>
+
+    </head>
 <body>
     
+<!-- <input type="button" value="Click">
+<button  onclick="alert('u clicked on botton 2');" >Click me</button>
+<h1 onclick="this.style.color='green'">Welcome to our website!!</h1>
+<h2 onclick="changeBg()" id="bg1">change background</h2> -->
+
+<h1 id="head1">Heading 1</h1>
+
+<video src="/media/aman-tiwari/Personal data/video/Punjabi/Filhaal2.mp4" height="500px" width="600px" id="myvideo" controls></video>
+
+<span class="material-symbols-outlined" id="play">play_circle</span>
+<span class="material-symbols-outlined" id="pause">pause_circle</span>
+
 </body>
+<script>
+    // let head1=document.getElementById("head1");
+    // // head1.onclick=()=> head1.style.backgroundColor="greenyellow";
+
+    // head1.addEventListener("click",()=>{
+    //     head1.style.border="5px solid greenyellow";
+    // });
+    // head1.addEventListener("dblclick",()=>{
+    //     head1.style.backgroundColor="grey";
+    // });
+    
+    // head1.addEventListener("",()=>{
+    //     head1.style.backgroundColor="yellow";
+    // });
+    
+    let myvideo=document.getElementById("myvideo");
+    
+    let playIcon=document.getElementById("play");
+    playIcon.addEventListener("click",()=>{
+        myvideo.play();
+        playIcon.style.backgroundColor="orange";
+        playIcon.style.borderRadius="5px";
+    });    
+
+    let pauseIcon=document.getElementById("pause");
+    pauseIcon.addEventListener("click",()=>{
+        myvideo.pause();
+        pauseIcon.style.backgroundColor="orange";
+        pauseIcon.style.borderRadius="5px";
+    })
+    myvideo.addEventListener("pause",()=>{
+        myvideo.style.border="5px solid orange";
+    });
+
+</script>
 </html>

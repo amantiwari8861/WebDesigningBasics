@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="fname" autocomplete="off">
+    <h1 id="result"></h1>
+    <h2 id="capAlp"></h2>
+    <h2 id="smallAlp"></h2>
+    <h2 id="numeric"></h2>
+    <h2 id="special"></h2>
+</body>
+<script>
+    let fname=document.getElementById("fname");
+    let result=document.getElementById("result");
+    
+    fname.addEventListener("input",()=>{
+        let fnameValue=fname.value;
+        result.innerHTML="you inputed :"+fnameValue;
+
+        // document.getElementById("numeric").innerHTML= /[0-9]/.test(fnameValue)
+        if(/[A-Z]/.test(fnameValue))
+        {
+            let capAlp=document.getElementById("capAlp");
+            capAlp.innerHTML="it contains a capital letter";
+            capAlp.style.color="green";
+
+        }
+        else
+        {
+
+            let capAlp=document.getElementById("capAlp");
+            capAlp.innerHTML="it doesn't contains a capital letter";
+            capAlp.style.color="red";
+        }
+        if(/[a-z]/.test(fnameValue))
+        {
+            let smallAlp=document.getElementById("smallAlp");
+            smallAlp.innerHTML="it contains a small letter";
+            smallAlp.style.color="green";
+
+        }
+        else
+        {
+           
+            let smallAlp=document.getElementById("smallAlp");
+            smallAlp.innerHTML="it doesn't contains a small letter";
+            smallAlp.style.color="red"; 
+        }
+        if(/[0-9]/.test(fnameValue))
+        {
+            let numeric=document.getElementById("numeric");
+            numeric.innerHTML="it contains a numeric letter";
+            numeric.style.color="green";
+        }
+        else
+        {
+
+            let numeric=document.getElementById("numeric");
+            numeric.innerHTML="it doesn't contains a numeric letter";
+            numeric.style.color="red";
+        }
+        if(/[@#$%^&*()!.,''"{}"]/.test(fnameValue))
+        {
+            let special=document.getElementById("special");
+            special.innerHTML="it contains a special letter";
+            special.style.color="green";
+        }
+        else
+        {
+
+            let special=document.getElementById("special");
+            special.innerHTML="it doesn't contains a special letter";
+            special.style.color="red";
+        }
+
+    });
+
+
+</script>
+</html>
