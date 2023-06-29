@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function changeBgColor(event) {
+            alert("u clicked on h1");
+
+            //styling in 2 lines
+            // let head2=document.getElementById("head2");
+            // head2.style.backgroundColor="greenyellow";
+
+            event.style.color="red";
+            console.log(event);
+        }
+    </script>
+</head>
+<body>
+
+    <h1 onclick="changeBgColor(this)" id="head2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore non totam blanditiis officia autem commodi debitis repellat sapiente a nihil, quam beatae similique quod ex modi eius! Natus, id pariatur!</h1>
+
+</body>
+</html>
