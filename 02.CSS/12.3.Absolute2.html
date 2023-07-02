@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            position: relative;
+            height: 300px;
+            width: 300px;
+            background-color: greenyellow;
+            margin-top: 200px;
+        }
+        .box2{
+            position: absolute;
+            /* height: 100px; */
+            width: 100px;
+            background-color: orange;
+            border-radius: 50%;
+            left: 240px;
+            top: -30px;
+        }
+        .box2 h1{
+            text-align: center;
+            line-height: 50px;
+        }
+        .box2:hover{
+            background-color: red;
+            color: yellow;
+            transition: all 1s ease-in;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="box1">
+    <div class="box2">
+        <h1>NEW</h1>
+    </div>
+</div>
+
+
+</body>
+</html>
