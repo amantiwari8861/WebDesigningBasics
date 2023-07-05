@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: linear-gradient(60deg,rgb(147, 147, 244),rgb(156, 69, 156));
+            /* background:url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center / cover no-repeat fixed; */
+            /* background-color: black; */
+            height: 100vh;
+        }
+        table
+        {
+            background-color: rgba(255, 255, 255, 0.105);
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            /* border: 2px solid red; */
+            border-collapse: collapse;
+            border-radius: 15px;
+            /* box-shadow: 1px 1px 12px rgb(80, 78, 78); */
+            box-shadow: 0 0 2px #fff,
+            0 0 2px #fff,
+            0 0 8px #13fe3e,
+            0 0 4px #13fe65,
+            0 0 12px #13fe61,
+            0 0 20px #fe6913; 
+        }
+        tr{
+            height: 40px;
+        }
+        td,th{
+            /* border:1px solid greenyellow; */
+            padding: 12px;
+        }
+        thead>tr,tfoot>tr{
+            background-color: rgba(72, 239, 111, 0.565);
+        }
+        thead tr th:last-child
+        {
+            border-top-right-radius: 15px;
+        }
+        tfoot tr th:last-child
+        {
+            border-bottom-right-radius: 15px;   
+        }
+        thead tr th:first-child
+        {
+            border-top-left-radius: 15px;
+        }
+        tfoot tr th:first-child
+        {
+            border-bottom-left-radius: 15px;   
+        }
+    </style>
+</head>
+<body>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+                <th>Column 5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+            </tr>
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+            </tr>
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+            </tr>
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+            </tr>
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+            </tr>
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+                <td>Cell 5</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+                <th>Column 5</th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
