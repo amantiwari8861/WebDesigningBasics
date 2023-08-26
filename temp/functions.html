@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let add=function sum(){ console.log('hiii');  };
+        // let add=function (){ console.log('hiii');  };//anonymous
+        // let add=()=>{console.log('hiii');};//arrow function
+        // let add=()=> console.log('hiii');//arrow function
+        // add();//calling of function
+
+        // let sub=(a,b)=>{
+        //     return a-b;
+        // };
+        // console.log(sub(10,5));
+
+        // let multi=(a,b)=>{console.log(a*b);}
+        // multi(10,6);
+
+        // let arr=["mango","strawberry","papaya","grapes"];
+        // arr.forEach(e=>console.log(e));
+
+        // let newVar=arr.join("-");
+
+        // document.write(newVar);
+        
+        // setTimeout(() => {
+        //     document.write("Hello aman");
+        //     document.write("<img src='../01.HTML/images/fruits-jus-fruit-png-transparent-jus-fruit-images-24.png' width='100%' height='400px' >")
+        // }, 3000);
+        // document.write("<h1>"+new Date()+"</h1>");
+        // let clock=setInterval(()=>{
+        //     document.write("<h1>"+new Date()+"</h1>");
+        // },1000);
+
+        let result;
+        setTimeout(() => {
+            result=document.getElementById("clock");
+        }, 1);
+
+        let clock=setInterval(()=>{
+            // result.innerHTML=new Date();
+            let dateObject=new Date();
+            result.innerHTML=dateObject.getDate()+"/"+(dateObject.getMonth()+1)+"/"+dateObject.getFullYear()+" "+dateObject.getHours()+":"+dateObject.getMinutes()+":"+dateObject.getSeconds();
+        },1000);
+
+        function stop() {
+            clearInterval(clock);
+        }
+    </script>
+</head>
+<body>
+    <h1 id="clock"></h1>
+<button onclick="stop()">stop</button>
+
+</body>
+</html>

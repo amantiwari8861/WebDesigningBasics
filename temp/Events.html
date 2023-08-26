@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="para1">Paragraph 1 Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h1>
+    <button id="btn">Click</button>
+<!--
+     <script>
+        for (let i = 1; i <= 10; i++) 
+        {
+            document.write("<h1> Hello "+i+"</h1>");
+        }
+    </script> 
+-->
+    <div id="img"></div>
+
+    Password : <input type="text" id="pass">
+
+
+
+</body>
+    <script>
+        let head1=document.getElementById("para1");
+        // console.log(head1);
+        // let btn=document.getElementById("btn");
+        // btn.onclick=()=>{
+        //     head1.style.backgroundColor="red";
+        // };
+
+        // head1.addEventListener("mouseover",()=>{
+        //     head1.style.color="green";
+        // })
+        // head1.addEventListener("mouseout",()=>{
+        //     head1.style.color="black";
+        // })
+        // head1.addEventListener("dblclick",()=>{
+        //     // head1.style.color="gray";
+        //     let image=document.getElementById("img");
+        //     image.innerHTML="<img src='../01.HTML/images/fruits-jus-fruit-png-transparent-jus-fruit-images-24.png' width='100%' height='400px' >"
+        // })
+        // head1.addEventListener("click",()=>{
+        //     head1.style.color="gray";
+        // })      
+        let pass=document.getElementById("pass");
+        pass.addEventListener("input",()=>{
+            let value=pass.value;
+            if (value==""||value==null) 
+            {
+                head1.innerHTML="pls input anything"
+            }
+            else
+            {
+                head1.innerHTML=value;
+            }
+        })
+    </script>
+</html>
