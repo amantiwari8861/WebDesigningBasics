@@ -1,6 +1,5 @@
 # This Repository has basic Web Designing Tutorials
-<pre><h2>   
-1.what is website ?
+<pre>1.what is website ?
     collection of webpages(generally maked by html)
 2.how it can be maked ?
     HTML : hypertext markup language -> gives structure of website 
@@ -36,6 +35,6 @@ src is telling that from where we want to get or load the image
     if we follows a proper standard then our Browsers undarstands 
     our webstite structure,version,format and content easily which helps 
     us to rank our website on internet to be on Top    
-9.can a tag be nested ?</h2>
+9.can a tag be nested ?
   Yes, eg. <b>this is bold<i> wow this is <u> Aman </u>bold italic </i> bold again </b>
 </pre>
