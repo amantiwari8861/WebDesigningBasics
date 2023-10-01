@@ -9,14 +9,16 @@
     <link rel="stylesheet" href="02.TestExternal2.css">
     <style>
         h3{
-            background-color: blueviolet;
-            color: crimson;
+            background-color: blueviolet !important;
+            color: rgb(221, 239, 18) !important;
         }
     </style>
 </head>
 <body>
     <h3 style="background-color: darkgreen;color: violet;">Q. Whose priority is higher ?<br>
         Ans. inline > internal > External
+        (and the sequence of style file linking also matters) <br>
+        !important forces to apply this property
     </h3>
 </body>
 </html>
