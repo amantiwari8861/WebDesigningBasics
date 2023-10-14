@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .box {
+            border: 1px solid rgb(220, 220, 220);
+            width: 400px;
+            margin: auto;
+            border-radius: 15px;
+            /* padding-left: 50px;
+            padding-top: 10px; */
+            padding: 20px 20px 50px 30px;
+            /* box-shadow: 0px 1px 3px rgb(128, 125, 125); */
+        }
+
+        .domain {
+            position: relative;
+            /* top: -35px; */
+            bottom: 38px;
+        }
+
+        #txt {
+            font-size: 2rem;
+        }
+
+        .subbox {
+            display: inline-block;
+        }
+
+        .empty {
+            width: 140px;
+            height: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(11, 128, 175);
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: rgb(165, 67, 42);
+        }
+
+        .box2,
+        .email,
+        #pass,
+        .btn,
+        .keepme{
+            margin-top: 20px;
+        }
+
+        #pass {
+            width: 100%;
+            height: 30px;
+            outline: none;
+            padding-left: 5px;
+            font-size: 1.2rem;
+        }
+
+        #pass:focus {
+            border: 2px solid rgb(7, 118, 142);
+            outline: 5px solid skyblue;
+            border-radius: 5px;
+        }
+
+        .btn {
+            text-align: center;
+            padding: 2px;
+            background-color: #F7CA00;
+            border-radius: 3px;
+            font-size: 1.3rem;
+            width: 100%;
+            border:none;
+        }
+
+        details{
+            display: inline;
+        }
+        summary{
+            list-style: none;
+            display: inline-block;
+            text-align: center;
+        }
+        hr{
+            color: rgba(152, 144, 144, 0.699);
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <img src="./images/AmazonLogoForLight.png" height="80px" width="100px" id="img">
+        <span class="domain">.in</span>
+    </center>
+    <div class="box">
+        <form action="" method="get">
+        <span id="txt">Sign in</span>
+        <div class="email">amantiwari8861@gmail.com <a href="#">Change</a></div>
+        <div class="box2">
+            <div class="subbox"><label for="pass"><b>Password</b></label></div>
+            <div class="subbox empty"></div>
+            <div class="subbox"><a href="#">Forgot password</a></div>
+        </div>
+        <!-- <input type="password" id="pass" maxlength="12" minlength="8" name="password" required> -->
+        <input type="password" id="pass" pattern="[A-Za-z0-9]{8,12}" title="password ki length 8 se 12 honi chahiye,only alphabets and digits is permitted" name="password" required>
+        <input type="submit" class="btn" value="Sign in"></input>
+        <div class="keepme">
+            <input type="checkbox" name="" id=""> Keep me Signed in.
+            <details>
+                <summary>
+                   <span style="color: blue;"> Details </span><i class="fa fa-caret-down" aria-hidden="true"></i>
+                </summary>
+                <br>
+                Choosing "Keep me signed in" reduces the number of times you're asked to Sign-In on this device.
+                To keep your account secure, use this option only on your personal devices.
+            </details>
+        </div>
+    </form>
+    </div>
+    <div class="footer">
+        <center>
+            <br><br>
+            <hr width="40%">
+            <br>
+            <p>
+                <br><a href="">Conditions of Use</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="">Privacy Notice</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="">Help</a> </p>
+            <br><p>© 1996-2023, Amazon.com, Inc. or its affiliates</p>
+        </center>
+    </div>
+</body>
+
+</html>
