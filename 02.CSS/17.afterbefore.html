@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1::before
+        {
+            content: "ॐ , जय श्री राम : ";
+            color: rgba(252, 170, 48, 0.924);
+            outline: red solid 5px;
+            padding: 3px;
+            margin-right: 15px;
+        }
+        h1::after
+        {
+            content: "⚛";
+            display: inline-block;
+            width: 0px;
+            height: 32px;
+            background-color: pink;
+            margin-left: 20px;
+            color: rgb(24, 150, 223);
+        }
+        h1:hover::after
+        {
+            width: 100px;
+            transition: all 3s;
+        }
+    </style>
+</head>
+<body>
+    
+
+<h1>hello 1</h1>
+<h1>hello 2</h1>
+<h1>hello 3</h1>
+<h1>hello 4</h1>
+<h1>hello 5</h1>
+
+</body>
+</html>
