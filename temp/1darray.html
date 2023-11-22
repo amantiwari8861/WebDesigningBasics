@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let fruits=["Orange","mango",98,87.5,true,new Date(),undefined];
+        let fruits=[];
+        // let fruits=new Array(3);
+        // fruits[0]="Mango";
+        // fruits[1]="Orange";
+        // fruits[2]="Litchi";
+        // fruits[3]="Strawberry";
+        // fruits[0]=prompt("enter 1st fruit name:");
+        // fruits.push(prompt("enter second fruit name:"));
+
+        // let n=Number(prompt("enter size:"));
+        for (let i = 0; i < 4; i++) 
+        {
+            fruits.push(prompt("enter "+i+"th fruit name:"));
+        }
+        fruits.sort((e1,e2)=>e2.localeCompare(e1));//for string
+        fruits.sort((e1,e2)=>e2-e1);//for numeric only
+        for (let i = 0; i < fruits.length; i++) {
+            
+            document.write("<h2>The "+i+"th fruit is :"+fruits[i]+"</h2>");
+            
+        }
+
+        // document.write(typeof fruits+"<br>");
+        // document.write(fruits);
+        console.log(fruits);
+
+    </script>
+</head>
+<body>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam vel recusandae vero necessitatibus neque, laborum ducimus nisi ad blanditiis aliquid illo magnam, architecto hic, unde nesciunt voluptate animi nostrum corrupti.
+</body>
+</html>
