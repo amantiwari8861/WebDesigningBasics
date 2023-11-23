@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Aman",
+    "skills":["C","C++","Java","python"],
+    "address":{
+        "city":"Noida",
+        "pin":201301,
+        "country":"India"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Mohit",
+    "skills":["Html","CSS","Adobe family"],
+    "address":{
+        "city":"Khoda",
+        "pin":201301,
+        "country":"India"
+    }
+  }
+]

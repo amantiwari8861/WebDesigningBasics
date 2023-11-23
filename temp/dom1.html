@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function tableBanao()
+        {
+            // alert("hiiii");
+            let numbr=document.getElementById("num").value;
+            let times=document.getElementById("times").value;
+
+            // document.write(numbr*times);
+            for (let i = 0; i < times; i++) 
+            {
+                document.write("<h2>"+(numbr*i)+"</h2>");
+            }
+
+        }
+    </script>
+</head>
+<body>
+    enter Number : <input type="text" id="num"><br>
+    enter times : <input type="text" id="times"><br>
+    <button onclick="tableBanao()">Create Table</button>
+</body>
+</html>

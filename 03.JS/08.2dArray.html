@@ -8,18 +8,18 @@
     <script>
         let country=["India","America"];
         let state=[
-            ["Delhi","UP","UK"],
+            ["Delhi","UP","MP"],
             ["new york","california","san fransisco","san diego","miami"]
         ];
         let covidCases=[];
 
         for (let i = 0; i < country.length; i++) 
         {
-            alert("Enter "+country[i]+" Data :");
+            alert("Enter "+country[i]+"'s Data :");
             covidCases[i]=[];
             for (let j = 0; j < state[i].length; j++) 
             {
-               covidCases[i][j]=prompt("Enter "+state[i][j]+" data :");
+               covidCases[i][j]=prompt("Enter "+state[i][j]+"'s covidcases :");
             }
         }
 
