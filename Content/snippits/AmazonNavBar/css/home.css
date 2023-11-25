@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.logo img{
+    height: 65px;
+    width: 120px;
+    padding: 3px 10px;
+}
+#nav-head{
+    background-color: black;
+    display: flex;
+    color: white;
+    align-items: center;
+    gap:5px;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.fa.fa-map-marker
+{
+    line-height: 65px;
+    font-size: 1.6rem;
+    padding-right: 5px;
+}
+.address,.searchbar,.language
+{
+    display: flex;
+    align-items: center;
+}
+.searchicon{
+    background-color: rgb(245, 189, 92);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+.searchicon:hover
+{
+    background-color: orange;
+}
+#srch{
+    width: 660px;
+    height: 44px;
+    outline: none;
+}
+.drop-all{
+    background-color: gray;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: black;
+}
+.drop-all,.searchicon
+{
+    line-height: 46px;
+    padding:0px 12px;
+}
+.fa.fa-search
+{
+    font-size: 1.6rem;  
+    color: black;  
+}
+.cart{
+    position: relative;
+}
+.count{
+    position: absolute;
+    top:10%;
+    left:30%;
+    font-size: 1.4rem;
+    color: orange;
+}

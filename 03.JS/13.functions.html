@@ -11,7 +11,11 @@
         //     alert("hello there i am a function");
         //     /*returning value*/
         // }
-        // abc();
+        // abc();//calling of function body
+        // abc();//calling of function body
+        // abc();//calling of function body
+        // abc();//calling of function body
+        // abc();//calling of function body
 
         //(type 2 : no argument with return type)
 
@@ -19,10 +23,11 @@
             // {
             //     return "MyWebsite";
             // }
+            // document.write(tellWebsiteName());
 
         //(type 3 : with argument no return type)
-                // function greet(name) {
-
+                // function greet(name) 
+                // {
                 //     document.getElementById("name").style.border="1px solid green";
                 //     alert("Hello "+name+" Sir!");
                 // }
@@ -40,22 +45,35 @@
             let result=Add(a,b);
             document.getElementById("res").innerHTML="The Result is <span style='color:red;'>"+result+"</span>";
         }
+        function divi()
+        {
+            let a=Number(document.getElementById("num1").value);
+            let b=Number(document.getElementById("num2").value);
+            let result=divide(a,b);
+            document.getElementById("res").innerHTML="The Result is <span style='color:red;'>"+result+"</span>";
+        
+        }
         function Add(a,b) {
             return a+b;
+        }
+        function divide(a,b)
+        {
+            return a/b;
         }
     </script>
 </head>
 <body>
-<!-- <button  onclick="abc()" >Call fxn</button>
-Website name : <input type="text" onfocus="this.value=tellWebsiteName()"> -->
-<!-- Name : <input type="text" onblur="greet(this.value)" id="name">  -->
-<!-- Square Number :  <input type="text" onblur="this.value=square(this.value,2)"><br>
+<!-- <button  onclick="abc()" >Call fxn</button><br>
+Website name : <input type="text" onfocus="this.value=tellWebsiteName()"><br>
+Name : <input type="text" onblur="greet(this.value)" id="name"><br>
+Square Number :  <input type="text" onblur="this.value=square(this.value,2)"><br>
 Cube Number :  <input type="text" onblur="this.value=square(this.value,3)"><br> -->
 
 <form action="" autocomplete="off">
 Num1 : <input type="text" name="" id="num1"> <br>
 Num2 : <input type="text" name="" id="num2"> <br>
-<button type="button" onclick="calculate()">Add</button>
+<button type="button" onclick="calculate()">+</button>
+<button type="button" onclick="divi()">/</button>
 </form>
 <h1 id="res"></h1>
 </body>
