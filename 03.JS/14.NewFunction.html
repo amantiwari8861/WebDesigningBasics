@@ -6,8 +6,14 @@
     <title>Document</title>
 
     <script>
+        // function sayHi()
+        // {
+        //     document.write("Hii Aman Sir!!");
+        // }
+        // sayHi();
 
         // let greet1=function greet() { alert("Hello there");  };
+        // greet();//we can't call greet fxn like this
         // greet1();
 
         // let anonymous=function(){alert("hello i am anonymous function")};
@@ -16,27 +22,28 @@
         // let arrow=()=>{alert("hii i am arrow function")};
         // arrow();
 
-        let fruits=["apple","cherry","chiku","strawberry","banana"];
+        // let fruits=["apple","cherry","chiku","strawberry","banana"];
 
         //1st way
-        // let result=fruits.filter(fileterBySweetness);
-        // function fileterBySweetness(e) 
+        // let result=fruits.filter(fruitsContainingLetterC);
+        // function fruitsContainingLetterC(e) 
         // {
         //     console.log(e);
         //     return e.includes("c");
         // }
 
         //2nd way
-        // let result=fruits.filter((e)=>e.includes("a"));
         // let result=fruits.filter((e)=>{return e.includes("a")});
+        // //both are same
+        // let result=fruits.filter((e)=>e.includes("a"));
         // document.write(result);
 
         //3rd way
-        // document.write(fruits.filter(e=> e.includes("a")));
+        // document.write(fruits.filter(e=>e.includes("a")));
 
         // setTimeout(()=>{
         //     document.write("hello sir ");
-        // },2000);
+        // },5*1000);
 
     </script>
 
@@ -45,20 +52,25 @@
 <body>
 
     <h1 id="clock"></h1>
-    <button id="stp">Stop Clock</button>
+    <button onclick="startClock()">Start Clock</button>
+    <button onclick="stopClock()">Stop Clock</button>
     
 </body>
 <script>
-        let clock=document.getElementById("clock");
-        let interval=setInterval(() => {
+
+    let clock=document.getElementById("clock");
+    let interval;
+
+    function startClock()
+    {
+        interval=setInterval(() => {
             clock.innerHTML=new Date()+"<br>";
-        }, 1000);
-
-        let stp=document.getElementById("stp");
-        stp.addEventListener("click",()=>{
-
-            clearInterval(interval);
-        });
+        },1000);
+    }
+    function stopClock()
+    {
+        clearInterval(interval);
+    }
 </script>
 </html>
 

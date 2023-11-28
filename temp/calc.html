@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculate(operator) 
+        {
+            let num1,num2,result;
+            num1=Number(document.getElementById("num1").value);
+            num2=Number(document.getElementById("num2").value);
+            
+            if (operator=='+') {
+                result=num1+num2;
+            }
+            else if(operator=='-')
+            {
+                result=num1-num2;
+            }
+            else if(operator=='*')
+            {
+                result=num1*num2;
+            }
+            else if(operator=='/')
+            {
+                if (num2==0) 
+                    result="can't divide by zero"
+                else
+                    result=num1/num2;
+            }
+            else if(operator=='%')
+            {
+                result=num1%num2;
+            }
+            else
+            {
+                result="Invalid Operation"
+            }
+            document.getElementById("result").innerHTML="The result is :"+result;
+        }
+    </script>
+</head>
+<body>
+    
+    Num1 : <input type="text" name="" id="num1"><br>
+    Num2 : <input type="text" name="" id="num2"><br>
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">*</button>
+    <button onclick="calculate('/')">/</button>
+    <button onclick="calculate('%')">%</button>
+    <h1 id="result"></h1>
+</body>
+</html>
