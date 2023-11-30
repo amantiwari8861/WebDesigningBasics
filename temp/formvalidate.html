@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkData() {
+            // alert("checking validation!");
+            let name=document.myform.fname.value;
+            // alert("hello "+name);
+
+            if (name ==="" || name==null) {
+                // alert("pls fill out the name");
+                document.getElementById("err").innerHTML="pls fill out the name";
+                return false;
+            }
+            else if(name.length<3 || name.length>20)
+            {
+                document.getElementById("err").innerHTML="pls enter a valid name";
+                return false;
+            }
+            return true;
+        }
+        function printError(place,msg) {
+            
+        }
+    </script>
+</head>
+<body>
+    
+<form action="" name="myform" onsubmit="return checkData()">
+name : <input type="text" name="fname" id="">
+<span id="err" style="color:red;"></span>
+<button type="submit">Submit</button>
+</form>
+
+
+</body>
+</html>

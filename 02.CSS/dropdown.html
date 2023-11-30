@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            background-color: black;
+            height: 60px;
+            display: flex;
+            flex-direction: row-reverse;
+            /* justify-content: space-around; */
+        }
+        ul li{
+            list-style-type: none;
+        }
+        .navbar>ul{
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar ul li a{
+            text-decoration: none;
+            color: whitesmoke;
+            line-height: 60px;
+            width: 100px;
+            background-color: purple;
+            padding-left: 20px;
+            display: inline-block;
+        }
+
+        .navbar ul li a:hover {
+            background-color: whitesmoke;
+            color: black;
+        }
+        .maindrop:hover .dropdown{
+            display: block;
+        }
+        .dropdown
+        {
+            display: none;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li class="maindrop">
+                <a href="#" >Link 4 <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <ul class="dropdown">
+                    <li><a>Sub Link 1</a></li>
+                    <li><a>Sub Link 2</a></li>
+                    <li><a>Sub Link 3</a></li>
+                    <li><a>Sub Link 4</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
