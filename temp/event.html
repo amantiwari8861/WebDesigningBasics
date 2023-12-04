@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function greet() {
+            alert("Namaste")
+        }
+        function changeColor() {
+            let head1=document.getElementById("head1");
+            head1.style.color="Greenyellow";
+            head1.style.backgroundColor="red";
+            head1.style.border="1px solid black";
+            head1.style.borderRadius="15px";
+        }
+        function removeH1() {
+            let head1=document.getElementById("head1");
+            head1.style.display="none";
+        }
+        function showH1() {
+            
+            let head1=document.getElementById("head1");
+            head1.style.display="block";
+        }
+        setTimeout(()=>{
+            document.getElementById("sale").style.display="block";
+        },2000);
+
+        function remove1() {
+            document.getElementById("sale").style.display="none";
+        }
+        function changeBG(element) {
+            console.log(element);
+            document.body.style.backgroundColor=element.value;
+        }
+
+        
+
+    </script>
+    <style>
+        #sale{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            line-height: 200px;
+            width: 200px;
+            background-color: yellow;
+            color: red;
+            border: 1px solid black;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 3rem;
+            /* animation: beat 2s ease-in infinite alternate; */
+            display: none;
+        }
+        @keyframes beat {
+            0%{
+                scale: 0.8;
+            }
+            100%{
+                scale: 1.5;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="sale">
+        <button onclick="remove1()" style="float: right;">X</button>
+        Sale!</div>
+
+    <marquee scrollamount="10%" onmouseover="this.stop()" onmouseout="this.start()">
+        <h1>Welcome to my website</h1>
+    </marquee>
+
+    <button onclick="greet()">Greet me</button>
+
+    <h1 id="head1" ondblclick="changeColor()">Hello bro</h1>
+
+    <button onclick="removeH1()">remove H1</button>
+    <button onclick="showH1()">show H1</button>
+
+     <input type="color" onchange="changeBG(this)">
+    <input type="color" oninput="changeBG(this)">
+
+    
+    <input type="color" id="bg1">
+
+</body>
+<script>
+    let bg1=document.getElementById("bg1");
+    bg1.addEventListener("input",()=>{document.body.style.backgroundColor=bg1.value;})
+</script>
+</html>

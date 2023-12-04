@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function largestbw3() {
+            
+            let num1=Number(document.getElementById("num1").value);
+            let num2=Number(document.getElementById("num2").value);
+            let num3=Number(document.getElementById("num3").value);
+            let result=document.getElementById("result");
+            let largest=0;
+
+            if (num1>num2) 
+            {
+                if (num1>num3) 
+                {
+                    largest=num1;
+                }
+                else
+                {
+                    largest=num3;
+                }
+            }
+            else if(num2>num3)
+            {
+                largest=num2;
+            }
+            else
+            {
+                largest=num3;
+            }
+            
+            result.innerHTML="The largest no. is "+largest;
+            
+        }
+
+    </script>
+</head>
+<body>
+    
+    Number 1 : <input type="text" id="num1">
+    Number 2: <input type="text" id="num2">
+    Number 3: <input type="text" id="num3">
+    <button onclick="largestbw3()">evaluate</button>
+    <p id="result"></p>
+</body>
+</html>

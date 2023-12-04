@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    DOM -> document object model
+    <h1>
+        <b>this is bold</b>
+        <mark id="mymark"> mark<i>italic</i></mark>
+    </h1>
+</body>
+<script>
+    let obj=document.getElementById("mymark");
+    obj.style.backgroundColor="green";
+    obj.innerHTML="<b> Aman Tiwari</b>"
+
+    let a=document.createElement("a");
+    a.setAttribute("href","https://facebook.com/amantiwari8861");
+    a.appendChild(document.createTextNode("my facebook"));
+    document.body.appendChild(a);
+</script>
+</html>
