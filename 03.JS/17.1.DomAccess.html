@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <h2 id="head1">the quick brown fox jumps over the lazy dog.</h2> -->
+    <!-- <h2 class="head">the quick brown fox jumps over the lazy dog.</h2>
+    <h2 class="head">the quick brown fox jumps over the lazy dog.</h2>
+    <h2 class="head">the quick brown fox jumps over the lazy dog.</h2>
+    <h2 class="head">the quick brown fox jumps over the lazy dog.</h2> -->
+
+    <!-- <h2>the quick brown fox jumps over the lazy dog.</h2>
+    <h2>the quick brown fox jumps over the lazy dog.</h2>
+    <h2>the quick brown fox jumps over the lazy dog.</h2>
+    <h2>the quick brown fox jumps over the lazy dog.</h2>
+    <h2>the quick brown fox jumps over the lazy dog.</h2> -->
+
+    <h2 name="head3">the quick brown fox jumps over the lazy dog.</h2>
+    <h2 name="head3">the quick brown fox jumps over the lazy dog.</h2>
+    <h2 name="head3">the quick brown fox jumps over the lazy dog.</h2>
+    <h2 name="head3">the quick brown fox jumps over the lazy dog.</h2>
+</body>
+<script>
+    //working with id
+    // let head1=document.getElementById("head1");
+    // head1.style.color="red";
+    // head1.style.backgroundColor="greenyellow";
+    // head1.style.borderRadius="5px";
+    // head1.style.display="inline-block";
+    // head1.style.width="30%";
+
+    // head1.addEventListener("mouseover",()=>{
+    //     head1.style.width="100%";
+    //     head1.style.transition="width 6s";
+    // })
+
+    //working with class
+    // let headarr = document.getElementsByClassName("head");
+    // headarr[0].style.backgroundColor="greenyellow";
+    // headarr[1].style.backgroundColor="greenyellow";
+    // headarr[2].style.backgroundColor="greenyellow";
+    // headarr[3].style.backgroundColor="greenyellow";
+    // headarr[3].style.fontSize="280%";
+
+    // for (let i = 0; i < headarr.length; i++) {
+    //     if (i % 2 == 0) {
+    //         headarr[i].style.color = "red";
+    //     }
+    //     else {
+    //         headarr[i].style.color = "blue";
+    //     }
+    // }
+
+    //working with tagname
+    // let tagArr=document.getElementsByTagName("h2");
+    
+    // for (let i = 0; i < tagArr.length; i++) {
+    //     if (i % 2 == 0) {
+    //         tagArr[i].style.color = "red";
+    //     }
+    //     else {
+    //         tagArr[i].style.color = "blue";
+    //     }
+    // }
+
+    let nameArr=document.getElementsByName("head3");
+    
+    for (let i = 0; i < nameArr.length; i++) {
+        if (i % 2 == 0) {
+            nameArr[i].style.color = "red";
+        }
+        else {
+            nameArr[i].style.color = "blue";
+        }
+    }
+</script>
+
+</html>
