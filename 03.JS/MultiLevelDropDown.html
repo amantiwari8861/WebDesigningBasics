@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -127,7 +126,6 @@
         }
     </style>
     <script>
-
         function toggleMenu() 
         {
             // console.log(nav.style.getPropertyValue('display'));
@@ -142,7 +140,18 @@
             else
             {
                 nav.style.display = "block";
-                // subdrop2.style.position="unset";
+            }
+        }
+        function toggleSubLinks(e) 
+        {
+            let element=document.querySelector("#"+e);
+            if (element.style.getPropertyValue("display")==='block') 
+            {
+                element.style.display="none"
+            } 
+            else 
+            {
+                element.style.display="block"
             }
         }
     </script>
@@ -162,12 +171,12 @@
             <nav>
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-house-chimney"></i> Home</a></li>
-                    <li id="maindrop">
+                    <li id="maindrop" onclick="toggleSubLinks('subdrop')">
                         <a href="#"><i class="fa-solid fa-truck"></i> Services <i class="fa-solid fa-caret-down"></i></a>
                         <ul id="subdrop" >
                             <li><a href="#">Link 1</a></li>
                             <li><a href="#">Link 2</a></li>
-                            <li id="mylink"><a href="#">Link 3 <i class="fa-solid fa-caret-down"></i></a>
+                            <li id="mylink"  onclick="toggleSubLinks('subdrop2')"><a href="#">Link 3 <i class="fa-solid fa-caret-down"></i></a>
                                 <ul id="subdrop2">
                                     <li><a href="#">Sub Links 1</a></li>
                                     <li><a href="#">Sub Links 2</a></li>
@@ -186,6 +195,7 @@
         </div>
     </header>
     <div class="content">
+        <br><br><br><br><br>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate odio, iste architecto dolorem reiciendis
             numquam? Doloremque animi vero, quis, quisquam architecto magni minima porro, impedit nostrum temporibus
             voluptatibus perferendis rerum?</p>
@@ -338,6 +348,4 @@
             voluptatibus perferendis rerum?Ä</p>▬
     </div>
 </body>
-
-
 </html>
