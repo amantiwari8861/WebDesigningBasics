@@ -49,8 +49,12 @@
         #maindrop:hover>ul {
             display: block;
         }
-        #subdrop {
+        #maindrop:not(:hover)>ul
+        {
             display: none;
+        }
+        #subdrop {
+            /* display: none; */
             position: absolute;
             top: 70px;
             flex-direction: column;
@@ -63,13 +67,15 @@
         #mylink:hover #subdrop2 {
             display: block;
         }
-
+        #mylink:not(:hover) #subdrop2{
+            display: none;
+        }
         #subdrop2 {
             position: absolute;
             left: 146px;
             top: 120px;
             flex-direction: column;
-            display: none;
+            /* display: none; */
         }
 
         #subdrop2 li a {
@@ -144,15 +150,15 @@
         }
         function toggleSubLinks(e) 
         {
-            let element=document.querySelector("#"+e);
-            if (element.style.getPropertyValue("display")==='block') 
-            {
-                element.style.display="none"
-            } 
-            else 
-            {
-                element.style.display="block"
-            }
+            // let element=document.querySelector("#"+e);
+            // if (element.style.getPropertyValue("display")==='block') 
+            // {
+            //     element.style.display="none"
+            // } 
+            // else 
+            // {
+            //     element.style.display="block"
+            // }
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
