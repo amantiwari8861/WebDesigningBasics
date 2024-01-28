@@ -1,0 +1,48 @@
+Detailed Syllabus
+(i) Introduction to Web Design
+Introduction of Internet, WWW, Website, Working of Websites, Webpages,
+Front End, Back End, Client and Server Scripting Languages, Responsive Web
+Designing, Types of Websites (Static and Dynamic Websites).
+
+(ii) Editors
+Downloading free Editors like Notepad++, Sublime Text Editor, Making use of
+Editors, File creation and editing, saving.
+
+(iii)HTML Basics
+HTML: Introduction, Basic Structure of HTML, Head Section and Elements of
+Head Section, Formatting Tags: Bold, Italic, Underline, Strikethrough, Div, Pre
+Tag Anchor links and Named Anchors Image Tag, Paragraphs, Comments,
+Tables: Attributes –(Border, Cellpadding, Cellspacing , height , width), TR, TH,
+TD, Rowspan, Colspan Lists : Ordered List , Unordered List , Definition List,
+Forms, Form Elements, Input types, Input Attributes, Text Input Text Area,
+Dropdown, Radio buttons , Check boxes, Submit and Reset Buttons Frames:
+Frameset, nested Frames.
+HTML 5 Introduction, HTML5 New Elements: Section, Nav, Article, Aside,
+Audio Tag, Video Tag, HTML5 Form Validations: Require Attribute, Pattern Attribute, Autofocus Attribute, email, number type, date type , Range type,
+HTML embed multimedia, HTML Layout, HTML Iframe
+
+(iv) CSS
+Introduction to CSS, Types of CSS, CSS Selectors: Universal Selector, ID
+selector, Tag Selector, Class Selector, Sub Selector, Attribute Selector, Group
+Selector, CSS Properties: Back Ground properties, Block Properties, Box
+properties, List properties, Border Properties, Positioning Properties, CSS Lists
+CSS Tables, CSS Menu Design CSS Image Gallery,
+
+(v) CSS Framework
+Web Site Development using W3.CSS Framework, W3.CSS Intro, W3.CSS
+Colors, W3.CSS Containers, W3.CSS Panels, W3.CSSBorders, W3.CSSFonts,
+W3.CSS Text, W3.CSS Tables, W3.CSS List, W3.CSSImages, W3.CSS Grid
+
+(vi) JavaScript and Angular JS
+Introduction to Client Side Scripting Language, Variables in Java Script,
+Operators in JS, Conditions Statements, JS Popup Boxes, JS Events, Basic Form
+Validations in JavaScript. Introduction to Angular JS: Expressions, Modules and
+Directives.
+(vii) Photo Editor
+Features of Photo Editing:Tools: Selection Tools, Paint Tools, Transform Tools,
+Text Tool, Layers, Brightness/ Contrast, Improve Colors and tone, Filters.
+(viii) Web Publishing and Browsing
+Overview, SGML (Standard Generalized Markup Language), Web hosting
+Basics, Documents Interchange Standards, Components of Web Publishing,
+Document management, Web Page Design Considerations and Principles,
+Search and Meta Search Engines, WWW, Browser, HTTP, Publishing Tools.

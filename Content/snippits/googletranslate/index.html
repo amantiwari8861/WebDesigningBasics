@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+  <h1>My Web Page</h1>
+  <p>Hello everybody!</p>
+  <p>Translate this page:</p>
+  <div id="google_translate_element"></div>
+  <p>You can translate the content of this page by selecting a language in the select box.</p>
+</body>
+<script type="text/javascript">
+  setTimeout(() => {
+    alert("translation done");
+    let obj=document.querySelector(".skiptranslate");
+    console.log(obj);
+  }, 3000);
+  function googleTranslateElementInit() 
+  {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    alert("translation done");
+
+  }
+</script>
+</html>

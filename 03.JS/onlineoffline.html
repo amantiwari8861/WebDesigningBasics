@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online/Offline Event Example</title>
+</head>
+<body>
+
+    <h1>Online/Offline Event Example</h1>
+    <p id="status"></p>
+
+    <script>
+        // Get the status element
+        const statusElement = document.getElementById('status');
+
+        // Function to update the status
+        function updateStatus(isOnline) {
+            statusElement.textContent = isOnline ? 'Online' : 'Offline';
+            statusElement.style.color = isOnline ? 'green' : 'red';
+        }
+
+        // Initial status check
+        updateStatus(navigator.onLine);
+
+        // Event listener for online/offline events
+        window.addEventListener('online', () => {
+            updateStatus(true);
+            console.log('Online event triggered');
+        });
+
+        window.addEventListener('offline', () => {
+            updateStatus(false);
+            console.log('Offline event triggered');
+        });
+    </script>
+
+</body>
+</html>
