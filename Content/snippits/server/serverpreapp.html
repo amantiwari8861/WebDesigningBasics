@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Now!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            background-image: linear-gradient(rgb(51, 119, 245) 40%, rgba(167, 248, 190, 0.849));
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(245, 245, 245, 0.467);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-tabs {
+            justify-content: center;
+            background-color: #f6f4f8;
+            border-radius: 10px;
+            padding: 1px 2px;
+        }
+
+        .nav-link {
+            color: #010101;
+            transition: color 0.3s ease-in-out;
+            border-radius: 20px;
+            line-height: 100%;
+        }
+
+        .nav-link.active {
+            font-size: 1.4rem;
+            color: #000000 !important;
+            background-color: #d3b7f5 !important;
+            border-radius: 15px;
+        }
+
+        .tab-content {
+            margin-top: 20px;
+        }
+
+        .validated {
+            font-size: 1.2rem;
+            color: green;
+            background-color: rgb(245, 210, 146);
+        }
+
+        .mainform {
+            background-image: url('../assets/images/omega/n2.jpg');
+            background-position: 100% 70%;
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.694);
+        }
+        table,thead,tbody,tr,th,td
+        {
+            border-radius: 15px;
+        }
+        form label{
+            font-weight:400;
+            font-size: 1.1rem;
+        }
+        @media screen and (max-width:480px) {
+            .mainform{
+                width:100%;
+            }
+        }
+        @media screen and (min-width:480px) {
+            .mainform{
+                width:86%;
+            }
+        }
+        @media screen and (min-width:1080px) {
+            .mainform{
+                width:66%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="p-4 text-center">
+        <img class="d-block mx-auto mb-1" src="../assets/images/omega/logo.png" alt="" width="100" height="100">
+        <h2>Pre-Application Form</h2>
+    </div>
+    <div class="container mt-5">
+        <ul class="nav nav-tabs" id="myTabs">
+            <li class="nav-item active">
+                <a class="nav-link active" id="tab1-tab" data-bs-toggle="tab" href="#tab1">Walk in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab2-tab" data-bs-toggle="tab" href="#tab2">Corporate</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab3-tab" data-bs-toggle="tab" href="#tab3">College</a>
+            </li>
+        </ul>
+        <!-- Tab Content -->
+        <div class="tab-content mt-2">
+            <div class="tab-pane fade show active" id="tab1">
+
+                <div class="container" id="myWizard">
+                    <div class="navbar d-flex justify-content-center">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item" style="border-radius:100% !important;">
+                                <a class="nav-link active" id="step1-tab" data-bs-toggle="tab" href="#step1">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="step2-tab" data-bs-toggle="tab" href="#step2">Pay</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="step3-tab" data-bs-toggle="tab" href="#step3">Status</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <form class="mainform tab-content" id="myForm" action="/addEnquiry" method="post">
+                            <div class="tab-pane fade show active" id="step1">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="firstName" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="name"
+                                            placeholder="" value="" required>
+                                        <div class="valid-feedback">
+                                            Looks Good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Valid Name is required.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="lastName" class="form-label">Father's Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="fathername"
+                                            placeholder="" value="" required>
+                                        <div class="valid-feedback">
+                                            Looks Good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Valid Father's name is required.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="username" class="form-label">DOB</label>
+                                        <div class="input-group has-validation">
+                                            <input type="date" class="form-control" name="dob" id="username"
+                                                placeholder=" " required>
+                                            <div class="invalid-feedback">
+                                                Your Date of Birth is required.
+                                            </div>
+                                            <div class="valid-feedback">
+                                                Looks Good!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="mobno" class="form-label">Mobile No </label>
+                                        <input type="tel" class="form-control" id="mobno" name="mobno" placeholder=" "
+                                            required>
+                                        <div class="invalid-feedback">
+                                            Please enter valid mobile no.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks Good!.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input type="text" class="form-control" name="address" id="address"
+                                            placeholder=" " required="">
+                                        <div class="invalid-feedback">
+                                            Please enter your valid local address.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks Good!.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder=" "
+                                            required="">
+                                        <div class="invalid-feedback">
+                                            Please enter valid email address.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks Good!.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="empStatus" class="form-label">Employment Status</label>
+                                        <div class="input-group has-validation">
+                                            <input type="text" class="form-control" id="empStatus" name="empStatus"
+                                                placeholder=" " required>
+
+                                            <div class="invalid-feedback">
+                                                Please enter Employment Status.
+                                            </div>
+                                            <div class="valid-feedback">
+                                                Looks Good!.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="country" class="form-label">Course Selected</label>
+                                        <input type="text" class="form-control" id="Date" name="cSelected"
+                                            placeholder=" " required="">
+                                        <div class="invalid-feedback">
+                                            Please enter Valid Course.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks Good!.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="state" class="form-label">Counsellor Name</label>
+                                        <input type="text" class="form-control" id="Counsellor Name" name="cname"
+                                            placeholder=" " required="">
+                                        <div class="invalid-feedback">
+                                            Please enter valid Counsellor name.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks Good!.
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="Remark" class="form-label">Remark</label>
+                                        <input type="text" class="form-control" id="Remark" name="remark" placeholder=""
+                                            required="">
+                                        <div class="invalid-feedback">
+                                            Please enter a valid remark.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks Good!.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-1">
+                                    <label for="" class="form-label">Qualification Status</label>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered border-dark border-rounded" width="100%">
+                                            <div class="table1">
+                                                <thead>
+                                                    <tr class="row1">
+                                                        <th scope="col">Examination</th>
+                                                        <th scope="col">Passing year</th>
+                                                        <th scope="col">College</th>
+                                                        <th scope="col">Board</th>
+                                                        <th scope="col">Subjects</th>
+                                                        <th scope="col">Percentage</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="row2">
+                                                        <td><input type="text" name="qualification1" size="12" required>
+                                                        </td>
+                                                        <td><input type="text" name="qualification1" size="12" required>
+                                                        </td>
+                                                        <td><input type="text" name="qualification1" size="12" required>
+                                                        </td>
+                                                        <td><input type="text" name="qualification1" size="12" required>
+                                                        </td>
+                                                        <td><input type="text" name="qualification1" size="12" required>
+                                                        </td>
+                                                        <td><input type="text" name="qualification1" size="12" required>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="row2">
+                                                        <td><input type="text" name="qualification2" size="12"></td>
+                                                        <td><input type="text" name="qualification2" size="12"></td>
+                                                        <td><input type="text" name="qualification2" size="12"></td>
+                                                        <td><input type="text" name="qualification2" size="12"></td>
+                                                        <td><input type="text" name="qualification2" size="12"></td>
+                                                        <td><input type="text" name="qualification2" size="12"></td>
+
+                                                    </tr>
+                                                    <tr class="row2">
+                                                        <td><input type="text" name="qualification3" size="12"></td>
+                                                        <td><input type="text" name="qualification3" size="12"></td>
+                                                        <td><input type="text" name="qualification3" size="12"></td>
+                                                        <td><input type="text" name="qualification3" size="12"></td>
+                                                        <td><input type="text" name="qualification3" size="12"></td>
+                                                        <td><input type="text" name="qualification3" size="12"></td>
+                                                    </tr>
+                                                </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-success btn-ok"
+                                            onclick="validateForm()">Submit</button>
+                                        <button type="reset" class="ms-4 btn btn-warning">reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="step2" width="100%">
+                                <h4>Pay At this QR code to Finalize Admission</h4>
+                                <img src="../assets/images/omega/paytm.jpg" alt="AmanQR" width="100%">
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-success btn-ok" id="paid" type="button">Paid!</button>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="step3">
+                                <p>Thank You! for Admission!! 🎉</p>
+                            </div>
+                            <!-- <div class="tab-pane fade" id="step4">
+                                <p>This is the last step. You're done.</p>
+                                <button class="btn btn-success btn-submit" type="submit">Submit</button>
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab2">
+                <h4>Tab 2 Content</h4>
+            </div>
+            <div class="tab-pane fade" id="tab3">
+                <h4>Tab 3 Content</h4>
+            </div>
+        </div>
+    </div>
+    <footer class="my-5 pt-5 text-body-secondary text-center text-small" style="position: relative; top: 40px;">
+        <p class="mb-1">&copy;2016-2024 Omega</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        $('#myWizard [data-bs-toggle="tab"]').click(function () {
+            return false;
+        }).addClass("disabled");
+        var validated = function (tab) {
+            tab.unbind('click').removeClass('disabled').addClass('validated');
+        };
+        $('.btn-ok').click(function () {
+            var allValid = true;
+            $(this).parents('.tab-pane').find('.form-control').each(function (i, e) {
+                var len = $(e).val().length;
+                if (len > 0) {
+                    allValid = true;
+                } else {
+                    allValid = false;
+                }
+                if (allValid) {
+                    var tabIndex = $(this).parents('.tab-pane').index();
+                    validated($('#myWizard [data-bs-toggle="tab"]').eq(tabIndex + 1));
+                }
+            });
+        });
+        $('#paid').click(()=>{validated($('#myWizard [data-bs-toggle="tab"]').eq(2))})
+        validated($('#myWizard [data-bs-toggle="tab"]').eq(0));
+        $("#myForm").submit(function (event) {
+            console.log("Handler for .submit() called..");
+            console.log($(this).serialize());
+            event.preventDefault();
+        });
+        function validateForm() {
+            // alert("validating....")
+            // event.preventDefault();
+            var form = document.querySelector('.mainform');
+            form.classList.add('was-validated');
+        }
+    </script>
+</body>
+
+</html>
