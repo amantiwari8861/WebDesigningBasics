@@ -1,4 +1,5 @@
-Detailed Syllabus
+O-Level Detailed Syllabus
+
 (i) Introduction to Web Design
 Introduction of Internet, WWW, Website, Working of Websites, Webpages,
 Front End, Back End, Client and Server Scripting Languages, Responsive Web
@@ -16,8 +17,7 @@ Tables: Attributes –(Border, Cellpadding, Cellspacing , height , width), TR, T
 TD, Rowspan, Colspan Lists : Ordered List , Unordered List , Definition List,
 Forms, Form Elements, Input types, Input Attributes, Text Input Text Area,
 Dropdown, Radio buttons , Check boxes, Submit and Reset Buttons Frames:
-Frameset, nested Frames.
-HTML 5 Introduction, HTML5 New Elements: Section, Nav, Article, Aside,
+Frameset, nested Frames.HTML 5 Introduction, HTML5 New Elements: Section, Nav, Article, Aside,
 Audio Tag, Video Tag, HTML5 Form Validations: Require Attribute, Pattern Attribute, Autofocus Attribute, email, number type, date type , Range type,
 HTML embed multimedia, HTML Layout, HTML Iframe
 
@@ -38,9 +38,11 @@ Introduction to Client Side Scripting Language, Variables in Java Script,
 Operators in JS, Conditions Statements, JS Popup Boxes, JS Events, Basic Form
 Validations in JavaScript. Introduction to Angular JS: Expressions, Modules and
 Directives.
+
 (vii) Photo Editor
 Features of Photo Editing:Tools: Selection Tools, Paint Tools, Transform Tools,
 Text Tool, Layers, Brightness/ Contrast, Improve Colors and tone, Filters.
+
 (viii) Web Publishing and Browsing
 Overview, SGML (Standard Generalized Markup Language), Web hosting
 Basics, Documents Interchange Standards, Components of Web Publishing,
