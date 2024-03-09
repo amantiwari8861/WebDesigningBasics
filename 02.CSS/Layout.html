@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Epilogue", sans-serif;
+            font-size: 1.3rem;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            margin-right: 32px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        nav,
+        .cta-btns,
+        .menu-items {
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            margin: 24px 24px 24px 24px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .mobile-nav {
+            display: none;
+        }
+
+        .logos-section {
+            display: flex;
+        }
+
+        .menu-items li,
+        .cta-btns li {
+            font-size: 0.7rem;
+            margin-right: 1rem;
+            color: hsl(0, 0%, 41%);
+        }
+
+        .cta-btns li:nth-last-child(1) {
+            border: 1px solid gray;
+            padding: 0.2rem 0.7rem;
+            border-radius: 0.3rem;
+        }
+
+        /* Client Logos */
+
+        .clients-logos img {
+            width: 8rem;
+            margin-right: -3rem;
+        }
+
+        .clients-logos {
+            margin-top: 1rem;
+            margin-left: -2rem;
+            display: flex;
+            width: 10rem;
+        }
+
+        .clients-logos img:nth-child(2) {
+            width: 7rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logos-section">
+            <h2 class="logo">Logo</h2>
+            <ul class="menu-items">
+                <li>
+                    Features <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
+                    </svg>
+                </li>
+                <li>
+                    Company <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke="#686868" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4" />
+                    </svg>
+                </li>
+                <li>Careers</li>
+                <li>About</li>
+            </ul>
+        </div>
+        <ul class="cta-btns">
+            <li>Login</li>
+            <li>Register</li>
+        </ul>
+        <p class="mobile-nav">🌚</p>
+    </nav>
+</body>
+
+</html>
