@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render PDF</title>
+</head>
+<body>
+    <object data="" type="application/pdf" width="100%" height="500px">
+        Your browser does not support PDFs. <a href="">Download PDF</a> instead.
+    </object>
+</body>
+<script>
+    fetch('http://localhost:8080/api/mentorrequest/allmentorrequest')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const pdfData = data[0].pdfData; 
+            document.querySelector("object").data="data:application/pdf;base64,"+pdfData;
+            document.querySelector("a").href="data:application/pdf;base64,"+pdfData;
+        })
+        .catch(error => {
+            console.error('Error fetching PDF data:', error);
+        });
+</script>
+
+</html>

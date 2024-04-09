@@ -24,7 +24,7 @@ HTML embed multimedia, HTML Layout, HTML Iframe
 (iv) CSS
 Introduction to CSS, Types of CSS, CSS Selectors: Universal Selector, ID
 selector, Tag Selector, Class Selector, Sub Selector, Attribute Selector, Group
-Selector, CSS Properties: Back Ground properties, Block Properties, Box
+Selector, CSS Properties: BackGround properties, Block Properties, Box
 properties, List properties, Border Properties, Positioning Properties, CSS Lists
 CSS Tables, CSS Menu Design CSS Image Gallery,
 
