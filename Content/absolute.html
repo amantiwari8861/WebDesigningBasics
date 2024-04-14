@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body::-webkit-scrollbar {
+            width: 1em;
+        }
+
+        body::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: rgb(245, 134, 223);
+            outline: 1px solid rgb(194, 249, 187);
+            border-radius: 5px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            margin-top: 150px;
+        }
+
+        .box {
+            height: 200px;
+            width: 30%;
+            border: 2px solid red;
+        }
+
+        .box1 {
+            background-color: rgb(252, 209, 127);
+        }
+
+        .box2 {
+            background-color: rgb(168, 249, 168);
+            /* position: relative;
+            top: 100px;
+            left: 100px; */
+            position: absolute;
+            top: 100px;
+            z-index: 2;
+            box-shadow: -2px -3px 5px black;
+        }
+
+        .box3 {
+            background-color: rgb(248, 197, 248);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            color: whitesmoke;
+            height: 150px;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            z-index: 3;
+        }
+
+        .left,
+        .right {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="left">Logo</div>
+        <div class="right"><button>Login</button></div>
+    </header>
+    <div class="container">
+        <div class="box box1">Box 1</div>
+        <div class="box box2">Box 2</div>
+        <div class="box box3">Box 3</div>
+    </div>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam asperiores modi maiores, enim beatae minima,
+            reprehenderit unde aliquam odit labore cupiditate sunt eius consequuntur non magnam magni voluptas aut
+            eveniet.</p>
+    </div>
+</body>
+
+</html>

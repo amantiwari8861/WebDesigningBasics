@@ -31,7 +31,7 @@
 
 <h1 id="head1">Heading 1</h1>
 
-<video src="F:\video\Punjabi\akh.mp4" height="500px" width="600px" id="myvideo" controls></video>
+<video src="../02.CSS/videos/iot.mp4" height="500px" width="600px" id="myvideo" controls></video>
 
 <span class="material-symbols-outlined" id="play">play_circle</span>
 <span class="material-symbols-outlined" id="pause">pause_circle</span>
@@ -53,23 +53,25 @@
     // });
     
     let myvideo=document.getElementById("myvideo");
-    
-    let playIcon=document.getElementById("play");
-    playIcon.addEventListener("click",()=>{
-        myvideo.play();
-        playIcon.style.backgroundColor="orange";
-        playIcon.style.borderRadius="5px";
-    });    
+    myvideo.onplay=()=>{
+        alert("video  is started");
+    }
+    // let playIcon=document.getElementById("play");
+    // playIcon.addEventListener("click",()=>{
+    //     myvideo.play();
+    //     playIcon.style.backgroundColor="orange";
+    //     playIcon.style.borderRadius="5px";
+    // });    
 
-    let pauseIcon=document.getElementById("pause");
-    pauseIcon.addEventListener("click",()=>{
-        myvideo.pause();
-        pauseIcon.style.backgroundColor="orange";
-        pauseIcon.style.borderRadius="5px";
-    })
-    myvideo.addEventListener("pause",()=>{
-        myvideo.style.border="5px solid orange";
-    });
+    // let pauseIcon=document.getElementById("pause");
+    // pauseIcon.addEventListener("click",()=>{
+    //     myvideo.pause();
+    //     pauseIcon.style.backgroundColor="orange";
+    //     pauseIcon.style.borderRadius="5px";
+    // })
+    // myvideo.addEventListener("pause",()=>{
+    //     myvideo.style.border="5px solid orange";
+    // });
 
 </script>
 </html>
