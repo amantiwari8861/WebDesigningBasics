@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -15,10 +15,26 @@
       }
     }
   </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1 class="text-3xl font-bold underline **text-clifford**">
-    Hello world!
-  </h1>
+  <h1 class="text-3xl font-bold underline **text-clifford**">Hello world!</h1>
+  <div class="lg:content-auto">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, perspiciatis molestiae? Natus, sit. Atque, earum aspernatur voluptatum, id delectus, facilis quos animi voluptatem mollitia maxime tenetur sed molestiae aut possimus.
+  </div>
+  <div class="prose">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quas tenetur earum, quia debitis dolores cupiditate itaque, rerum sunt dolore enim adipisci minima nam molestiae obcaecati, sint alias odit iusto.
+<ul>
+    <li>list 1</li>
+    <li>list 2</li>
+    <li>list 3</li>
+</ul>
+  </div>
 </body>
 </html>
