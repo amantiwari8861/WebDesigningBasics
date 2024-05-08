@@ -1,0 +1,18 @@
+[
+    {
+    "name":"Kunal",
+    "age":22,
+    "mobileno":73473487358,
+    "skills":["C","C++","Java","Python","etc"],
+    "address":{
+        "city":"Agra",
+        "pincode":3663,
+        "country":"india"
+    }
+}
+,
+{
+    
+}
+
+]

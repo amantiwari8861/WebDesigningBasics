@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addNums()
+        {
+            let a=Number(document.getElementById("num1").value);
+            let b=Number(document.getElementById("num2").value);
+            let c=a+b;
+            let h1Obj=document.getElementById("res");
+            h1Obj.innerHTML="<span style='color:red;'>The sum is "+c+"</span>";
+        }
+    </script>
+</head>
+<body>
+    <h1 id="res"></h1>
+    num1 : <input type="text" id="num1"><br>
+    num2 : <input type="text" id="num2">
+    <button onclick="addNums()">add</button>
+</body>
+</html>

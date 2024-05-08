@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <h1  onclick="alert('Good morning')">hello everyone</h1> -->
+    <!-- <h1 id="head">Hello</h1> -->
+<!-- <h1 id="head" onmouseover="changeStyle(this)" onmouseout="recoverStyle(this)">Hello</h1> -->
+<h1 id="head" onmouseover="changeStyle(this)">Hello</h1>
+
+    <script>
+
+        function changeStyle(element) 
+        {
+            console.warn(element);
+            element.style.backgroundColor="greenyellow";
+        }
+        let headObj=document.querySelector("#head");
+        headObj.addEventListener("mouseout",(event)=>{
+            // console.log(event);
+            event.target.innerHTML="gargi padh lo";
+        });
+        // function recoverStyle(event) {
+        //     console.log(event);
+        // }
+        // let headObj=document.getElementById("head");
+        // headObj.addEventListener("mouseover",()=>{
+        //     headObj.style.backgroundColor="greenyellow";
+        // });
+        // headObj.onmouseover=()=>headObj.style.backgroundColor="greenyellow";
+        // headObj.addEventListener("mouseout",()=>{
+        //     headObj.style.backgroundColor="whitesmoke";
+        // });
+    </script>
+</body>
+</html>

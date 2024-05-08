@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1><span><b>Hello Aman</b></span></h1>
+    <h1 class="head">Heading 1</h1>
+    <h1 class="head">Heading 2</h1>
+    <h1 class="head">Heading 3</h1>
+    <h1 class="head">Heading 4</h1>
+    <h1 class="head">Heading 5</h1>
+    <script>
+        // console.log(document);
+        // let headArr=document.getElementsByClassName("head");
+        // let headArr=document.getElementsByTagName("h1");
+        let headArr=document.querySelectorAll("h1");
+        // console.log(headArr);
+        headArr[1].style.color="red";
+        headArr[1].style.backgroundColor="yellow"
+        setTimeout(()=>{
+            headArr[0].style.display="none";
+        },1000);
+        setTimeout(()=>{
+            headArr[1].style.display="none";
+        },2000);
+        setTimeout(()=>{
+            headArr[2].style.display="none";
+        },3000);
+        setTimeout(()=>{
+            headArr[3].style.display="none";
+        },4000);
+
+        // let bObj=document.querySelector("h1 span b");
+        // bObj.innerHTML+=" Tiwari";
+
+        
+
+    </script>
+</body>
+</html>

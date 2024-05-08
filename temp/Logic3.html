@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // for (let i = 0; i < 10; i++) 
+        // {
+        //     document.write(i+"<br>");
+        // }
+// take a number from user and print it's table in table tag(html)
+// print 1 to 10 table in table tag(html)
+
+
+    // let num=1;
+    // while (num<10) 
+    // {
+    //  document.write(num+"<br>");
+    //  num++;
+    // }
+    // let num;
+    // do {
+    //     num=Number(prompt("enter a number"));
+    // } while (num!=0);
+
+    // let arr=[10,86.767873,true,"Hii","Hello",null,undefined,NaN,{}];// object
+    // for (let i = 0; i < arr.length; i++) 
+    // {
+    //   document.write(arr[i]+"<br>"); 
+    //   console.log(arr[i]);       
+    // }
+
+    // let fruits=[];
+    // for (let i = 0; i < 4; i++) 
+    // {
+    //  fruits.push(prompt("enter "+i+" fruit name:"))
+    // }
+    // console.log(fruits);
+    // console.log(fruits[2]);
+
+    // let states=[
+    //     ["Delhi","Mumbai","GOA"],
+    //     ["New york","San fransisco","texas"]
+    // ]   
+    // console.log(states);
+    // console.log(states[0][2]);
+
+    let user={
+        name:"Kunal",
+        age:22,
+        mobileno:73473487358,
+        skills:["C","C++","Java","Python","etc"],
+        address:{
+            "city":"Agra",
+            pincode:3663,
+            "country":"india"
+        }
+    }
+
+    // console.log(user.address);
+    // console.log(user.address.pincode);
+
+    // document.write(user)
+    // document.write(JSON.stringify(user));//js object notation
+    // console.log(user);
+
+    // js object -> json string  (JSON.stringify())
+    // json string -> js object  (JSON.parse())
+
+    // let  skills=["C","C++","Java","Python","etc"];
+    // for (let s of skills) 
+    // {
+    //     document.write(s+"<br>");
+    // }
+    // for (let s in skills) 
+    // {
+    //     document.write(s+"<br>");
+    // }
+
+
+    // for (let key in user)
+    // {
+    //     // document.write(key+'<br>');
+    //     // document.write(user[key]+'<br>');
+    //     console.log(key+":"+JSON.stringify(user[key]));
+    // } 
+
+// function printSkillName(skill) {
+// document.write(skill+"<br>");
+// }
+// let skills=["C","C++","Java","Python","etc"];
+// skills.forEach(printSkillName);
+//callback
+
+    //no argument no return type
+    // function printCompanyName()
+    // {
+    //     document.write("CASIO");
+    // }
+    // printCompanyName(); //calling of fxn
+    // console.log(printCompanyName());//undefined
+    //no argument with return type
+    // function getPiValue() {
+    //     return Math.PI;
+    // }
+    // console.log(getPiValue());
+
+    // //with argument no return type
+    // function cube(num) 
+    // {
+    //     console.log(num*num*num);;
+    // }
+    // cube(3);
+
+    //with argument and return type
+    function volOfSphere(radius) 
+    {
+        return 4/3*Math.PI*radius**3;
+    }
+    console.log(volOfSphere(2.5));
+    
+    </script>
+</body>
+</html>
