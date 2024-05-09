@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function addNum(...numbers) // called REST when written in function's signature
+        // {
+        //     let sum=0;
+        //     for(let n of numbers)
+        //     {
+        //         if (typeof(n)==="string") {
+        //             console.log("found a string:"+n);
+        //         }
+        //         else
+        //         {
+        //             sum+=n
+        //         }
+        //     }
+        //     return sum;
+        // }
+        // console.log(addNum(10));
+        // console.log(addNum(10,20));
+        // console.log(addNum(10,20,30));
+        // console.log(addNum(10,20,30,40));
+        // console.log(addNum(10,20,30,40,50));
+        // console.log(addNum(10,20,30,40,50,"hello"));
+
+        function test1(a,b,...anything) 
+        {
+            console.log(a+":"+b+":"+anything);
+        }
+        console.log(test1(10,20,57,89));
+
+        //maximum in n numbers function
+
+    </script>
+</body>
+</html>

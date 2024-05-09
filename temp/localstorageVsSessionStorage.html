@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user={
+        name:"Kunal",
+        age:22,
+        mobileno:73473487358,
+        skills:["C","C++","Java","Python","etc"],
+        address:{
+            "city":"Agra",
+            pincode:3663,
+            "country":"india"
+        },
+        getname:function (){
+            console.log(this);
+            return `name: ${this.name} `
+        },
+        getMobileNo:()=>{
+            console.log(this);
+            return `mobile no: ${this.mobileno} `
+        }
+    }
+        // console.log(localStorage);
+        // localStorage.setItem("name","Aman");
+        // localStorage.setItem("age",27);
+        // localStorage.setItem("age",24);
+        // localStorage.setItem("userdetails",user);
+        localStorage.setItem("userdetails",JSON.stringify(user));
+        // console.log(localStorage);
+
+        setTimeout(() => {
+            localStorage.removeItem("userdetails");
+        }, 3000);
+
+
+
+        // sessionStorage.setItem("userdetails",JSON.stringify(user));
+
+
+        // console.log(sessionStorage);
+    </script>
+</body>
+</html>
