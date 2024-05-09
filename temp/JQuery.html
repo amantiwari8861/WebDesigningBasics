@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <h1 id="head1">Lorem ipsum dolor sit amet.</h1>
+    <button onclick="doSomething()">hide</button>
+    <button onclick="$('#head1').show(1500)">show</button>
+    <button onclick="$('#head1').toggle(1500)">toggle</button>
+    <button onclick="$('#head1').fadeIn(1500)">fade in</button>
+    <button onclick="$('#head1').fadeOut(1500)">fade out</button>
+    <button onclick="$('#head1').fadeToggle(1500)">fade toggle</button>
+
+
+    <script>
+        // $(document).ready(()=>{
+        //     alert("document is loaded");
+        // });
+        // function doSomething() {
+        //     $("#head1").hide(1500);
+        // }
+        $('#head1').click((e)=>{
+            e.target.style.color="red"
+            $("#head1").append("Helloo")
+        })
+    </script>
+</body>
+</html>

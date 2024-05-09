@@ -7,16 +7,44 @@
 </head>
 <body>
     <script>
-        let num=[10,20,30,40];
-        let xyz=[78,90,73,23];
+        // let num=[10,20,30,40];
+        // let xyz=[78,90,73,23];
         // let result=num+xyz;
         // num.push(xyz);
         // let result=[...num,...xyz]//Spread
         // console.log(result);
         // console.log(...xyz);
         // let result=[..."Aman"];
-        let result={..."Aman"};
-        console.log(result);
+        // let result={..."Aman"};
+        // console.log(result);
+    let user={
+        name:"Kunal",
+        age:22,
+        mobileno:73473487358,
+    }
+    // let user2={salary:19000}
+    // console.log({...user,...user2});
+
+    let students=
+    [
+        {name:"satyam",age:20},
+        {name:"vishnu",age:19},
+        {name:"vanshika",age:20},
+        {name:"aniket",age:19}
+    ];
+    let employee=
+    [
+        {name:"shivam",age:20},
+        {name:"varsha",age:19},
+    ];
+    let result=[...students,user,...employee];
+    console.log(result);
+
+
+
+
+
+
     </script>
 </body>
 </html>
