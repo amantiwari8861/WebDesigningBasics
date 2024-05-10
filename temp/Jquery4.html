@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>animate demo</title>
+    <style>
+        div {
+            position: absolute;
+            background-color: teal;
+            left: 50px;
+            width: 90px;
+            height: 90px;
+            margin: 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <button id="left">&laquo;</button>
+    <button id="right">&raquo;</button>
+    <button id="top">top</button>
+    <button id="bottom">bottom</button>
+    <div class="block"></div>
+
+    <script>
+        $("#right").on("click", function () {
+            $(".block").animate({"left":"+=50px",backgroundColor: "red"},"slow");
+        });
+
+        $("#left").on("click", function () {
+            $(".block").animate({ "left": "-=50px" }, "slow");
+        });
+        $("#top").on("click", function () {
+            $(".block").animate({ "top": "+=50px" }, "slow");
+        });
+        $("#bottom").on("click", function () {
+            $(".block").animate({ "top": "-=50px" }, "slow");
+        });
+    </script>
+
+</body>
+
+</html>
+<!-- https://releases.jquery.com/ui/ -->

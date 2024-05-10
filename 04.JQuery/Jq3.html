@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery slice() Demo</title>
+<style>
+    .highlight{
+        background: yellow;
+    }        
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("ul li").slice(1, 3).addClass("highlight");
+});
+</script>
+</head>
+<body>
+    <ul>
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li>Third list item</li>
+        <li>Fourth list item</li>
+    </ul>
+</body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery not() Demo</title>
+<style>
+    .highlight{
+        background: yellow;
+    }        
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("ul li").not(function(index){
+        return index % 3 !== 0;   //0  !== 0 false -> true //1  !== 0 true -> false 
+    }).addClass("highlight");
+});
+</script>
+</head>
+<body>
+    <ul>
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li>Third list item</li>
+        <li>Fourth list item</li>
+    </ul>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery not() Demo</title>
+<style>
+    .highlight{
+        background: yellow;
+    }        
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("ul li").not(":even").addClass("highlight");
+});
+</script>
+</head>
+<body>
+    <ul>
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li>Third list item</li>
+        <li>Fourth list item</li>
+    </ul>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery filter() Demo</title>
+<style>
+    .highlight{
+        background: yellow;
+    }        
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("ul li").has("ul").addClass("highlight");
+});
+</script>
+</head>
+<body>
+    <ul>
+        <li>Section 1</li>
+        <li>Section 2</li>
+        <li>
+            <ul>
+                <li>Section 2.1</li>
+                <li>Section 2.2</li>
+                <li>Section 2.3</li>
+            </ul>
+        </li>
+        <li>Section 4</li>
+    </ul>
+</body>
+</html>
+-->

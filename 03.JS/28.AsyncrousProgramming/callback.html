@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let add=(a,b)=>a+b;
+        // let sub=(a,b)=>a-b;
+        // function op(callback) 
+        // {
+        //     console.log(callback(10,5))
+        // }
+        // op(add);// 15
+        // op(sub);// 5
+        // console.log(add(4,3));
+        // console.log(add);
+
+        
+        // setTimeout(() => {
+            //     console.log("wake up");
+        //     setTimeout(() => {
+        //         console.log("breakfast");
+        //         setTimeout(() => {
+        //             console.log("going college");
+        //             setTimeout(() => {
+        //                 console.log("lunch");
+        //             }, 4000);
+        //         }, 3000);
+        //     }, 2000);
+        // }, 1000);
+        
+        let isSick = true;
+        let promiseOne= new Promise((resolve, reject) => {
+          if (isSick) 
+            reject()
+          else
+            resolve()
+        })
+    promiseOne.
+    then(()=>console.log("wakeup go office"),()=>console.log("wakeup got to doctor"))
+        
+
+
+    </script>
+</body>
+
+</html>

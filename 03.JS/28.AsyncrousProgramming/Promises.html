@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // going to institute      1000
+        // take Java batch         2000
+        // have lunch              3000
+        // take angular batch      4000
+        // take React batch        5000
+        // return from institute   6000
+        // sleep at night       
+        
+        let isSick = true;
+        let teach = (sub) => { console.log("Teaching :" + sub); };
+        let taskScheduler=(time,work)=>{ // in how many time we will perform this task
+            return new Promise((resolve,reject)=>{
+                if (isSick) 
+                {
+                    reject(console.log("i am sick can't do it today"));
+                }
+                else
+                {
+                    setTimeout(() => 
+                    {
+                        resolve(work());
+                    }, time);
+                }
+            })
+        };
+
+        taskScheduler(1000,()=>console.log("going institute"))
+        .then(()=>taskScheduler(2000,()=>teach("Java")))
+        .then(()=>taskScheduler(3000,()=>console.log("Having lunch")))
+        .then(()=>taskScheduler(4000,()=>teach("Angular")))
+        .then(()=>taskScheduler(5000,()=>teach("React")))
+        .then(()=>taskScheduler(15000,()=>teach("React Native")))
+        .then(()=>taskScheduler(6000,()=>console.log("Returning from institute")))
+        .catch((err)=>{
+            console.log("going to hospital for checkup ");
+            // console.log(err);
+        })
+        .finally(()=>{
+            console.log("Sleeping at night");
+        });
+
+    
+    
+    
+    </script>
+</body>
+</html>

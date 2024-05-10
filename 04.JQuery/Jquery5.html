@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>Section 1</li>
+        <li>Section 2</li>
+        <li>
+            <ul>
+                <li>Section 2.1</li>
+                <li>Section 2.2</li>
+                <li>Section 2.3</li>
+            </ul>
+        </li>
+        <li>Section 4</li>
+    </ul>
+    <script>
+        $("ul li").last().css({"color":"red"});
+    </script>
+</body>
+</html>
