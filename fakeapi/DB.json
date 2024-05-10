@@ -1,0 +1,32 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "name": "aman tiwari",
+            "mobileno": 9891062743,
+            "ismarried": false,
+            "age": 27
+        },
+        {
+            "id": 2,
+            "name": "aman tiwari",
+            "mobileno": 9891062743,
+            "ismarried": false,
+            "age": 27
+        },
+        {
+            "id": 3,
+            "name": "aman tiwari",
+            "mobileno": 9891062743,
+            "ismarried": false,
+            "age": 27
+        },
+        {
+            "id": 4,
+            "name": "aman tiwari",
+            "mobileno": 9891062743,
+            "ismarried": false,
+            "age": 27
+        }
+    ]
+}

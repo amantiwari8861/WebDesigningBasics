@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    const URL = "http://localhost:4200/students";
+    fetch(URL)
+    .then(res => res.json())
+    .then(d =>{
+        console.log(d)
+        document.write(JSON.stringify(d))
+    });
+    //or
+    // async function fetchData(){
+    //     let respose=await fetch(URL);
+    //     let data=await respose.json();
+    //     console.log(data);
+    //     document.write(JSON.stringify(data));
+    // }
+    // fetchData()
+
+
+    </script>
+</body>
+
+</html>
