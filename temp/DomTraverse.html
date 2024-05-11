@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container1"></div>
+    <!--
+        <img src="https://miro.medium.com/v2/resize:fit:1400/0*kz_GGhgWbzHQiLbk.jpeg">
+        Reconciliation is a process in React that compares the current state of the UI with the desired state, and updates the UI to match the desired state. This process is what makes React apps so fast and responsive.
+    To understand reconciliation, it's important to understand the concept of a virtual DOM. The virtual DOM is a lightweight representation of the real DOM. When you make a change to a React component, React updates the virtual DOM first. Then, React compares the virtual DOM with the real DOM, and updates the real DOM only if necessary.
+    This process is very efficient because it avoids the need to re-render the entire UI every time you make a change. Instead, React only updates the parts of the UI that have changed.
+    -->
+</body>
+<script>
+    function setTimer() {
+        const element1 = `
+        <div>
+            <h1>JS</h1>
+            <input type="text">
+            <p>${new Date().toLocaleTimeString()}
+        </div>
+    `;
+        document.getElementById("container1").innerHTML = element1;
+    }
+    setInterval(setTimer, 4000);
+
+
+
+</script>
+
+</html>
