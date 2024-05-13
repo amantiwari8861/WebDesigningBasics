@@ -1,0 +1,11 @@
+{
+    "products":[
+        {"id":1,"name":"Realme XT","price":16500,"image":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70&crop=false"},
+        {"id":2,"name":"Realme 9","price":20000,"image":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70&crop=false"},
+        {"id":3,"name":"Realme 12","price":40000,"image":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70&crop=false"},
+        {"id":4,"name":"Realme 23","price":30000,"image":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70&crop=false"},
+        {"id":5,"name":"Realme 67","price":80000,"image":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70&crop=false"},
+        {"id":6,"name":"redmi 23","price":90000,"image":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70&crop=false"},
+        {"id":7,"name":"ipone 15","price":71000,"image":"https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/k/l/l/-original-imagtc5fz9spysyk.jpeg?q=70&crop=false"}
+    ]
+}
