@@ -15,4 +15,5 @@ function setTimer() {
     )
 }
 setInterval( setTimer,1000);
-ReactDOM.render(element2, document.getElementById("container2"));
+const root=ReactDOM.createRoot(document.getElementById("container2"));
+root.render(element2);
