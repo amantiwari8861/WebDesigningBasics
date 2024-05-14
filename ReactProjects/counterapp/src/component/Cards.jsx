@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react"
 import Product from "./Product"
 import axios from "axios";
+import EditModal from "./EditModal";
+import AddComponent from "./AddComponent";
 
 const Cards = () => {
 
-    let [products,setProducts]=useState([{}]);
+    const URL = "http://localhost:5000/products";
+    let [products, setProducts] = useState([]);
+    // let [product,setProduct]=useState({});
+    let [isModalVisible, setModalVisibility] = useState(false);
+    let [tempProduct, setTempProduct] = useState({});
+    let [showAddForm,setAddForm]=useState(false);
     // useEffect(()=>{
     //     setProducts(
     //     [
@@ -17,20 +24,56 @@ const Cards = () => {
     //     ]
     //     )
     // },[])
-    useEffect(()=>{
+    useEffect(() => {
         fetchData()
-    },[])
-    const fetchData=()=>    {
-        axios.get("http://localhost:5000/products").then(res=>setProducts(res.data))
+    }, [])
+    const fetchData = async () => {
+        await axios.get(URL).then(res => setProducts(res.data)).catch(err => console.log(err))
+    }
+    const deleteProduct = async (id) => {
+        console.log(id);
+        await axios.delete(URL + "/" + id).then(res => console.log(res));
+        fetchData()
+    }
+    // const handleInputChange=(e)=>{
+    //     let {name,value}=e.target;
+    //     // console.log(name+":"+value);
+    //     setProduct({
+    //         ...product,
+    //         [name]:value
+    //     });
+    //     console.log(product);
+    // }
+    const addProduct = async (product) => {
+        await axios.post(URL, product).then(res => console.log(res));
+        fetchData()
+    }
+    const editProduct = async (newData) => {
+        await axios.put(URL + "/" + newData.id, newData)
+            .then(res => console.log(res.status))
+        fetchData()
+    }
+    const showModal = (prod) => {
+        setModalVisibility(true);
+        setTempProduct(prod);
+        console.log("u requested to edit :" + JSON.stringify(prod));
     }
     return (
         <div className='container p-2'>
+            <div className="row">
+                <div className="col-12">
+                <button className="btn btn-primary" onClick={()=>setAddForm(!showAddForm)}>Add</button><br /><br />
+                </div>
+            </div>
+            { showAddForm ? <AddComponent addProductMethod={addProduct} /> : ""}
             <div className="row row-cols-1 row-cols-md-4 g-4">
                 {
                     // products.map(p=><Product/>)
-                    products.map(p=><Product pObj={p} key={p.id}/>)
+                    products.length > 0 ? products.map(p => <Product pObj={p} delt={deleteProduct} mVis={showModal} key={p.id} />) : "no products to display"
                 }
             </div>
+            <br /><br />
+            {isModalVisible && tempProduct ? <EditModal proEdit={tempProduct} editMethod={editProduct} /> : ""}
         </div>
     )
 }
