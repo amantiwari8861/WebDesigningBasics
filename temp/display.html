@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1,
+        p,
+        div,
+        span {
+            background-color: greenyellow;
+            border: 1px solid red;
+        }
+
+        div {
+            height: 200px;
+            width: 40%;
+        }
+
+        span {
+            height: 100px;
+            width: 200px;
+            margin: 200px;
+            /* padding: 200px; */
+        }
+        .box {
+            height: 200px;
+            width: 300px;
+            border: 10px solid red;
+            /* padding-top: 50px;
+            padding-bottom: 80px; */
+            /* padding-left: 20px; */
+            /* padding: 50px 20px 80px 40px; */
+            /* padding: 100px 200px; */
+            /* margin-top: 50px; */
+            padding-left: 50px;
+            background-color: rgb(18, 239, 228);
+        }
+
+        .box2{
+            height: 100px;
+            width: 200px;
+            background-color: blueviolet;
+            border: 5px solid black;
+            display: inline-block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- block element-->
+    <!-- <h1>Hello</h1>
+    <p>Aman</p>
+    <div>sir</div> -->
+    <!-- <br> -->
+
+    <!--inline element-->
+    <!-- <span>How </span>
+    <span>are </span>
+    <span>you </span> -->
+
+    <!-- <div class="box">
+        Hello There Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus reiciendis aliquid, fugiat nihil eos facere eaque fugit doloribus officiis quaerat repudiandae vero! Maiores ea possimus ex dolor odit sequi dicta.
+    </div> -->
+
+    we can't increase height and width of an inline element directly
+
+    <div class="box2" onclick="test2(this)">1</div><div class="box2" style="display: none;">2</div><div class="box2">3</div>
+
+
+
+</body>
+<script>
+    function test2(e) {
+        e.style.display="none";
+    }
+</script>
+</html>
