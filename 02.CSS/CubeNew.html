@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #222;
+    }
+
+    .cube {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotateCube 5s infinite linear;
+    }
+
+    .face {
+      position: absolute;
+      width: 100px;
+      line-height: 100px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ccc;
+      text-align: center;
+      font-size: 3rem;
+    }
+
+    .front  { transform: translateZ(50px); }
+    .back   { transform: rotateY(180deg) translateZ(50px); }
+    .right  { transform: rotateY(90deg) translateZ(50px); }
+    .left   { transform: rotateY(-90deg) translateZ(50px); }
+    .top    { transform: rotateX(90deg) translateZ(50px); }
+    .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+    @keyframes rotateCube {
+      from { transform: rotateX(0) rotateY(0); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="cube">
+    <div class="face front">1</div>
+    <div class="face back">2</div>
+    <div class="face right">3</div>
+    <div class="face left">4</div>
+    <div class="face top">5</div>
+    <div class="face bottom">6</div>
+  </div>
+</body>
+</html>

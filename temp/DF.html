@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100%;
+            background-color: gray;
+            display: flex;
+            /* flex-wrap: wrap; */
+            /* justify-content: center; */
+            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            /* justify-content: space-evenly; */
+            /* flex-direction: column; */
+            /* column-gap: 20px; */
+            /* row-gap: 30px; */
+            flex-direction: row-reverse;
+            /* flex-direction: column-reverse; */
+        }
+        .box{
+            
+            height: 200px;
+            /* width: 600px; */
+            width: 200px;
+            background-color: greenyellow;
+            border: 2px solid red;
+            /* margin: auto; */
+            flex-grow: 1;
+        }
+        .box2{
+            flex-grow: 3;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container">
+    <div class="box box1">Box 1</div>
+    <div class="box box2">Box 2</div>
+    <div class="box box3">Box 3</div>
+    <!-- <div class="box box4">Box 4</div>
+    <div class="box box5">Box 5</div>
+    <div class="box box6">Box 6</div>
+    <div class="box box7">Box 7</div>
+    <div class="box box8">Box 8</div>
+    <div class="box box9">Box 9</div>
+    <div class="box box10">Box 10</div>
+    <div class="box box11">Box 11</div>
+    <div class="box box12">Box 12</div> -->
+</div>
+
+
+</body>
+</html>
