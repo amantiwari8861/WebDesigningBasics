@@ -1,9 +1,7 @@
 <!-- <?xml version="1.0" encoding="ISO-8859-1"?> -->
 <?xml version="1.0" encoding="utf-8" ?>
 <Student>
-<Bca_Student fname="Aman" lname="Tiwari">
-<info name="dob">22/4/1999</info>
-
-</Bca_Student>
-
+	<Bca_Student fname="Aman" lname="Tiwari">
+		<info name="dob">22/4/1999</info>
+	</Bca_Student>
 </Student>
